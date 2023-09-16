@@ -9,27 +9,30 @@ public class Nodes : MonoBehaviour
 
     private Renderer _rednerer;
 
-    public GameObject turretPrefab;
+    public GameObject prefab;
+    
+
     private Vector3 offset;
-    private bool _constructed;
+    public bool constructed;
 
     private void Start()
     {
         _rednerer = GetComponent<Renderer>();
-        offset = new Vector3(0, 0.5f, 0); //El offset deberia ser independiente a cada scriptable object
-        _constructed = false;
+        offset = new Vector3(0, 0.0f, 0); //El offset deberia ser independiente a cada scriptable object
+        constructed = false;
     }
 
     private void OnMouseDown()
     {
-        if (_constructed == true)
+        if (constructed == true)
         {
             Debug.Log("Ya has contruido previamente ahi!!!");
         }
         else 
         {
-            Instantiate(turretPrefab, transform.position + offset, Quaternion.identity);
-            _constructed = true;
+            //prefab.GetComponent<Walls>().IsConstructed();
+            Instantiate(prefab, transform.position + offset, Quaternion.identity);
+            constructed = true;
         }
         
     }
