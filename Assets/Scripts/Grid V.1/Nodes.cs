@@ -18,7 +18,7 @@ public class Nodes : MonoBehaviour
     private void Start()
     {
         _rednerer = GetComponent<Renderer>();
-        //offset = new Vector3(0, 0.5f, 0); //El offset deberia ser independiente a cada scriptable object
+        offset = new Vector3(0, 0.0f, 0); //El offset deberia ser independiente a cada scriptable object
         constructed = false;
     }
 
@@ -30,8 +30,8 @@ public class Nodes : MonoBehaviour
         }
         else 
         {
-            prefab.GetComponent<Walls>().IsConstructed();
-            //Instantiate(prefab, transform.position + offset, Quaternion.identity);
+            //prefab.GetComponent<Walls>().IsConstructed();
+            Instantiate(prefab, transform.position + offset, Quaternion.identity);
             constructed = true;
         }
         
