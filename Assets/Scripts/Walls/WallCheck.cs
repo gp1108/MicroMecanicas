@@ -12,9 +12,11 @@ public class WallCheck : MonoBehaviour
     [SerializeField] private GameObject _wallCubeMinusZ;
     private void Start()
     {
-        //DoWallDraw();
+
+        BuildManager.dameReferencia.Muro(this.gameObject);
+        
     }
-    public void Update()//DoWallDraw()
+    public void DoWallDraw()
     {
         //RIGHT
         Ray rayRight = new Ray(transform.position + new Vector3(0.45f, 0, 0), Vector3.right);
