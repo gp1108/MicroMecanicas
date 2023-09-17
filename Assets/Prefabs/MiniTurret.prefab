@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5415863827161620622}
   - component: {fileID: 6878012095543818296}
   m_Layer: 0
-  m_Name: FakeTurrret
+  m_Name: MiniTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

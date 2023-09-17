@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class Nodes : MonoBehaviour
@@ -20,18 +21,21 @@ public class Nodes : MonoBehaviour
         _rednerer = GetComponent<Renderer>();
         offset = new Vector3(0, 0.0f, 0); //El offset deberia ser independiente a cada scriptable object
         constructed = false;
+
     }
 
     private void OnMouseDown()
     {
+        
         if (constructed == true)
         {
             Debug.Log("Ya has contruido previamente ahi!!!");
         }
         else 
         {
-            //prefab.GetComponent<Walls>().IsConstructed();
-            Instantiate(prefab, transform.position + offset, Quaternion.identity);
+            
+            BuildManager.dameReferencia.PlaceStucture(transform.position);
+            //Instantiate(prefab, transform.position + offset, Quaternion.identity);
             constructed = true;
         }
         
@@ -45,4 +49,6 @@ public class Nodes : MonoBehaviour
     {
         _rednerer.material = defaultColor;
     }
+
+
 }

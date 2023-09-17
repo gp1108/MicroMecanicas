@@ -7,6 +7,7 @@ public class BuildMenuButton : MonoBehaviour
 {
     public GameObject buildMenuPanel;
     private bool _buildMenuActive;
+    public List<GameObject> worldPanels;
 
 
     public void EnableOrDisableBuildPanel()
@@ -16,11 +17,22 @@ public class BuildMenuButton : MonoBehaviour
         if(_buildMenuActive == false)
         {
             buildMenuPanel.SetActive(true);
+            //worldPanels.SetActive(true);
         }
         else
         {
             buildMenuPanel.SetActive(false);
+            //worldPanels.SetActive(false);  
         }
         
+    }
+
+    public void SetWallsIndex()
+    {
+        BuildManager.dameReferencia.GetStructurePrefabIndex(0);
+    }
+    public void SetBaseTurretIndex()
+    {
+        BuildManager.dameReferencia.GetStructurePrefabIndex(1);
     }
 }
