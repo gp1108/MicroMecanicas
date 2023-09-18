@@ -45,7 +45,15 @@ public class BuildManager : MonoBehaviour
 
     public void PlaceStucture(Vector3 position)
     {
+
         Instantiate(_structures[_structureIndex], position, Quaternion.identity);
+
+        foreach (GameObject _wall in Walls)
+        {
+            _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
+        }
+
+
     }
 
     
