@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NodeGenerator : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class NodeGenerator : MonoBehaviour
     public int numFilas = 5;  // Número de filas de cuadrados.
     public int numColumnas = 5; // Número de columnas de cuadrados.
     public float separacion = 0.05f; // Separación entre cuadrados.
+
+
+    public GameObject nodoactivo; 
 
     void Start()
     {
@@ -40,5 +44,18 @@ public class NodeGenerator : MonoBehaviour
         // Instanciar el plano debajo de los cuadrados.
         Vector3 posiciónPlano = new Vector3(tamañoTotalX/2.5f , -0.01f, tamañoTotalZ/2.25f );
         Instantiate(planoPrefab, posiciónPlano, Quaternion.identity).transform.localScale = tamañoPlano;
+
+
+
+
+    }
+
+    //Cambiar condicion de activacion de maya
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            nodoactivo.gameObject.GetComponent<NavMeshSurface>().BuildNavMesh(); //Añadir siempre un componente navmesh surface a un gameobject , para poder ejeceutar la funcio. Con 1 basta
+        }
     }
 }

@@ -19,7 +19,7 @@ public class NavMeshAI : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-       _surface = GetComponent<NavMeshSurface>();
+        //_surface = GetComponent<NavMeshSurface>();
     }
 
     
@@ -28,10 +28,12 @@ public class NavMeshAI : MonoBehaviour
         //Hacer que el agente vaya al target deseado
         _agent.destination = targetDestination.transform.position;
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    _surface.BuildNavMesh();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //_surface.BuildNavMesh();
+        }
     }
+
+    
 }
 
