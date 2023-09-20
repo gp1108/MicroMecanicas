@@ -10,7 +10,7 @@ public class NavMeshAI : MonoBehaviour
 {
     public GameObject targetDestination;
     private NavMeshAgent _agent;
-
+    /*
     public NavMeshSurface _surface;
    
 
@@ -34,6 +34,6 @@ public class NavMeshAI : MonoBehaviour
         }
     }
 
-    
+    */
 }
 

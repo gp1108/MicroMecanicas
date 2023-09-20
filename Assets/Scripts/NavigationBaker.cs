@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class NavigationBaker : MonoBehaviour
 {
-
+    /*
     public NavMeshSurface[] surfaces;
     public Transform[] objectsToRotate;
 
@@ -19,4 +19,5 @@ public class NavigationBaker : MonoBehaviour
         }
     }
 
+    */
 }

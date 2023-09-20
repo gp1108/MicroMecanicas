@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using Unity.AI.Navigation;
 
 public class NodeGenerator : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class NodeGenerator : MonoBehaviour
     public float separacion = 0.05f; // Separación entre cuadrados.
 
 
-    public GameObject nodoactivo; 
+    public NavMeshSurface nodoactivo; 
 
     void Start()
     {
@@ -55,7 +55,7 @@ public class NodeGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            nodoactivo.gameObject.GetComponent<NavMeshSurface>().BuildNavMesh(); //Añadir siempre un componente navmesh surface a un gameobject , para poder ejeceutar la funcio. Con 1 basta
+            nodoactivo.BuildNavMesh();
         }
     }
 }
