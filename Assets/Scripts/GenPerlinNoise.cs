@@ -1,35 +1,40 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GenPerlinNoise : MonoBehaviour
 {
-
+    //Bloques a instanciar como terreno
     public GameObject cubeGameObjectGrass;
     public GameObject cubeGameObjectWater;
     public GameObject cubeGameObjectHill;
 
+    //Prefab del nodo y del padre donde almacenarlos
     public GameObject node;
     public GameObject nodeGroup;
-
+    //Dimension de la generacion
     [SerializeField] private int _worldSizeX;
     [SerializeField] private int _worldSizeZ;
     private float _gridOffset;
-
+    //Caracteristicas de la perlin noise
     [Range(1f, 10f)][SerializeField] private int _noiseHeight; // basicamente como de alto se genera nuestro cubo 
     [SerializeField] private float _detailScale; //A menos cantidad mas abrupto se ven las coas , valores muy altos pueden dar lugar a superficies muy planas
 
     private float _perlinNoiseToInt; // creo esta variable para aproximar los valores a enteros y que de la semsacion de minecraft
     private int _randomSeed;
 
-
-
+    //Generacion procedural de arboles, rocas etc.
+    private List<Vector3> blockPositions = new List<Vector3>();
+    public GameObject[] worldProps;
 
     void Start()
     {
         // Genera una semilla aleatoria
         _randomSeed = Random.Range(0, 10000);
-        Debug.Log("Seed: " + _randomSeed);
+        //Debug.Log("Seed: " + _randomSeed);
 
         _gridOffset = 1;
        
@@ -41,10 +46,10 @@ public class GenPerlinNoise : MonoBehaviour
             for(int z = 0; z < _worldSizeZ; z++)
             {
                 _perlinNoiseToInt = Mathf.RoundToInt(GenerateNoise(x, z, _detailScale) * _noiseHeight);
-                Debug.Log(_perlinNoiseToInt);
+                //Debug.Log(_perlinNoiseToInt);
                 Vector3 position = new Vector3(x * _gridOffset, _perlinNoiseToInt, z * _gridOffset); // en el eje y va esto GenerateNoise(x,z,_detailScale) * _noiseHeight
 
-                //Esto esta mal , esto solo cambia el color del prefab , que al final lo que hace es cambiar el color de todos
+                //Spawn which block depending on Y coordinate
                 if(_perlinNoiseToInt == 0)
                 {
                     GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject; 
@@ -57,6 +62,8 @@ public class GenPerlinNoise : MonoBehaviour
                     //Nodos
                     GameObject nodes = Instantiate(node, position + new Vector3(0, 1.01f, 0), Quaternion.identity) as GameObject;
                     nodes.transform.SetParent(nodeGroup.transform);
+                    //Añadir a la lista de blockpositions
+                    blockPositions.Add(cube.transform.position);
                 }
                 else
                 {
@@ -65,17 +72,34 @@ public class GenPerlinNoise : MonoBehaviour
                     //Nodos
                     GameObject nodes = Instantiate(node, position + new Vector3(0, 1.01f, 0), Quaternion.identity) as GameObject;
                     nodes.transform.SetParent(nodeGroup.transform);
+
+                    blockPositions.Add(cube.transform.position);
                 }
-
-                
-
-                
+  
             }
+            
         }
 
+        SpawnObject();
 
 
+    }
 
+    private void SpawnObject()
+    {
+        //Aqui se puede usar la misma logica de altura para determinar que gameobject se spawnea , yo lo hago aleatorio pero es bastante feo
+        for(int i = 0; i<40;i++)
+        {
+            GameObject toPlaceObject = Instantiate(worldProps[Random.Range(0, worldProps.Length)], ObjectsSpawnLocation(), Quaternion.Euler(0,Random.Range(0,360),0));
+        }
+    }
+
+    private Vector3 ObjectsSpawnLocation()
+    {
+        int randomIndex = Random.Range(0, blockPositions.Count);
+        Vector3 newPosition = new Vector3(blockPositions[randomIndex].x, blockPositions[randomIndex].y + 1.01f, blockPositions[randomIndex].z);
+        blockPositions.RemoveAt(randomIndex);
+        return newPosition;
     }
 
     private float GenerateNoise(int x, int z, float detailScale)

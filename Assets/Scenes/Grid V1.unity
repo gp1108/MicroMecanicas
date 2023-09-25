@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &221129760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +394,7 @@ MonoBehaviour:
   _cameraSpeed: 0
   _cameraSpeedHorizontal: 0
   velocidadRotacion: 60
+  _mainCamera: {fileID: 368644528}
 --- !u!1 &462083142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1649,10 @@ MonoBehaviour:
   _worldSizeZ: 50
   _noiseHeight: 4
   _detailScale: 8
+  worldProps:
+  - {fileID: 4286589418184265267, guid: c383ba8ac67d000459e69b7db6c5c963, type: 3}
+  - {fileID: 784257595272622726, guid: cd1e55015dde62341a8bf3e1c562797c, type: 3}
+  - {fileID: 1336516793024528500, guid: cc3f1f261519bc24c94ed868dfc1d9a1, type: 3}
 --- !u!4 &6371892983397749318
 Transform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField][Range(1,10)]private float _cameraSpeedHorizontal;
     private float _scrollInputAmount;
     public float velocidadRotacion = 60.0f;
+    [SerializeField]private Camera _mainCamera;
 
     private void Start()
     {
@@ -47,29 +48,29 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             _cameraSpeed += 0.2f;
-            transform.position += Vector3.forward * Time.deltaTime *_cameraSpeed;
-
+            transform.Translate(new Vector3(0,1,1) * Time.deltaTime * _cameraSpeed, Space.Self);
         }
         
         //Backwards
         if (Input.GetKey(KeyCode.S))
         {
             _cameraSpeed += 0.2f;
-            transform.position += Vector3.back * Time.deltaTime * _cameraSpeed;
+            transform.Translate(new Vector3(0, -1, -1) * Time.deltaTime * _cameraSpeed, Space.Self);
         }
 
         //Left
         if (Input.GetKey(KeyCode.A))
         {
             _cameraSpeedHorizontal += 0.2f;
-            transform.position += Vector3.left * Time.deltaTime * _cameraSpeedHorizontal;
+            //transform.position += Vector3.left * Time.deltaTime * _cameraSpeedHorizontal;
+            transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime * _cameraSpeedHorizontal, Space.Self);
         }
 
         //Right
         if (Input.GetKey(KeyCode.D))
         {
             _cameraSpeedHorizontal += 0.2f;
-            transform.position += Vector3.right * Time.deltaTime * _cameraSpeedHorizontal;
+            transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * _cameraSpeedHorizontal, Space.Self);
         }
 
         
@@ -89,8 +90,37 @@ public class CameraMovement : MonoBehaviour
         {
             transform.position += transform.forward;
         }
-            
-        
+
+        CameraRotation();
 
     }
+
+
+
+    private void CameraRotation()
+    {
+
+        Ray rayFromMouse = _mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        // Variable para almacenar información sobre la colisión.
+        RaycastHit hit;
+
+        // Realiza la detección de colisiones con la capa del suelo.
+        if (Physics.Raycast(rayFromMouse, out hit))
+        {
+            
+            Vector3 puntoImpacto = hit.point;
+
+            if(Input.GetKey(KeyCode.Q))
+            {
+                
+                transform.RotateAround(puntoImpacto, Vector3.up, 2);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                transform.RotateAround(puntoImpacto, Vector3.up, -2);
+            }
+        }
+    }
+
 }
