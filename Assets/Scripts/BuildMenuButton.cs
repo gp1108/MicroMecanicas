@@ -7,7 +7,7 @@ public class BuildMenuButton : MonoBehaviour
 {
     public GameObject buildMenuPanel;
     private bool _buildMenuActive;
-    public List<GameObject> worldPanels;
+    public GameObject nodes;
 
 
     public void EnableOrDisableBuildPanel()
@@ -17,12 +17,12 @@ public class BuildMenuButton : MonoBehaviour
         if(_buildMenuActive == false)
         {
             buildMenuPanel.SetActive(true);
-            //worldPanels.SetActive(true);
+            nodes.SetActive(true);
         }
         else
         {
             buildMenuPanel.SetActive(false);
-            //worldPanels.SetActive(false);  
+            nodes.SetActive(false);
         }
         
     }

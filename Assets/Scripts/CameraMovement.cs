@@ -80,12 +80,12 @@ public class CameraMovement : MonoBehaviour
 
         _scrollInputAmount = Input.GetAxis("Mouse ScrollWheel") *1;
         
-        if( _scrollInputAmount < 0 && transform.position.y < 30)
+        if( _scrollInputAmount < 0 && transform.position.y < 20)
         {
             
             transform.position -= transform.forward;
         }
-        else if(_scrollInputAmount > 0 && transform.position.y > 5)
+        else if(_scrollInputAmount > 0 && transform.position.y > 10)
         {
             transform.position += transform.forward;
         }

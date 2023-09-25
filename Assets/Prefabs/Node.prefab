@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8533459214583198072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,5 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highLightedColor: {fileID: 2100000, guid: 525e4488c5b38474e9b58e3edb9170f4, type: 2}
   defaultColor: {fileID: 2100000, guid: 3bc38cf949cbf7444b772b0249aadc54, type: 2}
-  prefab: {fileID: 4853265002205051073, guid: 503b141b19783f44cbc6adb2bd2d91f8, type: 3}
   constructed: 0
