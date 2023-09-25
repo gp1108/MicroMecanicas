@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildMenuPanel: {fileID: 1083629966}
-  worldPanels: []
+  nodes: {fileID: 749879518}
 --- !u!1 &368644526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,11 +1642,10 @@ MonoBehaviour:
   cubeGameObjectGrass: {fileID: 3965573346887289479, guid: 2d87205e6724a8f4fad139c84c554752, type: 3}
   cubeGameObjectWater: {fileID: 5787988206124315037, guid: 7c82538bec4de194982bd2c9b54b2a2c, type: 3}
   cubeGameObjectHill: {fileID: 8523018682431330186, guid: f565e5f7508c4b14ab763483635a590e, type: 3}
-  node: {fileID: 0}
+  node: {fileID: 8533459214583198072, guid: e1f82b9e4441d53489c0c1fe9a3e26fd, type: 3}
   nodeGroup: {fileID: 749879518}
   _worldSizeX: 50
   _worldSizeZ: 50
-  _gridOffset: 1
   _noiseHeight: 4
   _detailScale: 8
 --- !u!4 &6371892983397749318
@@ -1657,7 +1656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859755978014542898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.949074, y: -1.4874227, z: 25.150126}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
