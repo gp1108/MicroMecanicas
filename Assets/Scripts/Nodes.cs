@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Nodes : MonoBehaviour
 {
@@ -14,29 +15,37 @@ public class Nodes : MonoBehaviour
     
     public bool constructed;
 
+
     private void Start()
     {
+       
+
         _rednerer = GetComponent<Renderer>();
         
         constructed = false;
 
-                
+        
     }
 
     private void OnMouseDown()
     {
-        
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+
         if (constructed == true)
-        {
-            Debug.Log("Ya has contruido previamente ahi!!!");
-        }
-        else 
-        {
-            
-            BuildManager.dameReferencia.PlaceStucture(transform.position);
-            
-            constructed = true;
-        }
+         {
+           Debug.Log("Ya has contruido previamente ahi!!!");
+         }
+         else
+         {
+
+           BuildManager.dameReferencia.PlaceStucture(transform.position);
+
+           constructed = true;
+         }
+
+        
+
+        
         
     }
 
