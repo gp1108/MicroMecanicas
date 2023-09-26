@@ -15,7 +15,10 @@ public class Nodes : MonoBehaviour
     
     public bool constructed;
 
-
+    private void OnDisable()
+    {
+        _rednerer.material = defaultColor;
+    }
     private void Start()
     {
        
@@ -58,5 +61,6 @@ public class Nodes : MonoBehaviour
         _rednerer.material = defaultColor;
     }
 
+    
 
 }

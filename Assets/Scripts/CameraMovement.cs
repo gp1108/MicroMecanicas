@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,7 @@ public class CameraMovement : MonoBehaviour
     private float _scrollInputAmount;
     public float velocidadRotacion = 60.0f;
     [SerializeField]private Camera _mainCamera;
+     private Vector3 puntoImpacto;
 
     private void Start()
     {
@@ -91,35 +93,51 @@ public class CameraMovement : MonoBehaviour
             transform.position += transform.forward;
         }
 
+        GetRaycastPosition();
         CameraRotation();
 
     }
 
+    private void GetRaycastPosition() 
+    {
+        Ray rayFromMouse = _mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        
+        if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+        {
+            /*
+            if (Physics.Raycast(_mainCamera.transform.position , _mainCamera.transform.forward, out hit , Mathf.Infinity)) // Cambiar el raycast a rayFromMouse y ponerle el hit y el math ininity
+            {
 
+                puntoImpacto = hit.point;
+
+                
+            }
+            */
+
+            
+        }
+
+        if (Physics.Raycast(rayFromMouse, out hit, Mathf.Infinity))
+        {
+            puntoImpacto = hit.point;
+        }
+
+    }
 
     private void CameraRotation()
     {
 
-        Ray rayFromMouse = _mainCamera.ScreenPointToRay(Input.mousePosition);
+      
 
-        // Variable para almacenar información sobre la colisión.
-        RaycastHit hit;
-
-        // Realiza la detección de colisiones con la capa del suelo.
-        if (Physics.Raycast(rayFromMouse, out hit))
+        if (Input.GetKey(KeyCode.Q))
         {
-            
-            Vector3 puntoImpacto = hit.point;
 
-            if(Input.GetKey(KeyCode.Q))
-            {
-                
-                transform.RotateAround(puntoImpacto, Vector3.up, 2);
-            }
-            if (Input.GetKey(KeyCode.E))
-            {
-                transform.RotateAround(puntoImpacto, Vector3.up, -2);
-            }
+            transform.RotateAround(puntoImpacto, Vector3.up, 55 * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.RotateAround(puntoImpacto, Vector3.up, -55 * Time.deltaTime);
         }
     }
 

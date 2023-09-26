@@ -15,6 +15,7 @@ public class GenPerlinNoise : MonoBehaviour
     //Prefab del nodo y del padre donde almacenarlos
     public GameObject node;
     public GameObject nodeGroup;
+    public GameObject propsGroup;
     //Dimension de la generacion
     [SerializeField] private int _worldSizeX;
     [SerializeField] private int _worldSizeZ;
@@ -91,6 +92,7 @@ public class GenPerlinNoise : MonoBehaviour
         for(int i = 0; i<40;i++)
         {
             GameObject toPlaceObject = Instantiate(worldProps[Random.Range(0, worldProps.Length)], ObjectsSpawnLocation(), Quaternion.Euler(0,Random.Range(0,360),0));
+            toPlaceObject.transform.SetParent(propsGroup.transform);
         }
     }
 

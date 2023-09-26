@@ -35,4 +35,9 @@ public class BuildMenuButton : MonoBehaviour
     {
         BuildManager.dameReferencia.GetStructurePrefabIndex(1);
     }
+
+    public void OtherTurretIndex()
+    {
+        BuildManager.dameReferencia.GetStructurePrefabIndex(2);
+    }
 }
