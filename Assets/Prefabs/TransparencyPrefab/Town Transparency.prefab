@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aabc7a2c4acb06478cc2e4fa5462088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabSize: 0
+  prefabSize: 2
   validposition: 0
 --- !u!1 &3744372915040068521
 GameObject:
