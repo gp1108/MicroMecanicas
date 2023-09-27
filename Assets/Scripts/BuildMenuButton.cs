@@ -18,6 +18,7 @@ public class BuildMenuButton : MonoBehaviour
         {
             buildMenuPanel.SetActive(true);
             nodes.SetActive(true);
+            BuildManager.dameReferencia.DestroyPreviewPrefab();
         }
         else
         {
