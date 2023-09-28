@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265001190823501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.28997803, z: 0}
+  m_LocalPosition: {x: 0.25, y: 0.5, z: 0}
   m_LocalScale: {x: 0.55, y: 0.6, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9123039, y: 0.5, z: 1}
+  m_Center: {x: -0.04384802, y: 0, z: 0}
 --- !u!208 &373806902801760913
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -116,11 +116,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.45615196, y: 0.25, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04384802, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1 &4853265001223552030
 GameObject:
@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265001223552030}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.28997803, z: 0}
+  m_LocalPosition: {x: -0.25, y: 0.5, z: 0}
   m_LocalScale: {x: 0.55, y: 0.6, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -224,10 +224,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.91230386, y: 0.5, z: 1}
+  m_Center: {x: 0.04384802, y: 0, z: 0}
 --- !u!208 &1399537240236236224
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -238,11 +238,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.45615196, y: 0.25, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.04384802, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1 &4853265001963785494
 GameObject:
@@ -255,8 +255,8 @@ GameObject:
   - component: {fileID: 4853265001963785495}
   - component: {fileID: 4853265001963785490}
   - component: {fileID: 4853265001963785493}
-  - component: {fileID: 4853265001963785492}
-  - component: {fileID: 1800719679851499068}
+  - component: {fileID: 8342867475614002222}
+  - component: {fileID: 7581434724144500740}
   m_Layer: 0
   m_Name: -Z
   m_TagString: Untagged
@@ -272,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265001963785494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.28997803, z: -0.25}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0.25}
   m_LocalScale: {x: 0.3, y: 0.6, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,7 +329,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4853265001963785492
+--- !u!65 &8342867475614002222
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,23 +348,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!208 &1800719679851499068
+  m_Size: {x: 1, y: 0.5, z: 0.9123039}
+  m_Center: {x: 0, y: 0, z: 0.04384802}
+--- !u!208 &7581434724144500740
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265001963785494}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.5, y: 0.25, z: 0.45615196}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.04384802}
   m_TimeToStationary: 0.5
 --- !u!1 &4853265002205051073
 GameObject:
@@ -478,7 +478,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: -0.44, y: 0.038, z: 0.45}
@@ -511,7 +511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265002466999050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.28997803, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.3, y: 0.6, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265003023982859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.28997803, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.25}
   m_LocalScale: {x: 0.3, y: 0.6, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -725,8 +725,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.5, z: 0.9123039}
+  m_Center: {x: 0, y: 0, z: -0.04384802}
 --- !u!208 &5983945719038867230
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -734,12 +734,12 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265003023982859}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.5, y: 0.25, z: 0.45615196}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.04384802}
   m_TimeToStationary: 0.5

@@ -13,6 +13,9 @@ public class NodeUpdater : MonoBehaviour
         {
             
             collision.gameObject.GetComponent<Nodes>().constructed = true;
+
+            BuildManager.dameReferencia.buildCD = false;
+
         }
         
     }

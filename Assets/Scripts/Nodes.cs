@@ -40,10 +40,13 @@ public class Nodes : MonoBehaviour
         }
         else
         {
+            if (BuildManager.dameReferencia.buildCD == false)
+            {
+                BuildManager.dameReferencia.PlaceStucture(transform.position);
+            }
 
-           BuildManager.dameReferencia.PlaceStucture(transform.position);
 
-           //constructed = true;
+            //constructed = true;
         }
 
   

@@ -28,7 +28,7 @@ public class PreviewPrefabSize : MonoBehaviour
                     
                     if(hit.collider.gameObject.GetComponent<Nodes>().constructed == false)
                     {
-                        Debug.Log("·esto es un nodo");
+                        
                         validposition = true;
                     }
                     else

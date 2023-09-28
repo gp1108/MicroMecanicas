@@ -12,6 +12,7 @@ public class BuildManager : MonoBehaviour
 
     //Esta booleana es el nexo entre el preview system y el buildmanager, es decir , aprovecho el cambio de color para asi determinar si se puede o no construir
     private bool _canbuild;
+    public bool buildCD;
 
     [Header("PREVIEW SYSTEM")]
     //PreviewSystem
@@ -98,7 +99,8 @@ public class BuildManager : MonoBehaviour
 
     public void PlaceStucture(Vector3 position)
     {
-        if(_canbuild == true)
+        
+        if(_canbuild == true && buildCD == false) 
         {
             Instantiate(_structures[_structureIndex], position, Quaternion.identity);
 
@@ -106,6 +108,8 @@ public class BuildManager : MonoBehaviour
             {
                 _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
             }
+            buildCD = true;
+
         }
         else
         {
