@@ -43,7 +43,7 @@ public class Nodes : MonoBehaviour
 
            BuildManager.dameReferencia.PlaceStucture(transform.position);
 
-           constructed = true;
+           //constructed = true;
         }
 
   
