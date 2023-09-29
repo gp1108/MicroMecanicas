@@ -10,6 +10,10 @@ public class BuildManager : MonoBehaviour
     [SerializeField]private GameObject[] _structures;
     private int _structureIndex;
 
+    //Esta booleana es el nexo entre el preview system y el buildmanager, es decir , aprovecho el cambio de color para asi determinar si se puede o no construir
+    private bool _canbuild;
+    public bool buildCD;
+
     [Header("PREVIEW SYSTEM")]
     //PreviewSystem
     [SerializeField] private GameObject[] _previewStructures;
@@ -51,10 +55,11 @@ public class BuildManager : MonoBehaviour
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
-                // Itera a través de los renderers y cambia su material
+                
                 foreach (Renderer childRenderer in childRenderers)
                 {
                     childRenderer.material = aviableInstance;
+                    _canbuild = true;
                 }
 
             }
@@ -62,12 +67,13 @@ public class BuildManager : MonoBehaviour
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
-                // Itera a través de los renderers y cambia su material
+                
                 foreach (Renderer childRenderer in childRenderers)
                 {
                     childRenderer.material = unAviableInstance;
+                    _canbuild = false;
                 }
-                //previewPrefab.GetComponent<Renderer>().material = unAviableInstance;
+                
             }
         }
         
@@ -93,12 +99,21 @@ public class BuildManager : MonoBehaviour
 
     public void PlaceStucture(Vector3 position)
     {
-
-        Instantiate(_structures[_structureIndex], position, Quaternion.identity);
-
-        foreach (GameObject _wall in Walls)
+        
+        if(_canbuild == true && buildCD == false) 
         {
-            _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
+            Instantiate(_structures[_structureIndex], position, Quaternion.identity);
+
+            foreach (GameObject _wall in Walls)
+            {
+                _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
+            }
+            buildCD = true;
+
+        }
+        else
+        {
+            return;
         }
 
 
