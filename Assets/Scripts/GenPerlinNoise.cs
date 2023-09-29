@@ -30,6 +30,7 @@ public class GenPerlinNoise : MonoBehaviour
     //Generacion procedural de arboles, rocas etc.
     private List<Vector3> blockPositions = new List<Vector3>();
     public GameObject[] worldProps;
+    private List<Vector3> enemyPositions = new List<Vector3>();
 
     void Start()
     {
@@ -81,7 +82,160 @@ public class GenPerlinNoise : MonoBehaviour
             
         }
 
+
+
+        //Lado de spawn enemigo Lado IZQ
+
+        for (int xmargin = -5; xmargin < 0; xmargin++)
+        {
+
+            for (int zmargin = -5; zmargin < _worldSizeZ+5; zmargin++)
+            {
+
+                _perlinNoiseToInt = Mathf.RoundToInt(GenerateNoise(xmargin, zmargin, _detailScale) * _noiseHeight);
+
+                //Debug.Log(_perlinNoiseToInt);
+                Vector3 position = new Vector3(xmargin * _gridOffset, _perlinNoiseToInt, zmargin * _gridOffset); // en el eje y va esto GenerateNoise(x,z,_detailScale) * _noiseHeight
+
+                //Spawn which block depending on Y coordinate
+                if (_perlinNoiseToInt == 0)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+                }
+                else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                    //Añadir a la lista de enemyPositions
+                    enemyPositions.Add(cube.transform.position);
+                }
+                else
+                {
+                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+
+                    enemyPositions.Add(cube.transform.position);
+                }
+            }
+        }
+
+        //Lado de spawn enemigo LADO DER
+
+        for (int zmargin = -5; zmargin < 0; zmargin++)
+        {
+            for (int xmargin = 0; xmargin < _worldSizeX + 5; xmargin++)
+            {
+
+                _perlinNoiseToInt = Mathf.RoundToInt(GenerateNoise(xmargin, zmargin, _detailScale) * _noiseHeight);
+
+                //Debug.Log(_perlinNoiseToInt);
+                Vector3 position = new Vector3(xmargin * _gridOffset, _perlinNoiseToInt, zmargin * _gridOffset); // en el eje y va esto GenerateNoise(x,z,_detailScale) * _noiseHeight
+
+                //Spawn which block depending on Y coordinate
+                if (_perlinNoiseToInt == 0)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+                }
+                else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                    //Añadir a la lista de enemyPositions
+                    enemyPositions.Add(cube.transform.position);
+                }
+                else
+                {
+                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+
+                    enemyPositions.Add(cube.transform.position);
+                }
+            }
+        }
+
+
+        //Lado de spawn enemigo LADO INFERIOR
+
+        for (int xmargin = _worldSizeX; xmargin < _worldSizeX +5; xmargin++)
+        {
+            for (int zmargin = 0; zmargin < _worldSizeZ + 5; zmargin++)
+            {
+
+                _perlinNoiseToInt = Mathf.RoundToInt(GenerateNoise(xmargin, zmargin, _detailScale) * _noiseHeight);
+
+                //Debug.Log(_perlinNoiseToInt);
+                Vector3 position = new Vector3(xmargin * _gridOffset, _perlinNoiseToInt, zmargin * _gridOffset); // en el eje y va esto GenerateNoise(x,z,_detailScale) * _noiseHeight
+
+                //Spawn which block depending on Y coordinate
+                if (_perlinNoiseToInt == 0)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+                }
+                else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                    //Añadir a la lista de enemyPositions
+                    enemyPositions.Add(cube.transform.position);
+                }
+                else
+                {
+                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+
+                    enemyPositions.Add(cube.transform.position);
+                }
+            }
+        }
+
+        //Lado de spawn enemigo LADO SUPERIOR
+
+        for (int zmargin = _worldSizeZ; zmargin < _worldSizeZ + 5; zmargin++)
+        {
+            for (int xmargin = 0; xmargin < _worldSizeX + 5; xmargin++)
+            {
+
+                _perlinNoiseToInt = Mathf.RoundToInt(GenerateNoise(xmargin, zmargin, _detailScale) * _noiseHeight);
+
+                //Debug.Log(_perlinNoiseToInt);
+                Vector3 position = new Vector3(xmargin * _gridOffset, _perlinNoiseToInt, zmargin * _gridOffset); // en el eje y va esto GenerateNoise(x,z,_detailScale) * _noiseHeight
+
+                //Spawn which block depending on Y coordinate
+                if (_perlinNoiseToInt == 0)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+                }
+                else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                    //Añadir a la lista de enemyPositions
+                    enemyPositions.Add(cube.transform.position);
+                }
+                else
+                {
+                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+
+                    enemyPositions.Add(cube.transform.position);
+                }
+            }
+        }
+
         SpawnObject();
+
 
 
     }
