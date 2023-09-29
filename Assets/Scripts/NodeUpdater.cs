@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class NodeUpdater : MonoBehaviour
 {
-   
+    [SerializeField] private GameObject _prefabSize;
 
     private void OnCollisionEnter(Collision collision)
     {
         
         if (collision.gameObject.tag == "Node")
         {
-            
             collision.gameObject.GetComponent<Nodes>().constructed = true;
-
-            BuildManager.dameReferencia.buildCD = false;
-
+            if (_prefabSize.GetComponent<PreviewPrefabSize>().CanConstruct() == true)
+            {
+                BuildManager.dameReferencia.buildCD = false;
+                
+            }
         }
         
     }

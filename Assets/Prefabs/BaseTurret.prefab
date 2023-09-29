@@ -65,7 +65,7 @@ Transform:
   m_Children:
   - {fileID: 3753601666238999719}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4209647252061905395
 Rigidbody:
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f003a016f079ee49b4726627be12229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prefabSize: {fileID: 1663677630554752822, guid: c88926d64fe52404f867efe02beeedee, type: 3}
 --- !u!65 &5516496620523699171
 BoxCollider:
   m_ObjectHideFlags: 0

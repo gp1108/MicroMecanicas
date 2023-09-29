@@ -404,7 +404,7 @@ Transform:
   - {fileID: 4853265001223552031}
   - {fileID: 4853265001190823498}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!208 &3747738422235684932
 NavMeshObstacle:
@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f003a016f079ee49b4726627be12229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prefabSize: {fileID: 4853265002205051073, guid: 8c12f426323aec344b86ce7dabbfb64c, type: 3}
 --- !u!54 &6281767433053214005
 Rigidbody:
   m_ObjectHideFlags: 0

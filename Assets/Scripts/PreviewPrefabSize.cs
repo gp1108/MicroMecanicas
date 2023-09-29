@@ -7,6 +7,7 @@ public class PreviewPrefabSize : MonoBehaviour
 {
     public int prefabSize;
     public bool validposition;
+    private int contador;
 
     //Dimensiones del prefab
     //Si el prefabSize= 0 el prefab tiene de tamaño 1xYx1
@@ -106,4 +107,50 @@ public class PreviewPrefabSize : MonoBehaviour
             }
         }
     }
+
+    public bool CanConstruct()
+    {
+        if (prefabSize == 0)
+        {
+            BuildManager.dameReferencia.buildCD = false;
+            return true;
+        }
+        if (prefabSize == 1)
+        {
+            contador++;
+            
+            if (contador == 4)
+            {
+
+                contador = 0;
+                return true;
+               
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        if(prefabSize == 2)
+        {
+            contador++;
+
+            if (contador == 9)
+            {
+                contador=0;
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
