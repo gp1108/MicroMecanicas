@@ -2058,6 +2058,7 @@ MonoBehaviour:
   - {fileID: 234761946264151248, guid: e359228efb9deaa45b4ab719c239b7a5, type: 3}
   - {fileID: 3462134141447311124, guid: 542adf7164d431540aeba1d9f60ba8d2, type: 3}
   - {fileID: 0}
+  buildCD: 0
   _previewStructures:
   - {fileID: 4853265002205051073, guid: 8c12f426323aec344b86ce7dabbfb64c, type: 3}
   - {fileID: 1663677630554752822, guid: c88926d64fe52404f867efe02beeedee, type: 3}
