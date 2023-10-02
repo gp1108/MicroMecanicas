@@ -1022,7 +1022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1012099155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,6 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8009e44503c2614fa868c1b5166f8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpawning: 1
 --- !u!4 &1012099156
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,6 +1403,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132677622}
   m_CullTransparentMesh: 1
+--- !u!1 &1146051923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146051924}
+  m_Layer: 0
+  m_Name: EnemySpawnerGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1146051924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146051923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.956918, y: 5.616794, z: 12.195385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316837624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,6 +2133,7 @@ MonoBehaviour:
   node: {fileID: 8533459214583198072, guid: e1f82b9e4441d53489c0c1fe9a3e26fd, type: 3}
   nodeGroup: {fileID: 749879518}
   propsGroup: {fileID: 1422458273}
+  enemySpawnersGroup: {fileID: 1146051923}
   _worldSizeX: 50
   _worldSizeZ: 50
   _noiseHeight: 4
@@ -2109,6 +2142,7 @@ MonoBehaviour:
   - {fileID: 4286589418184265267, guid: c383ba8ac67d000459e69b7db6c5c963, type: 3}
   - {fileID: 784257595272622726, guid: cd1e55015dde62341a8bf3e1c562797c, type: 3}
   - {fileID: 1336516793024528500, guid: cc3f1f261519bc24c94ed868dfc1d9a1, type: 3}
+  enemieSpawner: {fileID: 4950629411462512837, guid: 8c6f05247fc50f5479a57fb7a1dabc78, type: 3}
 --- !u!4 &6371892983397749318
 Transform:
   m_ObjectHideFlags: 0

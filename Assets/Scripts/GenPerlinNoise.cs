@@ -7,15 +7,20 @@ using UnityEngine;
 
 public class GenPerlinNoise : MonoBehaviour
 {
+    [Header ("Terrain Cubes")]
     //Bloques a instanciar como terreno
     public GameObject cubeGameObjectGrass;
     public GameObject cubeGameObjectWater;
     public GameObject cubeGameObjectHill;
 
+    [Header("Parents and Node")]
     //Prefab del nodo y del padre donde almacenarlos
     public GameObject node;
     public GameObject nodeGroup;
     public GameObject propsGroup;
+    public GameObject enemySpawnersGroup;
+
+    [Header("Perlin Noise")]
     //Dimension de la generacion
     [SerializeField] private int _worldSizeX;
     [SerializeField] private int _worldSizeZ;
@@ -27,11 +32,14 @@ public class GenPerlinNoise : MonoBehaviour
     private float _perlinNoiseToInt; // creo esta variable para aproximar los valores a enteros y que de la semsacion de minecraft
     private int _randomSeed;
 
+    [Header("Props")]
     //Generacion procedural de arboles, rocas etc.
     private List<Vector3> blockPositions = new List<Vector3>();
     public GameObject[] worldProps;
-    private List<Vector3> enemyPositions = new List<Vector3>();
 
+    [Header("Enemies")]
+    private List<Vector3> enemyPositions = new List<Vector3>();
+    public GameObject enemieSpawner;
     void Start()
     {
         // Genera una semilla aleatoria
@@ -234,11 +242,34 @@ public class GenPerlinNoise : MonoBehaviour
             }
         }
 
+
         SpawnObject();
 
-
+        SpawnEnemiesSpawners();
 
     }
+    //Spawning EnemySpawner
+    private void SpawnEnemiesSpawners()
+    {
+        
+        for (int i = 0; i < 15; i++) // Con este numero se cambia la cantidad de spawners
+        {
+            GameObject toPlaceObject = Instantiate(enemieSpawner, EnemySpawnerSpawnLocation(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+            //Este codigo hace que todos los spawners miren al centro del mapa , podria cambiarse para que mirasen al ayuntamiento.
+            Vector3 originPosition = new Vector3(_worldSizeX/2,0,_worldSizeZ/2) - toPlaceObject.transform.position;
+            toPlaceObject.transform.rotation = Quaternion.LookRotation(originPosition);
+            toPlaceObject.transform.SetParent(enemySpawnersGroup.transform);
+        }
+    }
+    private Vector3 EnemySpawnerSpawnLocation()
+    {
+        int randomIndex = Random.Range(0, enemyPositions.Count);
+        Vector3 newPosition = new Vector3(enemyPositions[randomIndex].x, enemyPositions[randomIndex].y + 1.01f, enemyPositions[randomIndex].z);
+        enemyPositions.RemoveAt(randomIndex);
+        return newPosition;
+    }
+
+    //Spawning objects
 
     private void SpawnObject()
     {
@@ -257,6 +288,9 @@ public class GenPerlinNoise : MonoBehaviour
         blockPositions.RemoveAt(randomIndex);
         return newPosition;
     }
+
+
+    
 
     private float GenerateNoise(int x, int z, float detailScale)
     {
