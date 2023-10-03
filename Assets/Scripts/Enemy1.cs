@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy1 : MonoBehaviour
 {
-    [SerializeField] private GameObject _TownHall;
-    [SerializeField] private Vector3 _distancia;
+
+    private GameObject _TownHall;
+    private Vector3 _distancia;
+    private NavMeshAgent _navAgent;
+    private float _timePass;
+    private float _cadencia;
+    private bool _atac;
+
     // Start is called before the first frame update
     void Start()
     {
         
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
-
+        _navAgent = GetComponent<NavMeshAgent>();
 
     }
 
@@ -24,17 +31,52 @@ public class Enemy1 : MonoBehaviour
     public void Move()
     {
 
-        _distancia=_TownHall.transform.position - transform.position;
+        _navAgent.SetDestination(_TownHall.transform.position);
 
-        RaycastHit hit;
+        _distancia =_TownHall.transform.position - transform.position;
 
-        if(Physics.Raycast(transform.position,_distancia, out hit))
+        
+
+        
+
+    }
+    public void Atac()
+    {
+
+        if (_atac == false)
         {
-            if (hit.transform.tag == "TownHall")
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, _distancia, out hit, 1))
             {
+                if (hit.transform.tag == "TownHall")
+                {
 
+                    hit.transform.GetComponent<Health>().GetDamaged(2);
 
+                }
+                if (hit.transform.tag == "Wall")
+                {
+                    hit.transform.GetComponent<Health>().GetDamaged(2);
 
+                }
+            }
+            
+            _atac = true;
+
+            _cadencia = 1;
+
+        }
+        if (_atac == true)
+        {
+
+            _timePass += Time.deltaTime;
+
+            if (_timePass > _cadencia)
+            {
+                _atac = false;
+
+                _timePass = 0;
             }
         }
 
