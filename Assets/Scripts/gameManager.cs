@@ -91,7 +91,7 @@ public class gameManager : MonoBehaviour
     }
 
 
-    public void OnBecameInvisible()
+    public void OnBecameVisible()
     {
         RoundStart();
     }
