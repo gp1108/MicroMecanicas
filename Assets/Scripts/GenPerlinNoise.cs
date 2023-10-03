@@ -259,6 +259,9 @@ public class GenPerlinNoise : MonoBehaviour
             Vector3 originPosition = new Vector3(_worldSizeX/2,0,_worldSizeZ/2) - toPlaceObject.transform.position;
             toPlaceObject.transform.rotation = Quaternion.LookRotation(originPosition);
             toPlaceObject.transform.SetParent(enemySpawnersGroup.transform);
+            //Añadir el spawner al gameManager para poder utilizarlo en las rondas.
+            gameManager.giveMeReference.enemiesSpawners.Add(toPlaceObject);
+            
         }
     }
     private Vector3 EnemySpawnerSpawnLocation()

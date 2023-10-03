@@ -76,7 +76,7 @@ public class PreviewPrefabSize : MonoBehaviour
                     hit8.collider.CompareTag("Node") &&
                     hit9.collider.CompareTag("Node"))
                 {
-                    Debug.Log("LOS rayos todos detectan al bloque nodo");
+                    
                     if (hit1.collider.gameObject.GetComponent<Nodes>().constructed == false 
                         && hit2.collider.gameObject.GetComponent<Nodes>().constructed == false
                         && hit3.collider.gameObject.GetComponent<Nodes>().constructed == false
@@ -87,7 +87,7 @@ public class PreviewPrefabSize : MonoBehaviour
                         && hit8.collider.gameObject.GetComponent<Nodes>().constructed == false
                         && hit9.collider.gameObject.GetComponent<Nodes>().constructed == false)
                     {
-                        Debug.Log("·esto es un nodo");
+                        
                         validposition = true;
                     }
                     else
@@ -97,7 +97,10 @@ public class PreviewPrefabSize : MonoBehaviour
                     }
 
                 }
-                
+                else
+                {
+                    validposition = false;
+                } 
 
 
             }

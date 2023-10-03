@@ -7,14 +7,6 @@ public class gameManager : MonoBehaviour
 
     private static gameManager _Reference;
 
-    //Enemies
-    private int _numberOfEnemies;
-    int _enemyMultiplier = 5;
-    private int _totalOfRounds;
-    private int _RoundsPlayed;
-    public bool isSpawning;
-
-
     public static gameManager giveMeReference
     {
         get
@@ -34,13 +26,29 @@ public class gameManager : MonoBehaviour
         }
     }
 
+
+
+
+    public List<GameObject> enemiesSpawners;
+    public GameObject[] enemies;
+    private int _roundsPlayed;
+    private int _totalRounds;
+    private int _totalNumberOfEnemies;
+
+
     private void Awake()
     {
-        _numberOfEnemies = 0;
-        _enemyMultiplier = 5;
-        _RoundsPlayed = 0;
-        _totalOfRounds = 30;
+        enemiesSpawners = new List<GameObject>();
     }
+
+    private void Start()
+    {
+       _roundsPlayed = 0;
+       _totalRounds = 20;
+       _totalNumberOfEnemies = 5;
+    }
+
+   
 
     public void PlayerDead()
     {
@@ -48,60 +56,44 @@ public class gameManager : MonoBehaviour
         Debug.Log("Has perdido");
     }
 
-    public void StartRound()
+    public void PlayerWin()
     {
-        if(_RoundsPlayed <= _totalOfRounds)
+        //Mostrar menus , conteo de experiencia etc etc , debloqueo de cartas
+    }
+
+    public void RoundStart()
+    {
+        if(_roundsPlayed <= _totalRounds)
         {
-            NumberOfSpawns();
-            _RoundsPlayed += 1;
+            SpawnEnemies();
         }
         else
         {
-            //LLAMAR A FUNCION DE VICTORIA
-        }
-        
-    }
-
-    public void NumberOfSpawns()
-    {
-
-        if (_numberOfEnemies < 1 * _enemyMultiplier)
-        {
-            Debug.Log("NumberOfEnemies" + _numberOfEnemies);
-            isSpawning = true;
-        }
-        else
-        {
-            isSpawning = false;
-            _enemyMultiplier += 5;
+            PlayerWin();
         }
     }
-    public void EnemySpawned()
-    {
-        _numberOfEnemies++;
-    }
 
-    public void EndRound()
-    {
-        _numberOfEnemies--;
-        if(_numberOfEnemies <= 0)
-        {
-            //TimerOrPressedButtonToContinueRound();
-        }
-    }
-    
-
-    public void Update()
-    {
-        if(Input.GetKey(KeyCode.T))
-        {
+    int i = 1;
+   public void SpawnEnemies()
+   {
+       for(int _actualNumberOfEnemies = 0; _actualNumberOfEnemies <  _totalNumberOfEnemies; _actualNumberOfEnemies++)
+       {
             
-            StartRound();
-        }
+            Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position, Quaternion.identity);
+           
+            
+            Debug.Log("Enemigo spawneado" + i);
+            i++;
+
+            
+       }
+        _totalNumberOfEnemies += 5;
     }
-    public void OnEnable()
+
+
+    public void OnBecameInvisible()
     {
-        StartRound();
+        RoundStart();
     }
 
 }

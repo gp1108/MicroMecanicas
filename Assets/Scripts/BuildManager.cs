@@ -22,6 +22,7 @@ public class BuildManager : MonoBehaviour
     private int lastIndex;
     [SerializeField] private Material aviableInstance;
     [SerializeField] private Material unAviableInstance;
+    public GameObject buildPanel;
 
     public static BuildManager dameReferencia
     {
@@ -51,29 +52,40 @@ public class BuildManager : MonoBehaviour
 
 
             //Color del prefab
-            if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == true)
+            if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == true && buildPanel.activeSelf)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
                 
                 foreach (Renderer childRenderer in childRenderers)
                 {
+                    childRenderer.enabled = true;
                     childRenderer.material = aviableInstance;
                     _canbuild = true;
                 }
 
             }
-            else
+            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
                 
                 foreach (Renderer childRenderer in childRenderers)
                 {
+                    childRenderer.enabled = true;
                     childRenderer.material = unAviableInstance;
                     _canbuild = false;
                 }
                 
+            }
+            else if(!buildPanel.activeSelf)
+            {
+                Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
+                foreach (Renderer childRenderer in childRenderers)
+                {
+                    childRenderer.enabled = false;
+                    
+                }
             }
         }
         
@@ -124,8 +136,6 @@ public class BuildManager : MonoBehaviour
     public void GetPreviewPrefabPosition(Vector3 position)
     {
         previewPrefabPosition = position;
-
-        
 
     }
 
