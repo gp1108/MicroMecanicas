@@ -12,6 +12,7 @@ public class GenPerlinNoise : MonoBehaviour
     public GameObject cubeGameObjectGrass;
     public GameObject cubeGameObjectWater;
     public GameObject cubeGameObjectHill;
+    private int[] rotaciones = { 0, 90, 180, 270 };
 
     [Header("Parents and Node")]
     //Prefab del nodo y del padre donde almacenarlos
@@ -62,7 +63,7 @@ public class GenPerlinNoise : MonoBehaviour
                 //Spawn which block depending on Y coordinate
                 if(_perlinNoiseToInt == 0)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.identity) as GameObject; 
+                    GameObject cube = Instantiate(cubeGameObjectWater, position + new Vector3(0, 0.5f, 0), Quaternion.Euler(0, rotaciones[Random.Range(0,rotaciones.Length)],0)) as GameObject; 
                     cube.transform.SetParent(this.transform);
                 }
                 else if(_perlinNoiseToInt >= 1 && _perlinNoiseToInt <=1)
