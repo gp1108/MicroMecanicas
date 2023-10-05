@@ -82,7 +82,7 @@ public class gameManager : MonoBehaviour
             Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position, Quaternion.identity);
            
             
-            Debug.Log("Enemigo spawneado" + i);
+            //Debug.Log("Enemigo spawneado" + i);
             i++;
 
             

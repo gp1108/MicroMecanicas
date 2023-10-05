@@ -23,6 +23,8 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Material aviableInstance;
     [SerializeField] private Material unAviableInstance;
     public GameObject buildPanel;
+    private Canvas canvas;
+    
 
     public static BuildManager dameReferencia
     {
@@ -43,16 +45,22 @@ public class BuildManager : MonoBehaviour
         }
     }
 
+    public void Start()
+    {
+        canvas = FindObjectOfType<Canvas>();
+    }
 
     private void Update()
     {
-        if(previewPrefab != null)
+        bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
+
+        if (previewPrefab != null)
         {
             previewPrefab.transform.position = previewPrefabPosition;
 
 
             //Color del prefab
-            if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == true && buildPanel.activeSelf)
+            if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == true && buildPanel.activeSelf && isDestroyModeActive == false)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
@@ -65,7 +73,7 @@ public class BuildManager : MonoBehaviour
                 }
 
             }
-            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf)
+            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf && isDestroyModeActive == false)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
@@ -78,13 +86,13 @@ public class BuildManager : MonoBehaviour
                 }
                 
             }
-            else if(!buildPanel.activeSelf)
+            else if(!buildPanel.activeSelf || isDestroyModeActive == true)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
                 foreach (Renderer childRenderer in childRenderers)
                 {
                     childRenderer.enabled = false;
-                    
+                    _canbuild = false;
                 }
             }
         }

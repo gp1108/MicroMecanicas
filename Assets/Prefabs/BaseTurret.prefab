@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 5516496620523699171}
   - component: {fileID: 1733550208625858252}
   - component: {fileID: 2456263922755224134}
+  - component: {fileID: 5457389638267438624}
   m_Layer: 0
   m_Name: BaseTurret
   m_TagString: Untagged
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234761946264151248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e9c1d917d0a12a4aba0a7671569a478, type: 3}
   m_Name: 
@@ -152,12 +153,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234761946264151248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 0
+--- !u!114 &5457389638267438624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234761946264151248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda8b4847eacaf5499ac769e95314532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
 --- !u!1 &445222904307459657
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,9 @@ public class GenPerlinNoise : MonoBehaviour
     [Header("Enemies")]
     private List<Vector3> enemyPositions = new List<Vector3>();
     public GameObject enemieSpawner;
+
+    [Header("MainStructurePrefab")]
+    public GameObject mainStructure;
     void Start()
     {
         // Genera una semilla aleatoria
@@ -248,6 +251,8 @@ public class GenPerlinNoise : MonoBehaviour
 
         SpawnEnemiesSpawners();
 
+        SpawnMainStructure();
+
     }
     //Spawning EnemySpawner
     private void SpawnEnemiesSpawners()
@@ -293,7 +298,14 @@ public class GenPerlinNoise : MonoBehaviour
         return newPosition;
     }
 
+    private void SpawnMainStructure()
+    {
+        int mainStructurePosX = Mathf.FloorToInt(_worldSizeX/2);
+        int mainStructurePosZ = Mathf.FloorToInt(_worldSizeZ / 2);
+        int _perlinNoiseToIntForGen = Mathf.RoundToInt(GenerateNoise(mainStructurePosX, mainStructurePosZ, _detailScale) * _noiseHeight);
 
+        Instantiate(mainStructure, new Vector3(mainStructurePosX, _perlinNoiseToIntForGen +10, mainStructurePosZ), Quaternion.identity);
+    }
     
 
     private float GenerateNoise(int x, int z, float detailScale)
