@@ -140,7 +140,7 @@ public class MainStrcuteSpawn : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         _readyToMove = true;
-        Debug.Log(_readyToMove);
+        
     }
     private void OnCollisionExit(Collision collision)
     {
