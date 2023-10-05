@@ -11,9 +11,20 @@ public class DestroyStructure : MonoBehaviour
         canvas = FindObjectOfType<Canvas>();
         if (canvas.GetComponent<BuildMenuButton>().destroyModeActive == true)
         {
-            Debug.Log("Modo destruir");
-            this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
-            Destroy(this.gameObject,0.15f);
+            
+            if(this.gameObject.tag == "Wall")
+            {
+                
+                BuildManager.dameReferencia.WallUpdate(this.gameObject);
+                this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
+                Destroy(this.gameObject, 0.15f);
+                
+            }
+            else
+            {
+                this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
+                Destroy(this.gameObject, 0.15f);
+            }
         }
         else
         {

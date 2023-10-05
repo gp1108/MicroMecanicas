@@ -28,6 +28,10 @@ public class NodeUpdater : MonoBehaviour
             
             collision.gameObject.GetComponent<Nodes>().constructed = false;
         }
+        if(this.gameObject.tag == "Wall")
+        {
+            
+        }
 
     }
 }

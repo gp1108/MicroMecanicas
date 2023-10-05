@@ -103,37 +103,7 @@ public class MainStrcuteSpawn : MonoBehaviour
                 
             }
         }
-        /*
-        else if (Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z + 1f), -transform.up, out hit4, 0.4f) && _readyToMove == true ||
-               Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z + 1f), -transform.up, out hit5, 0.4f) && _readyToMove == true ||
-               Physics.Raycast(new Vector3(transform.position.x + 0f, transform.position.y, transform.position.z + 1f), -transform.up, out hit7, 0.4f) && _readyToMove == true)
-        {
-            Debug.Log("-z");
-            transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z - 1);
-            _readyToMove = false;
-
-        }
-        else if (Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z - 1f), -transform.up, out hit2, 0.4f) && _readyToMove == true ||
-                Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z - 1f), -transform.up, out hit3, 0.4f) && _readyToMove == true ||
-                Physics.Raycast(new Vector3(transform.position.x + 0f, transform.position.y, transform.position.z - 1f), -transform.up, out hit9, 0.4f) && _readyToMove == true)
-        {
-            Debug.Log("+z");
-            transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z + 1);
-            _readyToMove = false;
-        }
-        else if (Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z + 0f), -transform.up, out hit8, 0.4f) && _readyToMove == true)
-        {
-            Debug.Log("-x");
-            transform.position = new Vector3(transform.position.x - 1, transform.position.y + 2, transform.position.z);
-            _readyToMove = false;
-        }
-        else if (Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z + 0f), -transform.up, out hit6, 0.4f) && _readyToMove == true)
-        {
-            Debug.Log("+x");
-            transform.position = new Vector3(transform.position.x + 1, transform.position.y + 2, transform.position.z);
-            _readyToMove = false;
-        }
-        */
+      
 
     }
 
