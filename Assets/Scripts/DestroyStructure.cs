@@ -13,7 +13,7 @@ public class DestroyStructure : MonoBehaviour
         {
             Debug.Log("Modo destruir");
             this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
-            Destroy(this.gameObject,0.1f);
+            Destroy(this.gameObject,0.15f);
         }
         else
         {
