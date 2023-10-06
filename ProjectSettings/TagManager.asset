@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Node
   - TownHall
+  - Spawner
+  - Wall
   layers:
   - Default
   - TransparentFX
