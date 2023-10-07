@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using Unity.AI.Navigation;
+using UnityEngine.AI;
 
 public class MainStrcuteSpawn : MonoBehaviour
 {
     private bool _readyToMove;
+    public GameObject navMeshUpdater;
+    
     void Start()
     {
         _readyToMove = false;
+        navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
     }
 
   
@@ -39,6 +44,7 @@ public class MainStrcuteSpawn : MonoBehaviour
                 hit9.collider.CompareTag("Node"))
             {
                 Debug.Log("Posicion Correcta");
+                navMeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
 
             }

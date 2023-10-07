@@ -79,7 +79,7 @@ public class gameManager : MonoBehaviour
        for(int _actualNumberOfEnemies = 0; _actualNumberOfEnemies <  _totalNumberOfEnemies; _actualNumberOfEnemies++)
        {
             
-            Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position, Quaternion.identity);
+            Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 4, Quaternion.identity);
            
             
             //Debug.Log("Enemigo spawneado" + i);

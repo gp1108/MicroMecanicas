@@ -37,32 +37,38 @@ public class Turret : MonoBehaviour
     }
     public void GetTarget()
     {
-        _lookAt = _target.transform.position - transform.position;
-        
-        foreach (GameObject _Enemy in _enemies)
+        if(_target != null)
         {
-            if (Vector3.Distance(transform.position, _Enemy.transform.position) <= _distance)
+            _lookAt = _target.transform.position - transform.position;
+
+            foreach (GameObject _Enemy in _enemies)
             {
-                _distance = Vector3.Distance(transform.position, _Enemy.transform.position);
+                if (Vector3.Distance(transform.position, _Enemy.transform.position) <= _distance)
+                {
+                    _distance = Vector3.Distance(transform.position, _Enemy.transform.position);
 
-                _target = _Enemy;
+                    _target = _Enemy;
 
+                }
+            }
+            if (Vector3.Distance(transform.position, _target.transform.position) < _rangeVision)
+            {
+                _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
+
+                transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
+
+                _lookAt.y = 0;
+
+                _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
+
+                transform.rotation = Quaternion.Lerp(transform.rotation, _rotation, _velocitiRotation * Time.deltaTime);
+
+                Attac();
             }
         }
-        if (Vector3.Distance(transform.position, _target.transform.position) < _rangeVision)
-        {
-            _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-            
-            transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
-            
-            _lookAt.y = 0;
-            
-            _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-            
-            transform.rotation = Quaternion.Lerp(transform.rotation, _rotation, _velocitiRotation * Time.deltaTime);
-            
-            Attac();
-        }
+        
+        
+        
     }
     public void Attac()
     {

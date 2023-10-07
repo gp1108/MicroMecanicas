@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 7053057100598058300}
   - component: {fileID: 4934854610268899576}
   - component: {fileID: -7685766331347395893}
+  - component: {fileID: -3588350611151284595}
   m_Layer: 0
   m_Name: Town Transparency
   m_TagString: Untagged
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f003a016f079ee49b4726627be12229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prefabSize: {fileID: 0}
 --- !u!54 &4934854610268899576
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,6 +229,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabSize: 2
   validposition: 0
+--- !u!114 &-3588350611151284595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3462134141447311124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &3744372915040068521
 GameObject:
   m_ObjectHideFlags: 0
