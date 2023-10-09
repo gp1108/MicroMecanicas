@@ -43,7 +43,7 @@ public class MainStrcuteSpawn : MonoBehaviour
                 hit8.collider.CompareTag("Node") &&
                 hit9.collider.CompareTag("Node"))
             {
-                Debug.Log("Posicion Correcta");
+                
                 navMeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
 
@@ -53,7 +53,7 @@ public class MainStrcuteSpawn : MonoBehaviour
         {
             if (!Physics.Raycast(new Vector3(transform.position.x + 0f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit7, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("-z");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z - 1);
                 
@@ -61,49 +61,49 @@ public class MainStrcuteSpawn : MonoBehaviour
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 0f, transform.position.y + 1, transform.position.z - 1f), -transform.up, out hit9, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("+z");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z + 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y + 1, transform.position.z + 0f), -transform.up, out hit8, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("-x");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x + 1, transform.position.y + 6, transform.position.z);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y + 1, transform.position.z + 0f), -transform.up, out hit6, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("+x");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x - 1, transform.position.y + 6, transform.position.z);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit5, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("+x+z");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x - 1, transform.position.y + 6, transform.position.z - 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit4, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("-x+z");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x + 1, transform.position.y + 6, transform.position.z - 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y + 1, transform.position.z - 1f), -transform.up, out hit3, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("+x-z");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x - 1, transform.position.y + 6, transform.position.z + 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y + 1, transform.position.z - 1f), -transform.up, out hit2, 1.4f) && _readyToMove == true)
             {
-                Debug.Log("-x-z");
+                
                 _readyToMove = false;
                 transform.position = new Vector3(transform.position.x + 1, transform.position.y + 6, transform.position.z + 1);
                 
