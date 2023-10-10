@@ -33,12 +33,47 @@ public class Enemy1 : MonoBehaviour
 
         _navAgent.SetDestination(_TownHall.transform.position);
 
-        _distancia =_TownHall.transform.position - transform.position;
+        NavMeshPath path = new NavMeshPath();
+
+        // Calcula el camino hasta el TownHall
+        _navAgent.CalculatePath(_TownHall.transform.position, path);
+
+        // Comprueba si el camino está disponible
+        if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        {
+            // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
+
+
+            // Encuentra el punto más cercano accesible en el NavMesh
+            Vector3 closestPoint = FindClosestPointOnNavMesh(_TownHall.transform.position);
+
+            // Establece ese punto como destino
+            _navAgent.SetDestination(closestPoint);
+        }
+
+        _distancia = _TownHall.transform.position - transform.position;
 
         
 
-        
+    }
 
+    Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
+    {
+        Debug.Log("Esto esta ocurriendo, la condicion de path not found funciona");
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(targetPosition, out hit, 10f, NavMesh.AllAreas))
+        {
+            Debug.Log("Esto esta ocurriendo , estoy devolviendo un supuesto hit point");
+            Debug.Log(hit.position);
+            return hit.position;
+            
+        }
+        else
+        {
+            // Si no se encuentra un punto en el NavMesh, puedes manejarlo de alguna manera.
+            // Por ejemplo, podrías devolver la posición actual del agente.
+            return transform.position;
+        }
     }
     public void Atac()
     {

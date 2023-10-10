@@ -43,7 +43,8 @@ public class MainStrcuteSpawn : MonoBehaviour
                 hit8.collider.CompareTag("Node") &&
                 hit9.collider.CompareTag("Node"))
             {
-                
+                int heightFix = Mathf.FloorToInt(transform.position.y);
+                transform.position = new Vector3(transform.position.x, heightFix, transform.position.z);
                 navMeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
 
@@ -55,7 +56,7 @@ public class MainStrcuteSpawn : MonoBehaviour
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z - 1);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z - 2);
                 
 
             }
@@ -63,49 +64,49 @@ public class MainStrcuteSpawn : MonoBehaviour
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x, transform.position.y + 6, transform.position.z + 1);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z + 2);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y + 1, transform.position.z + 0f), -transform.up, out hit8, 1.4f) && _readyToMove == true)
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x + 1, transform.position.y + 6, transform.position.z);
+                transform.position = new Vector3(transform.position.x + 2, transform.position.y + 3, transform.position.z);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y + 1, transform.position.z + 0f), -transform.up, out hit6, 1.4f) && _readyToMove == true)
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x - 1, transform.position.y + 6, transform.position.z);
+                transform.position = new Vector3(transform.position.x - 2, transform.position.y + 3, transform.position.z);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit5, 1.4f) && _readyToMove == true)
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x - 1, transform.position.y + 6, transform.position.z - 1);
+                transform.position = new Vector3(transform.position.x - 1, transform.position.y + 3, transform.position.z - 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit4, 1.4f) && _readyToMove == true)
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x + 1, transform.position.y + 6, transform.position.z - 1);
+                transform.position = new Vector3(transform.position.x + 1, transform.position.y + 3, transform.position.z - 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x + 1f, transform.position.y + 1, transform.position.z - 1f), -transform.up, out hit3, 1.4f) && _readyToMove == true)
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x - 1, transform.position.y + 6, transform.position.z + 1);
+                transform.position = new Vector3(transform.position.x - 1, transform.position.y + 3, transform.position.z + 1);
                 
             }
             else if (!Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y + 1, transform.position.z - 1f), -transform.up, out hit2, 1.4f) && _readyToMove == true)
             {
                 
                 _readyToMove = false;
-                transform.position = new Vector3(transform.position.x + 1, transform.position.y + 6, transform.position.z + 1);
+                transform.position = new Vector3(transform.position.x + 1, transform.position.y + 3, transform.position.z + 1);
                 
             }
         }
