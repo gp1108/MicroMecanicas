@@ -7,12 +7,14 @@ using UnityEngine.AI;
 public class MainStrcuteSpawn : MonoBehaviour
 {
     private bool _readyToMove;
-    public GameObject navMeshUpdater;
+    private GameObject navMeshUpdater;
+    private GameObject canvas;
     
     void Start()
     {
         _readyToMove = false;
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
     }
 
   
@@ -43,9 +45,14 @@ public class MainStrcuteSpawn : MonoBehaviour
                 hit8.collider.CompareTag("Node") &&
                 hit9.collider.CompareTag("Node"))
             {
+                //Ultimo arreglo del generador
                 int heightFix = Mathf.FloorToInt(transform.position.y);
                 transform.position = new Vector3(transform.position.x, heightFix, transform.position.z);
                 navMeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
+
+                //Dejar elegante la escena ocultando los nodos
+                canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
+
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
 
             }

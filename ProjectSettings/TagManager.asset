@@ -9,6 +9,7 @@ TagManager:
   - Spawner
   - Wall
   - NavMeshUpdater
+  - Canvas
   layers:
   - Default
   - TransparentFX
