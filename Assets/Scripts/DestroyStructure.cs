@@ -15,7 +15,7 @@ public class DestroyStructure : MonoBehaviour
             if(this.gameObject.tag == "Wall")
             {
                 
-                BuildManager.dameReferencia.WallUpdate(this.gameObject);
+                BuildManager.dameReferencia.RemoveAndWallUpdate(this.gameObject);
                 this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
                 Destroy(this.gameObject, 0.15f);
                 

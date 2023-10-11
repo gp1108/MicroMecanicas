@@ -111,12 +111,12 @@ public class BuildManager : MonoBehaviour
                 _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
             }
             
-            Debug.Log(Walls.Count + " he añadido muro");
+            
         }
     }
 
     
-    public void WallUpdate(GameObject Wall)
+    public void RemoveAndWallUpdate(GameObject Wall)
     {
 
         Walls.Remove(Wall);
@@ -125,45 +125,11 @@ public class BuildManager : MonoBehaviour
             if (_wall != null)
             {
                 _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
-                Debug.Log(Walls.Count + "He borrado muro");
+                
             }
         }
     }
-    /*
-    public void WallUpdate(GameObject Wall)
-    {
-        List<GameObject> wallsToRemove = new List<GameObject>();
-
-        // Encuentra las paredes que deben ser eliminadas
-        foreach (GameObject _wall in Walls)
-        {
-            if (_wall == Wall)
-            {
-                wallsToRemove.Add(_wall);
-            }
-        }
-
-        // Elimina las paredes de la lista
-        foreach (GameObject wallToRemove in wallsToRemove)
-        {
-            Walls.Remove(wallToRemove);
-            Debug.Log("He borrado el muro");
-            wallToRemove.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
-            Destroy(wallToRemove.gameObject, 0.15f);
-        }
-
-        // Vuelve a dibujar las paredes restantes
-        foreach (GameObject _wall in Walls)
-        {
-            if(_wall != null)
-            {
-                _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
-                Debug.Log(Walls.Count + "He borrado muro");
-            }
-            
-        }
-    }
-    */
+    
 
     public void GetStructurePrefabIndex(int index)
     {

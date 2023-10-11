@@ -10,8 +10,7 @@ public class NavMeshBake : MonoBehaviour
     public bool navmeshON;
 
     public void doNavMeshBake()
-    {
-        // Puedes activar o desactivar el NavMeshSurface según tus necesidades.
+    { 
         navMeshSurface.BuildNavMesh();
     }
 
