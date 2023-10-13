@@ -20,7 +20,7 @@ public class Enemy1 : MonoBehaviour
         
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
-
+        GetComponent<Health>().healthPoints = 10;
     }
 
     // Update is called once per frame

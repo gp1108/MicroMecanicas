@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public LayerMask Lul;
     private Vector3 _lookAt;
     private Quaternion _rotation;
     private float _velocitiRotation;
@@ -16,7 +18,8 @@ public class Turret : MonoBehaviour
     private GameObject _bullet;
     public GameObject bullet;
     public GameObject exitBullet;
-    private List<GameObject> _enemies = new List<GameObject>();
+    [SerializeField] private List<Collider> _enemies = new List<Collider>();
+    [SerializeField] private Collider[] _prueba ;
     private bool _attacking;
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class Turret : MonoBehaviour
     {
         
         GetTarget();
+        GetEnemi();
 
     }
     public void GetTarget()
@@ -41,13 +45,13 @@ public class Turret : MonoBehaviour
         {
             _lookAt = _target.transform.position - transform.position;
 
-            foreach (GameObject _Enemy in _enemies)
+            foreach (Collider _Enemy in _enemies)
             {
                 if (Vector3.Distance(transform.position, _Enemy.transform.position) <= _distance)
                 {
                     _distance = Vector3.Distance(transform.position, _Enemy.transform.position);
 
-                    _target = _Enemy;
+                    _target = _Enemy.gameObject;
 
                 }
             }
@@ -98,15 +102,34 @@ public class Turret : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay(Collider other)
+    public void GetEnemi()
     {
-        if (other.tag == "Enemies")
+        _prueba = Physics.OverlapSphere(transform.position, 10,Lul);
+        
+        _enemies = _prueba.ToList();
+        if(_enemies[0].gameObject != null)
         {
+            _target = _enemies[0].gameObject;
+        }
+        
+        /*
+        foreach(Collider _pru in _prueba)
+        {
+            _enemies.Add(_pru.transform.gameObject);
+            
+            if (_pru.transform.tag == "Enemies")
+            {
+                Debug.Log("tu madre");
+                
+                
 
-            _enemies.Add(other.gameObject);
-            _distance = Vector3.Distance(transform.position, _enemies[0].transform.position);
+            }
+            
 
         }
+        */
+        //_prueba
+
     }
 
 }
