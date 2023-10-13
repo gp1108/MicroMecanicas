@@ -107,28 +107,18 @@ public class Turret : MonoBehaviour
         _prueba = Physics.OverlapSphere(transform.position, 10,Lul);
         
         _enemies = _prueba.ToList();
-        if(_enemies[0].gameObject != null)
+        
+
+        if(_enemies.Count == 0)
+        {
+            return;
+        }
+        else
         {
             _target = _enemies[0].gameObject;
         }
         
-        /*
-        foreach(Collider _pru in _prueba)
-        {
-            _enemies.Add(_pru.transform.gameObject);
-            
-            if (_pru.transform.tag == "Enemies")
-            {
-                Debug.Log("tu madre");
-                
-                
-
-            }
-            
-
-        }
-        */
-        //_prueba
+        
 
     }
 
