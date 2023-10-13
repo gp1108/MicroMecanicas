@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5447003224139155879}
   - component: {fileID: 3696988290098337953}
+  - component: {fileID: 2655528214256855257}
   m_Layer: 0
   m_Name: SmallRocks
   m_TagString: Untagged
@@ -56,6 +57,18 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &2655528214256855257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784257595272622726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32c9833a61442f4faed13b5344a6abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2046532208245021362
 GameObject:
   m_ObjectHideFlags: 0
