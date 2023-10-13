@@ -73,7 +73,7 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    int i = 1;
+    
    public void SpawnEnemies()
    {
        for(int _actualNumberOfEnemies = 0; _actualNumberOfEnemies <  _totalNumberOfEnemies; _actualNumberOfEnemies++)
@@ -81,10 +81,6 @@ public class gameManager : MonoBehaviour
             
             Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 4, Quaternion.identity);
            
-            
-            //Debug.Log("Enemigo spawneado" + i);
-            i++;
-
             
        }
         _totalNumberOfEnemies += 5;
