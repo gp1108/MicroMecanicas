@@ -15,9 +15,13 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject destroyButton;
     [Header("Research Panel")]
     public GameObject canvas;
+    
 
     public void Start()
     {
+       
+
+
         destroyModeActive = false;
         buildMenuActive = true;
     }

@@ -45,7 +45,7 @@ public class gameManager : MonoBehaviour
     public GameObject canvas;
 
     [Header("Gold System")]
-    private int _gold;
+    public int gold;
     public TMP_Text goldText;
     [Header("NavMesh")]
     public GameObject navmeshUpdater;
@@ -62,6 +62,7 @@ public class gameManager : MonoBehaviour
        _roundsPlayed = 0;
        _totalRounds = 20;
        _totalNumberOfEnemies = 5;
+        GetGold(100);
     }
     private void Update()
     {
@@ -170,8 +171,8 @@ public class gameManager : MonoBehaviour
     public void GetGold( int oro)
     {
 
-        _gold += oro;
-        goldText.text = _gold.ToString();
+        gold += oro;
+        goldText.text = gold.ToString();
 
     }
     

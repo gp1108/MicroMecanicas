@@ -6,5 +6,5 @@
  * 2 crear en el build menu un set index 
  * 3 añadirle a la estructura el node updater rigidbody , destroy function y collider
  * 4 añadirle dependeiendo del tamaño al prefab transparente el prevew prefab size , quitarle el collider y el nav mesh modifier
- * 
+ * 5 añadir en el buildmanager , set prefab index , su coste en oro y sus variables.
  */

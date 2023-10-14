@@ -24,7 +24,13 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Material unAviableInstance;
     public GameObject buildPanel;
     private Canvas canvas;
-    public GameObject navmeshUpdater;
+
+    [Header("Gold Cost")]
+    public int goldToPay;
+    public int wallCost;
+    public int baseTurretCost;
+    public int otherTurretCost;
+    public int researchStructureCost;
 
     public static BuildManager dameReferencia
     {
@@ -48,6 +54,12 @@ public class BuildManager : MonoBehaviour
     public void Start()
     {
         canvas = FindObjectOfType<Canvas>();
+
+        //Costs
+        wallCost = 20;
+        baseTurretCost = 50;
+        otherTurretCost = 100;
+        researchStructureCost = 500;
     }
 
     private void Update()
@@ -135,7 +147,23 @@ public class BuildManager : MonoBehaviour
     public void GetStructurePrefabIndex(int index)
     {
         _structureIndex = index;
-        
+        if(_structureIndex == 0)
+        {
+            goldToPay = wallCost;
+        }
+        else if(_structureIndex == 1)
+        {
+            goldToPay = baseTurretCost;
+        }
+        else if (_structureIndex == 2)
+        {
+            goldToPay = otherTurretCost;
+        }
+        else if (_structureIndex == 3)
+        {
+            goldToPay = researchStructureCost;
+        }
+
     }
 
     public void PlaceStucture(Vector3 position)
@@ -143,17 +171,22 @@ public class BuildManager : MonoBehaviour
         
         if(_canbuild == true && buildCD == false) 
         {
-            Instantiate(_structures[_structureIndex], position, Quaternion.identity);
-
-            foreach (GameObject _wall in Walls)
+            if(goldToPay <= gameManager.giveMeReference.gold)
             {
-                if(_wall != null)
+                Instantiate(_structures[_structureIndex], position, Quaternion.identity);
+
+                foreach (GameObject _wall in Walls)
                 {
-                    _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
+                    if (_wall != null)
+                    {
+                        _wall.gameObject.GetComponent<WallCheck>().DoWallDraw();
+                    }
+
                 }
-                
+                buildCD = true;
+                gameManager.giveMeReference.GetGold(-goldToPay);
             }
-            buildCD = true;
+            
             
         }
         else
@@ -163,11 +196,7 @@ public class BuildManager : MonoBehaviour
 
 
     }
-    //NavmeshSystem
-    public void NavmeshUpdate()
-    {
-        navmeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
-    }
+    
     
     //PreviewSystem
     public void GetPreviewPrefabPosition(Vector3 position)
