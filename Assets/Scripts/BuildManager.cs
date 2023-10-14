@@ -24,7 +24,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Material unAviableInstance;
     public GameObject buildPanel;
     private Canvas canvas;
-    
+    public GameObject navmeshUpdater;
 
     public static BuildManager dameReferencia
     {
@@ -128,6 +128,7 @@ public class BuildManager : MonoBehaviour
                 
             }
         }
+        
     }
     
 
@@ -153,7 +154,7 @@ public class BuildManager : MonoBehaviour
                 
             }
             buildCD = true;
-
+            
         }
         else
         {
@@ -162,7 +163,11 @@ public class BuildManager : MonoBehaviour
 
 
     }
-
+    //NavmeshSystem
+    public void NavmeshUpdate()
+    {
+        navmeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
+    }
     
     //PreviewSystem
     public void GetPreviewPrefabPosition(Vector3 position)

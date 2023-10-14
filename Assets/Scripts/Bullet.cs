@@ -23,14 +23,6 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.GetComponent<Health>().GetDamaged(damaged);
         }
-        if (other.gameObject.tag == "Destruible")
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.tag == "Jugador")
-        {
-            other.gameObject.GetComponent<Health>().GetDamaged(damaged);
-        }
-        Destroy(this.gameObject);
+      
     }
 }

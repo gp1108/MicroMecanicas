@@ -59,11 +59,11 @@ public class Enemy1 : MonoBehaviour
 
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
     {
-        Debug.Log("Esto esta ocurriendo, la condicion de path not found funciona");
+        
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPosition, out hit, 10f, NavMesh.AllAreas))
         {
-            Debug.Log("Esto esta ocurriendo , estoy devolviendo un supuesto hit point");
+            
             Debug.Log(hit.position);
             return hit.position;
             
