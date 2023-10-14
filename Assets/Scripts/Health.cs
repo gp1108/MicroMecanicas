@@ -21,6 +21,11 @@ public class Health : MonoBehaviour
         healthPoints -= Damaged;
         if (healthPoints <= 0)
         {
+            if (this.tag == "Enemies")
+            {
+                gameManager.giveMeReference.GetGold(10);
+            }
+
             Destroy(this.gameObject);
         }
     }

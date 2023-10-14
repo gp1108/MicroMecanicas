@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -34,11 +35,14 @@ public class gameManager : MonoBehaviour
     private int _roundsPlayed;
     private int _totalRounds;
     private int _totalNumberOfEnemies;
-    private int _oro;
+    private int _gold;
+    public TMP_Text goldText;
 
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
+
+        
     }
 
     private void Start()
@@ -47,8 +51,12 @@ public class gameManager : MonoBehaviour
        _totalRounds = 20;
        _totalNumberOfEnemies = 5;
     }
+    private void Update()
+    {
+        
+    }
 
-   
+
 
     public void PlayerDead()
     {
@@ -86,15 +94,17 @@ public class gameManager : MonoBehaviour
         _totalNumberOfEnemies += 5;
     }
 
-    public void GetGold()
+    public void GetGold( int oro)
     {
 
-
+        _gold += oro;
+        goldText.text = _gold.ToString();
 
     }
     public void OnBecameVisible()
     {
         RoundStart();
     }
+    
 
 }
