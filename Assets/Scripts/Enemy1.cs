@@ -21,12 +21,13 @@ public class Enemy1 : MonoBehaviour
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
         GetComponent<Health>().healthPoints = 10;
+        Move();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        
     }
     public void Move()
     {
@@ -53,7 +54,6 @@ public class Enemy1 : MonoBehaviour
 
         _distancia = _TownHall.transform.position - transform.position;
 
-        
 
     }
 
@@ -63,8 +63,7 @@ public class Enemy1 : MonoBehaviour
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPosition, out hit, 10f, NavMesh.AllAreas))
         {
-            
-            Debug.Log(hit.position);
+
             return hit.position;
             
         }

@@ -1754,7 +1754,12 @@ MonoBehaviour:
   enemiesSpawners: []
   enemies:
   - {fileID: 9161228910576418350, guid: eaa39598a29d6d343aa15eb54ffaef1b, type: 3}
+  enemiesAlive: 0
+  BuildMenuButton: {fileID: 909900403}
+  ResearchMenuButton: {fileID: 1905193622}
+  canvas: {fileID: 225649982}
   goldText: {fileID: 2018321478}
+  navmeshUpdater: {fileID: 1095215786}
 --- !u!4 &1012099156
 Transform:
   m_ObjectHideFlags: 0
@@ -1777,7 +1782,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012099154}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4309,6 +4314,7 @@ MonoBehaviour:
   aviableInstance: {fileID: 2100000, guid: 47e26f5795720714898637160bcf5028, type: 2}
   unAviableInstance: {fileID: 2100000, guid: 0f5e32225884a48429f1d7ce675958b0, type: 2}
   buildPanel: {fileID: 1083629966}
+  navmeshUpdater: {fileID: 0}
 --- !u!1 &2138063372
 GameObject:
   m_ObjectHideFlags: 0

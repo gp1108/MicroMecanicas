@@ -24,9 +24,11 @@ public class Health : MonoBehaviour
             if (this.tag == "Enemies")
             {
                 gameManager.giveMeReference.GetGold(10);
+                gameManager.giveMeReference.EnemyDead();
             }
 
             Destroy(this.gameObject);
+            return;
         }
     }
 }
