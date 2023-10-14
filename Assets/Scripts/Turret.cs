@@ -47,13 +47,21 @@ public class Turret : MonoBehaviour
 
             foreach (Collider _Enemy in _enemies)
             {
-                if (Vector3.Distance(transform.position, _Enemy.transform.position) <= _distance)
+                if (_Enemy != null)
                 {
-                    _distance = Vector3.Distance(transform.position, _Enemy.transform.position);
+                    if (Vector3.Distance(transform.position, _Enemy.transform.position) <= _distance)
+                    {
+                        _distance = Vector3.Distance(transform.position, _Enemy.transform.position);
 
-                    _target = _Enemy.gameObject;
+                        _target = _Enemy.gameObject;
 
+                    }
                 }
+                else
+                {
+                    //_enemies.Remove(_Enemy);
+                }
+                
             }
             if (Vector3.Distance(transform.position, _target.transform.position) < _rangeVision)
             {
@@ -83,7 +91,7 @@ public class Turret : MonoBehaviour
 
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
-            _bullet.gameObject.GetComponent<Bullet>().daño = 1;
+            _bullet.gameObject.GetComponent<Bullet>().damaged = 1;
 
             _attacking = true;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float daño;
+    public float damaged;
     public int velocidad;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemies")
         {
-            other.gameObject.GetComponent<Health>().GetDamaged(daño);
+            other.gameObject.GetComponent<Health>().GetDamaged(damaged);
         }
         if (other.gameObject.tag == "Destruible")
         {
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         }
         if (other.gameObject.tag == "Jugador")
         {
-            other.gameObject.GetComponent<Health>().GetDamaged(daño);
+            other.gameObject.GetComponent<Health>().GetDamaged(damaged);
         }
         Destroy(this.gameObject);
     }

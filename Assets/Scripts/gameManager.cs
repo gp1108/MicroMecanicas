@@ -34,7 +34,7 @@ public class gameManager : MonoBehaviour
     private int _roundsPlayed;
     private int _totalRounds;
     private int _totalNumberOfEnemies;
-
+    private int _oro;
 
     private void Awake()
     {
@@ -86,7 +86,12 @@ public class gameManager : MonoBehaviour
         _totalNumberOfEnemies += 5;
     }
 
+    public void GetGold()
+    {
 
+
+
+    }
     public void OnBecameVisible()
     {
         RoundStart();
