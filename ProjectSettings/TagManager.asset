@@ -11,6 +11,9 @@ TagManager:
   - NavMeshUpdater
   - Canvas
   - Enemies
+  - BaseTurret
+  - OtherTurret
+  - Taller
   layers:
   - Default
   - TransparentFX
