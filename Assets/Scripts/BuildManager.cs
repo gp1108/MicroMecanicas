@@ -74,7 +74,7 @@ public class BuildManager : MonoBehaviour
     private void Update()
     {
         bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
-        Debug.Log(goldToPay);
+        
 
         if (previewPrefab != null)
         {
