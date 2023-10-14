@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class BuildManager : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class BuildManager : MonoBehaviour
     public int baseTurretCost;
     public int otherTurretCost;
     public int researchStructureCost;
+    [Header("Gold Texts")]
+    public TMP_Text textWallCost;
+    public TMP_Text textBaseTurretCost;
+    public TMP_Text textOtherTurretCost;
+    public TMP_Text textResearchStructureCost;
 
     public static BuildManager dameReferencia
     {
@@ -56,15 +62,19 @@ public class BuildManager : MonoBehaviour
         canvas = FindObjectOfType<Canvas>();
 
         //Costs
-        wallCost = 20;
-        baseTurretCost = 50;
-        otherTurretCost = 100;
-        researchStructureCost = 500;
+        wallCost = 5;
+        baseTurretCost = 10;
+        otherTurretCost = 50;
+        researchStructureCost = 200;
+        UpdatePriceUI();
+
+        goldToPay = 5; // igualo aqui al precio de los muros para evitar un bug en el que la partida carga y puedes construir muros sin gastar dinero
     }
 
     private void Update()
     {
         bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
+        Debug.Log(goldToPay);
 
         if (previewPrefab != null)
         {
@@ -72,7 +82,7 @@ public class BuildManager : MonoBehaviour
 
 
             //Color del prefab
-            if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == true && buildPanel.activeSelf && isDestroyModeActive == false)
+            if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == true && buildPanel.activeSelf && isDestroyModeActive == false && goldToPay <= gameManager.giveMeReference.gold)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
@@ -85,7 +95,7 @@ public class BuildManager : MonoBehaviour
                 }
 
             }
-            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf && isDestroyModeActive == false)
+            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf && isDestroyModeActive == false && goldToPay > gameManager.giveMeReference.gold)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
@@ -147,11 +157,17 @@ public class BuildManager : MonoBehaviour
     public void GetStructurePrefabIndex(int index)
     {
         _structureIndex = index;
-        if(_structureIndex == 0)
+        StructureCost();
+        
+
+    }
+    public void StructureCost()
+    {
+        if (_structureIndex == 0)
         {
             goldToPay = wallCost;
         }
-        else if(_structureIndex == 1)
+        else if (_structureIndex == 1)
         {
             goldToPay = baseTurretCost;
         }
@@ -163,7 +179,73 @@ public class BuildManager : MonoBehaviour
         {
             goldToPay = researchStructureCost;
         }
+    } //Determina el valor a pagar segun la estructura
+    public void PriceUpdate(int Index, bool moreCost) //Aumenta o disminuye el precio de construccion de los objetos
+    {
+        
+        //La variable more hace referencia a si se ha vendido o colocado el objeto. Si se ha vendido el precio debe disminuir , si se ha colocado , aumentar.
+        if(moreCost == true)
+        {
+            if (_structureIndex == 0)
+            {
+                
+                wallCost += 2;
+                
+            }
+            else if (_structureIndex == 1)
+            {
+                baseTurretCost += 5;
+            }
+            else if (_structureIndex == 2)
+            {
+                otherTurretCost += 10;
+            }
+            else if (_structureIndex == 3)
+            {
+                researchStructureCost += 1000;
+            }
+            UpdatePriceUI();
+            StructureCost();
+        }
+        else if(moreCost == false)
+        {
+            if (Index == 0)
+            {
+                
+                wallCost -= 2;
+                gameManager.giveMeReference.GetGold(wallCost);
+                
+            }
+            else if (Index == 1)
+            {
+                
+                baseTurretCost -= 5;
+                gameManager.giveMeReference.GetGold(baseTurretCost);
+            }
+            else if (Index == 2)
+            {
+               
+                otherTurretCost -= 10;
+                gameManager.giveMeReference.GetGold(otherTurretCost);
+            }
+            else if (Index == 3)
+            {
+                
+                researchStructureCost -= 1000;
+                gameManager.giveMeReference.GetGold(researchStructureCost);
+            }
+            UpdatePriceUI();
+            StructureCost();
+        }
+    }
 
+    public void UpdatePriceUI() //Actualiza los textos de los precios
+    {
+        textWallCost.text = wallCost.ToString() + "g";
+        textBaseTurretCost.text = baseTurretCost.ToString() + "g";
+        textOtherTurretCost.text = otherTurretCost.ToString() + "g";
+        textResearchStructureCost.text = researchStructureCost.ToString() + "g";
+        
     }
 
     public void PlaceStucture(Vector3 position)
@@ -185,6 +267,8 @@ public class BuildManager : MonoBehaviour
                 }
                 buildCD = true;
                 gameManager.giveMeReference.GetGold(-goldToPay);
+                PriceUpdate(_structureIndex,true);
+
             }
             
             
