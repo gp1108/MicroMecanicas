@@ -8,4 +8,5 @@
  * 4 añadirle dependeiendo del tamaño al prefab transparente el prevew prefab size , quitarle el collider y el nav mesh modifier
  * 5 añadir en el buildmanager , structure cost,  su coste en oro y sus variables.
  * 6 añadir en el build manager priceupdate y update price UI
+ * 7 Añadirle la funcion al script destroy structure
  */
