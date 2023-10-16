@@ -125,7 +125,7 @@ public class gameManager : MonoBehaviour
             
             enemyToSpawn = Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
             enemiesAlive ++;
-            Debug.Log(enemiesAlive + "Enemigo vivo");
+            
             //_enemies.Add(enemyToSpawn);
        }
         _totalNumberOfEnemies += 5;

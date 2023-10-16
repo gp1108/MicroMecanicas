@@ -24,6 +24,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("EjemCorrutina");
         _attacking = false;
         _velocitiRotation = 8;
         _range = 10;
@@ -34,24 +35,24 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetEnemy();
         GetTarget();
-        GetEnemi();
+        
 
     }
     public void GetTarget()
     {
         if(_target != null)
         {
-            _lookAt = _target.transform.position - transform.position;
-
+            _lookAt = _target.transform.position - transform.GetChild(0).transform.position;
+            _distance = Vector3.Distance(transform.GetChild(0).position, _target.transform.position);
             foreach (Collider _Enemy in _enemies)
             {
                 if (_Enemy != null)
                 {
-                    if (Vector3.Distance(transform.position, _Enemy.transform.position) <= _distance)
+                    if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
-                        _distance = Vector3.Distance(transform.position, _Enemy.transform.position);
+                        _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
 
                         _target = _Enemy.gameObject;
 
@@ -59,35 +60,29 @@ public class Turret : MonoBehaviour
                 }
                 else
                 {
-                    //_enemies.Remove(_Enemy);
+                    
                 }
                 
             }
-            if (Vector3.Distance(transform.position, _target.transform.position) < _rangeVision)
+            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < _rangeVision)
             {
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
 
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
 
-                _lookAt.y = 0;
-
-                _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-
-                transform.rotation = Quaternion.Lerp(transform.rotation, _rotation, _velocitiRotation * Time.deltaTime);
-
-                Attac();
+                Attack();
             }
         }
         
         
         
     }
-    public void Attac()
+    public void Attack()
     {
         if (Vector3.Distance(transform.position, _target.transform.position) < _range && _attacking == false)
         {
 
-            _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, transform.GetChild(1).rotation);
+            _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
 
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
@@ -110,7 +105,7 @@ public class Turret : MonoBehaviour
             }
         }
     }
-    public void GetEnemi()
+    public void GetEnemy()
     {
         _prueba = Physics.OverlapSphere(transform.position, 10,Lul);
         
@@ -121,7 +116,7 @@ public class Turret : MonoBehaviour
         {
             return;
         }
-        else
+        if(_enemies.Count == 1)
         {
             _target = _enemies[0].gameObject;
         }
@@ -129,5 +124,18 @@ public class Turret : MonoBehaviour
         
 
     }
+
+    /*
+    IEnumerator EjemCorrutina()
+    {
+        int num = 0;
+        while (true)
+        {
+            Debug.Log(num);
+            num++;
+            yield return new WaitForSeconds(1);
+        }
+    }
+    */
 
 }
