@@ -15,18 +15,23 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject destroyButton;
     [Header("Research Panel")]
     public GameObject canvas;
+    [Header("Buttons")]
+    public GameObject wallButton;
+    public GameObject turretButton;
+    public GameObject otherTurretButton;
+    public GameObject tallerButton;
     
 
     public void Start()
     {
-       
 
+        StartCoroutine("GoldCheck");
 
         destroyModeActive = false;
         buildMenuActive = true;
     }
 
-
+    
     public void EnableOrDisableBuildPanel()
     {
         buildMenuActive = !buildMenuActive;
@@ -112,5 +117,50 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+    }
+
+
+    IEnumerator GoldCheck()
+    {
+        while (true)
+        {
+            if(BuildManager.dameReferencia.wallCost > gameManager.giveMeReference.gold)
+            {
+                wallButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                wallButton.GetComponent<Button>().interactable = true;
+            }
+
+            if(BuildManager.dameReferencia.baseTurretCost > gameManager.giveMeReference.gold)
+            {
+                turretButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                turretButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.otherTurretCost > gameManager.giveMeReference.gold)
+            {
+                otherTurretButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                otherTurretButton.GetComponent<Button>().interactable = true;
+            }
+            
+            if (BuildManager.dameReferencia.researchStructureCost > gameManager.giveMeReference.gold)
+            {
+                tallerButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                tallerButton.GetComponent<Button>().interactable = true;
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+        
     }
 }

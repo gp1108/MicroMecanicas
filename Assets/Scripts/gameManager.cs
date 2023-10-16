@@ -37,7 +37,7 @@ public class gameManager : MonoBehaviour
     private int _totalNumberOfEnemies;
     private bool _onRound;
     public int enemiesAlive;
-    private List<GameObject> _enemies;
+    public TMP_Text roundsText;
     private GameObject enemyToSpawn;
     [Header("Menu Management")]
     public GameObject BuildMenuButton;
@@ -62,6 +62,7 @@ public class gameManager : MonoBehaviour
        _roundsPlayed = 0;
        _totalRounds = 20;
        _totalNumberOfEnemies = 5;
+        roundsText.text = "Ronda "  + _roundsPlayed.ToString();
         GetGold(100);
     }
     private void Update()
@@ -69,11 +70,11 @@ public class gameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.KeypadEnter) && _onRound == false )
         {
             _onRound = true;
-            NavmeshUpdate();
-            
-            
+            RoundStart();
+
+
             //Disable Menus
-            if(canvas.GetComponent<ResearchMenu>().researchMenuActive == true)
+            if (canvas.GetComponent<ResearchMenu>().researchMenuActive == true)
             {
                 canvas.GetComponent<ResearchMenu>().EnableOrDisableResearchPanel();
             }
@@ -109,6 +110,7 @@ public class gameManager : MonoBehaviour
         Debug.Log(_roundsPlayed + "Rondas");
         if(_roundsPlayed <= _totalRounds)
         {
+            roundsText.text = "Ronda "  + _roundsPlayed.ToString();
             SpawnEnemies();
         }
         else
@@ -126,7 +128,7 @@ public class gameManager : MonoBehaviour
             enemyToSpawn = Instantiate(enemies[0], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
             enemiesAlive ++;
             
-            //_enemies.Add(enemyToSpawn);
+            
        }
         _totalNumberOfEnemies += 5;
         
@@ -136,38 +138,22 @@ public class gameManager : MonoBehaviour
     public void EnemyDead()
     {
         enemiesAlive -= 1;
-        Debug.Log(enemiesAlive + "Menis 1 enemigo , quedan");
-        //_enemies.Remove(enemyToSpawn);
-        /*
-        foreach(var enemies in _enemies)
-        {
-            if(enemies == null)
-            {
-                _enemies.Remove(enemies);
-            }
-        }
-        */
-        if(enemiesAlive <= 0)
+        Debug.Log(enemiesAlive + "Menos 1 enemigo , quedan");
+        
+        if(enemiesAlive <= 0 && _onRound == true)
         {
             _onRound = false;
             _roundsPlayed += 1;
+            roundsText.text = "Ronda " +_roundsPlayed.ToString();
+
             //Enable Menus
-            
             BuildMenuButton.SetActive(true);
             ResearchMenuButton.SetActive(true);
             canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
         }
     }
 
-    //NavmeshSystem
-    public void NavmeshUpdate()
-    {
-        navmeshUpdater.GetComponent<NavMeshBake>().doNavMeshBake();
-        RoundStart();
-    }
-
-
-
+ 
     public void GetGold( int oro)
     {
 

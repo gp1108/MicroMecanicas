@@ -14,7 +14,7 @@ public class Turret : MonoBehaviour
     private float _distance;
     private float _timing;
     private float _accumulatedTime;
-    private GameObject _target;
+    [SerializeField]private GameObject _target;
     private GameObject _bullet;
     public GameObject bullet;
     public GameObject exitBullet;
@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("EjemCorrutina");
+        
         _attacking = false;
         _velocitiRotation = 8;
         _range = 10;
@@ -58,10 +58,7 @@ public class Turret : MonoBehaviour
 
                     }
                 }
-                else
-                {
-                    
-                }
+                
                 
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < _rangeVision)
@@ -120,22 +117,13 @@ public class Turret : MonoBehaviour
         {
             _target = _enemies[0].gameObject;
         }
-        
-        
-
-    }
-
-    /*
-    IEnumerator EjemCorrutina()
-    {
-        int num = 0;
-        while (true)
+        if(_target == null && _enemies.Count != 0)
         {
-            Debug.Log(num);
-            num++;
-            yield return new WaitForSeconds(1);
+            _target = _enemies[0].gameObject;
         }
+        
+
     }
-    */
+
 
 }

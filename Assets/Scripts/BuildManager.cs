@@ -95,7 +95,7 @@ public class BuildManager : MonoBehaviour
                 }
 
             }
-            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf && isDestroyModeActive == false && goldToPay > gameManager.giveMeReference.gold)
+            else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf && isDestroyModeActive == false && goldToPay <= gameManager.giveMeReference.gold)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
 
@@ -109,6 +109,15 @@ public class BuildManager : MonoBehaviour
                 
             }
             else if(!buildPanel.activeSelf || isDestroyModeActive == true)
+            {
+                Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
+                foreach (Renderer childRenderer in childRenderers)
+                {
+                    childRenderer.enabled = false;
+                    _canbuild = false;
+                }
+            }
+            else if( goldToPay > gameManager.giveMeReference.gold)
             {
                 Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
                 foreach (Renderer childRenderer in childRenderers)
