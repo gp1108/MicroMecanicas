@@ -131,7 +131,7 @@ public class BuildManager : MonoBehaviour
     }
 
 
-    List<GameObject> Walls = new List<GameObject>();
+    public List<GameObject> Walls = new List<GameObject>();
     public void Muro(GameObject Wall)
     {
         Walls.Add(Wall);
