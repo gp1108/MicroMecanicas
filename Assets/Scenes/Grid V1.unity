@@ -2029,7 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawners: []
   enemies:
-  - {fileID: 9161228910576418350, guid: eaa39598a29d6d343aa15eb54ffaef1b, type: 3}
+  - {fileID: 1323558377185222644, guid: d813a9ec05742a04e98e8580fde35074, type: 3}
   enemiesAlive: 0
   roundsText: {fileID: 1599957270}
   BuildMenuButton: {fileID: 909900403}
@@ -5009,6 +5009,7 @@ MonoBehaviour:
   textBaseTurretCost: {fileID: 1025579010}
   textOtherTurretCost: {fileID: 67687133}
   textResearchStructureCost: {fileID: 1769818105}
+  Walls: []
 --- !u!1 &2138063372
 GameObject:
   m_ObjectHideFlags: 0
