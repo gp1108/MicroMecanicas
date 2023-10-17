@@ -23,8 +23,12 @@ public class Enemy1 : MonoBehaviour
         GetComponent<Health>().healthPoints = 10;
         StartCoroutine("CheckPath");
     }
+    private void Update()
+    {
+        Atack();
+    }
 
-    
+
     public void Move()
     {
 
@@ -70,7 +74,7 @@ public class Enemy1 : MonoBehaviour
             return transform.position;
         }
     }
-    public void Atac()
+    public void Atack()
     {
 
         if (_atac == false)
@@ -79,17 +83,15 @@ public class Enemy1 : MonoBehaviour
 
             if (Physics.Raycast(transform.position, _distancia, out hit, 1))
             {
-                if (hit.transform.tag == "TownHall")
+                Debug.Log(hit.transform.name);
+                
+                if (hit.transform.GetComponent<Health>() != null&& hit.transform.tag!=this.tag)
                 {
-
-                    hit.transform.GetComponent<Health>().GetDamaged(2);
-
+ 
+                        hit.transform.GetComponent<Health>().GetDamaged(2);
+                    
                 }
-                if (hit.transform.tag == "Wall")
-                {
-                    hit.transform.GetComponent<Health>().GetDamaged(2);
-
-                }
+                
             }
             
             _atac = true;

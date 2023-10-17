@@ -12,7 +12,7 @@ public class WallCheck : MonoBehaviour
     [SerializeField] private GameObject _wallCubeMinusZ;
     private void Start()
     {
-
+        GetComponentInParent<Health>().healthPoints = 10;
         BuildManager.dameReferencia.Muro(this.gameObject);
         
     }

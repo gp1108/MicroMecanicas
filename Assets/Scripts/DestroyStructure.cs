@@ -19,6 +19,7 @@ public class DestroyStructure : MonoBehaviour
                 this.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
                 Destroy(this.gameObject, 0.15f);
                 BuildManager.dameReferencia.PriceUpdate(0, false);
+                
             }
             else
             {

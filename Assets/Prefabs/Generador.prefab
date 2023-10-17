@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5906671054056692253}
   - component: {fileID: -1051812787647096969}
   - component: {fileID: 8904756290231285801}
+  - component: {fileID: 2969992483392993603}
   m_Layer: 0
   m_Name: Generador
   m_TagString: TownHall
@@ -34,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 3491945848118819300}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7679351814324048273
 BoxCollider:
@@ -115,6 +116,19 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &2969992483392993603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020294716153456286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 0
 --- !u!1 &5582582533470786210
 GameObject:
   m_ObjectHideFlags: 0

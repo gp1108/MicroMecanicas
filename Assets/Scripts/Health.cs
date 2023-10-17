@@ -21,6 +21,10 @@ public class Health : MonoBehaviour
         healthPoints -= Damaged;
         if (healthPoints <= 0)
         {
+            if (this.tag == "Wall")
+            {
+                BuildManager.dameReferencia.RemoveAndWallUpdate(this.gameObject);
+            }
             if (this.tag == "Enemies")
             {
                 gameManager.giveMeReference.GetGold(10);

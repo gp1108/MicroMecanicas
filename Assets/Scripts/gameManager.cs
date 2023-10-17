@@ -67,6 +67,7 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
+        
         if(Input.GetKeyDown(KeyCode.KeypadEnter) && _onRound == false )
         {
             _onRound = true;
