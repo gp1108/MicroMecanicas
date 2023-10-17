@@ -31,29 +31,32 @@ public class Enemy1 : MonoBehaviour
 
     public void Move()
     {
-
-        _navAgent.SetDestination(_TownHall.transform.position);
-
-        NavMeshPath path = new NavMeshPath();
-
-        // Calcula el camino hasta el TownHall
-        _navAgent.CalculatePath(_TownHall.transform.position, path);
-
-        // Comprueba si el camino está disponible
-        if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        if (_TownHall != null)
         {
-            // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
+            _navAgent.SetDestination(_TownHall.transform.position);
 
 
-            // Encuentra el punto más cercano accesible en el NavMesh
-            Vector3 closestPoint = FindClosestPointOnNavMesh(_TownHall.transform.position);
 
-            // Establece ese punto como destino
-            _navAgent.SetDestination(closestPoint);
+            NavMeshPath path = new NavMeshPath();
+
+            // Calcula el camino hasta el TownHall
+            _navAgent.CalculatePath(_TownHall.transform.position, path);
+
+            // Comprueba si el camino está disponible
+            if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+            {
+                // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
+
+
+                // Encuentra el punto más cercano accesible en el NavMesh
+                Vector3 closestPoint = FindClosestPointOnNavMesh(_TownHall.transform.position);
+
+                // Establece ese punto como destino
+                _navAgent.SetDestination(closestPoint);
+            }
+
+            _distancia = _TownHall.transform.position - transform.position;
         }
-
-        _distancia = _TownHall.transform.position - transform.position;
-
 
     }
 
