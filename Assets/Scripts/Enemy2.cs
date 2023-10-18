@@ -9,22 +9,22 @@ public class Enemy2 : MonoBehaviour
 {
 
     private GameObject _TownHall;
-    private GameObject _target;
+    [SerializeField] private GameObject _target;
     private Vector3 _direccion;
     private NavMeshAgent _navAgent;
     private float _timePass;
     private float _cadencia;
     private float _distance;
     private bool _atac;
-    [SerializeField] private List<GameObject> _wall;
+    [SerializeField] private GameObject [] _torret;
 
     void Start()
     {
 
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
-        _wall = BuildManager.dameReferencia.Walls;
+        _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
         _navAgent = GetComponent<NavMeshAgent>();
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 1000;
         StartCoroutine("CheckPath");
     }
     private void Update()
@@ -35,32 +35,40 @@ public class Enemy2 : MonoBehaviour
 
     public void Move()
     {
-        if (_TownHall != null && _wall == null)
+        if (_TownHall != null && _torret == null)
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
             _target= _TownHall;
+            Debug.Log("1");
 
         }
-        if (_wall != null)
+        if (_torret != null)
         {
-
+            Debug.Log("2");
+            _target = _torret[0];
             _distance = Vector3.Distance(transform.position, _target.transform.position);
-            foreach (GameObject _WALL in _wall)
+            foreach (GameObject _TORRET in _torret)
             {
-                if (_WALL != null)
+                if (_TORRET != null)
                 {
-                    if (Vector3.Distance(transform.position, _WALL.transform.position) < _distance)
+                    if (Vector3.Distance(transform.position, _TORRET.transform.position) < _distance)
                     {
-                        _distance = Vector3.Distance(transform.position, _WALL.transform.position);
+                        _distance = Vector3.Distance(transform.position, _TORRET.transform.position);
 
-                        _target = _WALL;
+                        _target = _TORRET;
 
                     }
+                }
+                else
+                {
+                    
                 }
             }
         }
         if(_target != null)
         {
+            Debug.Log("3");
+
             NavMeshPath path = new NavMeshPath();
 
             // Calcula el camino hasta el TownHall
@@ -79,7 +87,7 @@ public class Enemy2 : MonoBehaviour
             }
             else
             {
-                _navAgent.SetDestination(_TownHall.transform.position);
+                _navAgent.SetDestination(_target.transform.position);
             }
 
             _direccion = _target.transform.position - transform.position;
@@ -148,6 +156,7 @@ public class Enemy2 : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("0");
             Move();
             yield return new WaitForSeconds(1.5f);
         }
