@@ -84,6 +84,7 @@ public class Turret : MonoBehaviour
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
             _bullet.gameObject.GetComponent<Bullet>().damaged = 1;
+            _bullet.gameObject.GetComponent<Bullet>().target = _target;
 
             _attacking = true;
 

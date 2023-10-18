@@ -17,5 +17,6 @@ public class ResearchStructure : MonoBehaviour
     private void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
+        GetComponent<Health>().healthPoints = 10;
     }
 }

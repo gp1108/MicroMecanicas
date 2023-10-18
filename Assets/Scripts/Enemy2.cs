@@ -35,7 +35,7 @@ public class Enemy2 : MonoBehaviour
 
     public void Move()
     {
-        if (_TownHall != null && _wall != null)
+        if (_TownHall != null && _wall == null)
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
             _target= _TownHall;

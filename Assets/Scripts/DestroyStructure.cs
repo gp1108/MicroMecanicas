@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DestroyStructure : MonoBehaviour
 {
-    private Canvas canvas;
+    private GameObject canvas;
     private void OnMouseUpAsButton()
     {
         
-        canvas = FindObjectOfType<Canvas>();
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
         if (canvas.GetComponent<BuildMenuButton>().destroyModeActive == true)
         {
             

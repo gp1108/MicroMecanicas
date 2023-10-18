@@ -12,7 +12,7 @@ public class MainStrcuteSpawn : MonoBehaviour
     
     void Start()
     {
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 30;
         _readyToMove = false;
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
