@@ -35,18 +35,33 @@ public class Enemy2 : MonoBehaviour
 
     public void Move()
     {
-        if (_TownHall != null && _torret == null)
+        if (_TownHall != null && _torret.Length <= 0)
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
             _target= _TownHall;
             Debug.Log("1");
 
         }
-        if (_torret != null)
+        if (_torret.Length >= 1)
         {
             Debug.Log("2");
-            _target = _torret[0];
-            _distance = Vector3.Distance(transform.position, _target.transform.position);
+            
+            if (_target != null)
+            {
+                
+                _distance = Vector3.Distance(transform.position, _target.transform.position);
+            }
+            else
+            {
+                
+                _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
+
+                if (_torret.Length >= 1)
+                {
+                    _target = _torret[0];
+                }
+            }
+            
             foreach (GameObject _TORRET in _torret)
             {
                 if (_TORRET != null)
@@ -64,6 +79,10 @@ public class Enemy2 : MonoBehaviour
                     
                 }
             }
+        }
+        else
+        {
+
         }
         if(_target != null)
         {
