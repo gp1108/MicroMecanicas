@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,21 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    public enum tipoDeVida
+    {
+        Estandar,
+        Vida,
+        Armadura,
+        Magica
+    }
+    public tipoDeVida tipoVida;
     public float healthPoints;
     public Slider healthSlider;
     private GameObject mainCamera;
     // Start is called before the first frame update
     void Start()
     {
+        tipoVida = tipoDeVida.Estandar;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         StartCoroutine("SliderTracksCamera");
         healthSlider.maxValue = healthPoints;
@@ -19,11 +29,47 @@ public class Health : MonoBehaviour
     }
 
    
-    public void GetDamaged(float Damaged)
+    public void GetDamaged(float Damaged,Bullet.tipoDeDamaged tipeDamagade)
     {
-        healthSlider.GetComponentInChildren<Image>().enabled = true;
-        healthPoints -= Damaged;
-        healthSlider.value = healthPoints;
+        if(tipoVida==tipoDeVida.Estandar)
+        {
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            healthPoints -= Damaged;
+            healthSlider.value = healthPoints;
+        }
+        if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
+        {
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            healthPoints -= Damaged;
+            healthSlider.value = healthPoints;
+        }
+        if (tipoVida == tipoDeVida.Vida&&tipeDamagade==Bullet.tipoDeDamaged.Vida)
+        {
+            
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            healthPoints -= (Damaged*1.5f);
+            healthSlider.value = healthPoints;
+
+        }
+        if (tipoVida == tipoDeVida.Armadura&& tipeDamagade == Bullet.tipoDeDamaged.Armadura)
+        {
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            healthPoints -= (Damaged * 1.5f);
+            healthSlider.value = healthPoints;
+        }
+        if (tipoVida == tipoDeVida.Magica && tipeDamagade == Bullet.tipoDeDamaged.Magica)
+        {
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            healthPoints -= (Damaged * 1.5f);
+            healthSlider.value = healthPoints;
+        }
+        else
+        {
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            healthPoints -= (Damaged * 0.5f);
+            healthSlider.value = healthPoints;
+        }
+        
         if (healthPoints <= 0)
         {
             if (this.tag == "Wall")

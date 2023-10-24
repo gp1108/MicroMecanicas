@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public enum tipoDeDamaged
+    {
+        Estandar,
+        Vida,
+        Armadura,
+        Magica
+    }
+    public tipoDeDamaged tipoDamaged;
     public float damaged;
     public int velocidad;
     public GameObject target;
@@ -33,7 +41,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemies")
         {
-            other.gameObject.GetComponent<Health>().GetDamaged(damaged);
+            other.gameObject.GetComponent<Health>().GetDamaged(damaged,tipoDamaged);
             Destroy(this.gameObject);
         }
       

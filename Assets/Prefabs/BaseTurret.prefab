@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 234761946264151248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9c1d917d0a12a4aba0a7671569a478, type: 3}
+  m_Script: {fileID: 11500000, guid: a28d0805c2fdfb847adceabd80e42f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Lul:
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 1899584357325184481}
 --- !u!114 &5457389638267438624

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class BasicTurret : MonoBehaviour
 {
     public LayerMask Lul;
     private Vector3 _lookAt;
@@ -85,6 +85,7 @@ public class Turret : MonoBehaviour
 
             _bullet.gameObject.GetComponent<Bullet>().damaged = 1;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
+            _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
 
             _attacking = true;
 

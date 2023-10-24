@@ -24,7 +24,8 @@ public class Enemy2 : MonoBehaviour
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
         _navAgent = GetComponent<NavMeshAgent>();
-        GetComponent<Health>().healthPoints = 1000;
+        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
         StartCoroutine("CheckPath");
     }
     private void Update()
@@ -145,7 +146,7 @@ public class Enemy2 : MonoBehaviour
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {
 
-                    hit.transform.GetComponent<Health>().GetDamaged(2);
+                    hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
 
                 }
 

@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 3784341049857234316}
 --- !u!114 &1687522159041586814
@@ -262,7 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8747c39af56d3b8439412199ba8aaa08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wall: []
+  _target: {fileID: 0}
+  _torret: []
 --- !u!1 &1738136939601570689
 GameObject:
   m_ObjectHideFlags: 0
