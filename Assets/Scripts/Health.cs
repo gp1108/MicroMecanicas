@@ -72,6 +72,15 @@ public class Health : MonoBehaviour
         
         if (healthPoints <= 0)
         {
+            Enemy3 e3 = this.GetComponent<Enemy3>();
+            if (e3 != null)
+            {
+                e3.Spawn();
+                Destroy(this.gameObject);
+                return;
+            }
+
+
             if (this.tag == "Wall")
             {
                 BuildManager.dameReferencia.RemoveAndWallUpdate(this.gameObject);

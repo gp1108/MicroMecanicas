@@ -1,83 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
-public class Enemy2 : MonoBehaviour
+public class Enemy3Jr : MonoBehaviour
 {
-
+    private List<GameObject> _walls;
     private GameObject _TownHall;
-    [SerializeField] private GameObject _target;
-    private Vector3 _direccion;
+    private GameObject _target;
+    public GameObject Jr;
+    private Collider[] _explosion;
     private NavMeshAgent _navAgent;
-    private float _timePass;
-    private float _cadencia;
     private float _distance;
-    private bool _atac;
-    [SerializeField] private GameObject [] _torret;
 
+
+    // Start is called before the first frame update
     void Start()
     {
-
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
-        _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
         _navAgent = GetComponent<NavMeshAgent>();
-        GetComponent<Health>().healthPoints = 10;
-        GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
+        _walls = BuildManager.dameReferencia.Walls;
         StartCoroutine("CheckPath");
-    }
-    private void Update()
-    {
-        Atack();
+        StartCoroutine("GetWalls");
+        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
     }
 
-
+    
     public void Move()
     {
-        if (_TownHall != null && _torret.Length <= 0)
+        if (_TownHall != null && _walls.Count <= 0)
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
-            _target= _TownHall;
-            
+            _target = _TownHall;
+
 
         }
-        if (_torret.Length >= 1)
+        if (_walls.Count >= 1)
         {
-            
-            
             if (_target != null)
             {
-                
+
                 _distance = Vector3.Distance(transform.position, _target.transform.position);
             }
             else
             {
-                
-                _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
 
-                if (_torret.Length >= 1)
+
+                if (_walls.Count >= 1)
                 {
-                    _target = _torret[0];
+                    _target = _walls[0];
                 }
             }
-            
-            foreach (GameObject _TORRET in _torret)
-            {
-                if (_TORRET != null)
-                {
-                    if (Vector3.Distance(transform.position, _TORRET.transform.position) < _distance)
-                    {
-                        _distance = Vector3.Distance(transform.position, _TORRET.transform.position);
 
-                        _target = _TORRET;
+            foreach (GameObject _WALL in _walls)
+            {
+                if (_WALL != null)
+                {
+                    if (Vector3.Distance(transform.position, _WALL.transform.position) < _distance)
+                    {
+                        _distance = Vector3.Distance(transform.position, _WALL.transform.position);
+
+                        _target = _WALL;
 
                     }
                 }
                 else
                 {
-                    
+
                 }
             }
         }
@@ -85,9 +75,9 @@ public class Enemy2 : MonoBehaviour
         {
 
         }
-        if(_target != null)
+        if (_target != null)
         {
-            
+
 
             NavMeshPath path = new NavMeshPath();
 
@@ -110,12 +100,11 @@ public class Enemy2 : MonoBehaviour
                 _navAgent.SetDestination(_target.transform.position);
             }
 
-            _direccion = _target.transform.position - transform.position;
+
         }
-        
+
 
     }
-
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
     {
 
@@ -136,47 +125,39 @@ public class Enemy2 : MonoBehaviour
     public void Atack()
     {
 
-        if (_atac == false)
+        if (Vector3.Distance(transform.position, _target.transform.position) >= 1)
         {
-            RaycastHit hit;
 
-            if (Physics.Raycast(transform.position, _direccion, out hit, 1))
+            _explosion = Physics.OverlapSphere(transform.position, 1,5);
+            foreach (Collider _EXPLOSION in _explosion)
             {
-
-                if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
+                if (_EXPLOSION.tag == "Wall")
                 {
-
-                    hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
-
+                    _EXPLOSION.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
+                    Destroy(this.gameObject);
                 }
-
             }
 
-            _atac = true;
 
-            _cadencia = 1;
-
-        }
-        if (_atac == true)
-        {
-
-            _timePass += Time.deltaTime;
-
-            if (_timePass > _cadencia)
-            {
-                _atac = false;
-
-                _timePass = 0;
-            }
         }
 
     }
+    IEnumerator GetWalls()
+    {
+        while (true)
+        {
 
+            _walls = BuildManager.dameReferencia.Walls;
+            yield return new WaitForSeconds(1.5f);
+        }
+
+
+    }
     IEnumerator CheckPath()
     {
         while (true)
         {
-            
+
             Move();
             yield return new WaitForSeconds(1.5f);
         }
