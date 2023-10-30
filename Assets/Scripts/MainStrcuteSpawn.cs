@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 //using Unity.AI.Navigation;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class MainStrcuteSpawn : MonoBehaviour
 {
     private bool _readyToMove;
     private GameObject navMeshUpdater;
     private GameObject canvas;
-    
+    private GameObject loadingScreen;
     void Start()
     {
         GetComponent<Health>().healthPoints = 30;
         _readyToMove = false;
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
+        loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen");
     }
 
   
@@ -55,6 +57,7 @@ public class MainStrcuteSpawn : MonoBehaviour
                 canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
 
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
+                loadingScreen.gameObject.SetActive(false);
 
             }
         }
