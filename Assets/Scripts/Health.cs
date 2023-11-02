@@ -37,13 +37,13 @@ public class Health : MonoBehaviour
             healthPoints -= Damaged;
             healthSlider.value = healthPoints;
         }
-        if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
+        else if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
         {
             healthSlider.GetComponentInChildren<Image>().enabled = true;
             healthPoints -= Damaged;
             healthSlider.value = healthPoints;
         }
-        if (tipoVida == tipoDeVida.Vida&&tipeDamagade==Bullet.tipoDeDamaged.Vida)
+        else if (tipoVida == tipoDeVida.Vida&&tipeDamagade==Bullet.tipoDeDamaged.Vida)
         {
             
             healthSlider.GetComponentInChildren<Image>().enabled = true;
@@ -51,13 +51,13 @@ public class Health : MonoBehaviour
             healthSlider.value = healthPoints;
 
         }
-        if (tipoVida == tipoDeVida.Armadura&& tipeDamagade == Bullet.tipoDeDamaged.Armadura)
+        else if (tipoVida == tipoDeVida.Armadura&& tipeDamagade == Bullet.tipoDeDamaged.Armadura)
         {
             healthSlider.GetComponentInChildren<Image>().enabled = true;
             healthPoints -= (Damaged * 1.5f);
             healthSlider.value = healthPoints;
         }
-        if (tipoVida == tipoDeVida.Magica && tipeDamagade == Bullet.tipoDeDamaged.Magica)
+        else if (tipoVida == tipoDeVida.Magica && tipeDamagade == Bullet.tipoDeDamaged.Magica)
         {
             healthSlider.GetComponentInChildren<Image>().enabled = true;
             healthPoints -= (Damaged * 1.5f);

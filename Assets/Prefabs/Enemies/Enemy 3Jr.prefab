@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1912343347943058598}
   - component: {fileID: 6261445422425132162}
   - component: {fileID: 3456131788780650812}
+  - component: {fileID: 1040854753098893346}
   m_Layer: 6
   m_Name: Enemy 3Jr
   m_TagString: Enemies
@@ -250,6 +251,19 @@ MonoBehaviour:
   tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 3784341049857234316}
+--- !u!114 &1040854753098893346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323558377185222644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea6326fb85513b4a8ffedc67fe272f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Jr: {fileID: 0}
 --- !u!1 &1738136939601570689
 GameObject:
   m_ObjectHideFlags: 0

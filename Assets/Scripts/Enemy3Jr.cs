@@ -26,7 +26,11 @@ public class Enemy3Jr : MonoBehaviour
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
     }
 
-    
+    private void Update()
+    {
+        Atack();
+    }
+
     public void Move()
     {
         if (_TownHall != null && _walls.Count <= 0)
@@ -124,21 +128,37 @@ public class Enemy3Jr : MonoBehaviour
     }
     public void Atack()
     {
-
-        if (Vector3.Distance(transform.position, _target.transform.position) >= 1)
+        if (_target != null)
         {
-
-            _explosion = Physics.OverlapSphere(transform.position, 1,5);
-            foreach (Collider _EXPLOSION in _explosion)
+            if (Vector3.Distance(transform.position, _target.transform.position) <= 3)
             {
-                if (_EXPLOSION.tag == "Wall")
+                Debug.Log("H");
+                _explosion = Physics.OverlapSphere(transform.position, 4);
+
+                foreach (Collider _EXPLOSION in _explosion)
                 {
-                    _EXPLOSION.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
-                    Destroy(this.gameObject);
+                    if (_EXPLOSION.transform.parent != null)
+                    {
+                        if (_EXPLOSION.transform.parent.tag == "Wall")
+                        {
+
+                            Health vida = _EXPLOSION.transform.GetComponentInParent<Health>();
+
+                            if (vida != null)
+                            {
+
+                                _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+
+                            }
+                        }
+                    }
+                    if (_EXPLOSION.tag == "TownHall")
+                    {
+                        _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                    }
                 }
+                Destroy(this.gameObject);
             }
-
-
         }
 
     }
@@ -148,6 +168,26 @@ public class Enemy3Jr : MonoBehaviour
         {
 
             _walls = BuildManager.dameReferencia.Walls;
+            if (_walls.Count == 0)
+            {
+                _target = _TownHall;
+                yield return new WaitForSeconds(1.5f);
+            }
+            else if (_walls.Count >= 1)
+            {
+                for (int i = 0; i < _walls.Count; i++)
+                {
+                    if (_walls[i].gameObject != null)
+                    {
+                        _target = _walls[i];
+                        break;
+                    }
+                    else
+                    {
+                        _target = _TownHall;
+                    }
+                }
+            }
             yield return new WaitForSeconds(1.5f);
         }
 
@@ -159,6 +199,8 @@ public class Enemy3Jr : MonoBehaviour
         {
 
             Move();
+
+
             yield return new WaitForSeconds(1.5f);
         }
     }

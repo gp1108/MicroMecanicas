@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class Enemy3 : MonoBehaviour
 {
-    private List<GameObject> _walls;
+    [SerializeField]  private List<GameObject> _walls;
     private GameObject _TownHall;
     [SerializeField] private GameObject _target;
     public GameObject Jr;
@@ -27,8 +27,13 @@ public class Enemy3 : MonoBehaviour
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
     }
+    private void Update()
+    {
+        Atack();
 
-   
+    }
+
+
     public void Move()
     {
         if (_TownHall != null && _walls.Count<= 0)
@@ -126,22 +131,39 @@ public class Enemy3 : MonoBehaviour
     }
     public void Atack()
     {
-
-        if (Vector3.Distance(transform.position, _target.transform.position)>=2)
+        if (_target != null)
         {
-
-            _explosion = Physics.OverlapSphere(transform.position, 4);
-            foreach(Collider _EXPLOSION in _explosion)
+            if (Vector3.Distance(transform.position, _target.transform.position) <= 3)
             {
-                if (_EXPLOSION.tag == "Wall")
+                Debug.Log("H");
+                _explosion = Physics.OverlapSphere(transform.position, 4);
+
+                foreach (Collider _EXPLOSION in _explosion)
                 {
-                    _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                    if (_EXPLOSION.transform.parent != null)
+                    {
+                        if (_EXPLOSION.transform.parent.tag == "Wall")
+                        {
+
+                            Health vida = _EXPLOSION.transform.GetComponentInParent<Health>();
+
+                            if (vida != null)
+                            {
+
+                                _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+
+                            }
+                        }
+                    }
+                    if (_EXPLOSION.tag == "TownHall")
+                    {
+                        _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                    }
                 }
+                Destroy(this.gameObject);
             }
-
-
         }
-        
+
     }
     public void Spawn()
     {
@@ -150,7 +172,8 @@ public class Enemy3 : MonoBehaviour
             GameObject.Instantiate(Jr, transform.position, transform.rotation);
         }        
     }
-        IEnumerator GetWalls()
+
+IEnumerator GetWalls()
     {
         while (true)
         {
@@ -158,15 +181,23 @@ public class Enemy3 : MonoBehaviour
             _walls = BuildManager.dameReferencia.Walls;
             if (_walls.Count == 0)
             {
+                _target= _TownHall;
                 yield return new WaitForSeconds(1.5f);
             }
-            if (_walls.Count == 1)
+            else if (_walls.Count >= 1)
             {
-                _target = _walls[0].gameObject;
-            }
-            if (_target == null && _walls.Count != 0)
-            {
-                _target = _walls[0].gameObject;
+                for (int i = 0; i < _walls.Count; i++)
+                {
+                    if (_walls[i].gameObject != null)
+                    {
+                        _target = _walls[i];
+                        break;
+                    }
+                    else
+                    {
+                        _target = _TownHall;
+                    }
+                }
             }
             yield return new WaitForSeconds(1.5f);
         }
@@ -177,8 +208,10 @@ public class Enemy3 : MonoBehaviour
     {
         while (true)
         {
-
+            
             Move();
+            
+            
             yield return new WaitForSeconds(1.5f);
         }
     }
