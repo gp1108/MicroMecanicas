@@ -156,6 +156,10 @@ public class Enemy3Jr : MonoBehaviour
                     {
                         _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
                     }
+                    if (_EXPLOSION.tag == "BaseTurret")
+                    {
+                        _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                    }
                 }
                 Destroy(this.gameObject);
             }
