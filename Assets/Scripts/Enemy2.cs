@@ -40,12 +40,12 @@ public class Enemy2 : MonoBehaviour
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
             _target= _TownHall;
-            Debug.Log("1");
+            
 
         }
         if (_torret.Length >= 1)
         {
-            Debug.Log("2");
+            
             
             if (_target != null)
             {
@@ -87,7 +87,7 @@ public class Enemy2 : MonoBehaviour
         }
         if(_target != null)
         {
-            Debug.Log("3");
+            
 
             NavMeshPath path = new NavMeshPath();
 
@@ -176,7 +176,7 @@ public class Enemy2 : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("0");
+            
             Move();
             yield return new WaitForSeconds(1.5f);
         }
