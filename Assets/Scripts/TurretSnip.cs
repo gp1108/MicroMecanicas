@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TurretSnip : MonoBehaviour
 {
-    public LayerMask Lul;
+    public LayerMask layer;
     private Vector3 _lookAt;
     private Quaternion _rotation;
     private float _velocitiRotation;
@@ -19,7 +19,7 @@ public class TurretSnip : MonoBehaviour
     public GameObject bullet;
     public GameObject exitBullet;
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
-    [SerializeField] private Collider[] _prueba;
+    [SerializeField] private Collider[] _collidersEnemies;
     private bool _attacking;
     // Start is called before the first frame update
     void Start()
@@ -106,9 +106,9 @@ public class TurretSnip : MonoBehaviour
     }
     public void GetEnemy()
     {
-        _prueba = Physics.OverlapSphere(transform.position, 30, Lul);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, 30, layer);
 
-        _enemies = _prueba.ToList();
+        _enemies = _collidersEnemies.ToList();
 
 
         if (_enemies.Count == 0)

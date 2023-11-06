@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BasicTurret : MonoBehaviour
 {
-    public LayerMask Lul;
+    public LayerMask layer;
     private Vector3 _lookAt;
     private Quaternion _rotation;
     private float _velocitiRotation;
@@ -19,7 +19,7 @@ public class BasicTurret : MonoBehaviour
     public GameObject bullet;
     public GameObject exitBullet;
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
-    [SerializeField] private Collider[] _prueba ;
+    [SerializeField] private Collider[] _collidersEnemies ;
     private bool _attacking;
     // Start is called before the first frame update
     void Start()
@@ -106,9 +106,9 @@ public class BasicTurret : MonoBehaviour
     }
     public void GetEnemy()
     {
-        _prueba = Physics.OverlapSphere(transform.position, 10,Lul);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, 10,layer);
         
-        _enemies = _prueba.ToList();
+        _enemies = _collidersEnemies.ToList();
         
 
         if(_enemies.Count == 0)
