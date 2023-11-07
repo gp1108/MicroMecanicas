@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_LocalScale.x
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9402285
+      value: -57.04108
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_LocalPosition.y
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.778947
+      value: 1.3840914
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_LocalRotation.w
@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af7edd04f99c3ff44b1821cebc416f31, type: 2}
+      objectReference: {fileID: 2100000, guid: 1818d7472f986874180bc4525f736527, type: 2}
     - target: {fileID: 919132149155446097, guid: 110e4370d2c302c408107426bd511bed, type: 3}
       propertyPath: m_Name
       value: Attack_Range_Indicator Variant
