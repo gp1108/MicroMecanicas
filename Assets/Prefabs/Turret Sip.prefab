@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 2960292917606796268}
   m_Layer: 0
   m_Name: Turret Sip
-  m_TagString: BaseTurret
+  m_TagString: SniperTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,14 +593,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfebfe586a7376479d696b59ebc3a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lul:
+  layer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _target: {fileID: 0}
   bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
   exitBullet: {fileID: 5531146981950300268}
   _enemies: []
-  _prueba: []
+  _collidersEnemies: []
 --- !u!1 &5531146981950300268
 GameObject:
   m_ObjectHideFlags: 0

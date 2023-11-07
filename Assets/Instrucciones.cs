@@ -9,5 +9,7 @@
  * 5 añadir en el buildmanager , structure cost,  su coste en oro y sus variables.
  * 6 añadir en el build manager priceupdate y update price UI
  * 7 Añadirle la funcion al script destroy structure
- * 8 BuildMenu , añadirlo a la corrutina para comprobar si tiene suficiente oro o no 
+ * 8 BuildMenu , añadirlo a la corrutina para comprobar si tiene suficiente oro o no y añadirle al build menu los botones
+ * 9 crear el boton y añadirle las correspondientes funciones y añadirle al builmanager los textos
+ * 
  */

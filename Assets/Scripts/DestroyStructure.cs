@@ -37,6 +37,14 @@ public class DestroyStructure : MonoBehaviour
                 {
                     BuildManager.dameReferencia.PriceUpdate(3, false);
                 }
+                else if (this.gameObject.tag == "SniperTurret")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(4, false);
+                }
+                else if (this.gameObject.tag == "LaserTurret")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(5, false);
+                }
 
             }
         }

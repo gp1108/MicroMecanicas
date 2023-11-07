@@ -20,6 +20,8 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject turretButton;
     public GameObject otherTurretButton;
     public GameObject tallerButton;
+    public GameObject sniperButton;
+    public GameObject laserButton;
     
 
     public void Start()
@@ -119,6 +121,25 @@ public class BuildMenuButton : MonoBehaviour
         }
     }
 
+    public void SniperTurretIndex()
+    {
+        BuildManager.dameReferencia.GetStructurePrefabIndex(4);
+        if (destroyModeActive == true)
+        {
+            destroyModeActive = false;
+            destroyButton.GetComponent<Image>().color = Color.white;
+        }
+    }
+    public void LaserTurretIndex()
+    {
+        BuildManager.dameReferencia.GetStructurePrefabIndex(5);
+        if (destroyModeActive == true)
+        {
+            destroyModeActive = false;
+            destroyButton.GetComponent<Image>().color = Color.white;
+        }
+    }
+
 
     IEnumerator GoldCheck()
     {
@@ -158,6 +179,24 @@ public class BuildMenuButton : MonoBehaviour
             else
             {
                 tallerButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.sniperTurretCost > gameManager.giveMeReference.gold)
+            {
+                sniperButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                sniperButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.laserTurretCost > gameManager.giveMeReference.gold)
+            {
+                laserButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                laserButton.GetComponent<Button>().interactable = true;
             }
             yield return new WaitForSeconds(0.3f);
         }

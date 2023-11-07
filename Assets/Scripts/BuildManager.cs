@@ -32,11 +32,15 @@ public class BuildManager : MonoBehaviour
     public int baseTurretCost;
     public int otherTurretCost;
     public int researchStructureCost;
+    public int sniperTurretCost;
+    public int laserTurretCost;
     [Header("Gold Texts")]
     public TMP_Text textWallCost;
     public TMP_Text textBaseTurretCost;
     public TMP_Text textOtherTurretCost;
     public TMP_Text textResearchStructureCost;
+    public TMP_Text textSniperTurretCost;
+    public TMP_Text textLaserTurretCost;
 
     public static BuildManager dameReferencia
     {
@@ -66,6 +70,8 @@ public class BuildManager : MonoBehaviour
         baseTurretCost = 10;
         otherTurretCost = 50;
         researchStructureCost = 200;
+        sniperTurretCost = 100;
+        laserTurretCost = 400;
         UpdatePriceUI();
 
         goldToPay = 5; // igualo aqui al precio de los muros para evitar un bug en el que la partida carga y puedes construir muros sin gastar dinero
@@ -188,6 +194,14 @@ public class BuildManager : MonoBehaviour
         {
             goldToPay = researchStructureCost;
         }
+        else if(_structureIndex == 4)
+        {
+            goldToPay = sniperTurretCost;
+        }
+        else if (_structureIndex == 5)
+        {
+            goldToPay = laserTurretCost;
+        }
     } //Determina el valor a pagar segun la estructura
     public void PriceUpdate(int Index, bool moreCost) //Aumenta o disminuye el precio de construccion de los objetos
     {
@@ -213,6 +227,14 @@ public class BuildManager : MonoBehaviour
             {
                 researchStructureCost += 1000;
             }
+            else if(_structureIndex == 4)
+            {
+                sniperTurretCost += 100;
+            }
+            else if (_structureIndex == 5) 
+            {
+                laserTurretCost += 250;
+            } 
             UpdatePriceUI();
             StructureCost();
         }
@@ -243,6 +265,16 @@ public class BuildManager : MonoBehaviour
                 researchStructureCost -= 1000;
                 gameManager.giveMeReference.GetGold(researchStructureCost);
             }
+            else if(Index == 4)
+            {
+                sniperTurretCost -= 100;
+                gameManager.giveMeReference.GetGold(sniperTurretCost);
+            }
+            else if (Index == 5)
+            {
+                laserTurretCost -= 250;
+                gameManager.giveMeReference.GetGold(laserTurretCost);
+            }
             UpdatePriceUI();
             StructureCost();
         }
@@ -254,6 +286,8 @@ public class BuildManager : MonoBehaviour
         textBaseTurretCost.text = baseTurretCost.ToString() + "g";
         textOtherTurretCost.text = otherTurretCost.ToString() + "g";
         textResearchStructureCost.text = researchStructureCost.ToString() + "g";
+        textSniperTurretCost.text = sniperTurretCost.ToString() + "g";
+        textLaserTurretCost.text = laserTurretCost.ToString()+ "g";
         
     }
 
