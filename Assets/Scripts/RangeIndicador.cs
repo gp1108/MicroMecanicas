@@ -6,35 +6,38 @@ public class RangeIndicador : MonoBehaviour
 {
     public GameObject rangeIndicator;
     public GameObject rangeIndicator2;
+    public GameObject InfoPanel;
     private bool mostrarRango = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        OcultarRango();
+        Ocultar();
     }
 
     private void OnMouseEnter()
     {
-        MostrarRango();
+        Mostrar();
     }
 
     private void OnMouseExit()
     {
-        OcultarRango();
+        Ocultar();
     }
 
-    private void MostrarRango()
+    private void Mostrar()
     {
         rangeIndicator.SetActive(true);
         rangeIndicator2.SetActive(true);
+        InfoPanel.SetActive(true);
         mostrarRango=true;
     }
 
-    private void OcultarRango()
+    private void Ocultar()
     {
         rangeIndicator.SetActive(false);
         rangeIndicator2.SetActive(false);
+        InfoPanel.SetActive(false);
         mostrarRango=false;
     }
 
