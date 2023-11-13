@@ -135,7 +135,6 @@ public class Enemy3 : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, _target.transform.position) <= 3)
             {
-                Debug.Log("H");
                 _explosion = Physics.OverlapSphere(transform.position, 4);
 
                 foreach (Collider _EXPLOSION in _explosion)
@@ -171,9 +170,11 @@ public class Enemy3 : MonoBehaviour
     }
     public void Spawn()
     {
+
         for(int i=0; i<5; i++)
         {
             GameObject.Instantiate(Jr, transform.position, transform.rotation);
+            gameManager.giveMeReference.enemiesAlive += 1;
         }        
     }
 

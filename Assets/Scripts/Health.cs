@@ -72,12 +72,10 @@ public class Health : MonoBehaviour
         
         if (healthPoints <= 0)
         {
-            Enemy3 e3 = this.GetComponent<Enemy3>();
-            if (e3 != null)
+            
+            if (this.GetComponent<Enemy3>() != null)
             {
-                e3.Spawn();
-                Destroy(this.gameObject);
-                return;
+                this.GetComponent<Enemy3>().Spawn();
             }
 
 
@@ -89,10 +87,11 @@ public class Health : MonoBehaviour
             {
                 gameManager.giveMeReference.GetGold(10);
                 gameManager.giveMeReference.EnemyDead();
+                Debug.Log("1");
             }
 
             Destroy(this.gameObject);
-            return;
+            
         }
     }
     IEnumerator SliderTracksCamera()

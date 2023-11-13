@@ -126,14 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28d0805c2fdfb847adceabd80e42f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lul:
+  layer:
     serializedVersion: 2
     m_Bits: 64
   _target: {fileID: 0}
   bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
   exitBullet: {fileID: 8105252476284360794}
   _enemies: []
-  _prueba: []
+  _collidersEnemies: []
 --- !u!114 &2456263922755224134
 MonoBehaviour:
   m_ObjectHideFlags: 0
