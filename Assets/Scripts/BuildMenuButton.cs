@@ -31,7 +31,6 @@ public class BuildMenuButton : MonoBehaviour
         buildMenuActive = true;
     }
 
-    
     public void EnableOrDisableBuildPanel()
     {
         buildMenuActive = !buildMenuActive;
@@ -74,11 +73,6 @@ public class BuildMenuButton : MonoBehaviour
             destroyButton.GetComponent<Image>().color = Color.white;
         }
     }
-
-
-
-
-
 
     public void SetWallsIndex()
     {
