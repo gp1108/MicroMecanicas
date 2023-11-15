@@ -101,6 +101,7 @@ public class Skills : MonoBehaviour
             gameManager.giveMeReference.researchPoints -= skillCost[skill];
             isSkillUnlocked[skill] = true;
             DoSkill(skill);
+            UpdateSkillUI();
             Debug.Log(skill + " Desbloqueada");
         }
         else
@@ -110,6 +111,30 @@ public class Skills : MonoBehaviour
         }
 
         
+    }
+    
+    public void UpdateSkillUI()
+    {
+        foreach (KeyValuePair<SkillName, int> kvp in skillCost)
+        {
+            SkillName clave = kvp.Key;
+            int valor = kvp.Value;
+
+            if(kvp.Value > gameManager.giveMeReference.researchPoints && isSkillUnlocked[kvp.Key] == false)
+            {
+                //Cambiar aqui los botones a no interactuables y de color rojo
+            }
+            else if(kvp.Value <= gameManager.giveMeReference.researchPoints && isSkillUnlocked[kvp.Key] == false)
+            {
+                //Poner aqui la logica de los botones que si puede comprar pero no ha desbloqueado todavia
+            }
+            else if(isSkillUnlocked[kvp.Key] == true)
+            {
+                //Aqui cambiar el color y que sea interactuable a los botones que si ha desbloqueado ya
+            }
+
+            
+        }
     }
 
     public void DoSkill(SkillName skill)
@@ -163,64 +188,7 @@ public class Skills : MonoBehaviour
               
         }
 
-        /*EN CASO DE QUE EL SWITCH NO FUNCIONE
-        if(skill.ToString() == "moreHealthTurrets")
-        {
-
-        }
-        if (skill.ToString() == "moreDamageTurrets")
-        {
-
-        }
-        if (skill.ToString() == "moreHealthWalls")
-        {
-
-        }
-        if (skill.ToString() == "unlockSniperTurret")
-        {
-
-        }
-        if (skill.ToString() == "unlockMachinegunTurret")
-        {
-
-        }
-        if (skill.ToString() == "unlockMines")
-        {
-
-        }
-        if (skill.ToString() == "oneMoreMine")
-        {
-
-        }
-        if (skill.ToString() == "fasterResearch")
-        {
-
-        }
-        if (skill.ToString() == "fastMine")
-        {
-
-        }
-        if (skill.ToString() == "slowMine")
-        {
-
-        }
-        if (skill.ToString() == "unlockGems")
-        {
-
-        }
-        if (skill.ToString() == "moreHealthMainStructure")
-        {
-
-        }
-        if (skill.ToString() == "structureRecoverHealth")
-        {
-
-        }
-        if (skill.ToString() == "discountTurrets")
-        {
-
-        }
-        */
+        
 
     }
 }
