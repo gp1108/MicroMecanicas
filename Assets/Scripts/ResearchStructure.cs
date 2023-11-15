@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResearchStructure : MonoBehaviour
 {
     public GameObject canvas;
+    
     public void OnMouseDown()
     {
         
@@ -18,5 +19,8 @@ public class ResearchStructure : MonoBehaviour
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         GetComponent<Health>().healthPoints = 10;
+        
     }
+
+    
 }

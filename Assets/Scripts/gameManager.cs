@@ -47,13 +47,15 @@ public class gameManager : MonoBehaviour
     [Header("Gold System")]
     public int gold;
     public TMP_Text goldText;
+    [Header("Research System")]
+    public int researchPoints;
     [Header("NavMesh")]
     public GameObject navmeshUpdater;
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
 
-        
+        GetResearchPoints(100); //Esta en el awake por temas de debugging , luego mover al start
     }
 
     private void Start()
@@ -64,6 +66,7 @@ public class gameManager : MonoBehaviour
        _totalNumberOfEnemies = 5;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
         GetGold(100);
+        
     }
     private void Update()
     {
@@ -162,7 +165,15 @@ public class gameManager : MonoBehaviour
         goldText.text = gold.ToString();
 
     }
-    
-    
+
+    public void GetResearchPoints(int ResearchPoints)
+    {
+
+        researchPoints += ResearchPoints;
+        //FALTA AÑADIR EL TEXTO DE LOS PUNTOS DE INVESTIGACION
+
+    }
+
+
 
 }
