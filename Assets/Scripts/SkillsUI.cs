@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -7,35 +8,25 @@ using static Skills;
 
 public class SkillsUI : MonoBehaviour
 {
-    public Color unlockedSkillColor;
-    public Color notEnoughRPcolor;
-    public Color defaultColor;
-    public GameObject moreHealthTurretsButton;
+
+    private string _SkillNameString;
 
     private void Start()
     {
-      defaultColor = moreHealthTurretsButton.GetComponent<Button>().colors.normalColor;
+        _SkillNameString = this.gameObject.name;
     }
 
 
-
-
-    public void moreHealthTurret()
+    public void CallSkillUnlockFunction()
     {
-        if (Skills.giveMeReference.isSkillUnlocked[SkillName.moreHealthTurrets] == false && gameManager.giveMeReference.researchPoints >= Skills.giveMeReference.skillCost[SkillName.moreHealthTurrets])
-        {
 
-            /*ESTO DEBERIA IR EN UPDATESKILLUI DEL SCRIPT SKILLS
-            Skills.giveMeReference.unlockSkill(SkillName.moreHealthTurrets);
-            moreHealthTurretsButton.GetComponent<Button>().interactable = false;
-            moreHealthTurretsButton.GetComponent<Image>().color = unlockedSkillColor;
-            */
-        }
-        else if(gameManager.giveMeReference.researchPoints < Skills.giveMeReference.skillCost[SkillName.moreHealthTurrets])
+        foreach (SkillName skillName in Enum.GetValues(typeof(SkillName)))
         {
-            //hacer que el boton no sea interactuable y pintarlo de verde o algo
+            if (_SkillNameString == skillName.ToString())
+            {
+                Skills.giveMeReference.unlockSkill(skillName);
+            }
         }
     }
 
-    
 }

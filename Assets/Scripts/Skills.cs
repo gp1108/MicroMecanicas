@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Skills : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class Skills : MonoBehaviour
         moreHealthWalls,
         unlockSniperTurret,
         unlockMachinegunTurret,
+        sniperTurretMoreFireRate,
+        structureRecoverHealth,
+        unlockLaserTurret,
+        unlockMortarTurret,
 
         unlockMines,
         oneMoreMine,
@@ -36,9 +41,6 @@ public class Skills : MonoBehaviour
         fastMine,
         slowMine,
         unlockGems,
-
-        moreHealthMainStructure,
-        structureRecoverHealth,
         discountTurrets
 
     }
@@ -53,6 +55,10 @@ public class Skills : MonoBehaviour
         { SkillName.moreHealthWalls, 1000 },
         { SkillName.unlockSniperTurret,2 },
         { SkillName.unlockMachinegunTurret,2},
+        { SkillName.sniperTurretMoreFireRate, 1 },
+        { SkillName.structureRecoverHealth,2},
+        { SkillName.unlockLaserTurret,2 },
+        { SkillName.unlockMortarTurret,2},
 
         { SkillName.unlockMines,2},
         { SkillName.oneMoreMine,2},
@@ -60,9 +66,6 @@ public class Skills : MonoBehaviour
         { SkillName.fastMine,2},
         { SkillName.slowMine,2},
         { SkillName.unlockGems,2},
-
-        { SkillName.moreHealthMainStructure,2},
-        { SkillName.structureRecoverHealth,2},
         { SkillName.discountTurrets,2}
     };
 
@@ -74,6 +77,10 @@ public class Skills : MonoBehaviour
         { SkillName.moreHealthWalls, false },
         { SkillName.unlockSniperTurret,false },
         { SkillName.unlockMachinegunTurret,false},
+        { SkillName.sniperTurretMoreFireRate, false },
+        { SkillName.structureRecoverHealth,false},
+        { SkillName.unlockLaserTurret,false },
+        { SkillName.unlockMortarTurret,false},
 
         { SkillName.unlockMines,false},
         { SkillName.oneMoreMine,false},
@@ -81,36 +88,44 @@ public class Skills : MonoBehaviour
         { SkillName.fastMine,false},
         { SkillName.slowMine,false},
         { SkillName.unlockGems,false},
-
-        { SkillName.moreHealthMainStructure,false},
-        { SkillName.structureRecoverHealth,false},
         { SkillName.discountTurrets,false}
     };
 
+    public List<GameObject> SkillButtons = new List<GameObject>();
+
+    public Color unlockedSkillColor;
+    public Color notEnoughRPcolor;
+    public Color defaultColor;
+    private GameObject canvas;
     private void Start()
     {
-        unlockSkill(SkillName.moreHealthTurrets);
-        unlockSkill(SkillName.moreDamageTurrets);
-        unlockSkill(SkillName.moreHealthWalls);
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        SkillsUI[] skillButtons = canvas.GetComponentsInChildren<SkillsUI>(true);
+        foreach(SkillsUI skillUIscript in skillButtons)
+        {
+            SkillButtons.Add(skillUIscript.gameObject);
+        }
+        foreach (GameObject buttons in SkillButtons)
+        {
+
+            buttons.GetComponent<Image>().color = defaultColor;
+
+        }
+        UpdateSkillUI();
     }
 
     public void unlockSkill(SkillName skill)
     {
         if (skillCost[skill] <= gameManager.giveMeReference.researchPoints)
         {
+            Debug.Log("He desbloqueado la habilidad" + skill.ToString());
             gameManager.giveMeReference.researchPoints -= skillCost[skill];
             isSkillUnlocked[skill] = true;
             DoSkill(skill);
             UpdateSkillUI();
-            Debug.Log(skill + " Desbloqueada");
+            
         }
-        else
-        {
-            Debug.Log(skill + " No tienes suficientes puntos");
-            //ejecutar aqui la logica que le diga al jugador que no tiene suficientes puntos
-        }
-
-        
+   
     }
     
     public void UpdateSkillUI()
@@ -119,21 +134,41 @@ public class Skills : MonoBehaviour
         {
             SkillName clave = kvp.Key;
             int valor = kvp.Value;
-
+            
             if(kvp.Value > gameManager.giveMeReference.researchPoints && isSkillUnlocked[kvp.Key] == false)
             {
-                //Cambiar aqui los botones a no interactuables y de color rojo
+                foreach(GameObject skillButtons in SkillButtons)
+                {
+                    if(skillButtons.gameObject.name == kvp.Key.ToString())
+                    {
+                        skillButtons.gameObject.GetComponent<Image>().color = notEnoughRPcolor;
+                    }
+                }
             }
-            else if(kvp.Value <= gameManager.giveMeReference.researchPoints && isSkillUnlocked[kvp.Key] == false)
+            if(kvp.Value <= gameManager.giveMeReference.researchPoints && isSkillUnlocked[kvp.Key] == false)
             {
-                //Poner aqui la logica de los botones que si puede comprar pero no ha desbloqueado todavia
+                foreach (GameObject skillButtons in SkillButtons)
+                {
+                    if (skillButtons.gameObject.name == kvp.Key.ToString())
+                    {
+                        skillButtons.gameObject.GetComponent<Image>().color = defaultColor;
+                    }
+                }
             }
-            else if(isSkillUnlocked[kvp.Key] == true)
+            if(isSkillUnlocked[kvp.Key] == true)
             {
-                //Aqui cambiar el color y que sea interactuable a los botones que si ha desbloqueado ya
+                
+                foreach (GameObject skillButtons in SkillButtons)
+                {
+                    
+                    if (skillButtons.gameObject.name == kvp.Key.ToString())
+                    {
+                        
+                        skillButtons.gameObject.GetComponent<Image>().color = unlockedSkillColor;
+                        skillButtons.gameObject.GetComponent<Button>().interactable = false;
+                    }
+                }
             }
-
-            
         }
     }
 
@@ -142,7 +177,7 @@ public class Skills : MonoBehaviour
         switch(skill)
         {
             case SkillName.moreHealthTurrets:
-                Debug.Log("Hola");
+
                 break;
             case SkillName.moreDamageTurrets:
 
@@ -173,10 +208,6 @@ public class Skills : MonoBehaviour
 
                 break;
             case SkillName.unlockGems:
-
-                break;
-
-            case SkillName.moreHealthMainStructure:
 
                 break;
             case SkillName.structureRecoverHealth:
