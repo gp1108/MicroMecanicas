@@ -21,7 +21,7 @@ public class MainStrcuteSpawn : MonoBehaviour
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen");
-        Invoke("MainStrcuteErrorSpawning", 10f);
+        Invoke("MainStrcuteErrorSpawning", 7f);
     }
 
     public void MainStrcuteErrorSpawning()
@@ -30,7 +30,7 @@ public class MainStrcuteSpawn : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-        Debug.Log("Soy el spawn");
+        
     }
   
     void Update()
