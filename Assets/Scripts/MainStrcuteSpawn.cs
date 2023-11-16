@@ -4,6 +4,7 @@ using UnityEngine;
 //using Unity.AI.Navigation;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class MainStrcuteSpawn : MonoBehaviour
 {
@@ -11,15 +12,26 @@ public class MainStrcuteSpawn : MonoBehaviour
     private GameObject navMeshUpdater;
     private GameObject canvas;
     private GameObject loadingScreen;
+    private bool aviableToSpawn;
     void Start()
     {
+        aviableToSpawn = false;
         GetComponent<Health>().healthPoints = 30;
         _readyToMove = false;
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen");
+        Invoke("MainStrcuteErrorSpawning", 10f);
     }
 
+    public void MainStrcuteErrorSpawning()
+    {
+        if(aviableToSpawn == false)
+        {
+            SceneManager.LoadScene(1);
+        }
+        Debug.Log("Soy el spawn");
+    }
   
     void Update()
     {
@@ -58,6 +70,7 @@ public class MainStrcuteSpawn : MonoBehaviour
 
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
                 loadingScreen.gameObject.SetActive(false);
+                aviableToSpawn = true;
 
             }
         }
