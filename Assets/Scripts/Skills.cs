@@ -36,12 +36,13 @@ public class Skills : MonoBehaviour
         unlockMortarTurret,
 
         unlockMines,
+        minesFaster,
         oneMoreMine,
         fasterResearch,
         fastMine,
         slowMine,
         unlockGems,
-        discountTurrets
+        
 
     }
 
@@ -61,12 +62,13 @@ public class Skills : MonoBehaviour
         { SkillName.unlockMortarTurret,200},
 
         { SkillName.unlockMines,2},
+        { SkillName.minesFaster,2},
         { SkillName.oneMoreMine,2},
         { SkillName.fasterResearch,2},
         { SkillName.fastMine,2},
         { SkillName.slowMine,2},
         { SkillName.unlockGems,2},
-        { SkillName.discountTurrets,2}
+        
     };
 
     
@@ -85,12 +87,13 @@ public class Skills : MonoBehaviour
         { SkillName.unlockMortarTurret,false},
 
         { SkillName.unlockMines,false},
+        { SkillName.minesFaster,false},
         { SkillName.oneMoreMine,false},
         { SkillName.fasterResearch,false},
         { SkillName.fastMine,false},
         { SkillName.slowMine,false},
         { SkillName.unlockGems,false},
-        { SkillName.discountTurrets,false}
+        
     };
 
     public Dictionary<SkillName, bool> skillCanBeUnlocked = new Dictionary<SkillName, bool>
@@ -105,13 +108,14 @@ public class Skills : MonoBehaviour
         { SkillName.unlockLaserTurret,false },
         { SkillName.unlockMortarTurret,false},
 
-        { SkillName.unlockMines,false},
+        { SkillName.unlockMines,true},
+        { SkillName.minesFaster,false},
         { SkillName.oneMoreMine,false},
         { SkillName.fasterResearch,false},
         { SkillName.fastMine,false},
         { SkillName.slowMine,false},
         { SkillName.unlockGems,false},
-        { SkillName.discountTurrets,false}
+        
     };
 
     public List<GameObject> SkillButtons = new List<GameObject>();
@@ -243,26 +247,64 @@ public class Skills : MonoBehaviour
 
                 case SkillName.unlockMines:
 
+                    skillCanBeUnlocked[SkillName.minesFaster] = true;
+                    skillCanBeUnlocked[SkillName.fasterResearch] = true;
+                    UnlockSkillLogic(skill);
+
+                    break;
+                case SkillName.minesFaster:
+                    if (isSkillUnlocked[SkillName.unlockMines] == true)
+                    {
+                        skillCanBeUnlocked[SkillName.oneMoreMine] = true;
+                        
+                        UnlockSkillLogic(skill);
+
+                        //Logica
+                    }
                     break;
                 case SkillName.oneMoreMine:
+                    if (isSkillUnlocked[SkillName.minesFaster] == true)
+                    {
+                        skillCanBeUnlocked[SkillName.fastMine] = true;
+                        skillCanBeUnlocked[SkillName.slowMine] = true;
 
+                        UnlockSkillLogic(skill);
+
+                        //Logica
+                    }
                     break;
                 case SkillName.fasterResearch:
+                    if (isSkillUnlocked[SkillName.unlockMines] == true)
+                    {
+                        skillCanBeUnlocked[SkillName.unlockGems] = true;
 
+                        UnlockSkillLogic(skill);
+
+                        //Logica
+                    }
                     break;
                 case SkillName.fastMine:
-
+                    if (isSkillUnlocked[SkillName.slowMine] == false)
+                    {
+                        skillCanBeUnlocked[SkillName.slowMine] = false;
+                        
+                        UnlockSkillLogic(skill);
+                    }
+                    
                     break;
                 case SkillName.slowMine:
-
+                    if (isSkillUnlocked[SkillName.fastMine] == false)
+                    {
+                        
+                        skillCanBeUnlocked[SkillName.fastMine] = false;
+                        UnlockSkillLogic(skill);
+                    }
+                    
                     break;
                 case SkillName.unlockGems:
-
+                    UnlockSkillLogic(skill);
                     break;
                 
-                case SkillName.discountTurrets:
-
-                    break;
 
             }
 
@@ -293,6 +335,7 @@ public class Skills : MonoBehaviour
                     if(skillButtons.gameObject.name == kvp.Key.ToString())
                     {
                         skillButtons.gameObject.GetComponent<Image>().color = notEnoughRPcolor;
+                        skillButtons.gameObject.GetComponent<Button>().interactable = true;
                     }
                 }
             }
@@ -303,6 +346,7 @@ public class Skills : MonoBehaviour
                     if (skillButtons.gameObject.name == kvp.Key.ToString())
                     {
                         skillButtons.gameObject.GetComponent<Image>().color = defaultColor;
+                        skillButtons.gameObject.GetComponent<Button>().interactable = true;
                     }
                 }
             }
@@ -330,7 +374,7 @@ public class Skills : MonoBehaviour
                     {
 
                         skillButtons.gameObject.GetComponent<Image>().color = dependency;
-                        //skillButtons.gameObject.GetComponent<Button>().interactable = false;
+                        skillButtons.gameObject.GetComponent<Button>().interactable = false;
                     }
                 }
             }
