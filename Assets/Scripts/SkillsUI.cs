@@ -29,4 +29,9 @@ public class SkillsUI : MonoBehaviour
         }
     }
 
+    public void BuyGoldPanel()
+    {
+        ///
+    }
+
 }
