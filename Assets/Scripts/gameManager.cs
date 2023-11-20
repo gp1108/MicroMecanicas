@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class gameManager : MonoBehaviour
     private int _roundsPlayed;
     private int _totalRounds;
     private int _totalNumberOfEnemies;
-    private bool _onRound;
+    public bool onRound;
     public int enemiesAlive;
     public TMP_Text roundsText;
     private GameObject enemyToSpawn;
@@ -43,14 +44,27 @@ public class gameManager : MonoBehaviour
     public GameObject BuildMenuButton;
     public GameObject ResearchMenuButton;
     public GameObject canvas;
+    
 
     [Header("Gold System")]
-    public int gold;
+    public float gold;
     public TMP_Text goldText;
     [Header("Research System")]
     public int researchPoints;
     [Header("NavMesh")]
     public GameObject navmeshUpdater;
+    [Header("Number of ResearchLabs")]
+    public int numberOfLabs;
+    public int maxNumberOfLabs;
+    public GameObject researchStructureButton;
+    public GameObject ResearchPanel;
+    public int researchRoundsElapsed;
+    [Header("Number of Mines ")]
+    public int numberOfMines;
+    public int maxNumberOfMines;
+    public GameObject mineButton;
+    public float goldMultiplayer;
+    public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
@@ -60,20 +74,27 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
-        _onRound = false;
+        researchRoundsElapsed = 3;
+        goldRoundsElapsed = 2;
+        goldMultiplayer = 1;
+        numberOfMines = 0;
+        maxNumberOfMines = 1;
+        maxNumberOfLabs = 1;
+        numberOfLabs = 0;
+        onRound = false;
        _roundsPlayed = 0;
        _totalRounds = 20;
        _totalNumberOfEnemies = 5;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-        GetGold(100);
+        GetGold(1000);
         
     }
     private void Update()
     {
         
-        if(Input.GetKeyDown(KeyCode.KeypadEnter) && _onRound == false )
+        if(Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
         {
-            _onRound = true;
+            onRound = true;
             RoundStart();
 
 
@@ -95,8 +116,29 @@ public class gameManager : MonoBehaviour
             return;
         }
     }
+    public void MaxNumberOfMines()
+    {
+        //Este calculo lo lleva realmente el buildMenuButtons
+        if (numberOfMines >= maxNumberOfMines)
+        {
+            canvas.GetComponent<BuildMenuButton>().SetWallsIndex();
 
+        }
+       
 
+    }
+    public void MaxNumberOfResearchStructures()
+    {
+
+        if(numberOfLabs >= maxNumberOfLabs)
+        {
+            canvas.GetComponent<BuildMenuButton>().SetWallsIndex();
+        }
+        if(numberOfLabs == 0)
+        {
+            ResearchPanel.SetActive(false);
+        }
+    }
 
     public void PlayerDead()
     {
@@ -111,7 +153,7 @@ public class gameManager : MonoBehaviour
 
     public void RoundStart()
     {
-        Debug.Log(_roundsPlayed + "Rondas");
+        
         if(_roundsPlayed <= _totalRounds)
         {
             roundsText.text = "Ronda "  + _roundsPlayed.ToString();
@@ -142,13 +184,24 @@ public class gameManager : MonoBehaviour
     public void EnemyDead()
     {
         enemiesAlive -= 1;
-        Debug.Log(enemiesAlive + "Menos 1 enemigo , quedan");
         
-        if(enemiesAlive <= 0 && _onRound == true)
+        
+        if(enemiesAlive <= 0 && onRound == true)
         {
-            _onRound = false;
+            onRound = false;
             _roundsPlayed += 1;
             roundsText.text = "Ronda " +_roundsPlayed.ToString();
+
+            if(_roundsPlayed % goldRoundsElapsed == 0)
+            {
+                
+                MinesGold(); //Cambiar esto a una manera consistente de obtenerlo
+            }
+            if (_roundsPlayed % researchRoundsElapsed == 0)
+            {
+                
+                ResearchPoints();
+            }
 
             //Enable Menus
             BuildMenuButton.SetActive(true);
@@ -157,8 +210,19 @@ public class gameManager : MonoBehaviour
         }
     }
 
- 
-    public void GetGold( int oro)
+    public void MinesGold()
+    {
+        
+        GetGold(numberOfMines * 100 * goldMultiplayer);
+    }
+    public void ResearchPoints() //abajo hay otra funcion que hace lo mismo , ver cual es mejor()
+    {
+        
+        researchPoints += numberOfLabs * 2;
+    }
+
+
+    public void GetGold( float oro)
     {
 
         gold += oro;
@@ -166,7 +230,7 @@ public class gameManager : MonoBehaviour
 
     }
 
-    public void GetResearchPoints(int ResearchPoints)
+    public void GetResearchPoints(int ResearchPoints) //arriba hay otra funcion que hace lo mismo , ver cual es mejor()
     {
 
         researchPoints += ResearchPoints;

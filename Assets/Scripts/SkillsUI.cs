@@ -31,7 +31,8 @@ public class SkillsUI : MonoBehaviour
 
     public void BuyGoldPanel()
     {
-        ///
+        Skills.giveMeReference.unlockGoldPanels(this.gameObject);
+        
     }
 
 }

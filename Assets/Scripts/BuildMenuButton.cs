@@ -22,6 +22,7 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject tallerButton;
     public GameObject sniperButton;
     public GameObject laserButton;
+    public GameObject mineButton;
     
 
     public void Start()
@@ -139,6 +140,15 @@ public class BuildMenuButton : MonoBehaviour
             destroyButton.GetComponent<Image>().color = Color.white;
         }
     }
+    public void MineIndex()
+    {
+        BuildManager.dameReferencia.GetStructurePrefabIndex(6);
+        if (destroyModeActive == true)
+        {
+            destroyModeActive = false;
+            destroyButton.GetComponent<Image>().color = Color.white;
+        }
+    }
 
 
     IEnumerator GoldCheck()
@@ -176,9 +186,14 @@ public class BuildMenuButton : MonoBehaviour
             {
                 tallerButton.GetComponent<Button>().interactable = false;
             }
-            else
+            else if(BuildManager.dameReferencia.researchStructureCost < gameManager.giveMeReference.gold && gameManager.giveMeReference.numberOfLabs < gameManager.giveMeReference.maxNumberOfLabs)
             {
                 tallerButton.GetComponent<Button>().interactable = true;
+            }
+            else if (gameManager.giveMeReference.numberOfLabs == gameManager.giveMeReference.maxNumberOfLabs)
+            {
+                tallerButton.GetComponent<Button>().interactable = false;
+                
             }
 
             if (BuildManager.dameReferencia.sniperTurretCost > gameManager.giveMeReference.gold)
@@ -197,6 +212,20 @@ public class BuildMenuButton : MonoBehaviour
             else
             {
                 laserButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.mineCost > gameManager.giveMeReference.gold)
+            {
+                mineButton.GetComponent<Button>().interactable = false;
+            }
+            else if (BuildManager.dameReferencia.mineCost < gameManager.giveMeReference.gold && gameManager.giveMeReference.numberOfMines < gameManager.giveMeReference.maxNumberOfMines)
+            {
+                mineButton.GetComponent<Button>().interactable = true;
+            }
+            else if (gameManager.giveMeReference.numberOfMines == gameManager.giveMeReference.maxNumberOfMines)
+            {
+                mineButton.GetComponent<Button>().interactable = false;
+                
             }
             yield return new WaitForSeconds(0.3f);
         }

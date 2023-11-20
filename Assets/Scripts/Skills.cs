@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Skills : MonoBehaviour
 {
@@ -117,7 +119,7 @@ public class Skills : MonoBehaviour
         { SkillName.unlockGems,false},
         
     };
-
+    [Header("Skills")]
     public List<GameObject> SkillButtons = new List<GameObject>();
 
     public Color unlockedSkillColor;
@@ -125,8 +127,21 @@ public class Skills : MonoBehaviour
     public Color defaultColor;
     public Color dependency;
     private GameObject canvas;
+    [Header("GoldPanels")]
+    public GameObject[] goldPanels;
+    private int panelCost;
+    private int index;
+    public TMP_Text goldPanelText;
+    [Header("Buttons")]
+    public GameObject minesButton;
+    public GameObject sniperTurretButton;
+    public GameObject laserTurretButton;
     private void Start()
     {
+        
+        index = 0;
+        panelCost = 300;
+        goldPanelText.text = panelCost.ToString() + " g";
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         SkillsUI[] skillButtons = canvas.GetComponentsInChildren<SkillsUI>(true);
         foreach(SkillsUI skillUIscript in skillButtons)
@@ -141,7 +156,20 @@ public class Skills : MonoBehaviour
         }
         UpdateSkillUI();
     }
-
+    public void unlockGoldPanels(GameObject goldpanel)
+    {
+       
+        if(panelCost <= gameManager.giveMeReference.gold)
+        {
+            SkillButtons.Remove(goldpanel);
+            
+            
+            goldPanels[index].SetActive(false);
+            index++;
+            panelCost += 300;
+            goldPanelText.text = panelCost.ToString() + " g";
+        }
+    }
     public void unlockSkill(SkillName skill)
     {
         if (skillCost[skill] <= gameManager.giveMeReference.researchPoints)
@@ -188,7 +216,7 @@ public class Skills : MonoBehaviour
 
                         UnlockSkillLogic(skill);
 
-                        //Logica
+                        sniperTurretButton.SetActive(true);
                     }
                     break;
                 case SkillName.unlockMachinegunTurret:
@@ -218,7 +246,6 @@ public class Skills : MonoBehaviour
                     if (isSkillUnlocked[SkillName.unlockSniperTurret] == true)
                     {
                         
-
                         UnlockSkillLogic(skill);
 
                         //Logica
@@ -227,17 +254,17 @@ public class Skills : MonoBehaviour
                 case SkillName.unlockLaserTurret:
                     if (isSkillUnlocked[SkillName.unlockMachinegunTurret] == true)
                     {
-
-
+                        
+                        skillCanBeUnlocked[SkillName.unlockMortarTurret] = false;
                         UnlockSkillLogic(skill);
 
-                        //Logica
+                        laserTurretButton.SetActive(true);
                     }
                     break;
                 case SkillName.unlockMortarTurret:
                     if (isSkillUnlocked[SkillName.unlockMachinegunTurret] == true)
                     {
-
+                        skillCanBeUnlocked[SkillName.unlockLaserTurret] = false;
 
                         UnlockSkillLogic(skill);
 
@@ -250,6 +277,7 @@ public class Skills : MonoBehaviour
                     skillCanBeUnlocked[SkillName.minesFaster] = true;
                     skillCanBeUnlocked[SkillName.fasterResearch] = true;
                     UnlockSkillLogic(skill);
+                    minesButton.SetActive(true);
 
                     break;
                 case SkillName.minesFaster:
@@ -259,7 +287,7 @@ public class Skills : MonoBehaviour
                         
                         UnlockSkillLogic(skill);
 
-                        //Logica
+                        gameManager.giveMeReference.goldMultiplayer = 2;
                     }
                     break;
                 case SkillName.oneMoreMine:
@@ -269,8 +297,9 @@ public class Skills : MonoBehaviour
                         skillCanBeUnlocked[SkillName.slowMine] = true;
 
                         UnlockSkillLogic(skill);
-
-                        //Logica
+                        gameManager.giveMeReference.maxNumberOfMines++;
+                        gameManager.giveMeReference.MaxNumberOfMines();
+                        
                     }
                     break;
                 case SkillName.fasterResearch:
@@ -280,7 +309,7 @@ public class Skills : MonoBehaviour
 
                         UnlockSkillLogic(skill);
 
-                        //Logica
+                        gameManager.giveMeReference.researchRoundsElapsed = 1;
                     }
                     break;
                 case SkillName.fastMine:
@@ -289,6 +318,9 @@ public class Skills : MonoBehaviour
                         skillCanBeUnlocked[SkillName.slowMine] = false;
                         
                         UnlockSkillLogic(skill);
+
+                        gameManager.giveMeReference.goldRoundsElapsed = 1;
+                        gameManager.giveMeReference.goldMultiplayer = 1.5f;
                     }
                     
                     break;
@@ -298,6 +330,8 @@ public class Skills : MonoBehaviour
                         
                         skillCanBeUnlocked[SkillName.fastMine] = false;
                         UnlockSkillLogic(skill);
+                        gameManager.giveMeReference.goldRoundsElapsed = 4;
+                        gameManager.giveMeReference.goldMultiplayer = 8f;
                     }
                     
                     break;
@@ -315,7 +349,7 @@ public class Skills : MonoBehaviour
 
     private void UnlockSkillLogic(SkillName skill)
     {
-        Debug.Log("He desbloqueado la habilidad" + skill.ToString());
+        
         gameManager.giveMeReference.researchPoints -= skillCost[skill];
         isSkillUnlocked[skill] = true;
         UpdateSkillUI();

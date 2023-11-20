@@ -17,6 +17,8 @@ TagManager:
   - LoadingScreen
   - SniperTurret
   - LaserTurret
+  - ResearchMenu
+  - Mine
   layers:
   - Default
   - TransparentFX

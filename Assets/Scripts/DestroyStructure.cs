@@ -36,6 +36,8 @@ public class DestroyStructure : MonoBehaviour
                 else if (this.gameObject.tag == "Taller")
                 {
                     BuildManager.dameReferencia.PriceUpdate(3, false);
+                    gameManager.giveMeReference.numberOfLabs--;
+                    gameManager.giveMeReference.MaxNumberOfResearchStructures();
                 }
                 else if (this.gameObject.tag == "SniperTurret")
                 {
@@ -44,6 +46,12 @@ public class DestroyStructure : MonoBehaviour
                 else if (this.gameObject.tag == "LaserTurret")
                 {
                     BuildManager.dameReferencia.PriceUpdate(5, false);
+                }
+                else if (this.gameObject.tag == "Mine")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(6, false);
+                    gameManager.giveMeReference.numberOfMines--;
+                    gameManager.giveMeReference.MaxNumberOfMines();
                 }
 
             }
