@@ -173,10 +173,12 @@ public class Enemy3 : MonoBehaviour
 
         for(int i=0; i<5; i++)
         {
-            GameObject.Instantiate(Jr, transform.position, transform.rotation);
+            GameObject.Instantiate(Jr, new Vector3(transform.position.x, transform.position.y +0.9f, transform.position.z), transform.rotation);
             gameManager.giveMeReference.enemiesAlive += 1;
         }        
     }
+
+
 
 IEnumerator GetWalls()
     {

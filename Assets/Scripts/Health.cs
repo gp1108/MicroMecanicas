@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    bool muerto = false;
+
     public enum tipoDeVida
     {
         Estandar,
@@ -83,11 +85,11 @@ public class Health : MonoBehaviour
             {
                 BuildManager.dameReferencia.RemoveAndWallUpdate(this.gameObject);
             }
-            if (this.tag == "Enemies")
+            if (this.tag == "Enemies" && !muerto)
             {
+                muerto = true;
                 gameManager.giveMeReference.GetGold(10);
                 gameManager.giveMeReference.EnemyDead();
-                Debug.Log("1");
             }
 
             Destroy(this.gameObject);
