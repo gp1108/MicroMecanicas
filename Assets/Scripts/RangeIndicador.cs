@@ -6,7 +6,7 @@ public class RangeIndicador : MonoBehaviour
 {
     public GameObject rangeIndicator;
     public GameObject rangeIndicator2;
-    public GameObject InfoPanel;
+    //public GameObject InfoPanel;
     private bool mostrarRango = false;
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class RangeIndicador : MonoBehaviour
     {
         rangeIndicator.SetActive(true);
         rangeIndicator2.SetActive(true);
-        InfoPanel.SetActive(true);
+        //InfoPanel.SetActive(true);
         mostrarRango=true;
     }
 
@@ -37,7 +37,7 @@ public class RangeIndicador : MonoBehaviour
     {
         rangeIndicator.SetActive(false);
         rangeIndicator2.SetActive(false);
-        InfoPanel.SetActive(false);
+        //InfoPanel.SetActive(false);
         mostrarRango=false;
     }
 

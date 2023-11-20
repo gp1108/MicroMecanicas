@@ -18,9 +18,13 @@ public class BasicTurret : MonoBehaviour
     private GameObject _bullet;
     public GameObject bullet;
     public GameObject exitBullet;
+    public GameObject rangeIndicator;
+    GameObject localrangeindicator;
+    public GameObject baseTurret;
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
     [SerializeField] private Collider[] _prueba ;
     private bool _attacking;
+    private bool _mostrarRango;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,7 @@ public class BasicTurret : MonoBehaviour
         _velocitiRotation = 8;
         _range = 10;
         _rangeVision = 15;
+        _mostrarRango = false;
         GetComponent<Health>().healthPoints = 10;
     }
 
@@ -125,6 +130,31 @@ public class BasicTurret : MonoBehaviour
         }
         
 
+    }
+
+    private void OnMouseEnter()
+    {
+        Mostrar();
+    }
+
+    private void OnMouseExit()
+    {
+        Ocultar();
+    }
+
+
+    private void Mostrar()
+    {
+        localrangeindicator = Instantiate(rangeIndicator, baseTurret.transform.position, Quaternion.identity);
+        localrangeindicator.transform.localScale = new Vector3(_range, 0.5f, _range);
+
+        _mostrarRango = true;
+    }
+
+    private void Ocultar()
+    {
+        _mostrarRango = false;
+        Destroy(localrangeindicator);
     }
 
 
