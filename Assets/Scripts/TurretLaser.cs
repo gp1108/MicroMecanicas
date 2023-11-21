@@ -17,11 +17,12 @@ public class TurretLaser : MonoBehaviour
     public GameObject exitRay;
     private float _velocitiRotation;
     private bool _enemyActive;
+    private bool _ataking;
     private float _damaged;
     // Start is called before the first frame update
     void Start()
     {
-
+        _ataking = false;
         _damaged = 0.1f;
         GetComponent<Health>().healthPoints = 10;
         _velocitiRotation = 8;
@@ -92,16 +93,22 @@ public class TurretLaser : MonoBehaviour
                 {
                     if (hit.transform.tag != "TownHall")
                     {
-                        GameObject enemigo = hit.transform.GetComponent<GameObject>();
-                        Daño(enemigo);
-                        //hit.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
-                        //_damaged += 0.1f * Time.deltaTime;
+                        if (_ataking == false)
+                        {
+                            Debug.Log("Hola");
+                            GameObject enemigo = hit.transform.GetComponent<GameObject>();
+                            _ataking = true;
+                            Daño(enemigo);
+                            //hit.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
+                            //_damaged += 0.1f * Time.deltaTime;
+                        }
                     }
                 }
             }
         }
         else
         {
+            StopCoroutine("Daño");
             //_damaged = 0.1f;
         }
     }
@@ -129,7 +136,7 @@ public class TurretLaser : MonoBehaviour
     }
     IEnumerator Daño( GameObject enemy)
     {
-
+        
         enemy.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
         _damaged += 0.1f * Time.deltaTime;
         yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceL);
