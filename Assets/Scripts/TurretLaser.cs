@@ -13,10 +13,8 @@ public class TurretLaser : MonoBehaviour
     private float _distance;
     private Quaternion _rotation;
     [SerializeField] private List<Collider> _enemies;
-
     [SerializeField] private GameObject _target;
     public GameObject exitRay;
-    private float _rangeVision;
     private float _velocitiRotation;
     private bool _enemyActive;
     private float _damaged;
@@ -27,7 +25,7 @@ public class TurretLaser : MonoBehaviour
         _damaged = 0.1f;
         GetComponent<Health>().healthPoints = 10;
         _velocitiRotation = 8;
-        _rangeVision = 20;
+
     }
 
     // Update is called once per frame
@@ -77,7 +75,7 @@ public class TurretLaser : MonoBehaviour
     {
         if (_enemyActive == true) 
         {
-            if (Vector3.Distance(transform.position, _target.transform.position) < _rangeVision)
+            if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.visionL)
             {
                 _lookAt = _target.transform.position - transform.GetChild(0).transform.position;
 
@@ -88,26 +86,28 @@ public class TurretLaser : MonoBehaviour
 
             }
             RaycastHit hit;
-            if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, 15,layer))
+            if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer))
             {
                 if (hit.transform.GetComponent<Health>() != null)
                 {
                     if (hit.transform.tag != "TownHall")
                     {
-                        hit.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
-                        _damaged += 0.1f * Time.deltaTime;
+                        GameObject enemigo = hit.transform.GetComponent<GameObject>();
+                        Daño(enemigo);
+                        //hit.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
+                        //_damaged += 0.1f * Time.deltaTime;
                     }
                 }
             }
         }
         else
         {
-            _damaged = 0.1f;
+            //_damaged = 0.1f;
         }
     }
     public void GetEnemy()
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, 20, layer);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionL, layer);
 
         _enemies = _collidersEnemies.ToList();
 
@@ -125,6 +125,14 @@ public class TurretLaser : MonoBehaviour
             _target = _enemies[0].gameObject;
         }
 
+
+    }
+    IEnumerator Daño( GameObject enemy)
+    {
+
+        enemy.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
+        _damaged += 0.1f * Time.deltaTime;
+        yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceL);
 
     }
 }

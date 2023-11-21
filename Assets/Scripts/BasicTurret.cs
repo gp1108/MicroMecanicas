@@ -9,10 +9,8 @@ public class BasicTurret : MonoBehaviour
     private Vector3 _lookAt;
     private Quaternion _rotation;
     private float _velocitiRotation;
-    private float _range;
-    private float _rangeVision;
     private float _distance;
-    private float _timing;
+    private float _cadence;
     private float _accumulatedTime;
     [SerializeField]private GameObject _target;
     private GameObject _bullet;
@@ -27,8 +25,6 @@ public class BasicTurret : MonoBehaviour
         
         _attacking = false;
         _velocitiRotation = 8;
-        _range = 10;
-        _rangeVision = 15;
         GetComponent<Health>().healthPoints = 10;
     }
 
@@ -61,7 +57,7 @@ public class BasicTurret : MonoBehaviour
                 
                 
             }
-            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < _rangeVision)
+            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionB)
             {
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
 
@@ -76,27 +72,27 @@ public class BasicTurret : MonoBehaviour
     }
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, _target.transform.position) < _range && _attacking == false)
+        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeB && _attacking == false)
         {
 
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
 
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
-            _bullet.gameObject.GetComponent<Bullet>().damaged = 1;
+            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedB;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
 
             _attacking = true;
 
-            _timing = 1;
+            _cadence = UpgradeManager.giveMeReference.cadenceB;
         }
         if (_attacking == true)
         {
 
             _accumulatedTime += Time.deltaTime;
 
-            if (_accumulatedTime > _timing)
+            if (_accumulatedTime > _cadence)
             {
                 _attacking = false;
 
@@ -106,7 +102,7 @@ public class BasicTurret : MonoBehaviour
     }
     public void GetEnemy()
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, 10,layer);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionB,layer);
         
         _enemies = _collidersEnemies.ToList();
         
