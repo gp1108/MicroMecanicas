@@ -188,7 +188,8 @@ public class Skills : MonoBehaviour
                 case SkillName.moreDamageTurrets:
                     if (isSkillUnlocked[SkillName.moreHealthTurrets] == true)
                     {
-
+                        UpgradeManager.giveMeReference.damagedB += 3;
+                        UpgradeManager.giveMeReference.damagedS += 10;
                         skillCanBeUnlocked[SkillName.unlockSniperTurret] = true;
                         skillCanBeUnlocked[SkillName.unlockMachinegunTurret] = true;
 

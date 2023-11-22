@@ -49,21 +49,16 @@ public class UpgradeManager : MonoBehaviour
         damagedS = 20;
         cadenceS = 5;
         rangeS = 25;
-        visionS = 30;
+        visionS = damagedS +10;
 
         cadenceL = 0.1f;
         rangeL = 15;
-        visionL = 20;
+        visionL = rangeL +10;
 
-        damagedB = 1;
+        damagedB = 3;
         cadenceB = 1;
         rangeB = 10;
-        visionB = 15;
+        visionB = rangeB +5;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
