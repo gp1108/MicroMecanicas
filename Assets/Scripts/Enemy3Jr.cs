@@ -12,11 +12,14 @@ public class Enemy3Jr : MonoBehaviour
     private Collider[] _explosion;
     private NavMeshAgent _navAgent;
     private float _distance;
+    private bool waitForLoad;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        waitForLoad = true;
+        StartCoroutine("WaitForLoad");
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
         _walls = BuildManager.dameReferencia.Walls;
@@ -162,6 +165,7 @@ public class Enemy3Jr : MonoBehaviour
                     }
                 }
                 Destroy(this.gameObject);
+                gameManager.giveMeReference.EnemyDead();
             }
         }
 
@@ -197,12 +201,23 @@ public class Enemy3Jr : MonoBehaviour
 
 
     }
+    IEnumerator WaitForLoad()
+    {
+        
+        yield return new WaitForSeconds(0.1f);
+        waitForLoad = false;
+    }
     IEnumerator CheckPath()
     {
         while (true)
         {
-
-            Move();
+            
+            if(waitForLoad == false)
+            {
+                StopCoroutine("WaitForLoad");
+                Move();
+            }
+           
 
 
             yield return new WaitForSeconds(1.5f);

@@ -164,6 +164,7 @@ public class Enemy3 : MonoBehaviour
                     }
                 }
                 Destroy(this.gameObject);
+                gameManager.giveMeReference.EnemyDead();
             }
         }
 
