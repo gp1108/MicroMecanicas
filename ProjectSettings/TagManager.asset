@@ -19,6 +19,7 @@ TagManager:
   - LaserTurret
   - ResearchMenu
   - Mine
+  - Suelo
   layers:
   - Default
   - TransparentFX

@@ -65,6 +65,9 @@ public class gameManager : MonoBehaviour
     public GameObject mineButton;
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
+
+    public int isShooter;
+    public GameObject[] cameras;
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
@@ -74,6 +77,7 @@ public class gameManager : MonoBehaviour
 
     private void Start()
     {
+        isShooter = PlayerPrefs.GetInt("Shooter");
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
         goldMultiplayer = 1;
@@ -91,6 +95,23 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
+        if(isShooter == 1)
+        {
+            if(onRound == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                cameras[0].SetActive(false);
+                cameras[1].SetActive(true);
+            }
+            else
+            {
+                cameras[0].SetActive(true);
+                cameras[1].SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
         
         if(Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
         {

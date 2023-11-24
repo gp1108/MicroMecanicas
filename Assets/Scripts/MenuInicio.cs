@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuInicio : MonoBehaviour
 {
     public GameObject menu;
     public GameObject opciones;
     public GameObject controles;
+    public Toggle toggle;
     
     public void NuevaPartida()
     {
@@ -45,5 +47,19 @@ public class MenuInicio : MonoBehaviour
     {
         opciones.gameObject.SetActive(false);
         controles.gameObject.SetActive(true);
+    }
+
+    public void Toggle()
+    {
+        if(toggle.isOn == true)
+        {
+            
+            PlayerPrefs.SetInt("Shooter", 1);
+        }
+        else
+        {
+            
+            PlayerPrefs.SetInt("Shooter", 0);
+        }
     }
 }
