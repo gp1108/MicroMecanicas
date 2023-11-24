@@ -13,6 +13,7 @@ public class MainStrcuteSpawn : MonoBehaviour
     private GameObject canvas;
     private GameObject loadingScreen;
     private bool aviableToSpawn;
+    public GameObject rangeIndicator;
     void Start()
     {
         aviableToSpawn = false;
@@ -21,6 +22,8 @@ public class MainStrcuteSpawn : MonoBehaviour
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen");
+        rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
+        rangeIndicator.SetActive(false);
         Invoke("MainStrcuteErrorSpawning", 7f);
     }
 
@@ -71,6 +74,9 @@ public class MainStrcuteSpawn : MonoBehaviour
                 this.gameObject.GetComponent<MainStrcuteSpawn>().enabled = false;
                 loadingScreen.gameObject.SetActive(false);
                 aviableToSpawn = true;
+
+                //RangeIndicator
+                rangeIndicator.gameObject.SetActive(true);
 
             }
         }

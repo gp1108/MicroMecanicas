@@ -19,6 +19,10 @@ public class TurretLaser : MonoBehaviour
     private bool _enemyActive;
     private bool _ataking;
     private float _damaged;
+
+    [Header("RangeIndicator")]
+    public GameObject rangeIndicator;
+    private bool _mostrarRango;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +30,7 @@ public class TurretLaser : MonoBehaviour
         _damaged = 0.1f;
         GetComponent<Health>().healthPoints = 10;
         _velocitiRotation = 8;
-
+        rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
     }
 
     // Update is called once per frame
@@ -129,6 +133,32 @@ public class TurretLaser : MonoBehaviour
         }
 
 
+    }
+    private void OnMouseUpAsButton()
+    {
+        Mostrar();
+    }
+
+    private void OnMouseExit()
+    {
+        Ocultar();
+    }
+
+
+    private void Mostrar()
+    {
+        rangeIndicator.transform.position = this.transform.position;
+        rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL, 0.5f, UpgradeManager.giveMeReference.rangeL);
+
+        _mostrarRango = true;
+    }
+
+    private void Ocultar()
+    {
+        _mostrarRango = false;
+        rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
+        rangeIndicator.transform.position = new Vector3(0, -50, 0);
     }
     IEnumerator Daño( GameObject enemy)
     {

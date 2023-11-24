@@ -16,20 +16,24 @@ public class BasicTurret : MonoBehaviour
     private GameObject _bullet;
     public GameObject bullet;
     public GameObject exitBullet;
-    public GameObject rangeIndicator;
-    GameObject localrangeindicator;
-    public GameObject baseTurret;
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
     [SerializeField] private Collider[] _collidersEnemies ;
     private bool _attacking;
+
+    [Header("RangeIndicator")]
+    public GameObject rangeIndicator;
     private bool _mostrarRango;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _mostrarRango = false;
         _attacking = false;
         _velocitiRotation = 8;
         GetComponent<Health>().healthPoints = 10;
+        rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
+        
+       
     }
 
     // Update is called once per frame
@@ -127,8 +131,7 @@ public class BasicTurret : MonoBehaviour
 
     }
 
-
-    private void OnMouseEnter()
+    private void OnMouseUpAsButton()
     {
         Mostrar();
     }
@@ -141,8 +144,9 @@ public class BasicTurret : MonoBehaviour
 
     private void Mostrar()
     {
-        localrangeindicator = Instantiate(rangeIndicator, baseTurret.transform.position, Quaternion.identity);
-        localrangeindicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB, 0.5f, UpgradeManager.giveMeReference.rangeB);
+        rangeIndicator.transform.position = this.transform.position;
+        rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB, 0.5f, UpgradeManager.giveMeReference.rangeB);
 
         _mostrarRango = true;
     }
@@ -150,7 +154,8 @@ public class BasicTurret : MonoBehaviour
     private void Ocultar()
     {
         _mostrarRango = false;
-        Destroy(localrangeindicator);
+        rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
+        rangeIndicator.transform.position = new Vector3(0,-50,0) ;
     }
 
 }

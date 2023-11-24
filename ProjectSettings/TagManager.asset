@@ -19,6 +19,7 @@ TagManager:
   - LaserTurret
   - ResearchMenu
   - Mine
+  - RangeIndicator
   layers:
   - Default
   - TransparentFX
