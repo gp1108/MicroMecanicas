@@ -16,9 +16,13 @@ public class BasicTurret : MonoBehaviour
     private GameObject _bullet;
     public GameObject bullet;
     public GameObject exitBullet;
+    public GameObject rangeIndicator;
+    GameObject localrangeindicator;
+    public GameObject baseTurret;
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
     [SerializeField] private Collider[] _collidersEnemies ;
     private bool _attacking;
+    private bool _mostrarRango;
     // Start is called before the first frame update
     void Start()
     {
@@ -123,5 +127,30 @@ public class BasicTurret : MonoBehaviour
 
     }
 
+
+    private void OnMouseEnter()
+    {
+        Mostrar();
+    }
+
+    private void OnMouseExit()
+    {
+        Ocultar();
+    }
+
+
+    private void Mostrar()
+    {
+        localrangeindicator = Instantiate(rangeIndicator, baseTurret.transform.position, Quaternion.identity);
+        localrangeindicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB, 0.5f, UpgradeManager.giveMeReference.rangeB);
+
+        _mostrarRango = true;
+    }
+
+    private void Ocultar()
+    {
+        _mostrarRango = false;
+        Destroy(localrangeindicator);
+    }
 
 }

@@ -13,7 +13,12 @@ public class CameraMovement : MonoBehaviour
     private float _scrollInputAmount;
     public float velocidadRotacion = 60.0f;
     [SerializeField]private Camera _mainCamera;
-     private Vector3 puntoImpacto;
+    private Vector3 puntoImpacto;
+
+    [Header("Referencias a menus")]
+    public GameObject buildMenu;
+    public GameObject researchMenu;
+    public GameObject pause;
 
     private void Start()
     {
@@ -75,8 +80,29 @@ public class CameraMovement : MonoBehaviour
             transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * _cameraSpeedHorizontal, Space.Self);
         }
 
-        
 
+        //Escape
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
+            {
+                buildMenu.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
+            }
+            else if (researchMenu.GetComponent<ResearchMenu>().researchMenuActive == true)
+            {
+                researchMenu.GetComponent<ResearchMenu>().EnableOrDisableResearchPanel();
+            }
+            else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
+            {
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            else if (pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == true)
+            {
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+
+        }
 
 
         //ZOOM

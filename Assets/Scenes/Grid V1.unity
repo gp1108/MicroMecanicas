@@ -842,6 +842,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3603045341375802390}
   - {fileID: 1083629967}
   - {fileID: 2073828312}
   - {fileID: 1690762626}
@@ -849,7 +850,6 @@ RectTransform:
   - {fileID: 1905193623}
   - {fileID: 1154392690}
   - {fileID: 763358823}
-  - {fileID: 3603045341375802390}
   - {fileID: 6539086687112847992}
   - {fileID: 1887934413550318726}
   m_Father: {fileID: 969971034}
@@ -1841,6 +1841,9 @@ MonoBehaviour:
   _cameraSpeedHorizontal: 0
   velocidadRotacion: 60
   _mainCamera: {fileID: 368644528}
+  buildMenu: {fileID: 225649982}
+  researchMenu: {fileID: 225649982}
+  pause: {fileID: 6728874550572920325}
 --- !u!1 &429260039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4394,12 +4397,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1012099154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd8eceda37dd6241af2c786b52b242f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1242ed1c0c0fea943b9bdda30693e301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreen: {fileID: 6728874550572920325}
-  pauseMenuActive: 0
-  canvas: {fileID: 225649982}
+  menu: {fileID: 0}
+  opciones: {fileID: 0}
+  controles: {fileID: 0}
+  pausa: {fileID: 6728874550572920325}
 --- !u!1 &1025579008
 GameObject:
   m_ObjectHideFlags: 0
@@ -11604,7 +11608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1012099158}
         m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -12908,7 +12912,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1012099158}
         m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
         m_MethodName: Continue
         m_Mode: 1
