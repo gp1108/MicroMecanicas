@@ -8,9 +8,11 @@ public class MenuInicio : MonoBehaviour
     public GameObject menu;
     public GameObject opciones;
     public GameObject controles;
+    public GameObject pausa;
     
     public void NuevaPartida()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     
@@ -46,4 +48,18 @@ public class MenuInicio : MonoBehaviour
         opciones.gameObject.SetActive(false);
         controles.gameObject.SetActive(true);
     }
+
+    public void Continue()
+    {
+        Time.timeScale = 1;
+        pausa.gameObject.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+
 }
