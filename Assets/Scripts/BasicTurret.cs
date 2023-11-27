@@ -30,10 +30,10 @@ public class BasicTurret : MonoBehaviour
         _mostrarRango = false;
         _attacking = false;
         _velocitiRotation = 8;
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaB;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
-        
-       
+        Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+
     }
 
     // Update is called once per frame
@@ -157,5 +157,13 @@ public class BasicTurret : MonoBehaviour
         rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
         rangeIndicator.transform.position = new Vector3(0,-50,0) ;
     }
-
+    public void ActualizarVidaTorres()
+    {
+        GetComponent<Health>().healthPoints += 5;
+    }
+    void OnDestroy()
+    {
+        if (!this.gameObject.scene.isLoaded) return;
+        Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
+    }
 }

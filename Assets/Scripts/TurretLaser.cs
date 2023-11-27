@@ -28,10 +28,14 @@ public class TurretLaser : MonoBehaviour
     {
         _ataking = false;
         _damaged = 0.1f;
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaL;
         _velocitiRotation = 8;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
+
+        Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -138,13 +142,10 @@ public class TurretLaser : MonoBehaviour
     {
         Mostrar();
     }
-
     private void OnMouseExit()
     {
         Ocultar();
     }
-
-
     private void Mostrar()
     {
         rangeIndicator.transform.position = this.transform.position;
@@ -153,12 +154,20 @@ public class TurretLaser : MonoBehaviour
 
         _mostrarRango = true;
     }
-
     private void Ocultar()
     {
         _mostrarRango = false;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
         rangeIndicator.transform.position = new Vector3(0, -50, 0);
+    }
+    public void ActualizarVidaTorres()
+    {
+        GetComponent<Health>().healthPoints += 5;
+    }
+    void OnDestroy() 
+    {
+        if (!this.gameObject.scene.isLoaded) return;
+        Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
     }
     IEnumerator Daño( GameObject enemy)
     {

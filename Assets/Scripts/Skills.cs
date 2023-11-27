@@ -119,6 +119,12 @@ public class Skills : MonoBehaviour
         { SkillName.unlockGems,false},
         
     };
+    
+    public delegate void maxVidaTurrets();
+    public event maxVidaTurrets listaActualizarTurrets;
+    public delegate void maxVidaWalls();
+    public event maxVidaWalls listaActualizarWalls;
+    
     [Header("Skills")]
     public List<GameObject> SkillButtons = new List<GameObject>();
 
@@ -181,8 +187,9 @@ public class Skills : MonoBehaviour
 
                     skillCanBeUnlocked[SkillName.moreDamageTurrets] = true;
                     skillCanBeUnlocked[SkillName.moreHealthWalls] = true;
-                    //logica
                     UnlockSkillLogic(skill);
+
+                    listaActualizarTurrets();
 
                     break;
                 case SkillName.moreDamageTurrets:
@@ -206,7 +213,7 @@ public class Skills : MonoBehaviour
 
                         UnlockSkillLogic(skill);
 
-                        //Logica
+                        listaActualizarWalls();
                     }
                     break;
                 case SkillName.unlockSniperTurret:

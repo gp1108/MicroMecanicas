@@ -29,9 +29,9 @@ public class TurretSnip : MonoBehaviour
 
         _attacking = false;
         _velocitiRotation = 8;
-        GetComponent<Health>().healthPoints = 10;
-
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaS;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
+        Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
     }
 
     // Update is called once per frame
@@ -128,18 +128,14 @@ public class TurretSnip : MonoBehaviour
 
 
     }
-
     private void OnMouseUpAsButton()
     {
         Mostrar();
     }
-
     private void OnMouseExit()
     {
         Ocultar();
     }
-
-
     private void Mostrar()
     {
         rangeIndicator.transform.position = this.transform.position;
@@ -148,12 +144,19 @@ public class TurretSnip : MonoBehaviour
 
         _mostrarRango = true;
     }
-
     private void Ocultar()
     {
         _mostrarRango = false;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
         rangeIndicator.transform.position = new Vector3(0, -50, 0);
     }
-
+    public void ActualizarVidaTorres()
+    {
+        GetComponent<Health>().healthPoints += 5;
+    }
+    void OnDestroy()
+    {
+        if (!this.gameObject.scene.isLoaded) return;
+        Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
+    }
 }
