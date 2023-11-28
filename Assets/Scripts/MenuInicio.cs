@@ -5,15 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicio : MonoBehaviour
 {
+
+    [Header("GameObject")]
     public GameObject menu;
     public GameObject opciones;
     public GameObject controles;
     public GameObject pausa;
-    
+
+    [Header("Sound")]
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>();
+    }
+
     public void NuevaPartida()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
+        soundManager.ControlAudios(0, 1f);
     }
     
     public void CargarPartida()
@@ -24,6 +35,7 @@ public class MenuInicio : MonoBehaviour
     {
         menu.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
+        soundManager.ControlAudios(0, 1f);
     }
 
     public void Volver()
@@ -53,6 +65,7 @@ public class MenuInicio : MonoBehaviour
     {
         Time.timeScale = 1;
         pausa.gameObject.SetActive(false);
+        soundManager.ControlAudios(0, 1f);
     }
 
     public void Quit()

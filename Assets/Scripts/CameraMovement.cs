@@ -20,6 +20,14 @@ public class CameraMovement : MonoBehaviour
     public GameObject researchMenu;
     public GameObject pause;
 
+    [Header("Sound")]
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = FindAnyObjectByType<SoundManager>();
+    }
+
     private void Start()
     {
         _cameraSpeed = 8;
@@ -84,6 +92,7 @@ public class CameraMovement : MonoBehaviour
         //Escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            
 
             if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
             {
@@ -96,10 +105,12 @@ public class CameraMovement : MonoBehaviour
             else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
             {
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+                soundManager.ControlAudios(0, 1f);
             }
             else if (pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == true)
             {
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+                soundManager.ControlAudios(0, 1f);
             }
 
         }
