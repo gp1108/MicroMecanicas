@@ -31,7 +31,6 @@ public class TurretLaser : MonoBehaviour
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaL;
         _velocitiRotation = 8;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
-
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
     }
 

@@ -44,7 +44,11 @@ public class gameManager : MonoBehaviour
     public GameObject BuildMenuButton;
     public GameObject ResearchMenuButton;
     public GameObject canvas;
-    
+
+    [Header("Muros Regeneracion")]
+    public bool regenWalls;
+    public delegate void regWallsR();
+    public event regWallsR listaActualizarWallsReg;
 
     [Header("Gold System")]
     public float gold;
@@ -188,6 +192,10 @@ public class gameManager : MonoBehaviour
         
         if(enemiesAlive <= 0 && onRound == true)
         {
+            if (regenWalls == true)
+            {
+                listaActualizarWallsReg();
+            }
             onRound = false;
             _roundsPlayed += 1;
             roundsText.text = "Ronda " +_roundsPlayed.ToString();

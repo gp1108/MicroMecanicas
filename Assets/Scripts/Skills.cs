@@ -201,8 +201,8 @@ public class Skills : MonoBehaviour
                         skillCanBeUnlocked[SkillName.unlockMachinegunTurret] = true;
 
                         UnlockSkillLogic(skill);
-                        
-                        //Logica
+
+                        UpgradeManager.giveMeReference.MoreDamagedTurrets();
                     }
                     break;
                 case SkillName.moreHealthWalls:
@@ -221,10 +221,10 @@ public class Skills : MonoBehaviour
                     {
                         skillCanBeUnlocked[SkillName.sniperTurretMoreFireRate] = true;
 
-
                         UnlockSkillLogic(skill);
 
                         sniperTurretButton.SetActive(true);
+
                     }
                     break;
                 case SkillName.unlockMachinegunTurret:
@@ -242,11 +242,11 @@ public class Skills : MonoBehaviour
                 case SkillName.structureRecoverHealth:
                     if (isSkillUnlocked[SkillName.moreHealthWalls] == true)
                     {
-                        //FALTA AÑADIR RECOVER HEALT 2 
+
+                        gameManager.giveMeReference.regenWalls=true;
 
                         UnlockSkillLogic(skill);
 
-                        //Logica
                     }
                     break;
 
@@ -256,7 +256,7 @@ public class Skills : MonoBehaviour
                         
                         UnlockSkillLogic(skill);
 
-                        //Logica
+                        UpgradeManager.giveMeReference.cadenceS=3;  
                     }
                     break;
                 case SkillName.unlockLaserTurret:

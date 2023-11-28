@@ -91,4 +91,9 @@ public class UpgradeManager : MonoBehaviour
     {
         vidaW += 5;
     }
+    public void MoreDamagedTurrets()
+    {
+        damagedB += 5;
+        damagedS += 5;
+    }
 }

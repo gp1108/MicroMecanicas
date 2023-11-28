@@ -10,7 +10,8 @@ public class WallCheck : MonoBehaviour
     {
         GetComponentInParent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaW;
         BuildManager.dameReferencia.Muro(this.gameObject);
-        //Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
+        Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
+        gameManager.giveMeReference.listaActualizarWallsReg += RegenHealWalls;
     }
     public void DoWallDraw()
     {
@@ -90,9 +91,18 @@ public class WallCheck : MonoBehaviour
     {
         GetComponentInParent<Health>().healthPoints += 5;
     }
+    public void RegenHealWalls()
+    {
+        GetComponentInParent<Health>().healthPoints += 5;
+        if(GetComponentInParent<Health>().healthPoints > UpgradeManager.giveMeReference.vidaW)
+        {
+            GetComponentInParent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaW;
+        }
+    }
     void OnDestroy()
     {
         if (!this.gameObject.scene.isLoaded) return;
         Skills.giveMeReference.listaActualizarWalls -= ActualizarVidaWalls;
+        gameManager.giveMeReference.listaActualizarWallsReg -= RegenHealWalls;
     }
 }
