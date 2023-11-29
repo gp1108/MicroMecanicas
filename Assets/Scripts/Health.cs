@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -19,9 +20,12 @@ public class Health : MonoBehaviour
     public float healthPoints;
     public Slider healthSlider;
     private GameObject mainCamera;
+    private GameObject _turret;
+    private bool _slow;
     // Start is called before the first frame update
     void Start()
     {
+        _slow = false;
         tipoVida = tipoDeVida.Estandar;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         StartCoroutine("SliderTracksCamera");
@@ -95,6 +99,34 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
             
         }
+    }
+    
+    public void GetSlow(GameObject turret)
+    {
+
+        _slow = true;
+        StartCoroutine(Slow(turret));
+
+    }
+    
+    IEnumerator Slow(GameObject turret)
+    {
+
+        while (_slow==true)
+        {
+            if (Vector3.Distance(transform.position, turret.transform.position) <= 20)
+            {
+                GetComponent<NavMeshAgent>().speed = 0.5f;
+                yield return new WaitForSeconds(0.2f);
+            }
+            if(Vector3.Distance(transform.position,turret.transform.position) > 20)
+            {
+                GetComponent<NavMeshAgent>().speed = 2f;
+                _slow =false;
+            }
+
+        }
+
     }
     IEnumerator SliderTracksCamera()
     {

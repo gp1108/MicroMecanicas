@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class TurretSlow : MonoBehaviour
 {
-    
+    public LayerMask layer;
+    private Collider[] _zoneSlow;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,32 +20,16 @@ public class TurretSlow : MonoBehaviour
     }
     public void Slow()
     {
-        /*
-        _zoneNormal = Physics.OverlapSphere(transform.position, 20, layer);
-        _zoneSlow= Physics.OverlapSphere(transform.position,15, layer);
+        _zoneSlow= Physics.OverlapSphere(transform.position,20, layer);
         if (_zoneSlow.Length > 0)
         {
             foreach (Collider c in _zoneSlow)
             {
-                c.gameObject.GetComponent<NavMeshAgent>().speed = 1;
+                if (c.gameObject.GetComponent<NavMeshAgent>()!=null)
+                {
+                    c.gameObject.GetComponent<Health>().GetSlow(this.gameObject);
+                }
             }
         }
-        if (_zoneNormal.Length > 0)
-        {
-            foreach(Collider c in _zoneNormal)
-            {
-                
-            }
-        }
-        */
-
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        other.GetComponent<NavMeshAgent>().speed = 1;
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        other.GetComponent <NavMeshAgent>().speed = 2;
     }
 }

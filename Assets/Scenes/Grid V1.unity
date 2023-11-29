@@ -4414,6 +4414,7 @@ MonoBehaviour:
   BuildMenuButton: {fileID: 909900403}
   ResearchMenuButton: {fileID: 1905193622}
   canvas: {fileID: 225649982}
+  regenWalls: 0
   gold: 0
   goldText: {fileID: 2018321478}
   researchPoints: 0

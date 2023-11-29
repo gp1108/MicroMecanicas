@@ -39,8 +39,6 @@ public class TurretSnip : MonoBehaviour
     {
         GetEnemy();
         GetTarget();
-
-
     }
     public void GetTarget()
     {

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Enemy1 : MonoBehaviour
 {
-
+    
     private GameObject _TownHall;
     private Vector3 _distancia;
     private NavMeshAgent _navAgent;
@@ -14,7 +14,9 @@ public class Enemy1 : MonoBehaviour
     private float _cadencia;
     private bool _atac;
 
-    
+
+
+
     void Start()
     {
         
@@ -116,7 +118,7 @@ public class Enemy1 : MonoBehaviour
         }
 
     }
-
+    
     IEnumerator CheckPath()
     {
         while(true)
