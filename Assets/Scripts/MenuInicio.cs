@@ -11,6 +11,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject opciones;
     public GameObject controles;
     public GameObject pausa;
+    public GameObject volume;
 
     [Header("Sound")]
     private SoundManager soundManager;
@@ -38,6 +39,12 @@ public class MenuInicio : MonoBehaviour
         soundManager.ControlAudios(0, 1f);
     }
 
+    public void Volume()
+    {
+        volume.gameObject.SetActive(true);
+        opciones.gameObject.SetActive(false);
+    }
+
     public void Volver()
     {
         menu.gameObject.SetActive(true);
@@ -47,6 +54,12 @@ public class MenuInicio : MonoBehaviour
     public void ControlesVolver()
     {
         controles.gameObject.SetActive(false);
+        opciones.gameObject.SetActive(true);
+    }
+
+    public void VolumeReturn()
+    {
+        volume.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
     }
 
