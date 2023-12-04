@@ -54,12 +54,15 @@ public class BasicTurret : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
-                    if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
+                    if (_Enemy.transform.CompareTag("Enemies"))
                     {
-                        _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
+                        if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
+                        {
+                            _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
 
-                        _target = _Enemy.gameObject;
+                            _target = _Enemy.gameObject;
 
+                        }
                     }
                 }
                 
@@ -80,6 +83,7 @@ public class BasicTurret : MonoBehaviour
     }
     public void Attack()
     {
+
         if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeB && _attacking == false)
         {
 
