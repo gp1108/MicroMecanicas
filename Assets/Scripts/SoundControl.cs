@@ -5,35 +5,18 @@ using UnityEngine.UI;
 
 public class SoundControl : MonoBehaviour
 {
-    [Header("Main")]
-    public Slider _volumeSlider;
-    public float _sliderValue;
+    public static float _musicVolume {  get; private set; }
+    public static float _SFXVolume { get; private set; }
 
-    [Header("SFX")]
-    public Slider _SFXvolumeSlider;
-    public float _SFXsliderValue;
-
-    // Start is called before the first frame update
-    void Start()
+    public void OnMusicSliderValueChange(float value)
     {
-        _volumeSlider.value = PlayerPrefs.GetFloat("AudioVolume", 50f);
-        _SFXvolumeSlider.value = PlayerPrefs.GetFloat("SFXAudioVolume", 50f);
-        AudioListener.volume = _volumeSlider.value;
-        AudioListener.volume = _SFXvolumeSlider.value;
+        _musicVolume = value;
+        SoundManager.instance.UpdateMixerVolume();
     }
 
-    public void ChangeSlider(float _value)
+    public void OnSFXSliderValueChange(float value)
     {
-        _sliderValue = _value;
-        PlayerPrefs.SetFloat("AudioVolume", _sliderValue);
-        AudioListener.volume = _volumeSlider.value;
+        _SFXVolume = value;
+        SoundManager.instance.UpdateMixerVolume();
     }
-    /*
-    public void ChangeSFXSlider(float _SFXvalue)
-    {
-        _SFXsliderValue = _SFXvalue;
-        PlayerPrefs.SetFloat("SFXAudioVolume", _SFXsliderValue);
-        AudioListener.volume = _SFXvolumeSlider.value;
-    }*/
-
 }

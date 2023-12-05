@@ -105,12 +105,10 @@ public class CameraMovement : MonoBehaviour
             else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
             {
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                soundManager.ControlAudios(0, 1f);
             }
             else if (pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == true)
             {
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                soundManager.ControlAudios(0, 1f);
             }
 
         }

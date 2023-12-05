@@ -4502,6 +4502,7 @@ MonoBehaviour:
   opciones: {fileID: 0}
   controles: {fileID: 0}
   pausa: {fileID: 6728874550572920325}
+  volume: {fileID: 0}
 --- !u!1 &1025579008
 GameObject:
   m_ObjectHideFlags: 0
@@ -9984,7 +9985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2035607370}
   - component: {fileID: 2035607369}
-  - component: {fileID: 2035607368}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -9992,21 +9992,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2035607368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035607367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a81e4d90056f59429eaf4f091273636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioClips:
-  - {fileID: 8300000, guid: 245965889d0a183438ef3478b27122c0, type: 3}
-  - {fileID: 0}
 --- !u!82 &2035607369
 AudioSource:
   m_ObjectHideFlags: 0

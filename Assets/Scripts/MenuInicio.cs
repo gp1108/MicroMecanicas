@@ -25,7 +25,6 @@ public class MenuInicio : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
-        soundManager.ControlAudios(0, 1f);
     }
     
     public void CargarPartida()
@@ -36,7 +35,6 @@ public class MenuInicio : MonoBehaviour
     {
         menu.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
-        soundManager.ControlAudios(0, 1f);
     }
 
     public void Volume()
@@ -78,7 +76,6 @@ public class MenuInicio : MonoBehaviour
     {
         Time.timeScale = 1;
         pausa.gameObject.SetActive(false);
-        soundManager.ControlAudios(0, 1f);
     }
 
     public void Quit()
