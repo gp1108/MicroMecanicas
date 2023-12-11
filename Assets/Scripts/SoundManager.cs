@@ -96,6 +96,8 @@ public class SoundManager : MonoBehaviour
     {
         _MusicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(SoundControl._musicVolume) * 20);
         _SFXMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(SoundControl._SFXVolume) * 20);
+
+
     }
 
     

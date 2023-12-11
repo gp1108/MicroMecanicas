@@ -12,6 +12,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject controles;
     public GameObject pausa;
     public GameObject volume;
+    public GameObject volumenInGame;
 
     [Header("Sound")]
     private SoundManager soundManager;
@@ -84,5 +85,16 @@ public class MenuInicio : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void VolumenInGame()
+    {
+        volumenInGame.SetActive(true);
+        pausa.gameObject.SetActive(false);
+    }
+
+    public void VolumenReturnInGame()
+    {
+        volumenInGame.gameObject.SetActive(false);
+        pausa.gameObject.SetActive(true);
+    }
 
 }

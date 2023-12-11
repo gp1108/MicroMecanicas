@@ -1687,7 +1687,7 @@ MonoBehaviour:
     _audioClip: {fileID: 8300000, guid: 59ea27cd8f9ccc3439c3137810da299e, type: 3}
     _clipName: Music
     _isLoop: 0
-    _playOnAwake: 0
+    _playOnAwake: 1
     volume: 1
   - _audioTypes: 0
     _audioSource: {fileID: 0}
@@ -2347,7 +2347,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
