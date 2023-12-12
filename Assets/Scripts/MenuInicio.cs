@@ -14,17 +14,10 @@ public class MenuInicio : MonoBehaviour
     public GameObject volume;
     public GameObject volumenInGame;
 
-    [Header("Sound")]
-    private SoundManager soundManager;
-
-    private void Awake()
-    {
-        soundManager = FindAnyObjectByType<SoundManager>();
-    }
-
     public void NuevaPartida()
     {
         Time.timeScale = 1;
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         SceneManager.LoadScene(1);
     }
     
@@ -36,30 +29,35 @@ public class MenuInicio : MonoBehaviour
     {
         menu.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Volume()
     {
         volume.gameObject.SetActive(true);
         opciones.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Volver()
     {
         menu.gameObject.SetActive(true);
         opciones.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void ControlesVolver()
     {
         controles.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void VolumeReturn()
     {
         volume.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void SalirJuego()
@@ -71,30 +69,35 @@ public class MenuInicio : MonoBehaviour
     {
         opciones.gameObject.SetActive(false);
         controles.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Continue()
     {
         Time.timeScale = 1;
         pausa.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Quit()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        SceneManager.LoadScene(0);  
     }
 
     public void VolumenInGame()
     {
         volumenInGame.SetActive(true);
         pausa.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void VolumenReturnInGame()
     {
         volumenInGame.gameObject.SetActive(false);
         pausa.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
 }

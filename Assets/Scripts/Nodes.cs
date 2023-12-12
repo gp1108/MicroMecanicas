@@ -36,7 +36,9 @@ public class Nodes : MonoBehaviour
 
         if (constructed == true)
         {
-           Debug.Log("Ya has contruido previamente ahi!!!");
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Error");
+            Debug.Log("Ya has contruido previamente ahi!!!");
+
         }
         else
         {

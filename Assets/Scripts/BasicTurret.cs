@@ -23,7 +23,7 @@ public class BasicTurret : MonoBehaviour
     [Header("RangeIndicator")]
     public GameObject rangeIndicator;
     private bool _mostrarRango;
-
+    public GameObject buildMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,7 @@ public class BasicTurret : MonoBehaviour
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaB;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
-
+        buildMenu = GameObject.FindGameObjectWithTag("Canvas");
     }
 
     // Update is called once per frame
@@ -133,7 +133,15 @@ public class BasicTurret : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        Mostrar();
+        if(buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
+        {
+            return;
+        }
+        else
+        {
+            Mostrar();
+        }
+        
     }
 
     private void OnMouseExit()

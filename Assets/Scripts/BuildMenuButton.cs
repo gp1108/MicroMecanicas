@@ -23,7 +23,7 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject sniperButton;
     public GameObject laserButton;
     public GameObject mineButton;
-    
+
 
     public void Start()
     {
@@ -49,6 +49,8 @@ public class BuildMenuButton : MonoBehaviour
             {
                 canvas.GetComponent<ResearchMenu>().researchMenuActive = true;
                 canvas.GetComponent<ResearchMenu>().EnableOrDisableResearchPanel();
+
+                SoundManager.dameReferencia.PlayClipByName(clipName: "Build");
             }
             else
             {

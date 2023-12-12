@@ -44,6 +44,7 @@ public class BuildManager : MonoBehaviour
     public TMP_Text textLaserTurretCost;
     public TMP_Text textMineCost;
 
+
     public static BuildManager dameReferencia
     {
         get
@@ -314,6 +315,9 @@ public class BuildManager : MonoBehaviour
             {
                 Instantiate(_structures[_structureIndex], position, Quaternion.identity);
 
+                //sonido
+                SoundManager.dameReferencia.PlayClipByName(clipName: "Build");
+
                 foreach (GameObject _wall in Walls)
                 {
                     if (_wall != null)
@@ -332,7 +336,9 @@ public class BuildManager : MonoBehaviour
         }
         else
         {
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Error");
             return;
+
         }
 
 

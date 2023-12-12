@@ -16,9 +16,29 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioMixerGroup _MusicMixerGroup;
     [SerializeField] AudioMixerGroup _SFXMixerGroup;
 
+    private static SoundManager Referencia;
+    public static SoundManager dameReferencia
+    {
+        get
+        {
+            if (Referencia == null)
+            {
+                Referencia = FindObjectOfType<SoundManager>();
+                if (Referencia == null)
+                {
+                    GameObject go = new GameObject("SoundManager");
+                    Referencia = go.AddComponent<SoundManager>();
+                }
+            }
+            return Referencia;
+        }
+    }
+
     private void Awake()
     {
+        
         instance = this;
+        DontDestroyOnLoad(instance);
 
         if (PlayerPrefs.HasKey(prefAudioMute))
         {

@@ -20,13 +20,6 @@ public class CameraMovement : MonoBehaviour
     public GameObject researchMenu;
     public GameObject pause;
 
-    [Header("Sound")]
-    private SoundManager soundManager;
-
-    private void Awake()
-    {
-        soundManager = FindAnyObjectByType<SoundManager>();
-    }
 
     private void Start()
     {
@@ -105,12 +98,12 @@ public class CameraMovement : MonoBehaviour
             else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
             {
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                soundManager.GetComponent<SoundManager>().PlayClipByName(clipName:"Sfx");
+                SoundManager.dameReferencia.PlayClipByName(clipName:"Sfx");
             }
             else if (pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == true)
             {
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                soundManager.GetComponent<SoundManager>().PlayClipByName(clipName: "Sfx");
+                SoundManager.dameReferencia.PlayClipByName(clipName: "Sfx");
             }
 
         }

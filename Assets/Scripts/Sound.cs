@@ -16,5 +16,5 @@ public class Sound
     public bool _isLoop;
     public bool _playOnAwake;
     
-    [Range(0, 1)] public float volume = 0.5f;
+    [Range(0, 1)] public float volume;
 }
