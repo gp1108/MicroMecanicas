@@ -93,6 +93,8 @@ public class BasicTurret : MonoBehaviour
 
             _attacking = true;
 
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
+
             _cadence = UpgradeManager.giveMeReference.cadenceB;
         }
         if (_attacking == true)

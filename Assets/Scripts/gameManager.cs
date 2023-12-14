@@ -188,7 +188,8 @@ public class gameManager : MonoBehaviour
     public void EnemyDead()
     {
         enemiesAlive -= 1;
-        
+
+        SoundManager.dameReferencia.PlayClipByName(clipName: "EnemyDead");
         
         if(enemiesAlive <= 0 && onRound == true)
         {
@@ -232,10 +233,21 @@ public class gameManager : MonoBehaviour
 
     public void GetGold( float oro)
     {
-
+        float lastGold;
+        lastGold = gold;
         gold += oro;
         goldText.text = gold.ToString();
+        if(lastGold > gold )
+        {
+            Invoke("SonidoOro", 0.15f);
+        }
+        
 
+    }
+
+    public void SonidoOro()
+    {
+        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Gold");
     }
 
     public void GetResearchPoints(int ResearchPoints) //arriba hay otra funcion que hace lo mismo , ver cual es mejor()

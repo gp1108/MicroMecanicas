@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-8745205247213753626
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 12cc716586a569f4abeb9b5317b04b6e
+  m_EffectName: Attenuation
+  m_MixLevel: c60c507f407056646ac1d690c5f11e59
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-8676876879376247461
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -14,6 +28,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-5772967478360162760
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Turret
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 4f9eb0458f6f05a459589efce57b914c
+  m_Children: []
+  m_Volume: 1d0eab8b10841ac439d4cb1ad2d60f9a
+  m_Pitch: f092d67a73df230498c3eaa18fd7b380
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -8745205247213753626}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &-3086895043012944660
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -58,6 +91,7 @@ AudioMixerController:
     - 50de9ae87f2d3b743a0b06a587a569b2
     - 69425f73cf6e6714584512749c03ebe7
     - 4d30fc2b2e2198c4cbffda4d754d5b41
+    - 4f9eb0458f6f05a459589efce57b914c
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -73,6 +107,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: 1645433629787093637}
   - {fileID: -3086895043012944660}
+  - {fileID: -5772967478360162760}
   m_Volume: ee0f5ce5d57cce649b742cccaeff46ba
   m_Pitch: bdd6c6479cc712b4986d03ace71e5d57
   m_Send: 00000000000000000000000000000000

@@ -20,6 +20,7 @@ TagManager:
   - ResearchMenu
   - Mine
   - RangeIndicator
+  - MainVolume
   layers:
   - Default
   - TransparentFX

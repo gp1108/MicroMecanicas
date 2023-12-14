@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     [SerializeField] private Sound[] _audioClips;
-    
+
+    [SerializeField] Slider _mainVolume;
+
     [Header("AudioMixer")]
     [SerializeField] AudioMixerGroup _MusicMixerGroup;
     [SerializeField] AudioMixerGroup _SFXMixerGroup;
+    [SerializeField] AudioMixerGroup _TurretMixerGroup;
 
     private static SoundManager Referencia;
     public static SoundManager dameReferencia
@@ -63,6 +67,10 @@ public class SoundManager : MonoBehaviour
                     _sounds._audioSource.outputAudioMixerGroup = _MusicMixerGroup;
                     break;
 
+                case Sound.AudioTypes.turret:
+                    _sounds._audioSource.outputAudioMixerGroup = _TurretMixerGroup;
+                    break;
+
             }
 
 
@@ -71,7 +79,22 @@ public class SoundManager : MonoBehaviour
                 _sounds._audioSource.Play();
             }
         }
+        
+        _mainVolume.value = AudioListener.volume;
+        _mainVolume.onValueChanged.AddListener(MainVolumeChanged);
+    }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 1)
+        {
+            Debug.Log(" he entrado en ell");
+            _mainVolume = GameObject.FindGameObjectWithTag("MainVolume").GetComponent<Slider>();
+
+            _mainVolume.transform.parent.parent.gameObject.SetActive(false);
+           
+        }
+       
     }
 
     public void PlayClipByName(string clipName)
@@ -83,7 +106,25 @@ public class SoundManager : MonoBehaviour
             Debug.LogError("Sound: " + clipName + " does NOT exist");
             return;
         }
+
+        Debug.Log("manager sonido");
+
         soundToPlay._audioSource.Play();
+    }
+
+    public void PlayOneClipByName(string clipName)
+    {
+        Sound soundToPlay = Array.Find(_audioClips, SoundList => SoundList._clipName == clipName);
+
+        if (soundToPlay == null)
+        {
+            Debug.LogError("Sound: " + clipName + " does NOT exist");
+            return;
+        }
+
+        Debug.Log("manager sonido");
+
+        soundToPlay._audioSource.PlayOneShot(soundToPlay._audioClip);
     }
 
     public void StopClipByName(string clipName)
@@ -116,9 +157,13 @@ public class SoundManager : MonoBehaviour
     {
         _MusicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(SoundControl._musicVolume) * 20);
         _SFXMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(SoundControl._SFXVolume) * 20);
-
+        _TurretMixerGroup.audioMixer.SetFloat("Turret Volume", Mathf.Log10(SoundControl._SFXVolume) * 20);
 
     }
 
-    
+    public void MainVolumeChanged(float value)
+    {
+        AudioListener.volume = value;
+    }
+
 }

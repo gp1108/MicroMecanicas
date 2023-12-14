@@ -8,8 +8,11 @@ public class SoundControl : MonoBehaviour
     public static float _musicVolume {  get; private set; }
     public static float _SFXVolume { get; private set; }
 
+    public static float _TurretVolume { get; private set; }
+
     private const string prefMusicVolume = "prefMusicVolume";
     private const string prefSFXVolume = "prefSFXVolume";
+    private const string prefTurretVolume = "prefTurretVolume";
 
     private void Start()
     {
@@ -21,6 +24,11 @@ public class SoundControl : MonoBehaviour
         if (PlayerPrefs.HasKey(prefSFXVolume))
         {
             _SFXVolume = PlayerPrefs.GetFloat(prefSFXVolume);
+        }
+
+        if (PlayerPrefs.HasKey(prefTurretVolume))
+        {
+            _TurretVolume = PlayerPrefs.GetFloat(prefTurretVolume);
         }
     }
 
@@ -36,5 +44,12 @@ public class SoundControl : MonoBehaviour
         _SFXVolume = value;
         SoundManager.instance.UpdateMixerVolume();
         PlayerPrefs.SetFloat(prefSFXVolume, _SFXVolume);
+    }
+
+    public void OnTurretSliderValueChange(float value)
+    {
+        _TurretVolume = value;
+        SoundManager.instance.UpdateMixerVolume();
+        PlayerPrefs.SetFloat(prefSFXVolume, _TurretVolume);
     }
 }

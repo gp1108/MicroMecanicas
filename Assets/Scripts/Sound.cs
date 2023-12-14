@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Sound
 {
-    public enum AudioTypes { SFX, music}
+    public enum AudioTypes { SFX, music, turret}
     public AudioTypes _audioTypes;
 
 
