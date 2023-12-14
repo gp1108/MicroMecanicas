@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour
         _mainVolume.value = AudioListener.volume;
         _mainVolume.onValueChanged.AddListener(MainVolumeChanged);
     }
-
+    
     private void OnLevelWasLoaded(int level)
     {
         if(level == 1)

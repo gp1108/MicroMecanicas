@@ -52,4 +52,13 @@ public class SoundControl : MonoBehaviour
         SoundManager.instance.UpdateMixerVolume();
         PlayerPrefs.SetFloat(prefSFXVolume, _TurretVolume);
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 1)
+        {
+            
+        }
+
+    }
 }

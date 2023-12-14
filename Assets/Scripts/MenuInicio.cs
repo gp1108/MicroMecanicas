@@ -13,11 +13,18 @@ public class MenuInicio : MonoBehaviour
     public GameObject pausa;
     public GameObject volume;
     public GameObject volumenInGame;
+    public GameObject volumePanel;
 
     public void NuevaPartida()
     {
+        volumePanel.SetActive(true);
         Time.timeScale = 1;
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        Invoke("FuncionParaCargarLaPartida",1);
+    }
+
+    public void FuncionParaCargarLaPartida()
+    {
         SceneManager.LoadScene(1);
     }
     
@@ -34,6 +41,7 @@ public class MenuInicio : MonoBehaviour
 
     public void Volume()
     {
+        volumePanel.SetActive(true);
         volume.gameObject.SetActive(true);
         opciones.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
@@ -55,6 +63,7 @@ public class MenuInicio : MonoBehaviour
 
     public void VolumeReturn()
     {
+        volumePanel.SetActive(false);
         volume.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
