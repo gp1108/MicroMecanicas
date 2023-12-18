@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Sound[] _audioClips;
 
     [SerializeField] Slider _mainVolume;
+    [SerializeField] GameObject _volumePanel;
 
     [Header("AudioMixer")]
     [SerializeField] AudioMixerGroup _MusicMixerGroup;
@@ -83,19 +84,18 @@ public class SoundManager : MonoBehaviour
         _mainVolume.value = AudioListener.volume;
         _mainVolume.onValueChanged.AddListener(MainVolumeChanged);
     }
-
-    private void OnLevelWasLoaded(int level)
+    
+   /* private void OnLevelWasLoaded(int level)
     {
         if(level == 1)
         {
-            Debug.Log(" he entrado en ell");
-            _mainVolume = GameObject.FindGameObjectWithTag("MainVolume").GetComponent<Slider>();
-
-            _mainVolume.transform.parent.parent.gameObject.SetActive(false);
+            Debug.Log(" he entrado en el");
+            _volumePanel = GameObject.FindGameObjectWithTag("VolumePanel");
+            _volumePanel.SetActive(false);
            
         }
        
-    }
+    }*/
 
     public void PlayClipByName(string clipName)
     {

@@ -21,6 +21,7 @@ TagManager:
   - Mine
   - RangeIndicator
   - MainVolume
+  - OptionsPanel
   layers:
   - Default
   - TransparentFX
