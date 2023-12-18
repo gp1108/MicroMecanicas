@@ -53,12 +53,4 @@ public class SoundControl : MonoBehaviour
         PlayerPrefs.SetFloat(prefSFXVolume, _TurretVolume);
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        if (level == 1)
-        {
-            
-        }
-
-    }
 }

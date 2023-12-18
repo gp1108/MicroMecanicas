@@ -24,7 +24,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Material aviableInstance;
     [SerializeField] private Material unAviableInstance;
     public GameObject buildPanel;
-    private Canvas canvas;
+    private GameObject canvas;
 
     [Header("Gold Cost")]
     public int goldToPay;
@@ -66,7 +66,10 @@ public class BuildManager : MonoBehaviour
 
     public void Start()
     {
-        canvas = FindObjectOfType<Canvas>();
+        //canvas = FindObjectOfType<Canvas>();
+
+        canvas = GameObject.Find("Canvas");
+
 
         //Costs
         wallCost = 5;
