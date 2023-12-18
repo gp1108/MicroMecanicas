@@ -63,6 +63,7 @@ public class Enemy4 : MonoBehaviour
     }
     public void Move()
     {
+
         if (_TownHall != null && _torret.Length <= 0)
         {
             _target = _TownHall;
@@ -80,6 +81,10 @@ public class Enemy4 : MonoBehaviour
                 if (_torret.Length >= 1)
                 {
                     _target = _torret[0];
+                }
+                else
+                {
+                    _target = _TownHall;
                 }
             }
 

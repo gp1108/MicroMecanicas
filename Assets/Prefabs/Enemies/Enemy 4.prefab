@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3182223189640501117}
   - component: {fileID: 2206226886536274958}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy1HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7633632126085964953}
   - component: {fileID: 6405188926427591486}
   - component: {fileID: 2287126897394980681}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5633503130018410808}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 1737465394806083608}
   - component: {fileID: 2713518324884636430}
   - component: {fileID: 6601855339262732424}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 1288612215052615389}
   - component: {fileID: 7214995393372085726}
   - component: {fileID: -4048535895506569696}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy 4
   m_TagString: FlyEnemies
   m_Icon: {fileID: 0}

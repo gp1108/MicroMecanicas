@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicTurret : MonoBehaviour
@@ -54,27 +55,30 @@ public class BasicTurret : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
-                    if (_Enemy.transform.CompareTag("Enemies"))
+
+                    if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
-                        if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
-                        {
-                            _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
+                        _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
 
-                            _target = _Enemy.gameObject;
+                        _target = _Enemy.gameObject;
 
-                        }
                     }
+                    
                 }
                 
                 
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionB)
             {
+
+
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
 
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
 
                 Attack();
+
+
             }
         }
         
@@ -98,6 +102,7 @@ public class BasicTurret : MonoBehaviour
             _attacking = true;
 
             _cadence = UpgradeManager.giveMeReference.cadenceB;
+
         }
         if (_attacking == true)
         {
