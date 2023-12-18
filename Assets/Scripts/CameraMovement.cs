@@ -19,12 +19,12 @@ public class CameraMovement : MonoBehaviour
     public GameObject buildMenu;
     public GameObject researchMenu;
     public GameObject pause;
+    public GameObject opciones;
 
 
     private void Start()
     {
         _cameraSpeed = 8;
-        
     }
 
     private void Update()
@@ -85,7 +85,7 @@ public class CameraMovement : MonoBehaviour
         //Escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
+            opciones = GameObject.Find("Opciones");
 
             if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
             {
@@ -105,6 +105,13 @@ public class CameraMovement : MonoBehaviour
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
             }
+            if (MenuInicio.giveMeReference.opcionesIngame == true)
+            {
+                MenuInicio.giveMeReference.opcionesIngame = false;
+                opciones.SetActive(false);
+                SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+            }
+
 
         }
 

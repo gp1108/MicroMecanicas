@@ -16,7 +16,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject volume;
     //public GameObject opcionesCanvas;
     private bool enmenu;
-    private bool opcionesIngame;
+    public bool opcionesIngame;
 
     private static MenuInicio _Reference;
 
