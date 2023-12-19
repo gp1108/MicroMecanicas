@@ -129,12 +129,18 @@ public class GenPerlinNoise : MonoBehaviour
                     //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
-                else
+                else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+                    
+                }
+                else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
-
+                    //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -166,12 +172,18 @@ public class GenPerlinNoise : MonoBehaviour
                     //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
-                else
+                else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                }
+                else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
-
+                    //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -204,12 +216,18 @@ public class GenPerlinNoise : MonoBehaviour
                     //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
-                else
+                else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                }
+                else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
-
+                    //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -241,12 +259,18 @@ public class GenPerlinNoise : MonoBehaviour
                     //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
-                else
+                else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+
+                }
+                else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
-
+                    //Añadir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }

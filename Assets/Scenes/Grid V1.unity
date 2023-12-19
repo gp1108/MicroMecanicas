@@ -12620,8 +12620,8 @@ MonoBehaviour:
   nodeGroup: {fileID: 749879518}
   propsGroup: {fileID: 1422458273}
   enemySpawnersGroup: {fileID: 1146051923}
-  _worldSizeX: 20
-  _worldSizeZ: 35
+  _worldSizeX: 50
+  _worldSizeZ: 50
   _noiseHeight: 4
   _detailScale: 8
   worldProps:
