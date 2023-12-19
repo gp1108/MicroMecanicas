@@ -9,9 +9,10 @@ public class GenPerlinNoise : MonoBehaviour
 {
     [Header ("Terrain Cubes")]
     //Bloques a instanciar como terreno
-    public GameObject cubeGameObjectGrass;
+    public GameObject cubeGameObjectSand;
     public GameObject cubeGameObjectWater;
-    public GameObject cubeGameObjectHill;
+    public GameObject cubeGameObjectGrass;
+    public GameObject cubeGameObjectGrassNotWalkable;
     private int[] rotaciones = { 0, 90, 180, 270 };
 
     [Header("Parents and Node")]
@@ -23,8 +24,8 @@ public class GenPerlinNoise : MonoBehaviour
 
     [Header("Perlin Noise")]
     //Dimension de la generacion
-    [SerializeField] private int _worldSizeX;
-    [SerializeField] private int _worldSizeZ;
+    public int _worldSizeX;
+    public int _worldSizeZ;
     private float _gridOffset;
     //Caracteristicas de la perlin noise
     [Range(1f, 10f)][SerializeField] private int _noiseHeight; // basicamente como de alto se genera nuestro cubo 
@@ -53,7 +54,7 @@ public class GenPerlinNoise : MonoBehaviour
         _gridOffset = 1;
        
 
-        _detailScale = 30;
+        _detailScale = 10;
         
         for(int x = 0; x< _worldSizeX; x++)
         {
@@ -71,7 +72,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if(_perlinNoiseToInt >= 1 && _perlinNoiseToInt <=1)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
                     //Nodos
                     GameObject nodes = Instantiate(node, position + new Vector3(0, 1.01f, 0), Quaternion.identity) as GameObject;
@@ -79,9 +80,14 @@ public class GenPerlinNoise : MonoBehaviour
                     //Añadir a la lista de blockpositions
                     blockPositions.Add(cube.transform.position);
                 }
-                else
+                else if(_perlinNoiseToInt >=3 && _perlinNoiseToInt <=4)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(this.transform);
+                }
+                else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
+                {
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
                     //Nodos
                     GameObject nodes = Instantiate(node, position + new Vector3(0, 1.01f, 0), Quaternion.identity) as GameObject;
@@ -89,7 +95,7 @@ public class GenPerlinNoise : MonoBehaviour
 
                     blockPositions.Add(cube.transform.position);
                 }
-  
+
             }
             
         }
@@ -117,7 +123,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
                     //Añadir a la lista de enemyPositions
@@ -125,7 +131,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else
                 {
-                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
 
@@ -154,7 +160,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
                     //Añadir a la lista de enemyPositions
@@ -162,7 +168,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else
                 {
-                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
 
@@ -192,7 +198,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
                     //Añadir a la lista de enemyPositions
@@ -200,7 +206,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else
                 {
-                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
 
@@ -229,7 +235,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 1 && _perlinNoiseToInt <= 1)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
                     //Añadir a la lista de enemyPositions
@@ -237,7 +243,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else
                 {
-                    GameObject cube = Instantiate(cubeGameObjectHill, position, Quaternion.identity) as GameObject;
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(this.transform);
 
 

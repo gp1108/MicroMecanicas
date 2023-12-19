@@ -20,15 +20,45 @@ public class CameraMovement : MonoBehaviour
     public GameObject researchMenu;
     public GameObject pause;
     public GameObject opciones;
+    public GameObject perlinNoise;
+    private Quaternion _initialRotation;
 
 
     private void Start()
     {
         _cameraSpeed = 8;
+        _initialRotation = transform.rotation;
     }
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            transform.position = new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX /2,  13, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ /2-7);
+            transform.rotation = _initialRotation;
+        }
+        //limites para que el jugador no se salga del mapa con la camara
+        if (transform.position.x <= -8) //ABAJO 
+        {
+            transform.position = new Vector3(-8, transform.position.y, transform.position.z);
+        }
+        if (transform.position.z <= -8) //IZQ Z
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -8);
+        }
+        if (transform.position.x >= perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX + 8) // DER 
+        {
+            transform.position = new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX + 8, transform.position.y, transform.position.z);
+        }
+        if (transform.position.z >= perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ + 8) // ARRIBA 
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ + 8);
+        }
+
+        new Vector3(-8, transform.position.y, -8); //ABAJO IZQ
+        new Vector3(+8, transform.position.y, -8); //ABAJO DER
+        new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX + 8, transform.position.y, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ + 8); //ARRIBA DER
+        new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX - 8, transform.position.y, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ + 8); //ARRIBA IZQ
         //Control de velocidad de la camara
         //Conseguir que se mueva mas suavemente la camara
         if (_cameraSpeed > 10)
