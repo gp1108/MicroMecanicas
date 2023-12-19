@@ -4506,7 +4506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawners: []
   enemies:
-  - {fileID: 9161228910576418350, guid: 2162230ecdce8044086a06645007461c, type: 3}
+  - {fileID: 1323558377185222644, guid: d813a9ec05742a04e98e8580fde35074, type: 3}
   onRound: 0
   enemiesAlive: 0
   roundsText: {fileID: 1599957270}
@@ -4528,6 +4528,7 @@ MonoBehaviour:
   mineButton: {fileID: 1626196701}
   goldMultiplayer: 0
   goldRoundsElapsed: 0
+  turrets: []
 --- !u!4 &1012099156
 Transform:
   m_ObjectHideFlags: 0
@@ -6274,6 +6275,11 @@ MonoBehaviour:
   cadenceB: 0
   rangeB: 0
   visionB: 0
+  vidaA: 0
+  damagedA: 0
+  cadenceA: 0
+  rangeA: 0
+  visionA: 0
   vidaW: 0
 --- !u!4 &1264170622
 Transform:

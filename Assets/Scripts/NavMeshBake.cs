@@ -8,6 +8,7 @@ public class NavMeshBake : MonoBehaviour
 {
     public NavMeshSurface navMeshSurface;
     public bool navmeshON;
+    
 
     public void doNavMeshBake()
     { 
