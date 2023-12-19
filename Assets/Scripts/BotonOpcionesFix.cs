@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class BotonOpcionesFix : MonoBehaviour
 {
+    public GameObject pause;
 
     public void Boton()
     {
         MenuInicio.giveMeReference.OpcionesInGame();
+        MenuInicio.giveMeReference.opcionesIngame = true;
+        pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+        Time.timeScale = 0f;
     }
 
     public void BotonC()

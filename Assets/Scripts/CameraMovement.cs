@@ -105,8 +105,9 @@ public class CameraMovement : MonoBehaviour
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
             }
-            if (MenuInicio.giveMeReference.opcionesIngame == true)
+            if (MenuInicio.giveMeReference.opcionesIngame == true && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false)
             {
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 MenuInicio.giveMeReference.opcionesIngame = false;
                 opciones.SetActive(false);
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");

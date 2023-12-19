@@ -1844,6 +1844,7 @@ MonoBehaviour:
   buildMenu: {fileID: 225649982}
   researchMenu: {fileID: 225649982}
   pause: {fileID: 6728874550572920325}
+  opciones: {fileID: 0}
 --- !u!1 &429260039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,6 +2488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc59f4e345ee543498ade87fb8e646b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pause: {fileID: 6728874550572920325}
 --- !u!4 &622398777
 Transform:
   m_ObjectHideFlags: 0
