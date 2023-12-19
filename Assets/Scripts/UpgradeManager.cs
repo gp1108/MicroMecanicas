@@ -47,6 +47,13 @@ public class UpgradeManager : MonoBehaviour
     public float rangeB;
     public float visionB;
 
+    [Header("TurretAir")]
+    public float vidaA;
+    public float damagedA;
+    public float cadenceA;
+    public float rangeA;
+    public float visionA;
+
     [Header("Walls")]
     public float vidaW;
 
@@ -70,6 +77,12 @@ public class UpgradeManager : MonoBehaviour
         rangeB = 10;
         visionB = rangeB +5;
 
+        vidaA = 10;
+        damagedA = 5;
+        cadenceA = 1;
+        rangeA = 10;
+        visionA = rangeA +5;
+
         vidaW = 10;
 
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
@@ -80,6 +93,7 @@ public class UpgradeManager : MonoBehaviour
         vidaS += 5;
         vidaL += 5;
         vidaB += 5;
+        vidaA += 5;
     }
     void OnDestroy()
     {
@@ -95,5 +109,6 @@ public class UpgradeManager : MonoBehaviour
     {
         damagedB += 5;
         damagedS += 5;
+        damagedA += 5;
     }
 }

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class TurretSnip : MonoBehaviour
+public class TurretAir : MonoBehaviour
 {
     public LayerMask layer;
     private Vector3 _lookAt;
@@ -23,15 +24,18 @@ public class TurretSnip : MonoBehaviour
     [Header("RangeIndicator")]
     public GameObject rangeIndicator;
     private bool _mostrarRango;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager.giveMeReference.GetTurret(this.gameObject);
+        _mostrarRango = false;
         _attacking = false;
         _velocitiRotation = 8;
-        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaS;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaA;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+
     }
 
     // Update is called once per frame
@@ -39,6 +43,8 @@ public class TurretSnip : MonoBehaviour
     {
         GetEnemy();
         GetTarget();
+
+
     }
     public void GetTarget()
     {
@@ -50,6 +56,7 @@ public class TurretSnip : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
+
                     if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
                         _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
@@ -57,17 +64,22 @@ public class TurretSnip : MonoBehaviour
                         _target = _Enemy.gameObject;
 
                     }
+
                 }
 
 
             }
-            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionS)
+            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionA)
             {
+
+
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
 
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
 
                 Attack();
+
+
             }
         }
 
@@ -76,20 +88,22 @@ public class TurretSnip : MonoBehaviour
     }
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeS && _attacking == false)
+
+        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeA && _attacking == false)
         {
 
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
 
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
-            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedS;
+            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedA;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
 
             _attacking = true;
 
-            _cadence = UpgradeManager.giveMeReference.cadenceS;
+            _cadence = UpgradeManager.giveMeReference.cadenceA;
+
         }
         if (_attacking == true)
         {
@@ -106,7 +120,7 @@ public class TurretSnip : MonoBehaviour
     }
     public void GetEnemy()
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionS, layer);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionA, layer);
 
         _enemies = _collidersEnemies.ToList();
 
@@ -126,22 +140,27 @@ public class TurretSnip : MonoBehaviour
 
 
     }
+
     private void OnMouseUpAsButton()
     {
         Mostrar();
     }
+
     private void OnMouseExit()
     {
         Ocultar();
     }
+
+
     private void Mostrar()
     {
         rangeIndicator.transform.position = this.transform.position;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL, 0.5f, UpgradeManager.giveMeReference.rangeL);
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeA, 0.5f, UpgradeManager.giveMeReference.rangeA);
 
         _mostrarRango = true;
     }
+
     private void Ocultar()
     {
         _mostrarRango = false;

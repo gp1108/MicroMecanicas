@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicTurret : MonoBehaviour
@@ -27,6 +28,7 @@ public class BasicTurret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager.giveMeReference.GetTurret(this.gameObject);
         _mostrarRango = false;
         _attacking = false;
         _velocitiRotation = 8;
@@ -54,6 +56,7 @@ public class BasicTurret : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
+
                     if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
                         _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
@@ -61,17 +64,22 @@ public class BasicTurret : MonoBehaviour
                         _target = _Enemy.gameObject;
 
                     }
+                    
                 }
                 
                 
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionB)
             {
+
+
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
 
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
 
                 Attack();
+
+
             }
         }
         
@@ -80,6 +88,7 @@ public class BasicTurret : MonoBehaviour
     }
     public void Attack()
     {
+
         if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeB && _attacking == false)
         {
 
@@ -96,6 +105,7 @@ public class BasicTurret : MonoBehaviour
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
 
             _cadence = UpgradeManager.giveMeReference.cadenceB;
+
         }
         if (_attacking == true)
         {
@@ -175,5 +185,6 @@ public class BasicTurret : MonoBehaviour
     {
         if (!this.gameObject.scene.isLoaded) return;
         Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
+        gameManager.giveMeReference.DeletTurret(this.gameObject);
     }
 }

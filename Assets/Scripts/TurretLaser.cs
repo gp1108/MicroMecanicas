@@ -26,6 +26,7 @@ public class TurretLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager.giveMeReference.GetTurret(this.gameObject);
         _ataking = false;
         _damaged = 0.1f;
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaL;
@@ -167,6 +168,7 @@ public class TurretLaser : MonoBehaviour
     {
         if (!this.gameObject.scene.isLoaded) return;
         Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
+        gameManager.giveMeReference.DeletTurret(this.gameObject);
     }
     IEnumerator Daño( GameObject enemy)
     {
