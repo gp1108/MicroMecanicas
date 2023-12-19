@@ -22,7 +22,7 @@ public class Enemy2 : MonoBehaviour
     {
 
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
-        _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
+        _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
@@ -55,7 +55,7 @@ public class Enemy2 : MonoBehaviour
             else
             {
                 
-                _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
+                _torret = gameManager.giveMeReference.turrets.ToArray();
 
                 if (_torret.Length >= 1)
                 {

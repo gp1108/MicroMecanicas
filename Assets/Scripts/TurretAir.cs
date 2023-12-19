@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BasicTurret : MonoBehaviour
+public class TurretAir : MonoBehaviour
 {
     public LayerMask layer;
     private Vector3 _lookAt;
@@ -13,12 +13,12 @@ public class BasicTurret : MonoBehaviour
     private float _distance;
     private float _cadence;
     private float _accumulatedTime;
-    [SerializeField]private GameObject _target;
+    [SerializeField] private GameObject _target;
     private GameObject _bullet;
     public GameObject bullet;
     public GameObject exitBullet;
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
-    [SerializeField] private Collider[] _collidersEnemies ;
+    [SerializeField] private Collider[] _collidersEnemies;
     private bool _attacking;
 
     [Header("RangeIndicator")]
@@ -32,7 +32,7 @@ public class BasicTurret : MonoBehaviour
         _mostrarRango = false;
         _attacking = false;
         _velocitiRotation = 8;
-        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaB;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaA;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
 
@@ -43,12 +43,12 @@ public class BasicTurret : MonoBehaviour
     {
         GetEnemy();
         GetTarget();
-        
+
 
     }
     public void GetTarget()
     {
-        if(_target != null)
+        if (_target != null)
         {
             _lookAt = _target.transform.position - transform.GetChild(0).transform.position;
             _distance = Vector3.Distance(transform.GetChild(0).position, _target.transform.position);
@@ -64,12 +64,12 @@ public class BasicTurret : MonoBehaviour
                         _target = _Enemy.gameObject;
 
                     }
-                    
+
                 }
-                
-                
+
+
             }
-            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionB)
+            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionA)
             {
 
 
@@ -82,27 +82,27 @@ public class BasicTurret : MonoBehaviour
 
             }
         }
-        
-        
-        
+
+
+
     }
     public void Attack()
     {
 
-        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeB && _attacking == false)
+        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeA && _attacking == false)
         {
 
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
 
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
-            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedB;
+            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedA;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
 
             _attacking = true;
 
-            _cadence = UpgradeManager.giveMeReference.cadenceB;
+            _cadence = UpgradeManager.giveMeReference.cadenceA;
 
         }
         if (_attacking == true)
@@ -120,24 +120,24 @@ public class BasicTurret : MonoBehaviour
     }
     public void GetEnemy()
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionB,layer);
-        
-        _enemies = _collidersEnemies.ToList();
-        
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionA, layer);
 
-        if(_enemies.Count == 0)
+        _enemies = _collidersEnemies.ToList();
+
+
+        if (_enemies.Count == 0)
         {
             return;
         }
-        if(_enemies.Count == 1)
+        if (_enemies.Count == 1)
         {
             _target = _enemies[0].gameObject;
         }
-        if(_target == null && _enemies.Count != 0)
+        if (_target == null && _enemies.Count != 0)
         {
             _target = _enemies[0].gameObject;
         }
-        
+
 
     }
 
@@ -156,7 +156,7 @@ public class BasicTurret : MonoBehaviour
     {
         rangeIndicator.transform.position = this.transform.position;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB, 0.5f, UpgradeManager.giveMeReference.rangeB);
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeA, 0.5f, UpgradeManager.giveMeReference.rangeA);
 
         _mostrarRango = true;
     }
@@ -165,7 +165,7 @@ public class BasicTurret : MonoBehaviour
     {
         _mostrarRango = false;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
-        rangeIndicator.transform.position = new Vector3(0,-50,0) ;
+        rangeIndicator.transform.position = new Vector3(0, -50, 0);
     }
     public void ActualizarVidaTorres()
     {

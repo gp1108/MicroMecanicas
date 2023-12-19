@@ -69,6 +69,7 @@ public class gameManager : MonoBehaviour
     public GameObject mineButton;
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
+    public List<GameObject> turrets;
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
@@ -237,7 +238,14 @@ public class gameManager : MonoBehaviour
         goldText.text = gold.ToString();
 
     }
-
+    public void GetTurret(GameObject Turret)
+    {
+        turrets.Add(Turret);
+    }
+    public void DeletTurret(GameObject Turret)
+    {
+        turrets.Remove(Turret);
+    }
     public void GetResearchPoints(int ResearchPoints) //arriba hay otra funcion que hace lo mismo , ver cual es mejor()
     {
 

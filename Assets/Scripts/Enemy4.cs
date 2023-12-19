@@ -24,7 +24,7 @@ public class Enemy4 : MonoBehaviour
         _heightMax = 5;
         _atac = false;
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
-        _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
+        _torret = gameManager.giveMeReference.turrets.ToArray();
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
     }
@@ -76,7 +76,7 @@ public class Enemy4 : MonoBehaviour
             }
             else
             {
-                _torret = GameObject.FindGameObjectsWithTag("BaseTurret");
+                _torret = gameManager.giveMeReference.turrets.ToArray();
 
                 if (_torret.Length >= 1)
                 {

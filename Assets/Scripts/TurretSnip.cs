@@ -26,7 +26,7 @@ public class TurretSnip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager.giveMeReference.GetTurret(this.gameObject);
         _attacking = false;
         _velocitiRotation = 8;
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaS;
@@ -156,5 +156,6 @@ public class TurretSnip : MonoBehaviour
     {
         if (!this.gameObject.scene.isLoaded) return;
         Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
+        gameManager.giveMeReference.DeletTurret(this.gameObject);
     }
 }
