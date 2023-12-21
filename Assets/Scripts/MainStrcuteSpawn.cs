@@ -14,6 +14,7 @@ public class MainStrcuteSpawn : MonoBehaviour
     private GameObject loadingScreen;
     private bool aviableToSpawn;
     public GameObject rangeIndicator;
+    public GameObject aerialNavMesh;
     void Start()
     {
         aviableToSpawn = false;
@@ -25,6 +26,7 @@ public class MainStrcuteSpawn : MonoBehaviour
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         rangeIndicator.SetActive(false);
         Invoke("MainStrcuteErrorSpawning", 3f);
+        aerialNavMesh = GameObject.Find("AerialNavmeshCube");
     }
 
     public void MainStrcuteErrorSpawning()
@@ -77,6 +79,9 @@ public class MainStrcuteSpawn : MonoBehaviour
 
                 //RangeIndicator
                 rangeIndicator.gameObject.SetActive(true);
+
+                //AerialNavMesh
+                aerialNavMesh.GetComponent<MeshRenderer>().enabled = false;
 
             }
             else
