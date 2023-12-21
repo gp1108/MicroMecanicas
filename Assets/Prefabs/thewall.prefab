@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: -726798114517278735}
   - component: {fileID: 8430692763248238524}
   - component: {fileID: 8625362046117263697}
+  - component: {fileID: 9219618254333505901}
   m_Layer: 0
   m_Name: thewall
   m_TagString: Wall
@@ -492,7 +493,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4853265002205051073}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.00001, y: 0.345, z: 0.00001}
@@ -513,8 +514,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 6182312984353002979}
+--- !u!114 &9219618254333505901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853265002205051073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 3
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &4853265002466999050
 GameObject:
   m_ObjectHideFlags: 0
