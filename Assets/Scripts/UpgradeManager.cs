@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
@@ -60,34 +62,25 @@ public class UpgradeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vidaS = 10;
-        damagedS = 20;
-        cadenceS = 5;
-        rangeS = 25;
-        visionS = damagedS +10;
+        LoadPlayerPrefsUpgradeManager();
 
-        vidaL += 10;
-        cadenceL = 0.1f;
-        rangeL = 15;
-        visionL = rangeL +10;
-
-        vidaB = 10;
-        damagedB = 3;
-        cadenceB = 1;
-        rangeB = 10;
-        visionB = rangeB +5;
-
-        vidaA = 10;
-        damagedA = 5;
-        cadenceA = 1;
-        rangeA = 10;
-        visionA = rangeA +5;
-
-        vidaW = 10;
 
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
         Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
     }
+
+    
+
+   
+
+    private void Update()
+    {
+        Debug.Log(vidaS);
+       
+    }
+
+
+
     public void ActualizarVidaTorres()
     {
         vidaS += 5;
@@ -111,4 +104,98 @@ public class UpgradeManager : MonoBehaviour
         damagedS += 5;
         damagedA += 5;
     }
+
+    /*
+    public void LoadPlayerPrefs(string ppName)
+    {
+        switch (ppName)
+        {
+            case "vidaS":
+                vidaS = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "damagedS":
+                damagedS = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "cadenceS":
+                cadenceS = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "rangeS":
+                rangeS = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "visionS":
+                visionS = PlayerPrefs.GetFloat(ppName);
+                break;
+
+
+            case "vidaL":
+                vidaL = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "cadenceL":
+                cadenceL = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "rangeL":
+                rangeL = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "visionL":
+                visionL = PlayerPrefs.GetFloat(ppName);
+                break;
+
+            case "vidaB":
+                vidaB = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "damagedB":
+                damagedB = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "cadenceB":
+                cadenceB = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "rangeB":
+                rangeS = PlayerPrefs.GetFloat(ppName);
+                break;
+            case "visionB":
+                visionS = PlayerPrefs.GetFloat(ppName);
+                break;
+
+            case "vidaW":
+                vidaW = PlayerPrefs.GetFloat(ppName);
+                break;
+
+        }
+        
+    }
+    */
+
+    public void LoadPlayerPrefsUpgradeManager()
+    {
+        //Torreta Sniper
+        vidaS = PlayerPrefs.GetFloat("vidaS");
+        damagedS = PlayerPrefs.GetFloat("damagedS");
+        cadenceS = PlayerPrefs.GetFloat("cadenceS");
+        rangeS = PlayerPrefs.GetFloat("rangeS");
+        visionS = PlayerPrefs.GetFloat("visionS");
+        //Torreta Laser
+        vidaL = PlayerPrefs.GetFloat("vidaL");
+        cadenceL = PlayerPrefs.GetFloat("cadenceL");
+        rangeL = PlayerPrefs.GetFloat("rangeL");
+        visionL = PlayerPrefs.GetFloat("visionL");
+        //Torreta Basica
+        vidaB = PlayerPrefs.GetFloat("vidaB");
+        damagedB = PlayerPrefs.GetFloat("damagedB");
+        cadenceB = PlayerPrefs.GetFloat("cadenceB");
+        rangeB = PlayerPrefs.GetFloat("rangeB");
+        visionB = PlayerPrefs.GetFloat("visionB");
+        //Torreta Ametralladora
+        vidaA = PlayerPrefs.GetFloat("vidaA");
+        damagedA = PlayerPrefs.GetFloat("damagedA");
+        cadenceA = PlayerPrefs.GetFloat("cadenceA");
+        rangeA = PlayerPrefs.GetFloat("rangeA");
+        visionA = PlayerPrefs.GetFloat("visionA");
+
+        vidaW = PlayerPrefs.GetFloat("vidaW");
+
+    }
+
+    
+
+    
 }
