@@ -24,6 +24,7 @@ TagManager:
   - OptionsPanel
   - Floor
   - FlyEnemies
+  - MainMenuCanvas
   layers:
   - Default
   - TransparentFX

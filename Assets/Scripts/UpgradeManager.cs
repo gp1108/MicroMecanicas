@@ -63,7 +63,7 @@ public class UpgradeManager : MonoBehaviour
     void Start()
     {
         LoadPlayerPrefsUpgradeManager();
-
+        Debug.Log("He iniciado");
 
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
         Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
@@ -75,8 +75,10 @@ public class UpgradeManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(vidaS);
-       
+        Debug.Log(damagedB);
+        Debug.Log(vidaB);
+        Debug.Log(rangeB);
+
     }
 
 

@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 164209728}
   - component: {fileID: 164209727}
   m_Layer: 5
-  m_Name: AmountOfSlow
+  m_Name: moreSlowSlowTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 417176158}
   - component: {fileID: 417176157}
   m_Layer: 5
-  m_Name: Damage
+  m_Name: moreDamageBasicTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1239,7 +1239,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 417176157}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
-        m_MethodName: CallSkillUnlockFunction
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 707923463}
   - component: {fileID: 707923462}
   m_Layer: 5
-  m_Name: Health
+  m_Name: moreHealthSlowTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3677,6 +3677,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272512971}
   m_CullTransparentMesh: 1
+--- !u!1 &1278184728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278184730}
+  - component: {fileID: 1278184729}
+  m_Layer: 0
+  m_Name: SkillTreeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1278184729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278184728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7592c1b31b80b8741b56a50c280bb3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillButtons: []
+  unlockedSkillColor: {r: 0.1760413, g: 0.8679245, b: 0.22498065, a: 1}
+  notEnoughRPcolor: {r: 0.7169812, g: 0.07778571, b: 0.07778571, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  dependency: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+  moreHealthBasicTurretAmount: 0
+--- !u!4 &1278184730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278184728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 634.32825, y: 863.31445, z: 45.260498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1288632180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,7 +4180,7 @@ GameObject:
   - component: {fileID: 1401452925}
   - component: {fileID: 1401452924}
   m_Layer: 5
-  m_Name: Range
+  m_Name: moreRangeSlowTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4390,7 +4440,7 @@ GameObject:
   - component: {fileID: 1557424117}
   - component: {fileID: 1557424116}
   m_Layer: 5
-  m_Name: BasicTurret (3)
+  m_Name: moreRangeBasicTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4475,7 +4525,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1557424116}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
-        m_MethodName: CallSkillUnlockFunction
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5020,7 +5070,7 @@ GameObject:
   - component: {fileID: 1776386875}
   - component: {fileID: 1776386874}
   m_Layer: 5
-  m_Name: BasicTurret (2)
+  m_Name: moreHealthBasicTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5105,7 +5155,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1776386874}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
-        m_MethodName: CallSkillUnlockFunction
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6459,7 +6509,6 @@ GameObject:
   - component: {fileID: 4246415057687740755}
   - component: {fileID: 206076533737792850}
   - component: {fileID: 2134768209831016919}
-  - component: {fileID: 4246415057687740756}
   m_Layer: 5
   m_Name: ResearchPanel
   m_TagString: Untagged
@@ -8115,24 +8164,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1700, y: 1040}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4246415057687740756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123828764372003122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7592c1b31b80b8741b56a50c280bb3ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillButtons: []
-  unlockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
-  notEnoughRPcolor: {r: 0, g: 0, b: 0, a: 0}
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  dependency: {r: 0, g: 0, b: 0, a: 0}
-  moreHealthBasicTurretAmount: 0
 --- !u!114 &4252048935323730540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9355,7 +9386,7 @@ GameObject:
   - component: {fileID: 4951138168807942757}
   m_Layer: 5
   m_Name: MenuInicio
-  m_TagString: Untagged
+  m_TagString: MainMenuCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10181,14 +10212,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 7852203405206852009}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8150472495710246608}
+      - m_Target: {fileID: 417176157}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
-        m_MethodName: CallSkillUnlockFunction
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
