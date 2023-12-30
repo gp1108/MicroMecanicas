@@ -56,6 +56,18 @@ public class UpgradeManager : MonoBehaviour
     public float rangeA;
     public float visionA;
 
+    [Header("TurretSlow")]
+    public float vidaSlow;
+    public float amountSlow;
+    public float rangeSlow;
+
+    [Header("TurretMortar")]
+    public float vidaM;
+    public float damagedM;
+    public float rangeM;
+    
+
+
     [Header("Walls")]
     public float vidaW;
 
@@ -193,11 +205,24 @@ public class UpgradeManager : MonoBehaviour
         rangeA = PlayerPrefs.GetFloat("rangeA");
         visionA = PlayerPrefs.GetFloat("visionA");
 
+        //Walls
         vidaW = PlayerPrefs.GetFloat("vidaW");
+
+        //Torreta Slow
+        vidaSlow = PlayerPrefs.GetFloat("vidaSlow");
+        amountSlow = PlayerPrefs.GetFloat("amountSlow");
+        rangeSlow = PlayerPrefs.GetFloat("rangeSlow");
+        //Anñadir el unlock slow para desbloquear la torreta slow ingame
+
+        //Torreta Mortero
+        vidaM = PlayerPrefs.GetFloat("vidaM");
+        damagedM = PlayerPrefs.GetFloat("damagedM");
+        rangeM = PlayerPrefs.GetFloat("rangeM");
+        //Anñadir el unlock slow para desbloquear la torreta slow ingame
 
     }
 
-    
 
-    
+
+
 }

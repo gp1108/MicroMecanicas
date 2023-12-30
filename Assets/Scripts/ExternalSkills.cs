@@ -33,11 +33,16 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreDamageBasicTurret, 1 },
         {externalSkillName.moreRangeBasicTurret,1 },
         {externalSkillName.moreHealthBasicTurret,55 },
+
         {externalSkillName.moreSlowSlowTurret,1 },
         {externalSkillName.moreRangeSlowTurret,1 },
         {externalSkillName.moreHealthSlowTurret,1 },
-         {externalSkillName.unlockSlowTurret,1 },
+        {externalSkillName.unlockSlowTurret,1 },
 
+        {externalSkillName.unlockMortarTurret,1 },
+        {externalSkillName.moreDamageMortarTurret,1 },
+        {externalSkillName.moreRangeMortarTurret,1 },
+        {externalSkillName.moreHealthMortarTurret,1 },
 
     };
 
@@ -52,7 +57,11 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreSlowSlowTurret,false },
         {externalSkillName.moreRangeSlowTurret,false },
         {externalSkillName.moreHealthSlowTurret,false },
-         
+
+        {externalSkillName.unlockMortarTurret,false },
+        {externalSkillName.moreDamageMortarTurret,false },
+        {externalSkillName.moreRangeMortarTurret,false },
+        {externalSkillName.moreHealthMortarTurret,false },
 
     };
 
@@ -67,6 +76,10 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreRangeSlowTurret,false },
         {externalSkillName.moreHealthSlowTurret,false },
 
+        {externalSkillName.unlockMortarTurret,true },
+        {externalSkillName.moreDamageMortarTurret,false },
+        {externalSkillName.moreRangeMortarTurret,false },
+        {externalSkillName.moreHealthMortarTurret,false },
     };
 
 
@@ -92,6 +105,11 @@ public class ExternalSkills : MonoBehaviour
         moreSlowSlowTurret,
         moreRangeSlowTurret,
         moreHealthSlowTurret,
+
+        unlockMortarTurret,
+        moreDamageMortarTurret,
+        moreRangeMortarTurret,
+        moreHealthMortarTurret,
     }
 
 
@@ -121,11 +139,29 @@ public class ExternalSkills : MonoBehaviour
             }
             else
             {
-                foreach (externalSkillName skillName in Enum.GetValues(typeof(externalSkillName)))
+                foreach (externalSkillName skillName in externalSkillName.GetValues(typeof(externalSkillName)))
                 {
                     if (ppName == skillName.ToString())
                     {
                         isSkillUnlocked[skillName] = true;
+                        if (ppName == "unlockSlowTurret")
+                        {
+
+                            skillCanBeUnlocked[externalSkillName.moreSlowSlowTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.moreRangeSlowTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.moreHealthSlowTurret] = true;
+                        }
+                        if (ppName == "unlockMortarTurret")
+                        {
+                            skillCanBeUnlocked[externalSkillName.moreDamageMortarTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.moreRangeMortarTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.moreHealthMortarTurret] = true;
+
+                        }
+
+                        UpdateSkillUI();
+
+                        
                     }
                 }
                 
@@ -175,7 +211,7 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("visionL", 25);
 
         //Torreta Slow
-        CheckPlayerPrefsKey("unlockSlow", 0);
+        //CheckPlayerPrefsKey("unlockSlow", 0);
         CheckPlayerPrefsKey("vidaSlow", 10);
         CheckPlayerPrefsKey("amountSlow", 0.1f);
         CheckPlayerPrefsKey("rangeSlow", 15);
@@ -198,14 +234,24 @@ public class ExternalSkills : MonoBehaviour
         //Muros
         CheckPlayerPrefsKey("vidaW", 10);
 
+        //Torreta Mortero
+        CheckPlayerPrefsKey("unlockMortar", 0);
+        CheckPlayerPrefsKey("vidaM", 10);
+        CheckPlayerPrefsKey("damagedM", 5);
+        CheckPlayerPrefsKey("rangeM", 10);
 
         //Contadores
         CheckPlayerPrefsKey("moreDamageBasicTurretAmount", 0);
         CheckPlayerPrefsKey("moreRangeBasicTurretAmount", 0);
         CheckPlayerPrefsKey("moreHealthBasicTurretAmount", 0);
+
         CheckPlayerPrefsKey("moreSlowSlowTurretAmount", 0);
         CheckPlayerPrefsKey("moreRangeSlowTurretAmount", 0);
         CheckPlayerPrefsKey("moreHealthSlowTurretAmount", 0);
+
+        CheckPlayerPrefsKey("moreDamageMortarTurretAmount", 0);
+        CheckPlayerPrefsKey("moreRangeMortarTurretAmount", 0);
+        CheckPlayerPrefsKey("moreHealthMortarTurretAmount", 0);
 
         //Is skill unlocked (0 es no 1 es si)
         isSkillUnlockedPP("moreDamageBasicTurret", 0);
@@ -216,8 +262,13 @@ public class ExternalSkills : MonoBehaviour
         isSkillUnlockedPP("moreSlowSlowTurret", 0);
         isSkillUnlockedPP("moreRangeSlowTurret", 0);
         isSkillUnlockedPP("moreHealthSlowTurret", 0);
-        
-        
+
+        isSkillUnlockedPP("unlockMortarTurret", 0);
+        isSkillUnlockedPP("moreDamageMortarTurret", 0);
+        isSkillUnlockedPP("moreRangeMortarTurret", 0);
+        isSkillUnlockedPP("moreHealthMortarTurret", 0);
+
+
 
 
 
@@ -331,23 +382,25 @@ public class ExternalSkills : MonoBehaviour
                         UnlockSkillLogic(skill);
                     }
                     break;
+                
                 case externalSkillName.unlockSlowTurret:
 
-                    if (PlayerPrefs.GetFloat("unlockSlow") < 1)
+                    if (PlayerPrefs.GetFloat("unlockSlowTurret") < 1)
                     {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("unlockSlow");
+                        float counterCurrentValue = PlayerPrefs.GetFloat("unlockSlowTurret");
                         float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("unlockSlow", counterNewValue);
-
-                        
-                        UpdateSkillUI();
-                        UnlockSkillLogic(skill);
-
-                        //Falta la logica que desbloque la torreta de slows
+                        SavePlayerPrefs("unlockSlowTurret", counterNewValue);
 
                         skillCanBeUnlocked[externalSkillName.moreSlowSlowTurret] = true;
                         skillCanBeUnlocked[externalSkillName.moreRangeSlowTurret] = true;
                         skillCanBeUnlocked[externalSkillName.moreHealthSlowTurret] = true;
+
+                        
+                        UnlockSkillLogic(skill);
+                        
+                        //Falta la logica que desbloque la torreta de slows
+
+
                     }                  
                     break;
                 case externalSkillName.moreSlowSlowTurret:
@@ -437,6 +490,113 @@ public class ExternalSkills : MonoBehaviour
                     }
                     break;
 
+                case externalSkillName.unlockMortarTurret:
+
+                    if (PlayerPrefs.GetFloat("unlockMortarTurret") < 1)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("unlockMortarTurret");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("unlockMortarTurret", counterNewValue);
+
+                        skillCanBeUnlocked[externalSkillName.moreDamageMortarTurret] = true;
+                        skillCanBeUnlocked[externalSkillName.moreRangeMortarTurret] = true;
+                        skillCanBeUnlocked[externalSkillName.moreHealthMortarTurret] = true;
+
+
+                        UnlockSkillLogic(skill);
+
+                        //Falta la logica que desbloque la torreta de morteros
+
+
+                    }
+                    break;
+
+                case externalSkillName.moreDamageMortarTurret:
+
+                    if (PlayerPrefs.GetFloat("moreDamageMortarTurretAmount") < 4)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreDamageMortarTurretAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreDamageMortarTurretAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave aún no existe
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("damagedM", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        //HAY que hacer esto para que el ultimo click lo marque como desbloqueado y al mismo tiempo de la habilidad
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreDamageMortarTurretAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreDamageMortarTurretAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave aún no existe
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("damagedM", newValue);
+
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
+                case externalSkillName.moreHealthMortarTurret:
+
+                    if (PlayerPrefs.GetFloat("moreHealthMortarTurretAmount") < 4)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreHealthMortarTurretAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreHealthMortarTurretAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("vidaM");
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("vidaM", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreHealthMortarTurretAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreHealthMortarTurretAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("vidaM");
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("vidaM", newValue);
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
+                case externalSkillName.moreRangeMortarTurret:
+
+                    if (PlayerPrefs.GetFloat("moreRangeMortarTurretAmount") < 4)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreRangeMortarTurretAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreRangeMortarTurretAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("rangeM");
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("rangeM", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreRangeMortarTurretAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreRangeMortarTurretAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("rangeM");
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("rangeM", newValue);
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
             }
 
 
@@ -449,6 +609,8 @@ public class ExternalSkills : MonoBehaviour
 
         externalSkillPoints -= skillCost[skill];
         isSkillUnlocked[skill] = true;
+        string skillname = skill.ToString();
+        PlayerPrefs.SetFloat(skillname, 1);
         UpdateSkillUI();
     }
 
