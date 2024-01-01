@@ -4574,7 +4574,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawners: []
   enemies:
+  - {fileID: 9161228910576418350, guid: eaa39598a29d6d343aa15eb54ffaef1b, type: 3}
   - {fileID: 1323558377185222644, guid: d813a9ec05742a04e98e8580fde35074, type: 3}
+  - {fileID: 1323558377185222644, guid: 8a083624ffeb50c469a4d4ca0102cedb, type: 3}
+  - {fileID: 9161228910576418350, guid: 2162230ecdce8044086a06645007461c, type: 3}
   onRound: 0
   enemiesAlive: 0
   roundsText: {fileID: 1599957270}
@@ -12772,8 +12775,8 @@ MonoBehaviour:
   nodeGroup: {fileID: 749879518}
   propsGroup: {fileID: 1422458273}
   enemySpawnersGroup: {fileID: 1146051923}
-  _worldSizeX: 23
-  _worldSizeZ: 32
+  _worldSizeX: 50
+  _worldSizeZ: 50
   _noiseHeight: 4
   _detailScale: 8
   worldProps:

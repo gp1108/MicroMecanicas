@@ -104,7 +104,10 @@ public class TurretLaser : MonoBehaviour
                         if (_ataking == false)
                         {
                             GameObject enemigo = hit.transform.gameObject;
-                            StartCoroutine(Daño(enemigo));
+                            if (true)
+                            {
+                                StartCoroutine(Daño(enemigo));
+                            }
                         }
                     }
                 }
@@ -172,13 +175,14 @@ public class TurretLaser : MonoBehaviour
     }
     IEnumerator Daño( GameObject enemy)
     {
-        Debug.Log("hola");
-        _ataking = true;
-        enemy.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
-        _damaged += 0.1f * Time.deltaTime;
-        yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceL);
-        _ataking = false;
-        yield return null;
-
+        if (enemy != null)
+        {
+            _ataking = true;
+            enemy.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
+            _damaged += 0.1f * Time.deltaTime;
+            yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceL);
+            _ataking = false;
+            yield return null;
+        }
     }
 }

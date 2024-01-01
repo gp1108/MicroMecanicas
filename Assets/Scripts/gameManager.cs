@@ -38,6 +38,7 @@ public class gameManager : MonoBehaviour
     private int _totalNumberOfEnemies;
     public bool onRound;
     public int enemiesAlive;
+    private int enemiesSpawned;
     public TMP_Text roundsText;
     private GameObject enemyToSpawn;
     [Header("Menu Management")]
@@ -173,33 +174,108 @@ public class gameManager : MonoBehaviour
     
    public void SpawnEnemies()
    {
-       for(int _actualNumberOfEnemies = 0; _actualNumberOfEnemies <  _totalNumberOfEnemies; _actualNumberOfEnemies++)
-       {
-            
-            enemyToSpawn = Instantiate(enemies[Random.Range(0, enemies.Length)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-            enemiesAlive ++;
-            
-            
-       }
-        _totalNumberOfEnemies += 5;
-        
-   }
+        //StartCoroutine("SpawnCrow");
+        if (_roundsPlayed <= 10)
+        {
+            if (enemiesAlive < 3 && enemiesSpawned < _totalNumberOfEnemies)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (enemiesSpawned < _totalNumberOfEnemies)
+                    {
+                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 1)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        enemiesAlive++;
+                        enemiesSpawned++;
+                    }
+                }
+            }
+        }
+        if (_roundsPlayed <= 20 && _roundsPlayed > 10)
+        {
+            if (enemiesAlive < 10 && enemiesSpawned < _totalNumberOfEnemies)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    if (enemiesSpawned < _totalNumberOfEnemies)
+                    {
+                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 2)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        enemiesAlive++;
+                        enemiesSpawned++;
+                    }
+                }
+            }
+        }
+        if (_roundsPlayed <= 30 && _roundsPlayed > 20)
+        {
+            if (enemiesAlive < 10 && enemiesSpawned < _totalNumberOfEnemies)
+            {
+                for (int i = 0; i < 25; i++)
+                {
+                    if (enemiesSpawned < _totalNumberOfEnemies)
+                    {
+                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 3)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        enemiesAlive++;
+                        enemiesSpawned++;
+                    }
+                }
+            }
+        }
 
+    }
+    IEnumerator SpawnCrow()
+    {
+        while (onRound == true)
+        {
+            if (enemiesSpawned < _totalNumberOfEnemies)
+            {
+                if (_roundsPlayed <= 10)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 1)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        enemiesAlive++;
+                        enemiesSpawned++;
+                    }
+                }
+                if (_roundsPlayed <= 20 && _roundsPlayed > 10)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 2)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        enemiesAlive++;
+                        enemiesSpawned++;
+                    }
+                }
+                if (_roundsPlayed <= 30 && _roundsPlayed > 20)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 3)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        enemiesAlive++;
+                        enemiesSpawned++;
+                    }
+                }
+            }
+            yield return new WaitForSeconds(10);
+        }
+    }
    
     public void EnemyDead()
     {
         enemiesAlive -= 1;
 
         SoundManager.dameReferencia.PlayClipByName(clipName: "EnemyDead");
-        
-        if(enemiesAlive <= 0 && onRound == true)
+
+        if (enemiesAlive <= 0 && onRound == true && enemiesSpawned == _totalNumberOfEnemies) 
         {
             if (regenWalls == true)
             {
                 listaActualizarWallsReg();
             }
             onRound = false;
+            enemiesSpawned = 0;
             _roundsPlayed += 1;
+            _totalNumberOfEnemies += 5;
             roundsText.text = "Ronda " +_roundsPlayed.ToString();
 
             if(_roundsPlayed % goldRoundsElapsed == 0)
