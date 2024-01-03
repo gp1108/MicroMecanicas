@@ -44,6 +44,12 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreRangeMortarTurret,1 },
         {externalSkillName.moreHealthMortarTurret,1 },
 
+        {externalSkillName.oneReseachPointExtra,10 },
+        {externalSkillName.moreGoldPerMine,10 },
+        {externalSkillName.startWithExtraGold,10 },
+        {externalSkillName.startWithExtraResearchPoints,10 },
+
+
     };
 
     //Define si ha sido desbloqueado o no 
@@ -63,6 +69,11 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreRangeMortarTurret,false },
         {externalSkillName.moreHealthMortarTurret,false },
 
+        {externalSkillName.oneReseachPointExtra,false },
+        {externalSkillName.moreGoldPerMine,false },
+        {externalSkillName.startWithExtraGold,false },
+        {externalSkillName.startWithExtraResearchPoints,false },
+
     };
 
     public Dictionary<externalSkillName, bool> skillCanBeUnlocked = new Dictionary<externalSkillName, bool>
@@ -80,6 +91,11 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreDamageMortarTurret,false },
         {externalSkillName.moreRangeMortarTurret,false },
         {externalSkillName.moreHealthMortarTurret,false },
+
+        {externalSkillName.oneReseachPointExtra,true },
+        {externalSkillName.moreGoldPerMine,true },
+        {externalSkillName.startWithExtraGold,true },
+        {externalSkillName.startWithExtraResearchPoints,true },
     };
 
 
@@ -110,6 +126,11 @@ public class ExternalSkills : MonoBehaviour
         moreDamageMortarTurret,
         moreRangeMortarTurret,
         moreHealthMortarTurret,
+
+        oneReseachPointExtra,
+        moreGoldPerMine,
+        startWithExtraGold,
+        startWithExtraResearchPoints,
     }
 
 
@@ -196,6 +217,8 @@ public class ExternalSkills : MonoBehaviour
 
     private void Start()
     {
+        //TODOS LOS CHECKPLAYERPREFS SON LAS VARIABLES QUE ALTERAN LAS ESTADICSTICAS ,
+        //LOS AMOUNTS SON LA CANTIDAD DE VERCES QUE SE PUEDE MEJORAR ESA HABILIDAD, Y LOS ISSKILLUNLOCKED MANTIENEN EL PROGRESO GUARDADO DE ESA HABILIDAD
         externalSkillPoints = 100;
         //Torreta Sniper
         CheckPlayerPrefsKey("vidaS", 10);
@@ -240,6 +263,15 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("damagedM", 5);
         CheckPlayerPrefsKey("rangeM", 10);
 
+
+        //ResearchPoints
+        CheckPlayerPrefsKey("oneResearchPoint", 0);
+        //GoldMines
+        CheckPlayerPrefsKey("moreGoldPerGoldMines", 0);
+        //Miscelaneous
+        CheckPlayerPrefsKey("startWithMoreGold", 0);
+        CheckPlayerPrefsKey("startWithMoreResearchPoints", 0);
+
         //Contadores
         CheckPlayerPrefsKey("moreDamageBasicTurretAmount", 0);
         CheckPlayerPrefsKey("moreRangeBasicTurretAmount", 0);
@@ -252,6 +284,13 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("moreDamageMortarTurretAmount", 0);
         CheckPlayerPrefsKey("moreRangeMortarTurretAmount", 0);
         CheckPlayerPrefsKey("moreHealthMortarTurretAmount", 0);
+
+        CheckPlayerPrefsKey("oneResearchPointExtraAmount", 0);
+
+        CheckPlayerPrefsKey("moreGoldPerMineAmount", 0);
+
+        CheckPlayerPrefsKey("startWithMoreGoldAmount", 0);
+        CheckPlayerPrefsKey("startWithMoreResearchPointsAmount", 0);
 
         //Is skill unlocked (0 es no 1 es si)
         isSkillUnlockedPP("moreDamageBasicTurret", 0);
@@ -267,6 +306,15 @@ public class ExternalSkills : MonoBehaviour
         isSkillUnlockedPP("moreDamageMortarTurret", 0);
         isSkillUnlockedPP("moreRangeMortarTurret", 0);
         isSkillUnlockedPP("moreHealthMortarTurret", 0);
+
+        isSkillUnlockedPP("oneReseachPointExtra", 0);
+        isSkillUnlockedPP("moreGoldPerMine", 0);
+
+        isSkillUnlockedPP("startWithExtraGold", 0);
+        isSkillUnlockedPP("startWithExtraResearchPoints", 0);
+
+
+
 
 
 
@@ -593,6 +641,118 @@ public class ExternalSkills : MonoBehaviour
                         float currentValue = PlayerPrefs.GetFloat("rangeM");
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("rangeM", newValue);
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
+                case externalSkillName.oneReseachPointExtra:
+
+                    if (PlayerPrefs.GetFloat("oneResearchPointExtraAmount") < 2)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("oneResearchPointExtraAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("oneResearchPointExtraAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("oneResearchPoint");
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("oneResearchPoint", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("oneResearchPointExtraAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("oneResearchPointExtraAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("oneResearchPoint");
+                        float newValue = currentValue + 5;
+                        SavePlayerPrefs("oneResearchPoint", newValue);
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
+                case externalSkillName.moreGoldPerMine:
+
+                    if (PlayerPrefs.GetFloat("moreGoldPerMineAmount") < 2)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreGoldPerMineAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreGoldPerMineAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("moreGoldPerGoldMines");
+                        float newValue = currentValue + 50;
+                        SavePlayerPrefs("moreGoldPerGoldMines", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreGoldPerMineAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("moreGoldPerMineAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("moreGoldPerGoldMines");
+                        float newValue = currentValue + 50;
+                        SavePlayerPrefs("moreGoldPerGoldMines", newValue);
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
+                case externalSkillName.startWithExtraGold:
+
+                    if (PlayerPrefs.GetFloat("startWithMoreGoldAmount") < 2)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("startWithMoreGoldAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("startWithMoreGoldAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("startWithMoreGold");
+                        float newValue = currentValue + 50;
+                        SavePlayerPrefs("startWithMoreGold", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("startWithMoreGoldAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("startWithMoreGoldAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("startWithMoreGold");
+                        float newValue = currentValue + 50;
+                        SavePlayerPrefs("startWithMoreGold", newValue);
+
+                        UnlockSkillLogic(skill);
+                    }
+                    break;
+                case externalSkillName.startWithExtraResearchPoints:
+
+                    if (PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount") < 2)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("startWithMoreResearchPointsAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("startWithMoreResearchPoints");
+                        float newValue = currentValue + 50;
+                        SavePlayerPrefs("startWithMoreResearchPoints", newValue);
+
+                        externalSkillPoints -= skillCost[skill];
+                        UpdateSkillUI();
+                    }
+                    else
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("startWithMoreResearchPointsAmount", counterNewValue);
+
+                        float currentValue = PlayerPrefs.GetFloat("startWithMoreResearchPoints");
+                        float newValue = currentValue + 50;
+                        SavePlayerPrefs("startWithMoreResearchPoints", newValue);
 
                         UnlockSkillLogic(skill);
                     }
