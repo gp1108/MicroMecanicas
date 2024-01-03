@@ -205,12 +205,9 @@ public class ExternalSkills : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(PlayerPrefs.GetFloat("moreDamageBasicTurretAmount"));
 
         if(Input.GetKeyDown(KeyCode.L))
         {
-            PlayerPrefs.DeleteKey("moreDamageBasicTurretAmount");
-            PlayerPrefs.DeleteKey("damagedB");
             PlayerPrefs.DeleteAll();
         }
     }

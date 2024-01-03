@@ -75,7 +75,7 @@ public class gameManager : MonoBehaviour
     {
         enemiesSpawners = new List<GameObject>();
 
-        GetResearchPoints(100); //Esta en el awake por temas de debugging , luego mover al start
+        
     }
 
     private void Start()
@@ -92,8 +92,9 @@ public class gameManager : MonoBehaviour
        _totalRounds = 20;
        _totalNumberOfEnemies = 5;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-        GetGold(1000);
-        
+        GetGold(1000 + PlayerPrefs.GetFloat("startWithMoreGold"));
+        GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints"))); 
+
     }
     private void Update()
     {
@@ -309,12 +310,12 @@ public class gameManager : MonoBehaviour
     public void MinesGold()
     {
         
-        GetGold(numberOfMines * 100 * goldMultiplayer);
+        GetGold(numberOfMines * 100 * goldMultiplayer + PlayerPrefs.GetFloat("moreGoldPerGoldMines"));
     }
-    public void ResearchPoints() //abajo hay otra funcion que hace lo mismo , ver cual es mejor()
+    public void ResearchPoints() //abajo hay otra funcion que añade rp de manera limpia , esta es para los talleres
     {
         
-        researchPoints += numberOfLabs * 2;
+        researchPoints += numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"));
     }
 
 

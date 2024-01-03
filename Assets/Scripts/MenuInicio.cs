@@ -14,6 +14,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject controles;
     public GameObject pausa;
     public GameObject volume;
+    public GameObject externalSkillTree;
     //public GameObject opcionesCanvas;
     private bool enmenu;
     public bool opcionesIngame;
@@ -135,6 +136,19 @@ public class MenuInicio : MonoBehaviour
     public void VolumeReturn()
     {
         volume.gameObject.SetActive(false);
+        opcionesPanel.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+
+    public void ExternalSkillTree()
+    {
+        externalSkillTree.gameObject.SetActive(true);
+        opcionesPanel.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+    public void ExternalSkillTreeReturn()
+    {
+        externalSkillTree.gameObject.SetActive(false);
         opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
