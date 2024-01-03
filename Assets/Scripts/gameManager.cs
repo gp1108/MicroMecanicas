@@ -163,14 +163,24 @@ public class gameManager : MonoBehaviour
         if(_roundsPlayed <= _totalRounds)
         {
             roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-            SpawnEnemies();
+
+            StartCoroutine("Revision");
+            
+            
         }
         else
         {
             PlayerWin();
         }
     }
-
+    IEnumerator Revision()
+    {
+        while(onRound==true)
+        {
+            SpawnEnemies();
+            yield return new WaitForSeconds(2);
+        }
+    }
     
    public void SpawnEnemies()
    {
