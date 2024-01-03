@@ -31,79 +31,26 @@ public class MenuInicio : MonoBehaviour
         }
     }
 
-    /*public static MenuInicio giveMeReference
-    {
-        get
-        {
-
-
-            if (_Reference == null)
-            {
-                _Reference = FindObjectOfType<MenuInicio>();
-                if (_Reference == null)
-                {
-                    GameObject go = new GameObject("Opciones");
-                    _Reference = go.AddComponent<MenuInicio>();
-                }
-            }
-            return _Reference;
-        }
-    }*/
+    
 
     private void Awake()
     {
         _Reference = this;
         
 
-        /*if (_Reference == null)
-        {
-            
-        }*/
-
     }
 
-    /*public static MenuInicio giveMeReference
-    {
-        get
-        {
-            return _Reference;
-        }
-    }*/
+    
 
     public void Start()
     {
-        Debug.Log("HOLA SOY EL START");
+        
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded)
         {
             enmenu = true;
             opcionesIngame = false;
         }
-        //enmenu = true;
-            /*
-            //opcionesCanvas = GameObject.FindGameObjectWithTag("OptionsPanel");
-            if(SceneManager.GetSceneByBuildIndex(0).isLoaded)
-            {
-                Debug.Log("sOY 0");
-                enmenu = true;
-            }
-            if (SceneManager.GetSceneByBuildIndex(1).isLoaded)
-            {
-                enmenu = false;
-                pausa = GameObject.Find("PauseScreen");
-                //opcionesCanvas = GameObject.FindGameObjectWithTag("OptionsPanel");
-                opcionesCanvas = GameObject.Find("Opciones");
-                if (opcionesCanvas == null)
-                {
-                    Debug.Log(" Soy Nulo despues");
-                }
-                else
-                {
-                    Debug.Log(" no soy nulo despues" + opcionesCanvas + "Y de nombre: " + opcionesCanvas.name);
-                }
-                opcionesCanvas.SetActive(false);
-            }
-
-            */
+        
 
     }
 
@@ -119,7 +66,7 @@ public class MenuInicio : MonoBehaviour
     
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log(level + "Soy LEVEL");
+        
         if (level == 1)
         {
             
@@ -127,24 +74,12 @@ public class MenuInicio : MonoBehaviour
             //opcionesCanvas = GameObject.FindGameObjectWithTag("OptionsPanel");
             opciones = GameObject.Find("Opciones");
             pausa = GameObject.Find("PauseScreen");
-            if(opciones == null)
-            {
-                Debug.Log(" Soy Nulo despues");
-            }
-            else
-            {
-                Debug.Log(" no soy nulo despues" + opciones + "Y de nombre: " + opciones.name);
-            }
+            
             opciones.SetActive(false);
-            Debug.Log("lul");
+
 
         }
-        if (level == 0)
-        {
-            Debug.Log("sOY 0");
-            //enmenu = true;
-
-        }
+        
 
     }
     
@@ -186,12 +121,7 @@ public class MenuInicio : MonoBehaviour
             opciones.gameObject.SetActive(false);
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
-        /*else if(enmenu == false)
-        {
-            opciones.SetActive(false);
-            pausa.gameObject.SetActive(true);
-            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
-        }*/
+        
         
     }
 
@@ -252,8 +182,6 @@ public class MenuInicio : MonoBehaviour
         else
         {
             opciones = GameObject.Find("Opciones");
-            //Debug.Log(" no soy nulo despues" + opciones + "Y de nombre: " + opciones.name);
-            //opciones.SetActive(true);
             this.gameObject.SetActive(true);
             opcionesIngame = true;
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");

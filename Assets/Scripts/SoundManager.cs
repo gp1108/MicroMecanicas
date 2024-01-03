@@ -107,8 +107,6 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("manager sonido");
-
         soundToPlay._audioSource.Play();
     }
 
@@ -121,8 +119,6 @@ public class SoundManager : MonoBehaviour
             Debug.LogError("Sound: " + clipName + " does NOT exist");
             return;
         }
-
-        Debug.Log("manager sonido");
 
         soundToPlay._audioSource.PlayOneShot(soundToPlay._audioClip);
     }

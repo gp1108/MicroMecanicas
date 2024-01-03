@@ -5,6 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using static Skills;
+using static ExternalSkills;
 
 public class SkillsUI : MonoBehaviour
 {
@@ -25,6 +26,18 @@ public class SkillsUI : MonoBehaviour
             if (_SkillNameString == skillName.ToString())
             {
                 Skills.giveMeReference.unlockSkill(skillName);
+            }
+        }
+    }
+
+    public void externalCallSkillUnlockFunction()
+    {
+
+        foreach (externalSkillName skillName in Enum.GetValues(typeof(externalSkillName)))
+        {
+            if (_SkillNameString == skillName.ToString())
+            {
+                ExternalSkills.giveMeReference.unlockSkill(skillName);
             }
         }
     }
