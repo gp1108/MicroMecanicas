@@ -25,7 +25,7 @@ public class MainStrcuteSpawn : MonoBehaviour
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen");
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         rangeIndicator.SetActive(false);
-        Invoke("MainStrcuteErrorSpawning", 3f);
+        Invoke("MainStrcuteErrorSpawning", 10f);
         aerialNavMesh = GameObject.Find("AerialNavmeshCube");
     }
 

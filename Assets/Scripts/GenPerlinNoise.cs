@@ -47,8 +47,19 @@ public class GenPerlinNoise : MonoBehaviour
     public GameObject mainStructure;
     void Start()
     {
+
+        _worldSizeX = PlayerPrefs.GetInt("SizeX");
+        _worldSizeZ = PlayerPrefs.GetInt("SizeZ");
         // Genera una semilla aleatoria
-        _randomSeed = Random.Range(0, 10000);
+        if(PlayerPrefs.HasKey("Seed"))
+        {
+            _randomSeed = PlayerPrefs.GetInt("Seed");
+        }
+        else
+        {
+            _randomSeed = Random.Range(0, 100000);
+        }
+        
         //Debug.Log("Seed: " + _randomSeed);
 
         _gridOffset = 1;

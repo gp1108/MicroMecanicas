@@ -50,11 +50,19 @@ public class PerlinMenu : MonoBehaviour
         PerlinNoise();
     }
     
-    void PerlinNoise()
+    public void PerlinNoise()
     {
+        _worldSizeX = PlayerPrefs.GetInt("SizeX");
+        _worldSizeZ = PlayerPrefs.GetInt("SizeZ");
         // Genera una semilla aleatoria
-        _randomSeed = Random.Range(0, 10000);
-        //Debug.Log("Seed: " + _randomSeed);
+        if (PlayerPrefs.HasKey("Seed"))
+        {
+            _randomSeed = PlayerPrefs.GetInt("Seed");
+        }
+        else
+        {
+            _randomSeed = Random.Range(0, 100000);
+        }
 
         _gridOffset = 1;
 
@@ -266,7 +274,30 @@ public class PerlinMenu : MonoBehaviour
             }
         }
 
-        cameraPerlin.transform.position = new Vector3(_worldSizeX/2, (_worldSizeZ+_worldSizeX)/2, _worldSizeZ / 2);
+        if(_worldSizeX == _worldSizeZ)
+        {
+            cameraPerlin.transform.position = new Vector3(_worldSizeX / 2,_worldSizeX/ 2 + 10, _worldSizeZ / 2);
+        }
+        else
+        {
+            if(_worldSizeZ > 2 * _worldSizeX || _worldSizeX > 2 * _worldSizeZ)
+            {
+                
+                if (_worldSizeX > _worldSizeZ)
+                {
+                    float valor = _worldSizeX / 2 - _worldSizeZ;
+                    cameraPerlin.transform.position = new Vector3(_worldSizeX / 2, (_worldSizeZ + _worldSizeX) / 2 + 20 + valor, _worldSizeZ / 2);
+                }
+                else
+                {
+                    float valor = _worldSizeZ / 2 - _worldSizeX;
+                    cameraPerlin.transform.position = new Vector3(_worldSizeX / 2, (_worldSizeZ + _worldSizeX) / 2 + 20 + valor, _worldSizeZ / 2);
+                }
+            }
+            
+            
+        }
+        
 
     }
 
