@@ -166,7 +166,7 @@ public class BasicTurret : MonoBehaviour
     {
         rangeIndicator.transform.position = this.transform.position;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB, 0.5f, UpgradeManager.giveMeReference.rangeB);
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB *2, UpgradeManager.giveMeReference.rangeB *2, UpgradeManager.giveMeReference.rangeB * 2);
 
         _mostrarRango = true;
     }

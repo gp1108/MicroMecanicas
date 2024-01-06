@@ -168,8 +168,10 @@ public class Skills : MonoBehaviour
         if(panelCost <= gameManager.giveMeReference.gold)
         {
             SkillButtons.Remove(goldpanel);
-            
-            
+
+            gameManager.giveMeReference.GetGold(-panelCost);
+
+
             goldPanels[index].SetActive(false);
             index++;
             panelCost += 300;

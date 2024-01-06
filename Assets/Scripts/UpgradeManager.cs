@@ -106,65 +106,10 @@ public class UpgradeManager : MonoBehaviour
         damagedA += 5;
     }
 
-    /*
-    public void LoadPlayerPrefs(string ppName)
+    public void Update()
     {
-        switch (ppName)
-        {
-            case "vidaS":
-                vidaS = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "damagedS":
-                damagedS = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "cadenceS":
-                cadenceS = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "rangeS":
-                rangeS = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "visionS":
-                visionS = PlayerPrefs.GetFloat(ppName);
-                break;
-
-
-            case "vidaL":
-                vidaL = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "cadenceL":
-                cadenceL = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "rangeL":
-                rangeL = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "visionL":
-                visionL = PlayerPrefs.GetFloat(ppName);
-                break;
-
-            case "vidaB":
-                vidaB = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "damagedB":
-                damagedB = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "cadenceB":
-                cadenceB = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "rangeB":
-                rangeS = PlayerPrefs.GetFloat(ppName);
-                break;
-            case "visionB":
-                visionS = PlayerPrefs.GetFloat(ppName);
-                break;
-
-            case "vidaW":
-                vidaW = PlayerPrefs.GetFloat(ppName);
-                break;
-
-        }
-        
+        Debug.Log(rangeB);
     }
-    */
 
     public void LoadPlayerPrefsUpgradeManager()
     {

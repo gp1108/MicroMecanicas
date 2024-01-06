@@ -15,6 +15,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject pausa;
     public GameObject volume;
     public GameObject externalSkillTree;
+    public GameObject newGameSettings;
     //public GameObject opcionesCanvas;
     private bool enmenu;
     public bool opcionesIngame;
@@ -53,6 +54,20 @@ public class MenuInicio : MonoBehaviour
         }
         
 
+    }
+
+    public void NewGameSettings()
+    {
+        newGameSettings.SetActive(true);
+        
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+
+    public void ReturnFromNewGameSettings()
+    {
+        newGameSettings.SetActive(false);
+        
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void NuevaPartida()
