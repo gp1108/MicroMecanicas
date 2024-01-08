@@ -108,7 +108,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(rangeB);
+        
     }
 
     public void LoadPlayerPrefsUpgradeManager()

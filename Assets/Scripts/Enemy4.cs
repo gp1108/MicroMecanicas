@@ -7,9 +7,11 @@ using UnityEngine.AI;
 
 public class Enemy4 : MonoBehaviour
 {
+    private NavMeshAgent _navAgent;
     private GameObject _TownHall;
     [SerializeField] private GameObject _target;
     private Vector3 _direccion;
+    private Vector3 _distancia;
     private float _timePass;
     private float _cadencia;
     private float _distance;
@@ -20,24 +22,28 @@ public class Enemy4 : MonoBehaviour
     [SerializeField] private GameObject[] _torret;
     void Start()
     {
+
+        transform.position = new Vector3(transform.position.x, 6, transform.position.z);
         _cadencia = 1.5f;
         _heightMax = 5;
         _atac = false;
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
+        _navAgent = GetComponent<NavMeshAgent>();
+        _navAgent.enabled = true;
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
+        StartCoroutine("CheckPath");
     }
     private void Update()
     {
-        height();
-        Move();
         Atack();
     }
 
     void Atack()
     {
-        if(Vector3.Distance(transform.position,_target.transform.position) < _heightMax)
+        if(_target == null) return;
+        if (Vector3.Distance(transform.position, _target.transform.position) < _heightMax+3)
         {
             _atac = true;
             if (_atacking == false)
@@ -47,26 +53,28 @@ public class Enemy4 : MonoBehaviour
         }
         else
         {
-            _atac=false;
+            _atac = false;
         }
     }
     IEnumerator MekeDamaged()
     {
         _atacking = true;
-        if (Physics.Raycast(transform.position, _direccion, out RaycastHit hit, _heightMax))
+        if (Physics.Raycast(transform.position, _direccion, out RaycastHit hit, _heightMax+3))
         {
             hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
         }
         yield return new WaitForSeconds(_cadencia);
-        _atacking=false;
+        _atacking = false;
         yield return null;
     }
-    public void Move()
+    public void Move2()
     {
-
         if (_TownHall != null && _torret.Length <= 0)
         {
+            //_navAgent.SetDestination(_TownHall.transform.position);
             _target = _TownHall;
+
+
         }
         if (_torret.Length >= 1)
         {
@@ -104,35 +112,67 @@ public class Enemy4 : MonoBehaviour
         }
         if (_target != null)
         {
-            if (_atac == false)
+
+
+            NavMeshPath path = new NavMeshPath();
+
+            // Calcula el camino hasta el TownHall
+            _navAgent.CalculatePath(_target.transform.position, path);
+
+            // Comprueba si el camino está disponible
+            if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
             {
-                _direccion = _target.transform.position - transform.position;
-                transform.Translate(_direccion.normalized * Time.deltaTime * 2.5f, Space.World);
+                // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
+
+                // Encuentra el punto más cercano accesible en el NavMesh
+                Vector3 closestPoint = FindClosestPointOnNavMesh(_target.transform.position);
+
+                // Establece ese punto como destino
+                _navAgent.SetDestination(closestPoint);
             }
+            else
+            {
+                _navAgent.SetDestination(_target.transform.position);
+            }
+
+            _direccion = _target.transform.position - transform.position;
         }
+        if (_atac == true)
+        {
+            _navAgent.isStopped = true;
+        }
+        else
+        {
+            _navAgent.isStopped = false;
+        }
+
+        
     }
-    void height()
+    Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
     {
 
-        RaycastHit[] Floor = Physics.RaycastAll(transform.position, -transform.up, 30);
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(targetPosition, out hit, Mathf.Infinity, NavMesh.AllAreas))
+        {
 
-        if(Floor.Length > 0)
-        {
-            foreach (RaycastHit _floor in Floor)
-            {
-                if (_floor.transform.CompareTag("Floor"))
-                {
-                    _heightE = Vector3.Distance(_floor.transform.position,transform.position);
-                }
-            }
+            return hit.position;
+
         }
-        if (_heightE < _heightMax)
+        else
         {
-            transform.position=new Vector3(transform.position.x,transform.position.y+(_heightMax -_heightE),transform.position.z);
+            // Si no se encuentra un punto en el NavMesh, puedes manejarlo de alguna manera.
+            // Por ejemplo, podrías devolver la posición actual del agente.
+            return transform.position;
         }
-        if(_heightE > _heightMax)
+    }
+    IEnumerator CheckPath()
+    {
+        while (true)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - (_heightE- _heightMax), transform.position.z);
+
+            Move2();
+            yield return new WaitForSeconds(1.5f);
         }
     }
 }
+
