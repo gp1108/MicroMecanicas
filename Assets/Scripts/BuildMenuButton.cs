@@ -38,6 +38,7 @@ public class BuildMenuButton : MonoBehaviour
     public void EnableOrDisableBuildPanel()
     {
         buildMenuActive = !buildMenuActive;
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
 
         if(buildMenuActive == true)
         {
@@ -73,10 +74,12 @@ public class BuildMenuButton : MonoBehaviour
         if(destroyModeActive == true)
         {
             destroyButton.GetComponent<Image>().color = Color.red;
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
         else
         {
             destroyButton.GetComponent<Image>().color = Color.white;
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
     }
 
@@ -87,6 +90,7 @@ public class BuildMenuButton : MonoBehaviour
 
     public void SetWallsIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(0);
         if(destroyModeActive == true)
         {
@@ -96,6 +100,7 @@ public class BuildMenuButton : MonoBehaviour
     }
     public void SetBaseTurretIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(1);
         if (destroyModeActive == true)
         {
@@ -106,6 +111,7 @@ public class BuildMenuButton : MonoBehaviour
 
     public void OtherTurretIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(2);
         if (destroyModeActive == true)
         {
@@ -116,6 +122,7 @@ public class BuildMenuButton : MonoBehaviour
 
     public void SetResearchStructureIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(3);
         if (destroyModeActive == true)
         {
@@ -126,6 +133,7 @@ public class BuildMenuButton : MonoBehaviour
 
     public void SniperTurretIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(4);
         if (destroyModeActive == true)
         {
@@ -135,6 +143,7 @@ public class BuildMenuButton : MonoBehaviour
     }
     public void LaserTurretIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(5);
         if (destroyModeActive == true)
         {
@@ -144,6 +153,7 @@ public class BuildMenuButton : MonoBehaviour
     }
     public void MineIndex()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(6);
         if (destroyModeActive == true)
         {
