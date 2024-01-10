@@ -15780,7 +15780,6 @@ MonoBehaviour:
     _playOnAwake: 0
     volume: 1
   _mainVolume: {fileID: 1071489814}
-  _volumePanel: {fileID: 0}
   _MusicMixerGroup: {fileID: 1645433629787093637, guid: f54f80937d2a76f4ea479a30647d4af2, type: 2}
   _SFXMixerGroup: {fileID: -3086895043012944660, guid: f54f80937d2a76f4ea479a30647d4af2, type: 2}
   _TurretMixerGroup: {fileID: -5772967478360162760, guid: f54f80937d2a76f4ea479a30647d4af2, type: 2}
