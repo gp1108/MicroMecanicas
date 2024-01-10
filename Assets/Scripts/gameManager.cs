@@ -47,6 +47,8 @@ public class gameManager : MonoBehaviour
     public GameObject BuildMenuButton;
     public GameObject ResearchMenuButton;
     public GameObject canvas;
+    public GameObject victoryImage;
+    public GameObject gameOverImage;
 
     [Header("Muros Regeneracion")]
     public bool regenWalls;
@@ -152,12 +154,17 @@ public class gameManager : MonoBehaviour
     }
     public void PlayerDead()
     {
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
+        gameOverImage.SetActive(true);
         Debug.Log("Has perdido");
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
     }
     public void PlayerWin()
     {
-        //Mostrar menus , conteo de experiencia etc etc 
+        Time.timeScale = 0;
+        victoryImage.SetActive(true);
+        Debug.Log("Has ganado");
+        SoundManager.dameReferencia.PlayClipByName(clipName:"Win");
     }
     public void RoundStart()
     {
