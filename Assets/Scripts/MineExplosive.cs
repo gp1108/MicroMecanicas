@@ -31,10 +31,10 @@ public class MineExplosive : MonoBehaviour
     }
     public void Explosion()
     {
-        _zoneExplosion = Physics.OverlapSphere(transform.position, 10, layer);
+        _zoneExplosion = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.rangeM, layer);
         foreach (Collider c in _zoneExplosion)
         {
-            c.transform.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedMina, Bullet.tipoDeDamaged.Magica);
+            c.transform.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedM, Bullet.tipoDeDamaged.Magica);
             if (UpgradeManager.giveMeReference.itsUpgraded == 1)
             {
                 StartCoroutine("c.transform.GetComponent<Health>().Poisoned");

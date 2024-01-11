@@ -61,15 +61,12 @@ public class UpgradeManager : MonoBehaviour
     public float amountSlow;
     public float rangeSlow;
 
-    [Header("TurretMortar")]
-    public float vidaM;
-    public float damagedM;
-    public float rangeM;
 
     [Header("Mina")]
+    public float damagedM;
+    public float rangeM;
     public float itsUpgraded;
-    public float damagedMina;
-    public float damagedMinaUpgrade;
+    public float damagedMinaUpgrade;//sangrado
 
     [Header("Walls")]
     public float vidaW;
@@ -77,6 +74,7 @@ public class UpgradeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damagedMinaUpgrade = 5;
         LoadPlayerPrefsUpgradeManager();
         
 
@@ -143,10 +141,7 @@ public class UpgradeManager : MonoBehaviour
         //Walls
         vidaW = PlayerPrefs.GetFloat("vidaW");
 
-        //Mina
-        itsUpgraded = PlayerPrefs.GetFloat("itsUpgraded");
-        damagedMina = PlayerPrefs.GetFloat("damagedMina");
-        damagedMinaUpgrade = PlayerPrefs.GetFloat("damagedMinaUpgrade");
+       
 
         //Torreta Slow
         vidaSlow = PlayerPrefs.GetFloat("vidaSlow");
@@ -155,9 +150,12 @@ public class UpgradeManager : MonoBehaviour
         //Anñadir el unlock slow para desbloquear la torreta slow ingame
 
         //Torreta Mina
-        vidaM = PlayerPrefs.GetFloat("vidaM");
         damagedM = PlayerPrefs.GetFloat("damagedM");
         rangeM = PlayerPrefs.GetFloat("rangeM");
+
+        //Mina // revisar para las mejoras de la mina
+        itsUpgraded = PlayerPrefs.GetFloat("itsUpgraded");
+        //damagedMinaUpgrade = PlayerPrefs.GetFloat("damagedMinaUpgrade");
         //Anñadir el unlock slow para desbloquear la torreta mina ingame
 
     }
