@@ -146,11 +146,11 @@ public class UpgradeManager : MonoBehaviour
         rangeSlow = PlayerPrefs.GetFloat("rangeSlow");
         //Anñadir el unlock slow para desbloquear la torreta slow ingame
 
-        //Torreta Mortero
+        //Torreta Mina
         vidaM = PlayerPrefs.GetFloat("vidaM");
         damagedM = PlayerPrefs.GetFloat("damagedM");
         rangeM = PlayerPrefs.GetFloat("rangeM");
-        //Anñadir el unlock slow para desbloquear la torreta slow ingame
+        //Anñadir el unlock slow para desbloquear la torreta mina ingame
 
     }
 

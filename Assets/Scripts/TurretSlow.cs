@@ -7,6 +7,10 @@ public class TurretSlow : MonoBehaviour
 {
     public LayerMask layer;
     private Collider[] _zoneSlow;
+
+    public GameObject rangeIndicator;
+    private bool _mostrarRango;
+    public GameObject buildMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +35,40 @@ public class TurretSlow : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
+        {
+            return;
+        }
+        else
+        {
+            Mostrar();
+        }
+
+    }
+
+    private void OnMouseExit()
+    {
+        Ocultar();
+    }
+
+
+    private void Mostrar()
+    {
+        rangeIndicator.transform.position = this.transform.position;
+        rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeSlow * 2, UpgradeManager.giveMeReference.rangeSlow * 2, UpgradeManager.giveMeReference.rangeSlow * 2);
+
+        _mostrarRango = true;
+    }
+
+    private void Ocultar()
+    {
+        _mostrarRango = false;
+        rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
+        rangeIndicator.transform.position = new Vector3(0, -50, 0);
     }
 }
