@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -127,7 +128,7 @@ public class ExternalSkills : MonoBehaviour
    
 
     //Puntos externos Quizas deban ir en el gamemanager, tambien deben ser guardables entre partida
-    private int externalSkillPoints;
+    private float externalSkillPoints;
 
     public enum externalSkillName
     {
@@ -223,10 +224,18 @@ public class ExternalSkills : MonoBehaviour
 
     private void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.L))
+        
+        if (Input.GetKeyDown(KeyCode.L))
         {
             PlayerPrefs.DeleteAll();
+            UpdateSkillUI();
+            UpdateSkillTexts();
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerPrefs.SetFloat("externalResearchPoints", 100);
+            UpdateSkillUI();
+            UpdateSkillTexts();
         }
     }
 
@@ -248,12 +257,14 @@ public class ExternalSkills : MonoBehaviour
         skill11text.text = PlayerPrefs.GetFloat("moreGoldPerMineAmount").ToString() + "/3";
         skill12text.text = PlayerPrefs.GetFloat("startWithMoreGoldAmount").ToString() + "/3";
         skill13text.text = PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount").ToString() + "/3";
+
+        externalSkillPointsText.text = "Skill Points: " + PlayerPrefs.GetFloat("externalResearchPoints");
     }
 
     private void Start()
     {
         //TODOS LOS CHECKPLAYERPREFS SON LAS VARIABLES QUE ALTERAN LAS ESTADICSTICAS ,
-        //LOS AMOUNTS SON LA CANTIDAD DE VERCES QUE SE PUEDE MEJORAR ESA HABILIDAD, Y LOS ISSKILLUNLOCKED MANTIENEN EL PROGRESO GUARDADO DE ESA HABILIDAD
+        //LOS AMOUNTS SON LA CANTIDAD DE VECES QUE SE PUEDE MEJORAR ESA HABILIDAD, Y LOS ISSKILLUNLOCKED MANTIENEN EL PROGRESO GUARDADO DE ESA HABILIDAD
         externalSkillPoints = 100;
         //Torreta Sniper
         CheckPlayerPrefsKey("vidaS", 10);
@@ -307,6 +318,9 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("startWithMoreGold", 0);
         CheckPlayerPrefsKey("startWithMoreResearchPoints", 0);
 
+        //RESEARCHPOINTS
+        CheckPlayerPrefsKey("externalResearchPoints", 0);
+
         //Contadores
         CheckPlayerPrefsKey("moreDamageBasicTurretAmount", 0);
         CheckPlayerPrefsKey("moreRangeBasicTurretAmount", 0);
@@ -351,7 +365,7 @@ public class ExternalSkills : MonoBehaviour
 
 
 
-
+        
 
 
 
@@ -375,7 +389,7 @@ public class ExternalSkills : MonoBehaviour
    
     public void unlockSkill(externalSkillName skill)
     {
-        if (skillCost[skill] <= externalSkillPoints)
+        if (skillCost[skill] <= PlayerPrefs.GetFloat("externalResearchPoints"))
         {
 
             switch (skill)
@@ -392,7 +406,9 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("damagedB", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -423,7 +439,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("vidaB", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -452,7 +471,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("rangeB", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -502,7 +524,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("amountSlow", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -531,7 +556,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("rangeSlow", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -560,7 +588,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("vidaSlow", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -613,7 +644,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("damagedM", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -644,7 +678,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("vidaM", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -673,7 +710,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("rangeM", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -702,7 +742,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("oneResearchPoint", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -731,7 +774,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 50;
                         SavePlayerPrefs("moreGoldPerGoldMines", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -760,7 +806,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 50;
                         SavePlayerPrefs("startWithMoreGold", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -789,7 +838,10 @@ public class ExternalSkills : MonoBehaviour
                         float newValue = currentValue + 50;
                         SavePlayerPrefs("startWithMoreResearchPoints", newValue);
 
+                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
                         externalSkillPoints -= skillCost[skill];
+                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
                         UpdateSkillUI();
                         UpdateSkillTexts();
                     }
@@ -816,7 +868,10 @@ public class ExternalSkills : MonoBehaviour
     private void UnlockSkillLogic(externalSkillName skill)
     {
 
+        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
         externalSkillPoints -= skillCost[skill];
+        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
+
         isSkillUnlocked[skill] = true;
         string skillname = skill.ToString();
         PlayerPrefs.SetFloat(skillname, 1);
@@ -824,8 +879,14 @@ public class ExternalSkills : MonoBehaviour
         UpdateSkillTexts();
     }
 
+    public TMP_Text externalSkillPointsText;
+
     public void UpdateSkillUI()
     {
+        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
+        externalSkillPointsText.text = "Skill Points: " + PlayerPrefs.GetFloat("externalResearchPoints");
+
+
         foreach (KeyValuePair<externalSkillName, int> kvp in skillCost)
         {
             externalSkillName clave = kvp.Key;

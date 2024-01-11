@@ -158,6 +158,11 @@ public class gameManager : MonoBehaviour
         gameOverImage.SetActive(true);
         Debug.Log("Has perdido");
         SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
+        //Calculo de ResearchPoints
+        float externalSkillpoints;
+        externalSkillpoints = PlayerPrefs.GetFloat("externalResearchPoints");
+        externalSkillpoints += _roundsPlayed;
+        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
     }
     public void PlayerWin()
     {
@@ -165,6 +170,11 @@ public class gameManager : MonoBehaviour
         victoryImage.SetActive(true);
         Debug.Log("Has ganado");
         SoundManager.dameReferencia.PlayClipByName(clipName:"Win");
+        //Calculo de ResearchPoints
+        float externalSkillpoints;
+        externalSkillpoints = PlayerPrefs.GetFloat("externalResearchPoints");
+        externalSkillpoints += _roundsPlayed * 3;
+        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
     }
     public void RoundStart()
     {

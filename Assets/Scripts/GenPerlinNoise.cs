@@ -51,7 +51,7 @@ public class GenPerlinNoise : MonoBehaviour
     [Header("MainStructurePrefab")]
     public GameObject mainStructure;
 
-
+    [Header("Materials")]
     public Material materialCesped;
     public Material materialAgua;
     public Material materialArena;
@@ -153,8 +153,8 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
-                    cube.transform.SetParent(notwalkableGrassGroup.transform);
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(grassGroup.transform);
                     
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
@@ -196,8 +196,8 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
-                    cube.transform.SetParent(notwalkableGrassGroup.transform);
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(grassGroup.transform);
 
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
@@ -240,8 +240,8 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
-                    cube.transform.SetParent(notwalkableGrassGroup.transform);
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(grassGroup.transform);
 
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
@@ -283,8 +283,8 @@ public class GenPerlinNoise : MonoBehaviour
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 4)
                 {
-                    GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
-                    cube.transform.SetParent(notwalkableGrassGroup.transform);
+                    GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
+                    cube.transform.SetParent(grassGroup.transform);
 
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
