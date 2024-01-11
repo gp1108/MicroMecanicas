@@ -6,18 +6,16 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class pruebas : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private GameObject _information;
     private TMP_Text _textInformation;
     private string _buton;
-    private bool _checkButon;
     private void Start()
     {
         _information = gameManager.giveMeReference._information;
         _textInformation=gameManager.giveMeReference._textInformation.GetComponent<TMP_Text>();
         _information.SetActive(false);
-        _checkButon = false;
     }
     private void Update()
     {
@@ -104,7 +102,6 @@ public class pruebas : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 _tipeButon = TipeButon.Mine;
             }
         }
-        Debug.Log("hover: " + _buton);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -117,24 +114,24 @@ public class pruebas : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             case TipeButon.Walls:
 
                 _textInformation.text = "Esto es una prueba a <br> ver si funciona LUL";
-                Debug.Log("MUROS");
+                
                 break;
             case TipeButon.BaseTurret:
 
                 _textInformation.text = ("Funciona");
-                Debug.Log("BaseTurret");
+                
                 break;
             case TipeButon.OtherTurret:
-                Debug.Log("OtherTurret");
+                
                 break;
             case TipeButon.SniperTurret:
-                Debug.Log("SniperTurret");
+                
                 break;
             case TipeButon.Taller:
-                Debug.Log("Taller");
+                
                 break;
             case TipeButon.Mine:
-                Debug.Log("Mine");
+                
                 break;
         }
     }

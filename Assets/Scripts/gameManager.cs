@@ -318,7 +318,11 @@ public class gameManager : MonoBehaviour
 
             //Enable Menus
             BuildMenuButton.SetActive(true);
-            ResearchMenuButton.SetActive(true);
+            if(numberOfLabs > 0)
+            {
+                ResearchMenuButton.SetActive(true);
+            }
+            
             canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
         }
     }

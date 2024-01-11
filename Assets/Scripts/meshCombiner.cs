@@ -32,14 +32,12 @@ public class meshCombiner : MonoBehaviour
         MeshFilter combinacionMeshFilter = combinacionObjeto.AddComponent<MeshFilter>();
         if(this.name == "NotWalkableGroup")
         {
-            Debug.Log("Hola");
             combinacionObjeto.AddComponent<NavMeshModifier>();
             combinacionObjeto.GetComponent<NavMeshModifier>().overrideArea = true;
             combinacionObjeto.GetComponent<NavMeshModifier>().area = 1;
         }
         if (this.name == "WaterGroup")
         {
-            Debug.Log("Hola");
             combinacionObjeto.AddComponent<NavMeshModifier>();
             combinacionObjeto.GetComponent<NavMeshModifier>().overrideArea = true;
             combinacionObjeto.GetComponent<NavMeshModifier>().area = 1;
