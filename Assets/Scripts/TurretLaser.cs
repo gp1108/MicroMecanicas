@@ -153,7 +153,7 @@ public class TurretLaser : MonoBehaviour
     {
         rangeIndicator.transform.position = this.transform.position;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL, 0.5f, UpgradeManager.giveMeReference.rangeL);
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2);
 
         _mostrarRango = true;
     }

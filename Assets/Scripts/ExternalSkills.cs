@@ -40,10 +40,10 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreHealthSlowTurret,1 },
         {externalSkillName.unlockSlowTurret,1 },
 
-        {externalSkillName.unlockMortarTurret,1 },
-        {externalSkillName.moreDamageMortarTurret,1 },
-        {externalSkillName.moreRangeMortarTurret,1 },
-        {externalSkillName.moreHealthMortarTurret,1 },
+        {externalSkillName.unlockMineTurret,1 },
+        {externalSkillName.moreDamageMineTurret,1 },
+        {externalSkillName.moreRangeMineTurret,1 },
+        
 
         {externalSkillName.oneReseachPointExtra,10 },
         {externalSkillName.moreGoldPerMine,10 },
@@ -65,10 +65,10 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreRangeSlowTurret,false },
         {externalSkillName.moreHealthSlowTurret,false },
 
-        {externalSkillName.unlockMortarTurret,false },
-        {externalSkillName.moreDamageMortarTurret,false },
-        {externalSkillName.moreRangeMortarTurret,false },
-        {externalSkillName.moreHealthMortarTurret,false },
+        {externalSkillName.unlockMineTurret,false },
+        {externalSkillName.moreDamageMineTurret,false },
+        {externalSkillName.moreRangeMineTurret,false },
+        
 
         {externalSkillName.oneReseachPointExtra,false },
         {externalSkillName.moreGoldPerMine,false },
@@ -88,10 +88,10 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.moreRangeSlowTurret,false },
         {externalSkillName.moreHealthSlowTurret,false },
 
-        {externalSkillName.unlockMortarTurret,true },
-        {externalSkillName.moreDamageMortarTurret,false },
-        {externalSkillName.moreRangeMortarTurret,false },
-        {externalSkillName.moreHealthMortarTurret,false },
+        {externalSkillName.unlockMineTurret,true },
+        {externalSkillName.moreDamageMineTurret,false },
+        {externalSkillName.moreRangeMineTurret,false },
+        
 
         {externalSkillName.oneReseachPointExtra,true },
         {externalSkillName.moreGoldPerMine,true },
@@ -118,7 +118,7 @@ public class ExternalSkills : MonoBehaviour
     public TMP_Text skill6text;
     public TMP_Text skill7text;
     public TMP_Text skill8text;
-    public TMP_Text skill9text;
+    
     public TMP_Text skill10text;
     public TMP_Text skill11text;
     public TMP_Text skill12text;
@@ -141,10 +141,10 @@ public class ExternalSkills : MonoBehaviour
         moreRangeSlowTurret,
         moreHealthSlowTurret,
 
-        unlockMortarTurret,
-        moreDamageMortarTurret,
-        moreRangeMortarTurret,
-        moreHealthMortarTurret,
+        unlockMineTurret,
+        moreDamageMineTurret,
+        moreRangeMineTurret,
+        
 
         oneReseachPointExtra,
         moreGoldPerMine,
@@ -191,11 +191,11 @@ public class ExternalSkills : MonoBehaviour
                             skillCanBeUnlocked[externalSkillName.moreRangeSlowTurret] = true;
                             skillCanBeUnlocked[externalSkillName.moreHealthSlowTurret] = true;
                         }
-                        if (ppName == "unlockMortarTurret")
+                        if (ppName == "unlockMineTurret")
                         {
-                            skillCanBeUnlocked[externalSkillName.moreDamageMortarTurret] = true;
-                            skillCanBeUnlocked[externalSkillName.moreRangeMortarTurret] = true;
-                            skillCanBeUnlocked[externalSkillName.moreHealthMortarTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.moreDamageMineTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.moreRangeMineTurret] = true;
+                            
 
                         }
 
@@ -249,9 +249,9 @@ public class ExternalSkills : MonoBehaviour
         skill5text.text = PlayerPrefs.GetFloat("moreRangeSlowTurretAmount").ToString() + "/5";
         skill6text.text = PlayerPrefs.GetFloat("moreHealthSlowTurretAmount").ToString() + "/5";
 
-        skill7text.text = PlayerPrefs.GetFloat("moreDamageMortarTurretAmount").ToString() + "/5";
-        skill8text.text = PlayerPrefs.GetFloat("moreRangeMortarTurretAmount").ToString() + "/5";
-        skill9text.text = PlayerPrefs.GetFloat("moreHealthMortarTurretAmount").ToString() + "/5";
+        skill7text.text = PlayerPrefs.GetFloat("moreDamageMineTurretAmount").ToString() + "/5";
+        skill8text.text = PlayerPrefs.GetFloat("moreRangeMineTurretAmount").ToString() + "/5";
+        
 
         skill10text.text = PlayerPrefs.GetFloat("oneResearchPointExtraAmount").ToString() + "/3";
         skill11text.text = PlayerPrefs.GetFloat("moreGoldPerMineAmount").ToString() + "/3";
@@ -303,14 +303,8 @@ public class ExternalSkills : MonoBehaviour
         //Muros
         CheckPlayerPrefsKey("vidaW", 10);
 
-        //Mina
+        //Torreta Mina
         CheckPlayerPrefsKey("unlockMine", 0);
-        CheckPlayerPrefsKey("itsUpgraded", 0);
-        CheckPlayerPrefsKey("damagedMina", 10);
-        CheckPlayerPrefsKey("damagedMinaUpgrade", 3);
-
-        //Torreta Mortero
-        CheckPlayerPrefsKey("unlockMortar", 0);
         CheckPlayerPrefsKey("vidaM", 10);
         CheckPlayerPrefsKey("damagedM", 5);
         CheckPlayerPrefsKey("rangeM", 10);
@@ -336,9 +330,9 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("moreRangeSlowTurretAmount", 0);
         CheckPlayerPrefsKey("moreHealthSlowTurretAmount", 0);
 
-        CheckPlayerPrefsKey("moreDamageMortarTurretAmount", 0);
-        CheckPlayerPrefsKey("moreRangeMortarTurretAmount", 0);
-        CheckPlayerPrefsKey("moreHealthMortarTurretAmount", 0);
+        CheckPlayerPrefsKey("moreDamageMineTurretAmount", 0);
+        CheckPlayerPrefsKey("moreRangeMineTurretAmount", 0);
+        CheckPlayerPrefsKey("moreHealthMineTurretAmount", 0);
 
         CheckPlayerPrefsKey("oneResearchPointExtraAmount", 0);
 
@@ -357,10 +351,10 @@ public class ExternalSkills : MonoBehaviour
         isSkillUnlockedPP("moreRangeSlowTurret", 0);
         isSkillUnlockedPP("moreHealthSlowTurret", 0);
 
-        isSkillUnlockedPP("unlockMortarTurret", 0);
-        isSkillUnlockedPP("moreDamageMortarTurret", 0);
-        isSkillUnlockedPP("moreRangeMortarTurret", 0);
-        isSkillUnlockedPP("moreHealthMortarTurret", 0);
+        isSkillUnlockedPP("unlockMineTurret", 0);
+        isSkillUnlockedPP("moreDamageMineTurret", 0);
+        isSkillUnlockedPP("moreRangeMineTurret", 0);
+        isSkillUnlockedPP("moreHealthMineTurret", 0);
 
         isSkillUnlockedPP("oneReseachPointExtra", 0);
         isSkillUnlockedPP("moreGoldPerMine", 0);
@@ -408,7 +402,7 @@ public class ExternalSkills : MonoBehaviour
                         float counterNewValue = counterCurrentValue + 1;
                         SavePlayerPrefs("moreDamageBasicTurretAmount", counterNewValue);
 
-                        float currentValue = PlayerPrefs.GetFloat("damagedB");  // 0 es el valor predeterminado si la clave aún no existe
+                        float currentValue = PlayerPrefs.GetFloat("damagedB");  // 0 es el valor predeterminado si la clave aï¿½n no existe
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("damagedB", newValue);
 
@@ -425,7 +419,7 @@ public class ExternalSkills : MonoBehaviour
                         float counterNewValue = counterCurrentValue + 1;
                         SavePlayerPrefs("moreDamageBasicTurretAmount", counterNewValue);
 
-                        float currentValue = PlayerPrefs.GetFloat("damagedB");  // 0 es el valor predeterminado si la clave aún no existe
+                        float currentValue = PlayerPrefs.GetFloat("damagedB");  // 0 es el valor predeterminado si la clave aï¿½n no existe
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("damagedB", newValue);
 
@@ -617,36 +611,36 @@ public class ExternalSkills : MonoBehaviour
                     }
                     break;
 
-                case externalSkillName.unlockMortarTurret:
+                case externalSkillName.unlockMineTurret:
 
-                    if (PlayerPrefs.GetFloat("unlockMortarTurret") < 1)
+                    if (PlayerPrefs.GetFloat("unlockMineTurret") < 1)
                     {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("unlockMortarTurret");
+                        float counterCurrentValue = PlayerPrefs.GetFloat("unlockMineTurret");
                         float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("unlockMortarTurret", counterNewValue);
+                        SavePlayerPrefs("unlockMineTurret", counterNewValue);
 
-                        skillCanBeUnlocked[externalSkillName.moreDamageMortarTurret] = true;
-                        skillCanBeUnlocked[externalSkillName.moreRangeMortarTurret] = true;
-                        skillCanBeUnlocked[externalSkillName.moreHealthMortarTurret] = true;
+                        skillCanBeUnlocked[externalSkillName.moreDamageMineTurret] = true;
+                        skillCanBeUnlocked[externalSkillName.moreRangeMineTurret] = true;
+                        
 
 
                         UnlockSkillLogic(skill);
 
-                        //Falta la logica que desbloque la torreta de morteros
+                        //Falta la logica que desbloque la torreta de las minas
 
 
                     }
                     break;
 
-                case externalSkillName.moreDamageMortarTurret:
+                case externalSkillName.moreDamageMineTurret:
 
-                    if (PlayerPrefs.GetFloat("moreDamageMortarTurretAmount") < 4)
+                    if (PlayerPrefs.GetFloat("moreDamageMineTurretAmount") < 4)
                     {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("moreDamageMortarTurretAmount");
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreDamageMineTurretAmount");
                         float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("moreDamageMortarTurretAmount", counterNewValue);
+                        SavePlayerPrefs("moreDamageMineTurretAmount", counterNewValue);
 
-                        float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave aún no existe
+                        float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave aï¿½n no existe
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("damagedM", newValue);
 
@@ -660,11 +654,11 @@ public class ExternalSkills : MonoBehaviour
                     else
                     {
                         //HAY que hacer esto para que el ultimo click lo marque como desbloqueado y al mismo tiempo de la habilidad
-                        float counterCurrentValue = PlayerPrefs.GetFloat("moreDamageMortarTurretAmount");
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreDamageMineTurretAmount");
                         float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("moreDamageMortarTurretAmount", counterNewValue);
+                        SavePlayerPrefs("moreDamageMineTurretAmount", counterNewValue);
 
-                        float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave aún no existe
+                        float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave aï¿½n no existe
                         float newValue = currentValue + 5;
                         SavePlayerPrefs("damagedM", newValue);
 
@@ -672,45 +666,14 @@ public class ExternalSkills : MonoBehaviour
                         UnlockSkillLogic(skill);
                     }
                     break;
-                case externalSkillName.moreHealthMortarTurret:
+                
+                case externalSkillName.moreRangeMineTurret:
 
-                    if (PlayerPrefs.GetFloat("moreHealthMortarTurretAmount") < 4)
+                    if (PlayerPrefs.GetFloat("moreRangeMineTurretAmount") < 4)
                     {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("moreHealthMortarTurretAmount");
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreRangeMineTurretAmount");
                         float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("moreHealthMortarTurretAmount", counterNewValue);
-
-                        float currentValue = PlayerPrefs.GetFloat("vidaM");
-                        float newValue = currentValue + 5;
-                        SavePlayerPrefs("vidaM", newValue);
-
-                        externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
-                        externalSkillPoints -= skillCost[skill];
-                        PlayerPrefs.SetFloat("externalResearchPoints", externalSkillPoints);
-
-                        UpdateSkillUI();
-                        UpdateSkillTexts();
-                    }
-                    else
-                    {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("moreHealthMortarTurretAmount");
-                        float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("moreHealthMortarTurretAmount", counterNewValue);
-
-                        float currentValue = PlayerPrefs.GetFloat("vidaM");
-                        float newValue = currentValue + 5;
-                        SavePlayerPrefs("vidaM", newValue);
-
-                        UnlockSkillLogic(skill);
-                    }
-                    break;
-                case externalSkillName.moreRangeMortarTurret:
-
-                    if (PlayerPrefs.GetFloat("moreRangeMortarTurretAmount") < 4)
-                    {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("moreRangeMortarTurretAmount");
-                        float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("moreRangeMortarTurretAmount", counterNewValue);
+                        SavePlayerPrefs("moreRangeMineTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeM");
                         float newValue = currentValue + 5;
@@ -725,9 +688,9 @@ public class ExternalSkills : MonoBehaviour
                     }
                     else
                     {
-                        float counterCurrentValue = PlayerPrefs.GetFloat("moreRangeMortarTurretAmount");
+                        float counterCurrentValue = PlayerPrefs.GetFloat("moreRangeMineTurretAmount");
                         float counterNewValue = counterCurrentValue + 1;
-                        SavePlayerPrefs("moreRangeMortarTurretAmount", counterNewValue);
+                        SavePlayerPrefs("moreRangeMineTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeM");
                         float newValue = currentValue + 5;

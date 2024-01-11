@@ -83,6 +83,10 @@ public class Health : MonoBehaviour
                 this.GetComponent<Enemy3>().Spawn();
             }
 
+            if(this.tag == "TownHall")
+            {
+                gameManager.giveMeReference.PlayerDead();
+            }
 
             if (this.tag == "Wall")
             {
