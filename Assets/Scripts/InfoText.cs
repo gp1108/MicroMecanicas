@@ -11,6 +11,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private GameObject _information;
     private TMP_Text _textInformation;
     private string _buton;
+    private bool _clic;
     private void Start()
     {
         _information = gameManager.giveMeReference._information;
@@ -35,9 +36,9 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         CheckName();
-        _information.SetActive(true);
+        _clic = true;
         _information.transform.position = this.transform.position - new Vector3(300,250,0);
-     
+        StartCoroutine("Wait");
         if (eventData.pointerEnter.GetComponent<Button>() != null)
         {
             _buton = eventData.pointerEnter.name;
@@ -105,6 +106,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+        _clic = false;
         _information.SetActive(false);
     }
     public void CheckName()
@@ -133,6 +135,17 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             case TipeButon.Mine:
                 
                 break;
+        }
+    }
+    IEnumerator Wait()
+    {
+        while(_clic)
+        {
+            yield return new WaitForSeconds(1);
+            if (_clic == true)
+            {
+                _information.SetActive(true);
+            }
         }
     }
 }
