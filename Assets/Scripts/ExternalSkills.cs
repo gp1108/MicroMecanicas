@@ -303,9 +303,8 @@ public class ExternalSkills : MonoBehaviour
         //Muros
         CheckPlayerPrefsKey("vidaW", 10);
 
-        //Torreta Mina
+        // Mina
         CheckPlayerPrefsKey("unlockMine", 0);
-        CheckPlayerPrefsKey("vidaM", 10);
         CheckPlayerPrefsKey("damagedM", 5);
         CheckPlayerPrefsKey("rangeM", 10);
 
