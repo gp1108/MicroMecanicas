@@ -65,8 +65,11 @@ public class UpgradeManager : MonoBehaviour
     public float vidaM;
     public float damagedM;
     public float rangeM;
-    
 
+    [Header("Mina")]
+    public float itsUpgraded;
+    public float damagedMina;
+    public float damagedMinaUpgrade;
 
     [Header("Walls")]
     public float vidaW;
@@ -139,6 +142,11 @@ public class UpgradeManager : MonoBehaviour
 
         //Walls
         vidaW = PlayerPrefs.GetFloat("vidaW");
+
+        //Mina
+        itsUpgraded = PlayerPrefs.GetFloat("itsUpgraded");
+        damagedMina = PlayerPrefs.GetFloat("damagedMina");
+        damagedMinaUpgrade = PlayerPrefs.GetFloat("damagedMinaUpgrade");
 
         //Torreta Slow
         vidaSlow = PlayerPrefs.GetFloat("vidaSlow");

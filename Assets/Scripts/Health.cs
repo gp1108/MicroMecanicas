@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     bool muerto = false;
-
+    
     public enum tipoDeVida
     {
         Estandar,
@@ -20,7 +20,6 @@ public class Health : MonoBehaviour
     public float healthPoints;
     public Slider healthSlider;
     private GameObject mainCamera;
-    private GameObject _turret;
     private bool _slow;
     // Start is called before the first frame update
     void Start()
@@ -100,7 +99,6 @@ public class Health : MonoBehaviour
             
         }
     }
-    
     public void GetSlow(GameObject turret)
     {
 
@@ -127,6 +125,16 @@ public class Health : MonoBehaviour
 
         }
 
+    }
+    public IEnumerator Poisoned()
+    {
+        float _nTics = 0;
+        while (_nTics < 3)
+        {
+            GetDamaged(UpgradeManager.giveMeReference.damagedMinaUpgrade, Bullet.tipoDeDamaged.Magica);
+            _nTics++;
+            yield return new WaitForSeconds(1);
+        }
     }
     IEnumerator SliderTracksCamera()
     {
