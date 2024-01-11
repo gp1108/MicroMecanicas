@@ -1351,10 +1351,6 @@ MonoBehaviour:
   _cameraSpeedHorizontal: 0
   velocidadRotacion: 60
   _mainCamera: {fileID: 368644528}
-  buildMenu: {fileID: 225649982}
-  researchMenu: {fileID: 225649982}
-  pause: {fileID: 6728874550572920325}
-  opciones: {fileID: 0}
   perlinNoise: {fileID: 859755978014542898}
 --- !u!1 &437646220
 GameObject:
@@ -1907,7 +1903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc59f4e345ee543498ade87fb8e646b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildMenu: {fileID: 225649982}
+  researchMenu: {fileID: 225649982}
   pause: {fileID: 6728874550572920325}
+  opciones: {fileID: 0}
 --- !u!4 &622398777
 Transform:
   m_ObjectHideFlags: 0
@@ -3651,9 +3650,7 @@ MonoBehaviour:
   - {fileID: 9161228910576418350, guid: 2162230ecdce8044086a06645007461c, type: 3}
   onRound: 0
   enemiesAlive: 0
-  _enemiesDead: 0
   roundsText: {fileID: 1599957270}
-  _MaxRoundsCount: {fileID: 1187666295}
   BuildMenuButton: {fileID: 909900403}
   ResearchMenuButton: {fileID: 1905193622}
   canvas: {fileID: 225649982}
@@ -3662,7 +3659,6 @@ MonoBehaviour:
   regenWalls: 0
   gold: 0
   goldText: {fileID: 2018321478}
-  spendGoldText: {fileID: 297137815}
   researchPoints: 0
   navmeshUpdater: {fileID: 1095215786}
   numberOfLabs: 0
@@ -10702,7 +10698,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 622398776}
         m_TargetAssemblyTypeName: BotonOpcionesFix, Assembly-CSharp
-        m_MethodName: BotonQ
+        m_MethodName: BotonQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13257,7 +13253,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 622398776}
         m_TargetAssemblyTypeName: BotonOpcionesFix, Assembly-CSharp
-        m_MethodName: BotonC
+        m_MethodName: BotonContinuePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -47,7 +47,7 @@ public class MenuInicio : MonoBehaviour
 
     public void Start()
     {
-        
+        Time.timeScale = 1.0f;
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded)
         {
             enmenu = true;
@@ -198,8 +198,8 @@ public class MenuInicio : MonoBehaviour
 
     public void OpcionesInGame()
     {
-        GameObject Camaraa = GameObject.Find("Main Camera");
-        pausa = Camaraa.GetComponent<CameraMovement>().pause;
+        GameObject botonfix = GameObject.Find("Boton Fix");
+        pausa = botonfix.GetComponent<BotonOpcionesFix>().pause;
         //pausa.gameObject.SetActive(false);
         pausa.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
 
@@ -224,8 +224,8 @@ public class MenuInicio : MonoBehaviour
     public void OpcionesReturnInGame()
     {
         opciones.SetActive(false);
-        GameObject Camaraa = GameObject.Find("Main Camera");
-        pausa = Camaraa.GetComponent<CameraMovement>().pause;
+        GameObject botonfix = GameObject.Find("Boton Fix");
+        pausa = botonfix.GetComponent<BotonOpcionesFix>().pause;
         pausa.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
