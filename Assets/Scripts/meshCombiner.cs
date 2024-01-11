@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class meshCombiner : MonoBehaviour
 {
@@ -27,6 +30,20 @@ public class meshCombiner : MonoBehaviour
         // Crea un nuevo objeto con un MeshFilter y un MeshRenderer
         GameObject combinacionObjeto = new GameObject("CombinacionObjeto");
         MeshFilter combinacionMeshFilter = combinacionObjeto.AddComponent<MeshFilter>();
+        if(this.name == "NotWalkableGroup")
+        {
+            Debug.Log("Hola");
+            combinacionObjeto.AddComponent<NavMeshModifier>();
+            combinacionObjeto.GetComponent<NavMeshModifier>().overrideArea = true;
+            combinacionObjeto.GetComponent<NavMeshModifier>().area = 1;
+        }
+        if (this.name == "WaterGroup")
+        {
+            Debug.Log("Hola");
+            combinacionObjeto.AddComponent<NavMeshModifier>();
+            combinacionObjeto.GetComponent<NavMeshModifier>().overrideArea = true;
+            combinacionObjeto.GetComponent<NavMeshModifier>().area = 1;
+        }
         MeshRenderer combinacionMeshRenderer = combinacionObjeto.AddComponent<MeshRenderer>();
 
         // Combina las mallas
