@@ -18,6 +18,8 @@ public class ResearchMenu : MonoBehaviour
    {
         researchMenuActive = !researchMenuActive;
 
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+
         if(researchMenuActive == false)
         {
             researchMenuPanel.SetActive(false);

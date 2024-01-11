@@ -20,6 +20,7 @@ public class SkillsUI : MonoBehaviour
 
     public void CallSkillUnlockFunction()
     {
+        SoundManager.dameReferencia.PlayOneClipByName(clipName: "PowerUp2");
 
         foreach (SkillName skillName in Enum.GetValues(typeof(SkillName)))
         {
@@ -32,6 +33,7 @@ public class SkillsUI : MonoBehaviour
 
     public void externalCallSkillUnlockFunction()
     {
+        SoundManager.dameReferencia.PlayOneClipByName(clipName: "PowerUp");
 
         foreach (externalSkillName skillName in Enum.GetValues(typeof(externalSkillName)))
         {
@@ -45,7 +47,7 @@ public class SkillsUI : MonoBehaviour
     public void BuyGoldPanel()
     {
         Skills.giveMeReference.unlockGoldPanels(this.gameObject);
-        
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Gold");
     }
 
 }

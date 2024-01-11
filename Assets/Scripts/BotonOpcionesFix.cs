@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BotonOpcionesFix : MonoBehaviour
 {
@@ -24,4 +25,9 @@ public class BotonOpcionesFix : MonoBehaviour
         MenuInicio.giveMeReference.Quit();
     }
 
+    public void ContinueButtonIngame()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+    }
 }

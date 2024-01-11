@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
     public const string prefAudioMute = "prefAudioMute";
+    public const string prefMainVolume = "prefMainVolume";
 
     public static SoundManager instance;
 
     [SerializeField] private Sound[] _audioClips;
 
     [SerializeField] Slider _mainVolume;
-    [SerializeField] GameObject _volumePanel;
+    //[SerializeField] GameObject _volumePanel;
 
     [Header("AudioMixer")]
     [SerializeField] AudioMixerGroup _MusicMixerGroup;
@@ -41,13 +42,17 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        
         instance = this;
         DontDestroyOnLoad(instance);
 
         if (PlayerPrefs.HasKey(prefAudioMute))
         {
             AudioListener.volume = PlayerPrefs.GetFloat(prefAudioMute);
+        }
+        if (PlayerPrefs.HasKey(prefMainVolume))
+        {
+            _mainVolume.value = PlayerPrefs.GetFloat(prefMainVolume);
+            AudioListener.volume = _mainVolume.value;
         }
 
         foreach(Sound _sounds in _audioClips)
@@ -83,19 +88,8 @@ public class SoundManager : MonoBehaviour
         
         _mainVolume.value = AudioListener.volume;
         _mainVolume.onValueChanged.AddListener(MainVolumeChanged);
+
     }
-    
-   /* private void OnLevelWasLoaded(int level)
-    {
-        if(level == 1)
-        {
-            Debug.Log(" he entrado en el");
-            _volumePanel = GameObject.FindGameObjectWithTag("VolumePanel");
-            _volumePanel.SetActive(false);
-           
-        }
-       
-    }*/
 
     public void PlayClipByName(string clipName)
     {
@@ -151,15 +145,43 @@ public class SoundManager : MonoBehaviour
 
     public void UpdateMixerVolume()
     {
-        _MusicMixerGroup.audioMixer.SetFloat("Music Volume", Mathf.Log10(SoundControl._musicVolume) * 20);
-        _SFXMixerGroup.audioMixer.SetFloat("SFX Volume", Mathf.Log10(SoundControl._SFXVolume) * 20);
-        _TurretMixerGroup.audioMixer.SetFloat("Turret Volume", Mathf.Log10(SoundControl._SFXVolume) * 20);
-
+        _MusicMixerGroup.audioMixer.SetFloat("MusicVolume", Mathf.Log10(SoundControl._musicVolume) * 20);
+        _SFXMixerGroup.audioMixer.SetFloat("SFXVolume", Mathf.Log10(SoundControl._SFXVolume) * 20);
+        _TurretMixerGroup.audioMixer.SetFloat("TurretVolume", Mathf.Log10(SoundControl._TurretVolume) * 20);
     }
 
     public void MainVolumeChanged(float value)
     {
         AudioListener.volume = value;
+        PlayerPrefs.SetFloat(prefMainVolume, value);
+    }
+
+    public void SaveMixerVolume()
+    {
+        SaveAudioMixerVolume("MusicVolume", _MusicMixerGroup);
+        SaveAudioMixerVolume("SFXVolume", _SFXMixerGroup);
+        SaveAudioMixerVolume("TurretVolume", _TurretMixerGroup);
+    }
+
+    public void LoadMixerVolume()
+    {
+        LoadAudioMixerVolume("MusicVolume", _MusicMixerGroup);
+        LoadAudioMixerVolume("SFXVolume", _SFXMixerGroup);
+        LoadAudioMixerVolume("TurretVolume", _TurretMixerGroup);
+    }
+
+    private void SaveAudioMixerVolume(string MusicVolume, AudioMixerGroup mixerGroup)
+    {
+        float value;
+        mixerGroup.audioMixer.GetFloat(MusicVolume, out value);
+        PlayerPrefs.SetFloat(MusicVolume, value);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadAudioMixerVolume(string MusicVolume, AudioMixerGroup mixerGroup)
+    {
+        float savedValue = PlayerPrefs.GetFloat(MusicVolume, 0f);
+        mixerGroup.audioMixer.SetFloat(MusicVolume, savedValue);
     }
 
 }

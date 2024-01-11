@@ -111,7 +111,8 @@ public class NewGameSettings : MonoBehaviour
     public void EnableReloadMap()
     {
         previsualizeEnabled = !previsualizeEnabled;
-        if(previsualizeEnabled == true)
+        SoundManager.dameReferencia.PlayOneClipByName("Click");
+        if (previsualizeEnabled == true)
         {
             enableReloadMapButton.GetComponent<Image>().color = Color.green;
             perlinNoise.GetComponent<PerlinMenu>().ErrasePerlinNoise();
@@ -127,6 +128,7 @@ public class NewGameSettings : MonoBehaviour
 
     public void RandomSeedButton()
     {
+        SoundManager.dameReferencia.PlayOneClipByName("Click");
         int semilla = Random.Range(0, 100000);
         PlayerPrefs.SetInt("Seed",semilla );
         seed.text = semilla.ToString();
@@ -135,6 +137,7 @@ public class NewGameSettings : MonoBehaviour
 
     public void SmallButton()
     {
+        SoundManager.dameReferencia.PlayOneClipByName("Click");
         PlayerPrefs.SetInt("SizeX", 30);
         PlayerPrefs.SetInt("SizeZ", 30);
 
@@ -145,6 +148,7 @@ public class NewGameSettings : MonoBehaviour
 
     public void MediumButton()
     {
+        SoundManager.dameReferencia.PlayOneClipByName("Click");
         PlayerPrefs.SetInt("SizeX", 60);
         PlayerPrefs.SetInt("SizeZ", 60);
 
@@ -155,6 +159,7 @@ public class NewGameSettings : MonoBehaviour
 
     public void BigButton()
     {
+        SoundManager.dameReferencia.PlayOneClipByName("Click");
         PlayerPrefs.SetInt("SizeX", 100);
         PlayerPrefs.SetInt("SizeZ", 100);
 

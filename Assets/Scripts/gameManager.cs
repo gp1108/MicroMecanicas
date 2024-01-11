@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
 public class gameManager : MonoBehaviour
 {
@@ -38,13 +40,18 @@ public class gameManager : MonoBehaviour
     private int _totalNumberOfEnemies;
     public bool onRound;
     public int enemiesAlive;
+    public int _enemiesDead;
     private int enemiesSpawned;
     public TMP_Text roundsText;
+    public TMP_Text _MaxRoundsCount;
+    //public TMP_Text _totalEnemiesDead;
     private GameObject enemyToSpawn;
     [Header("Menu Management")]
     public GameObject BuildMenuButton;
     public GameObject ResearchMenuButton;
     public GameObject canvas;
+    public GameObject victoryImage;
+    public GameObject gameOverImage;
 
     [Header("Muros Regeneracion")]
     public bool regenWalls;
@@ -54,8 +61,10 @@ public class gameManager : MonoBehaviour
     [Header("Gold System")]
     public float gold;
     public TMP_Text goldText;
+    public TMP_Text spendGoldText;
     [Header("Research System")]
     public int researchPoints;
+    //public TMP_Text totalresearchPoint;
     [Header("NavMesh")]
     public GameObject navmeshUpdater;
     [Header("Number of ResearchLabs")]
@@ -71,15 +80,17 @@ public class gameManager : MonoBehaviour
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     public List<GameObject> turrets;
+
+    public GameObject _information;
+    public GameObject _textInformation;
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
-
-        
     }
-
     private void Start()
     {
+        _textInformation = GameObject.Find("TextoInformacion");
+        _information = GameObject.Find("Pivote");
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
         goldMultiplayer = 1;
@@ -88,18 +99,22 @@ public class gameManager : MonoBehaviour
         maxNumberOfLabs = 1;
         numberOfLabs = 0;
         onRound = false;
-       _roundsPlayed = 0;
-       _totalRounds = 20;
-       _totalNumberOfEnemies = 5;
+        _roundsPlayed = 0;
+        _totalRounds = 20;
+        _totalNumberOfEnemies = 5;
+        _enemiesDead = 0;
+        //_totalEnemiesDead.text = PlayerPrefs.GetInt("Enemies Dead",0).ToString();
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
+        _MaxRoundsCount.text = PlayerPrefs.GetInt("Round Played", 0).ToString();
         GetGold(1000 + PlayerPrefs.GetFloat("startWithMoreGold"));
-        GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints"))); 
+        spendGoldText.text = PlayerPrefs.GetFloat("Spend Gold", 0).ToString();
+        GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
+        //totalresearchPoint.text = PlayerPrefs.GetInt("Total RP", 0).ToString();
 
     }
     private void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
         {
             onRound = true;
             RoundStart();
@@ -122,6 +137,7 @@ public class gameManager : MonoBehaviour
         {
             return;
         }
+        
     }
     public void MaxNumberOfMines()
     {
@@ -146,25 +162,27 @@ public class gameManager : MonoBehaviour
             ResearchPanel.SetActive(false);
         }
     }
-
     public void PlayerDead()
     {
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
+        gameOverImage.SetActive(true);
         Debug.Log("Has perdido");
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
     }
-
     public void PlayerWin()
     {
-        //Mostrar menus , conteo de experiencia etc etc 
+        Time.timeScale = 0;
+        victoryImage.SetActive(true);
+        Debug.Log("Has ganado");
+        SoundManager.dameReferencia.PlayClipByName(clipName:"Win");
     }
-
     public void RoundStart()
     {
         
         if(_roundsPlayed <= _totalRounds)
         {
             roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-
+            PlayerPrefs.SetInt("Round Played", _roundsPlayed);
             StartCoroutine("Revision");
             
             
@@ -182,7 +200,6 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-    
    public void SpawnEnemies()
    {
         //StartCoroutine("SpawnCrow");
@@ -270,11 +287,10 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(10);
         }
     }
-   
     public void EnemyDead()
     {
         enemiesAlive -= 1;
-
+        //PlayerPrefs.SetInt("Enemies dead", _enemiesDead);
         SoundManager.dameReferencia.PlayClipByName(clipName: "EnemyDead");
 
         if (enemiesAlive <= 0 && onRound == true && enemiesSpawned == _totalNumberOfEnemies) 
@@ -306,7 +322,6 @@ public class gameManager : MonoBehaviour
             canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
         }
     }
-
     public void MinesGold()
     {
         
@@ -317,14 +332,13 @@ public class gameManager : MonoBehaviour
         
         researchPoints += numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"));
     }
-
-
     public void GetGold( float oro)
     {
         float lastGold;
         lastGold = gold;
         gold += oro;
         goldText.text = gold.ToString();
+        PlayerPrefs.SetFloat("Spend Gold", gold);
         if(lastGold > gold )
         {
             Invoke("SonidoOro", 0.15f);
@@ -332,12 +346,10 @@ public class gameManager : MonoBehaviour
         
 
     }
-
     public void SonidoOro()
     {
         SoundManager.dameReferencia.PlayOneClipByName(clipName: "Gold");
     }
-
     public void GetTurret(GameObject Turret)
     {
         turrets.Add(Turret);
@@ -350,10 +362,8 @@ public class gameManager : MonoBehaviour
     {
 
         researchPoints += ResearchPoints;
+        //PlayerPrefs.GetInt("Total RP", researchPoints);
         //FALTA A�ADIR EL TEXTO DE LOS PUNTOS DE INVESTIGACION
 
     }
-
-
-
 }
