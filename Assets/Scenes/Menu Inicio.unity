@@ -4205,8 +4205,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2262747971876686750}
-        m_TargetAssemblyTypeName: SoundControl, Assembly-CSharp
+      - m_Target: {fileID: 3504716267811692131}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: OnTurretSliderValueChange
         m_Mode: 0
         m_Arguments:
@@ -12641,8 +12641,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2262747971876686750}
-        m_TargetAssemblyTypeName: SoundControl, Assembly-CSharp
+      - m_Target: {fileID: 3504716267811692131}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: OnMusicSliderValueChange
         m_Mode: 0
         m_Arguments:
@@ -13488,8 +13488,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2262747971876686750}
-        m_TargetAssemblyTypeName: SoundControl, Assembly-CSharp
+      - m_Target: {fileID: 3504716267811692131}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: OnSFXSliderValueChange
         m_Mode: 0
         m_Arguments:
@@ -14905,7 +14905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4953223295902718101}
   - component: {fileID: 3504716267811692131}
-  - component: {fileID: 2262747971876686750}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -15116,18 +15115,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2262747971876686750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444246131265519926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d034b6e5c745db4f83a01bed1d14dbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2384987109323525633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15780,6 +15767,9 @@ MonoBehaviour:
     _playOnAwake: 0
     volume: 1
   _mainVolume: {fileID: 1071489814}
+  MusicVolumeSlider: {fileID: 1874979331}
+  SFXVolumeSlider: {fileID: 1956511716}
+  TurretVolumeSlider: {fileID: 666053738}
   _MusicMixerGroup: {fileID: 1645433629787093637, guid: f54f80937d2a76f4ea479a30647d4af2, type: 2}
   _SFXMixerGroup: {fileID: -3086895043012944660, guid: f54f80937d2a76f4ea479a30647d4af2, type: 2}
   _TurretMixerGroup: {fileID: -5772967478360162760, guid: f54f80937d2a76f4ea479a30647d4af2, type: 2}

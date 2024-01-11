@@ -9,13 +9,22 @@ public class SoundManager : MonoBehaviour
 {
     public const string prefAudioMute = "prefAudioMute";
     public const string prefMainVolume = "prefMainVolume";
+    public const string MusicVolume = "MusicVolume";
+    public const string SFXVolume = "SFXVolume";
+    public const string TurretVolume = "TurretVolume";
+
+    public static float _musicVolume { get; private set; }
+    public static float _SFXVolume { get; private set; }
+    public static float _TurretVolume { get; private set; }
 
     public static SoundManager instance;
 
     [SerializeField] private Sound[] _audioClips;
 
     [SerializeField] Slider _mainVolume;
-    //[SerializeField] GameObject _volumePanel;
+    [SerializeField] Slider MusicVolumeSlider;
+    [SerializeField] Slider SFXVolumeSlider;
+    [SerializeField] Slider TurretVolumeSlider;
 
     [Header("AudioMixer")]
     [SerializeField] AudioMixerGroup _MusicMixerGroup;
@@ -54,8 +63,27 @@ public class SoundManager : MonoBehaviour
             _mainVolume.value = PlayerPrefs.GetFloat(prefMainVolume);
             AudioListener.volume = _mainVolume.value;
         }
+        if (PlayerPrefs.HasKey(MusicVolume))
+        {
+            MusicVolumeSlider.value = PlayerPrefs.GetFloat(MusicVolume,_musicVolume);
 
-        foreach(Sound _sounds in _audioClips)
+            Debug.Log("Load " + _musicVolume);
+            //OnMusicSliderValueChange(_musicVolume);
+        }
+        if (PlayerPrefs.HasKey(SFXVolume))
+        {
+            SFXVolumeSlider.value = PlayerPrefs.GetFloat(SFXVolume, _SFXVolume);
+            Debug.Log("Load " + _SFXVolume);
+            //OnSFXSliderValueChange(_SFXVolume);
+        }
+        if (PlayerPrefs.HasKey(TurretVolume))
+        {
+            TurretVolumeSlider.value = PlayerPrefs.GetFloat(TurretVolume, _TurretVolume);
+            Debug.Log("Load " + _TurretVolume);
+            //OnTurretSliderValueChange(_TurretVolume);
+        }
+
+        foreach (Sound _sounds in _audioClips)
         {
             _sounds._audioSource = gameObject.AddComponent<AudioSource>();
 
@@ -145,9 +173,9 @@ public class SoundManager : MonoBehaviour
 
     public void UpdateMixerVolume()
     {
-        _MusicMixerGroup.audioMixer.SetFloat("MusicVolume", Mathf.Log10(SoundControl._musicVolume) * 20);
-        _SFXMixerGroup.audioMixer.SetFloat("SFXVolume", Mathf.Log10(SoundControl._SFXVolume) * 20);
-        _TurretMixerGroup.audioMixer.SetFloat("TurretVolume", Mathf.Log10(SoundControl._TurretVolume) * 20);
+        _MusicMixerGroup.audioMixer.SetFloat(MusicVolume, Mathf.Log10(_musicVolume) * 20);
+        _SFXMixerGroup.audioMixer.SetFloat(SFXVolume, Mathf.Log10(_SFXVolume) * 20);
+        _TurretMixerGroup.audioMixer.SetFloat(TurretVolume, Mathf.Log10(_TurretVolume) * 20);
     }
 
     public void MainVolumeChanged(float value)
@@ -156,32 +184,28 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat(prefMainVolume, value);
     }
 
-    public void SaveMixerVolume()
+
+    public void OnMusicSliderValueChange(float value)
     {
-        SaveAudioMixerVolume("MusicVolume", _MusicMixerGroup);
-        SaveAudioMixerVolume("SFXVolume", _SFXMixerGroup);
-        SaveAudioMixerVolume("TurretVolume", _TurretMixerGroup);
+        _musicVolume = value;
+        PlayerPrefs.SetFloat(MusicVolume, _musicVolume);
+        UpdateMixerVolume();
+
     }
 
-    public void LoadMixerVolume()
+    public void OnSFXSliderValueChange(float value)
     {
-        LoadAudioMixerVolume("MusicVolume", _MusicMixerGroup);
-        LoadAudioMixerVolume("SFXVolume", _SFXMixerGroup);
-        LoadAudioMixerVolume("TurretVolume", _TurretMixerGroup);
+        _SFXVolume = value;
+        PlayerPrefs.SetFloat(SFXVolume, _SFXVolume);
+        UpdateMixerVolume();
     }
 
-    private void SaveAudioMixerVolume(string MusicVolume, AudioMixerGroup mixerGroup)
+    public void OnTurretSliderValueChange(float value)
     {
-        float value;
-        mixerGroup.audioMixer.GetFloat(MusicVolume, out value);
-        PlayerPrefs.SetFloat(MusicVolume, value);
-        PlayerPrefs.Save();
+        _TurretVolume = value;
+        PlayerPrefs.SetFloat(TurretVolume, _TurretVolume);
+        UpdateMixerVolume();
     }
-
-    private void LoadAudioMixerVolume(string MusicVolume, AudioMixerGroup mixerGroup)
-    {
-        float savedValue = PlayerPrefs.GetFloat(MusicVolume, 0f);
-        mixerGroup.audioMixer.SetFloat(MusicVolume, savedValue);
-    }
+    
 
 }
