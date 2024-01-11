@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
 public class gameManager : MonoBehaviour
 {
@@ -78,15 +80,17 @@ public class gameManager : MonoBehaviour
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     public List<GameObject> turrets;
+
+    public GameObject _information;
+    public GameObject _textInformation;
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
-
-        
     }
-
     private void Start()
     {
+        _textInformation = GameObject.Find("TextoInformacion");
+        _information = GameObject.Find("Pivote");
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
         goldMultiplayer = 1;
@@ -110,8 +114,7 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
         {
             onRound = true;
             RoundStart();
@@ -134,6 +137,7 @@ public class gameManager : MonoBehaviour
         {
             return;
         }
+        
     }
     public void MaxNumberOfMines()
     {
@@ -158,7 +162,6 @@ public class gameManager : MonoBehaviour
             ResearchPanel.SetActive(false);
         }
     }
-
     public void PlayerDead()
     {
         Time.timeScale = 0;
@@ -166,7 +169,6 @@ public class gameManager : MonoBehaviour
         Debug.Log("Has perdido");
         SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
     }
-
     public void PlayerWin()
     {
         Time.timeScale = 0;
@@ -174,7 +176,6 @@ public class gameManager : MonoBehaviour
         Debug.Log("Has ganado");
         SoundManager.dameReferencia.PlayClipByName(clipName:"Win");
     }
-
     public void RoundStart()
     {
         
@@ -199,7 +200,6 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-    
    public void SpawnEnemies()
    {
         //StartCoroutine("SpawnCrow");
@@ -287,7 +287,6 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(10);
         }
     }
-   
     public void EnemyDead()
     {
         enemiesAlive -= 1;
@@ -323,7 +322,6 @@ public class gameManager : MonoBehaviour
             canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
         }
     }
-
     public void MinesGold()
     {
         
@@ -334,8 +332,6 @@ public class gameManager : MonoBehaviour
         
         researchPoints += numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"));
     }
-
-
     public void GetGold( float oro)
     {
         float lastGold;
@@ -350,12 +346,10 @@ public class gameManager : MonoBehaviour
         
 
     }
-
     public void SonidoOro()
     {
         SoundManager.dameReferencia.PlayOneClipByName(clipName: "Gold");
     }
-
     public void GetTurret(GameObject Turret)
     {
         turrets.Add(Turret);
@@ -372,7 +366,4 @@ public class gameManager : MonoBehaviour
         //FALTA A�ADIR EL TEXTO DE LOS PUNTOS DE INVESTIGACION
 
     }
-
-
-
 }

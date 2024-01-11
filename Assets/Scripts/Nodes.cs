@@ -46,28 +46,18 @@ public class Nodes : MonoBehaviour
             {
                 BuildManager.dameReferencia.PlaceStucture(transform.position);
             }
-
-
-            //constructed = true;
         }
 
   
     }
-
     private void OnMouseEnter()
     {
         _rednerer.material = highLightedColor;
-
         BuildManager.dameReferencia.SetPreviewGameObject();
         BuildManager.dameReferencia.GetPreviewPrefabPosition(transform.position + new Vector3(0, 0.2f, 0));
-        
     }
     private void OnMouseExit()
     {
         _rednerer.material = defaultColor;
-        
     }
-
-    
-
 }
