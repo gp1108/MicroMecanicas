@@ -14,12 +14,8 @@ public class CameraMovement : MonoBehaviour
     public float velocidadRotacion = 60.0f;
     [SerializeField]private Camera _mainCamera;
     private Vector3 puntoImpacto;
-
+    
     [Header("Referencias a menus")]
-    public GameObject buildMenu;
-    public GameObject researchMenu;
-    public GameObject pause;
-    public GameObject opciones;
     public GameObject perlinNoise;
     private Quaternion _initialRotation;
 
@@ -109,41 +105,6 @@ public class CameraMovement : MonoBehaviour
         {
             _cameraSpeedHorizontal += 0.2f;
             transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime * _cameraSpeedHorizontal, Space.Self);
-        }
-
-
-        //Escape
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            opciones = GameObject.Find("Opciones");
-
-            if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
-            {
-                buildMenu.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
-            }
-            else if (researchMenu.GetComponent<ResearchMenu>().researchMenuActive == true)
-            {
-                researchMenu.GetComponent<ResearchMenu>().EnableOrDisableResearchPanel();
-            }
-            else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
-            {
-                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                SoundManager.dameReferencia.PlayClipByName(clipName:"Click");
-            }
-            else if (pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == true)
-            {
-                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
-            }
-            if (MenuInicio.giveMeReference.opcionesIngame == true && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false)
-            {
-                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
-                MenuInicio.giveMeReference.opcionesIngame = false;
-                opciones.SetActive(false);
-                SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
-            }
-
-
         }
 
 
