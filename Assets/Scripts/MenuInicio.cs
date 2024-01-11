@@ -16,6 +16,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject volume;
     public GameObject externalSkillTree;
     public GameObject newGameSettings;
+    public GameObject LoadingPanel;
     //public GameObject opcionesCanvas;
     private bool enmenu;
     public bool opcionesIngame;
@@ -78,6 +79,7 @@ public class MenuInicio : MonoBehaviour
         SceneManager.LoadScene(1);
         pausa = GameObject.Find("PauseScreen");
         opciones.SetActive(true);
+        LoadingPanel.SetActive(true);
     }
     
     private void OnLevelWasLoaded(int level)
