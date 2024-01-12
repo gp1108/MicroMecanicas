@@ -601,6 +601,7 @@ MonoBehaviour:
   exitBullet: {fileID: 5531146981950300268}
   _enemies: []
   _collidersEnemies: []
+  rangeIndicator: {fileID: 0}
 --- !u!1 &5531146981950300268
 GameObject:
   m_ObjectHideFlags: 0

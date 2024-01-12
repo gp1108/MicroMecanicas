@@ -134,6 +134,8 @@ MonoBehaviour:
   exitBullet: {fileID: 8105252476284360794}
   _enemies: []
   _collidersEnemies: []
+  rangeIndicator: {fileID: 0}
+  buildMenu: {fileID: 0}
 --- !u!114 &2456263922755224134
 MonoBehaviour:
   m_ObjectHideFlags: 0

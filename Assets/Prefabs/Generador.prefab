@@ -327,6 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991de4353cdd70b4594eea0ce752fc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangeIndicator: {fileID: 0}
+  aerialNavMesh: {fileID: 0}
 --- !u!114 &8904756290231285801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 1047584994539919589}
 --- !u!1 &5071037953170041199
@@ -497,7 +500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
