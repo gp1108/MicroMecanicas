@@ -3364,7 +3364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeGameObjectSand: {fileID: 2882818836558533773, guid: 5be22114269ef6f42b9c7267f0db52d6, type: 3}
-  cubeGameObjectWater: {fileID: 4021578189899256591, guid: 5d23ee8bbdedd4547a7bf0aea2aa2567, type: 3}
+  cubeGameObjectWater: {fileID: 4021578189899256591, guid: e8f7074e2003189418f20948a4752a41, type: 3}
   cubeGameObjectGrass: {fileID: 8844846080362805604, guid: e306039dace96274c8f49220f8992188, type: 3}
   cubeGameObjectGrassNotWalkable: {fileID: 8844846080362805604, guid: e306039dace96274c8f49220f8992188, type: 3}
   _worldSizeX: 50
