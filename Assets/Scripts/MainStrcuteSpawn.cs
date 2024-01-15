@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 //using Unity.AI.Navigation;
-using UnityEngine.AI;
-using UnityEngine.UIElements;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 
 public class MainStrcuteSpawn : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class MainStrcuteSpawn : MonoBehaviour
     private bool aviableToSpawn;
     public GameObject rangeIndicator;
     public GameObject aerialNavMesh;
+
     void Start()
     {
         aviableToSpawn = false;
@@ -40,7 +40,6 @@ public class MainStrcuteSpawn : MonoBehaviour
   
     void Update()
     {
-        
         RaycastHit hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8, hit9;
         if (Physics.Raycast(transform.position, -transform.up, out hit1, 0.4f) &&
             Physics.Raycast(new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z - 1f), -transform.up, out hit2, 0.4f) &&
@@ -211,7 +210,7 @@ public class MainStrcuteSpawn : MonoBehaviour
       
 
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         _readyToMove = true;

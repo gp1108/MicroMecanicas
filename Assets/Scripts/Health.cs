@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -21,9 +22,13 @@ public class Health : MonoBehaviour
     public Slider healthSlider;
     private GameObject mainCamera;
     private bool _slow;
+    private GameObject _barraVida;
+    private GameObject _nVida;
     // Start is called before the first frame update
     void Start()
     {
+        _nVida = GameObject.Find("NumeroVidaGenerador");
+        _barraVida = GameObject.Find("VidaGenerador");
         _slow = false;
         tipoVida = tipoDeVida.Estandar;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -32,8 +37,19 @@ public class Health : MonoBehaviour
         healthSlider.value = healthPoints;
         healthSlider.GetComponentInChildren<Image>().enabled = false;
     }
+    private void Update()
+    {
+        if(this.name== "Generador(Clone)")
+        {
+            UpdateVida();
+        }
+    }
+    public void UpdateVida()
+    { 
+        _barraVida.GetComponent<Image>().fillAmount = ((1f / 30) * GetComponent<Health>().healthPoints);
+        _nVida.GetComponent<TMP_Text>().text = ("Vida Generador: " + GetComponent<Health>().healthPoints);
 
-   
+    }
     public void GetDamaged(float Damaged,Bullet.tipoDeDamaged tipeDamagade)
     {
         if(tipoVida==tipoDeVida.Estandar)
