@@ -14,7 +14,11 @@ public class TurretSlow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Health>().healthPoints = 10;
+        
+        rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
+        buildMenu = GameObject.FindGameObjectWithTag("Canvas");
+        Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaSlow;
     }
 
     // Update is called once per frame
@@ -35,6 +39,17 @@ public class TurretSlow : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ActualizarVidaTorres()
+    {
+        GetComponent<Health>().healthPoints += 5;
+    }
+    void OnDestroy()
+    {
+        if (!this.gameObject.scene.isLoaded) return;
+        Skills.giveMeReference.listaActualizarTurrets -= ActualizarVidaTorres;
+        gameManager.giveMeReference.DeletTurret(this.gameObject);
     }
 
     private void OnMouseUpAsButton()

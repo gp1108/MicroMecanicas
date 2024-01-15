@@ -25,6 +25,7 @@ TagManager:
   - Floor
   - FlyEnemies
   - MainMenuCanvas
+  - SlowTurret
   layers:
   - Default
   - TransparentFX

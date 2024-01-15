@@ -60,6 +60,11 @@ public class DestroyStructure : MonoBehaviour
                     gameManager.giveMeReference.MaxNumberOfMines();
                     SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
                 }
+                else if (this.gameObject.tag == "SlowTurret")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(7, false);
+                    SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
+                }
 
             }
         }

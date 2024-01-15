@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 8543695945003730339}
   m_Layer: 0
   m_Name: Turret Slow
-  m_TagString: SniperTurret
+  m_TagString: SlowTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
