@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public const string prefAudioMute = "prefAudioMute";
     public const string prefMainVolume = "prefMainVolume";
     public const string MusicVolume = "MusicVolume";
     public const string SFXVolume = "SFXVolume";
@@ -54,10 +53,6 @@ public class SoundManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(instance);
 
-        if (PlayerPrefs.HasKey(prefAudioMute))
-        {
-            AudioListener.volume = PlayerPrefs.GetFloat(prefAudioMute);
-        }
         if (PlayerPrefs.HasKey(prefMainVolume))
         {
             _mainVolume.value = PlayerPrefs.GetFloat(prefMainVolume);
@@ -68,19 +63,16 @@ public class SoundManager : MonoBehaviour
             MusicVolumeSlider.value = PlayerPrefs.GetFloat(MusicVolume,_musicVolume);
 
             Debug.Log("Load " + _musicVolume);
-            //OnMusicSliderValueChange(_musicVolume);
         }
         if (PlayerPrefs.HasKey(SFXVolume))
         {
             SFXVolumeSlider.value = PlayerPrefs.GetFloat(SFXVolume, _SFXVolume);
             Debug.Log("Load " + _SFXVolume);
-            //OnSFXSliderValueChange(_SFXVolume);
         }
         if (PlayerPrefs.HasKey(TurretVolume))
         {
             TurretVolumeSlider.value = PlayerPrefs.GetFloat(TurretVolume, _TurretVolume);
             Debug.Log("Load " + _TurretVolume);
-            //OnTurretSliderValueChange(_TurretVolume);
         }
 
         foreach (Sound _sounds in _audioClips)
@@ -155,20 +147,6 @@ public class SoundManager : MonoBehaviour
             return;
         }
         soundToStop._audioSource.Stop();
-    }
-
-    public void MuteSound()
-    {
-        if (AudioListener.volume == 1)
-        {
-            AudioListener.volume = 0;
-        }
-        else
-        {
-            AudioListener.volume = 1;
-        }
-
-        PlayerPrefs.SetFloat(prefAudioMute, AudioListener.volume);
     }
 
     public void UpdateMixerVolume()
