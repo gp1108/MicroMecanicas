@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyStructure : MonoBehaviour
 {
     private GameObject canvas;
+
     private void OnMouseUpAsButton()
     {
         
