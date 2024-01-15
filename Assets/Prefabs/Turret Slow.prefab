@@ -511,6 +511,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 64
+  rangeIndicator: {fileID: 0}
+  buildMenu: {fileID: 0}
 --- !u!1 &5770281542031214771
 GameObject:
   m_ObjectHideFlags: 0

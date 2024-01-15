@@ -428,12 +428,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cdf8164fb7ff44da1b56c62dc3f429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemies: []
   layer:
     serializedVersion: 2
     m_Bits: 64
+  _enemies: []
   _target: {fileID: 0}
   exitRay: {fileID: 4699742172889034348}
+  rangeIndicator: {fileID: 0}
 --- !u!1 &1285668851634643017
 GameObject:
   m_ObjectHideFlags: 0
