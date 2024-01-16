@@ -823,9 +823,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 164209727}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2452,9 +2452,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 417176157}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3656,9 +3656,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 607291221}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4325,9 +4325,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 707923462}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4720,9 +4720,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 811947761}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6852,9 +6852,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1075829900}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8399,9 +8399,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1282817731}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9395,9 +9395,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1401452924}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10195,9 +10195,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1557424116}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11578,9 +11578,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1776386874}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12109,9 +12109,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1818822822}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12621,9 +12621,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1908678345}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12769,9 +12769,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 1931959126}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17634,9 +17634,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5505104251774242619}
-        m_TargetAssemblyTypeName: MenuInicio, Assembly-CSharp
-        m_MethodName: NewGameSettings
+      - m_Target: {fileID: 2068850941140965942}
+        m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
+        m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18010,7 +18010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 417176157}
+      - m_Target: {fileID: 8150472495710246608}
         m_TargetAssemblyTypeName: SkillsUI, Assembly-CSharp
         m_MethodName: externalCallSkillUnlockFunction
         m_Mode: 1

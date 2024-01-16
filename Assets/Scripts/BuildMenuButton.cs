@@ -24,6 +24,7 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject laserButton;
     public GameObject mineButton;
     public GameObject slowTurretButton;
+    public GameObject explosiveMineButton;
 
 
     public void Start()
@@ -85,7 +86,26 @@ public class BuildMenuButton : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        if (UpgradeManager.giveMeReference.isMineUnlocked != 0)
+        {
+            explosiveMineButton.SetActive(true);
+        }
+        else
+        {
+            explosiveMineButton.SetActive(false);
+        }
 
+        if (UpgradeManager.giveMeReference.isSlowTurretUnlocked != 0)
+        {
+            slowTurretButton.SetActive(true);
+        }
+        else
+        {
+            slowTurretButton.SetActive(false);
+        }
+    }
 
 
 
@@ -167,6 +187,17 @@ public class BuildMenuButton : MonoBehaviour
     {
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         BuildManager.dameReferencia.GetStructurePrefabIndex(7);
+        if (destroyModeActive == true)
+        {
+            destroyModeActive = false;
+            destroyButton.GetComponent<Image>().color = Color.white;
+        }
+    }
+
+    public void ExplosiveMineIndex()
+    {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        BuildManager.dameReferencia.GetStructurePrefabIndex(8);
         if (destroyModeActive == true)
         {
             destroyModeActive = false;
@@ -259,6 +290,15 @@ public class BuildMenuButton : MonoBehaviour
             else
             {
                 slowTurretButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.explosiveMineCost > gameManager.giveMeReference.gold)
+            {
+                explosiveMineButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                explosiveMineButton.GetComponent<Button>().interactable = true;
             }
             yield return new WaitForSeconds(0.3f);
         }

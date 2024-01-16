@@ -36,6 +36,7 @@ public class BuildManager : MonoBehaviour
     public int laserTurretCost;
     public int mineCost;
     public int slowTurretCost;
+    public int explosiveMineCost;
     [Header("Gold Texts")]
     public TMP_Text textWallCost;
     public TMP_Text textBaseTurretCost;
@@ -45,6 +46,7 @@ public class BuildManager : MonoBehaviour
     public TMP_Text textLaserTurretCost;
     public TMP_Text textMineCost;
     public TMP_Text textSlowTurretCost;
+    public TMP_Text textExplosiveMineCost;
 
 
     public static BuildManager dameReferencia
@@ -82,6 +84,7 @@ public class BuildManager : MonoBehaviour
         laserTurretCost = 400;
         mineCost = 200;
         slowTurretCost = 200;
+        explosiveMineCost = 100;
         UpdatePriceUI();
 
         goldToPay = 5; // igualo aqui al precio de los muros para evitar un bug en el que la partida carga y puedes construir muros sin gastar dinero
@@ -220,6 +223,10 @@ public class BuildManager : MonoBehaviour
         {
             goldToPay = slowTurretCost;
         }
+        else if (_structureIndex == 8)
+        {
+            goldToPay = explosiveMineCost;
+        }
     } //Determina el valor a pagar segun la estructura
     public void PriceUpdate(int Index, bool moreCost) //Aumenta o disminuye el precio de construccion de los objetos
     {
@@ -258,6 +265,10 @@ public class BuildManager : MonoBehaviour
             else if (_structureIndex == 7)
             {
                 slowTurretCost += 200;
+            }
+            else if (_structureIndex == 8)
+            {
+                slowTurretCost += 100;
             }
             UpdatePriceUI();
             StructureCost();
@@ -309,6 +320,11 @@ public class BuildManager : MonoBehaviour
                 slowTurretCost -= 200;
                 gameManager.giveMeReference.GetGold(slowTurretCost);
             }
+            else if (Index == 8)
+            {
+                slowTurretCost -= 100;
+                gameManager.giveMeReference.GetGold(slowTurretCost);
+            }
             UpdatePriceUI();
             StructureCost();
         }
@@ -324,6 +340,7 @@ public class BuildManager : MonoBehaviour
         textLaserTurretCost.text = laserTurretCost.ToString()+ "g";
         textMineCost.text = mineCost.ToString() + "g";
         textSlowTurretCost.text = slowTurretCost.ToString()+ "g";
+        textExplosiveMineCost.text = explosiveMineCost.ToString()+ "g";
     }
 
     public void PlaceStucture(Vector3 position)
