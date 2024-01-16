@@ -722,7 +722,6 @@ GameObject:
   - component: {fileID: 225649984}
   - component: {fileID: 225649987}
   - component: {fileID: 225649988}
-  - component: {fileID: 225649989}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -866,19 +865,6 @@ MonoBehaviour:
   researchMenuPanel: {fileID: 3277906560949199744}
   researchMenuActive: 0
   canvas: {fileID: 225649982}
---- !u!114 &225649989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225649982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a5c86f1f3c1fe4a81ab8cf649e6c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeColor: {fileID: 2100000, guid: 0f5e32225884a48429f1d7ce675958b0, type: 2}
 --- !u!1 &226979075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1393,7 @@ GameObject:
   - component: {fileID: 368644528}
   - component: {fileID: 368644527}
   - component: {fileID: 368644530}
+  - component: {fileID: 368644531}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1505,6 +1492,50 @@ MonoBehaviour:
   velocidadRotacion: 60
   _mainCamera: {fileID: 368644528}
   perlinNoise: {fileID: 859755978014542898}
+--- !u!114 &368644531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368644526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &407051310
 GameObject:
   m_ObjectHideFlags: 0
@@ -8263,6 +8294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128697124}
   - component: {fileID: 2128697125}
+  - component: {fileID: 2128697126}
   m_Layer: 0
   m_Name: BuildManager
   m_TagString: Untagged
@@ -8343,6 +8375,19 @@ MonoBehaviour:
   textSlowTurretCost: {fileID: 1691847730}
   textExplosiveMineCost: {fileID: 147560125}
   Walls: []
+--- !u!114 &2128697126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128697123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a5c86f1f3c1fe4a81ab8cf649e6c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeColor: {fileID: 2100000, guid: 0f5e32225884a48429f1d7ce675958b0, type: 2}
 --- !u!1 &2135087215
 GameObject:
   m_ObjectHideFlags: 0
