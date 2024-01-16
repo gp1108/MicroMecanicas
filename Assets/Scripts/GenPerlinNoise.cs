@@ -56,6 +56,8 @@ public class GenPerlinNoise : MonoBehaviour
     public Material materialAgua;
     public Material materialArena;
     public Material materialCespedNotWalkable;
+
+    public Vector3 posicionGenerador;
     void Awake()
     {
 
@@ -303,7 +305,10 @@ public class GenPerlinNoise : MonoBehaviour
 
         SpawnEnemiesSpawners();
 
+        MetodoBuscar3();
         SpawnMainStructure();
+
+        
 
         sandGroup.GetComponent<meshCombiner>().CombineMeshes();
         grassGroup.GetComponent<meshCombiner>().CombineMeshes();
@@ -358,11 +363,14 @@ public class GenPerlinNoise : MonoBehaviour
 
     private void SpawnMainStructure()
     {
+        /*
         int mainStructurePosX = Mathf.FloorToInt(_worldSizeX/2);
         int mainStructurePosZ = Mathf.FloorToInt(_worldSizeZ / 2);
         int _perlinNoiseToIntForGen = Mathf.RoundToInt(GenerateNoise(mainStructurePosX, mainStructurePosZ, _detailScale) * _noiseHeight);
-
+        
         Instantiate(mainStructure, new Vector3(mainStructurePosX, _perlinNoiseToIntForGen +10, mainStructurePosZ), Quaternion.identity);
+        */
+        Instantiate(mainStructure, posicionGenerador, Quaternion.identity);
     }
     
 
@@ -372,6 +380,45 @@ public class GenPerlinNoise : MonoBehaviour
         float zNoise = _randomSeed +(z + this.transform.position.y) / detailScale;
 
         return Mathf.PerlinNoise(xNoise, zNoise);
+    }
+
+
+
+    void MetodoBuscar3()
+    {
+        for (int x= 10; x < _worldSizeX-10; x++)
+        {
+            for (int z =10; z < _worldSizeZ-10; z++)
+            {
+                int currentNoise = Mathf.RoundToInt(GenerateNoise(x, z, _detailScale) * _noiseHeight);
+                if(currentNoise == 1 || currentNoise == 2)
+                {
+                    int aciertos = 0;
+
+                    for (int i = 0; i<9;i++ )
+                    {
+                        int checkX = i / 3;
+                        int checkZ = i % 3;
+
+                        
+
+                        if(currentNoise == Mathf.RoundToInt(GenerateNoise(x+checkX, z+checkZ, _detailScale) * _noiseHeight))
+                        {
+                           aciertos++;
+                        }
+
+
+                    }
+                    if(aciertos == 9)
+                    {
+                        posicionGenerador = new Vector3(x+1, 10, z+1);
+                    }
+
+                }
+            }
+        }
+
+
     }
 
 

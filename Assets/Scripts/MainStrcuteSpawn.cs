@@ -85,6 +85,7 @@ public class MainStrcuteSpawn : MonoBehaviour
             }
             else
             {
+                /*
                 if (!Physics.Raycast(new Vector3(transform.position.x + 0f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit7, 1.4f) && _readyToMove == true)
                 {
 
@@ -143,10 +144,12 @@ public class MainStrcuteSpawn : MonoBehaviour
 
                 }
                 //MainStrcuteErrorSpawning();
+                */
             }
         }
         else
         {
+            /*
             if (!Physics.Raycast(new Vector3(transform.position.x + 0f, transform.position.y + 1, transform.position.z + 1f), -transform.up, out hit7, 1.4f) && _readyToMove == true)
             {
 
@@ -204,7 +207,7 @@ public class MainStrcuteSpawn : MonoBehaviour
                 transform.position = new Vector3(transform.position.x + 1, transform.position.y + 3, transform.position.z + 1);
 
             }
-            
+            */
 
         }
       
