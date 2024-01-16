@@ -191,9 +191,8 @@ public class MenuInicio : MonoBehaviour
 
     public void Quit()
     {
-        Time.timeScale = 1;
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
-        SceneManager.LoadScene(0);  
+        gameManager.giveMeReference.PlayerDead(); 
     }
 
     public void OpcionesInGame()
