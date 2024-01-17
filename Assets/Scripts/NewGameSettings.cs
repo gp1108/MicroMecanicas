@@ -25,23 +25,17 @@ public class NewGameSettings : MonoBehaviour
         enableReloadMapButton.GetComponent<Image>().color = Color.green;
 
         //Crear la variable SizeX y SizeZ
-        if (PlayerPrefs.HasKey("SizeX"))
-        {
-
-        }
-        else
+        if (!PlayerPrefs.HasKey("SizeX"))
         {
             PlayerPrefs.SetInt("SizeX", 0);
         }
+       
 
-        if (PlayerPrefs.HasKey("SizeZ"))
-        {
-
-        }
-        else
+        if (!PlayerPrefs.HasKey("SizeZ"))
         {
             PlayerPrefs.SetInt("SizeZ", 0);
         }
+        
 
 
     }
@@ -86,7 +80,8 @@ public class NewGameSettings : MonoBehaviour
     {
          if (int.TryParse(seed.text, out int valorEntero))
          {
-                PlayerPrefs.SetInt("Seed", valorEntero);
+            PlayerPrefs.SetInt("Seed", valorEntero);
+            ReloadMap();
          }
         
     }
