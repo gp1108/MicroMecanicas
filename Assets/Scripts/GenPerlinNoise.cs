@@ -301,6 +301,7 @@ public class GenPerlinNoise : MonoBehaviour
         }
 
 
+        posicionGenerador = Vector3.zero;
         SpawnObject();
 
         SpawnEnemiesSpawners();
@@ -318,6 +319,12 @@ public class GenPerlinNoise : MonoBehaviour
 
     }
     //Spawning EnemySpawner
+
+    private void Update()
+    {
+        Debug.Log(_randomSeed);
+        //Semilla a probar 17579
+    }
     private void SpawnEnemiesSpawners()
     {
         
@@ -382,7 +389,8 @@ public class GenPerlinNoise : MonoBehaviour
         return Mathf.PerlinNoise(xNoise, zNoise);
     }
 
-
+    private float checkXpos;
+    private float checkZpos;
 
     void MetodoBuscar3()
     {
@@ -411,7 +419,28 @@ public class GenPerlinNoise : MonoBehaviour
                     }
                     if(aciertos == 9)
                     {
-                        posicionGenerador = new Vector3(x+1, 10, z+1);
+                        if(posicionGenerador == Vector3.zero)
+                        {
+                            posicionGenerador = new Vector3(x + 1, 10, z + 1);
+                            checkXpos = (_worldSizeX/2) -(x+1) ;
+                            checkZpos = (_worldSizeZ / 2) - (z + 1) ;
+                        }
+                        else
+                        {
+                            
+                            float reCheckXpos = (_worldSizeX / 2) - (x + 1);
+                            float reCheckZpos = (_worldSizeZ / 2) - (z + 1);
+
+
+                            if(Mathf.Abs(checkXpos)+Mathf.Abs(checkZpos)> Mathf.Abs(reCheckXpos)+ Mathf.Abs(reCheckZpos))
+                            {
+                                checkXpos =reCheckXpos;
+                                checkZpos =reCheckZpos;
+                                posicionGenerador = new Vector3(x + 1, 10, z + 1);
+                            }
+                            
+                        }
+                       
                     }
 
                 }
