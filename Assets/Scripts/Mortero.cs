@@ -42,13 +42,8 @@ public class Mortero : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _posicionInicialX=_target.transform.position.x;
-            _posicionInicialY=_target.transform.position.y;
-
-
-
             _balaLanzada = GameObject.Instantiate(_bala, _salidaBala.transform.position, _salidaBala.transform.rotation);
-            _balaLanzada.GetComponent<BalaMortero>().fuerzaInicial = _fuerzaInicial;
+            _balaLanzada.GetComponent<BalaMortero>().target = _target;
         }
     }
     public void GetEnemy()
