@@ -8294,7 +8294,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2128697124}
   - component: {fileID: 2128697125}
-  - component: {fileID: 2128697126}
   m_Layer: 0
   m_Name: BuildManager
   m_TagString: Untagged
@@ -8375,19 +8374,6 @@ MonoBehaviour:
   textSlowTurretCost: {fileID: 1691847730}
   textExplosiveMineCost: {fileID: 147560125}
   Walls: []
---- !u!114 &2128697126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128697123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a5c86f1f3c1fe4a81ab8cf649e6c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeColor: {fileID: 2100000, guid: 0f5e32225884a48429f1d7ce675958b0, type: 2}
 --- !u!1 &2135087215
 GameObject:
   m_ObjectHideFlags: 0
