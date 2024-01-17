@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BalaMortero : MonoBehaviour
 {
+    
+    private Collider[] _collidersEnemies;
+    private Rigidbody rb;
+    private float time;
+    public LayerMask layer;
     public GameObject target;
-    public float fuerzaInicial;
-    public Rigidbody rb;
-    public float time;
     // Start is called before the first frame update
     void Start()
     {
+        time = 5;
         StartCoroutine("Potencia");
     }
 
@@ -29,6 +33,11 @@ public class BalaMortero : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionS, layer);
+        foreach(Collider collider in _collidersEnemies)
+        {
+            collider.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedM,Bullet.tipoDeDamaged.Armadura);
+        }
         Destroy(this.gameObject);
     }
 }
