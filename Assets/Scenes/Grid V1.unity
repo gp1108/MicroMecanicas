@@ -13049,6 +13049,7 @@ MonoBehaviour:
   materialAgua: {fileID: 0}
   materialArena: {fileID: 0}
   materialCespedNotWalkable: {fileID: 0}
+  posicionGenerador: {x: 0, y: 0, z: 0}
 --- !u!222 &5784998787685592145
 CanvasRenderer:
   m_ObjectHideFlags: 0

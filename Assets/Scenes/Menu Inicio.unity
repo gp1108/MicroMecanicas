@@ -15354,6 +15354,20 @@ MonoBehaviour:
     _isLoop: 0
     _playOnAwake: 0
     volume: 1
+  - _audioTypes: 0
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: ebabcf09aaed20444b1beb2fc670efbb, type: 3}
+    _clipName: Explosion
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 0
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: 4c16b8c19d8935b409bec5460974c2da, type: 3}
+    _clipName: RoundStart
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
   _mainVolume: {fileID: 1071489814}
   MusicVolumeSlider: {fileID: 1874979331}
   SFXVolumeSlider: {fileID: 1956511716}
