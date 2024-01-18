@@ -5186,6 +5186,11 @@ MonoBehaviour:
   itsUpgraded: 0
   damagedMinaUpgrade: 0
   isMineUnlocked: 0
+  vidaMortero: 0
+  damagedMortero: 0
+  cadenceMortero: 0
+  rangeMortero: 0
+  visionMortero: 0
   vidaW: 0
 --- !u!4 &1264170622
 Transform:
