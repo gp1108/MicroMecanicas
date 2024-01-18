@@ -33,10 +33,10 @@ public class BalaMortero : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionS, layer);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, 5, layer);
         foreach(Collider collider in _collidersEnemies)
         {
-            collider.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedM,Bullet.tipoDeDamaged.Armadura);
+            collider.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedMortero, Bullet.tipoDeDamaged.Armadura);
         }
         Destroy(this.gameObject);
     }

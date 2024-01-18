@@ -15,7 +15,6 @@ public class NodeUpdater : MonoBehaviour
             if (_prefabSize.GetComponent<PreviewPrefabSize>().CanConstruct() == true)
             {
                 BuildManager.dameReferencia.buildCD = false;
-                
             }
         }
         

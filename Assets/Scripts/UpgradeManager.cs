@@ -62,13 +62,19 @@ public class UpgradeManager : MonoBehaviour
     public float rangeSlow;
     public float isSlowTurretUnlocked;
 
-
     [Header("Mina")]
     public float damagedM;
     public float rangeM;
     public float itsUpgraded;
     public float damagedMinaUpgrade;//sangrado
     public float isMineUnlocked;
+
+    [Header("TurretMortero")]
+    public float vidaMortero;
+    public float damagedMortero;
+    public float cadenceMortero;
+    public float rangeMortero;
+    public float visionMortero;
 
     [Header("Walls")]
     public float vidaW;
@@ -78,8 +84,6 @@ public class UpgradeManager : MonoBehaviour
     {
         damagedMinaUpgrade = 5;
         LoadPlayerPrefsUpgradeManager();
-        
-
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
         Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
     }
@@ -143,8 +147,13 @@ public class UpgradeManager : MonoBehaviour
         //Walls
         vidaW = PlayerPrefs.GetFloat("vidaW");
 
-       
-
+        //TurretMortero
+        vidaMortero= PlayerPrefs.GetFloat("vidaMortero");
+        damagedMortero= PlayerPrefs.GetFloat("damagedMortero");
+        cadenceMortero= PlayerPrefs.GetFloat("cadenceMortero");
+        rangeMortero = PlayerPrefs.GetFloat("rangeMortero");
+        visionMortero= PlayerPrefs.GetFloat("visionMortero");
+        
         //Torreta Slow
         vidaSlow = PlayerPrefs.GetFloat("vidaSlow");
         amountSlow = PlayerPrefs.GetFloat("amountSlow");

@@ -308,6 +308,12 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("damagedM", 5);
         CheckPlayerPrefsKey("rangeM", 10);
 
+        //TurretMortero
+        CheckPlayerPrefsKey("vidaMortero",10);
+        CheckPlayerPrefsKey("damagedMortero",5);
+        CheckPlayerPrefsKey("cadenceMortero",2);
+        CheckPlayerPrefsKey("rangeMortero",30);
+        CheckPlayerPrefsKey("visionMortero",40);
 
         //ResearchPoints
         CheckPlayerPrefsKey("oneResearchPoint", 0);

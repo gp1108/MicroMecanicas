@@ -30,7 +30,7 @@ public class Mortero : MonoBehaviour
     {
         _velocitiRotation = 8;
         gameManager.giveMeReference.GetTurret(this.gameObject);
-        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaS;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaMortero;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
     }
@@ -39,16 +39,7 @@ public class Mortero : MonoBehaviour
     void Update()
     {
         _salidaBala.transform.rotation = Quaternion.Euler(0f,0f,0f);
-        ataque();
         GetEnemy();
-    }
-    public void ataque()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _balaLanzada = GameObject.Instantiate(_bala, _salidaBala.transform.position, _salidaBala.transform.rotation);
-            _balaLanzada.GetComponent<BalaMortero>().target = _target;
-        }
     }
     public void GetTarget()
     {
@@ -67,7 +58,7 @@ public class Mortero : MonoBehaviour
                     }
                 }
             }
-            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionB)
+            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionMortero)
             {
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
@@ -78,7 +69,7 @@ public class Mortero : MonoBehaviour
     }
     public void Attack()
     {
-        if(Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeB && _attacking == false)
+        if(Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeMortero && _attacking == false)
         {
             StartCoroutine("Shoot");
         }
@@ -89,12 +80,12 @@ public class Mortero : MonoBehaviour
         _balaLanzada = GameObject.Instantiate(_bala, _salidaBala.transform.position, _salidaBala.transform.rotation);
         _balaLanzada.GetComponent<BalaMortero>().target = _target;
         SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
-        yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceA);
+        yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceMortero);
         _attacking = false;
     }
     public void GetEnemy()
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionS, layer);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionMortero, layer);
         _enemies = _collidersEnemies.ToList();
         if (_enemies.Count == 0)
         {
@@ -121,7 +112,7 @@ public class Mortero : MonoBehaviour
     {
         rangeIndicator.transform.position = this.transform.position;
         rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeS * 2, UpgradeManager.giveMeReference.rangeS * 2, UpgradeManager.giveMeReference.rangeS * 2);
+        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeMortero * 2, UpgradeManager.giveMeReference.rangeMortero * 2, UpgradeManager.giveMeReference.rangeMortero * 2);
 
         _mostrarRango = true;
     }
