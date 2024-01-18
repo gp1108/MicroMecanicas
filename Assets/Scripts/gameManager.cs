@@ -107,6 +107,7 @@ public class gameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
         {
             onRound = true;
+            SoundManager.dameReferencia.PlayClipByName(clipName: "RoundStart");
             RoundStart();
 
 

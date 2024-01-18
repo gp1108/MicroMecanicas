@@ -178,6 +178,7 @@ public class TurretLaser : MonoBehaviour
         if (enemy != null)
         {
             _ataking = true;
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Laser");
             enemy.transform.GetComponent<Health>().GetDamaged(_damaged, Bullet.tipoDeDamaged.Magica);
             _damaged += 0.1f * Time.deltaTime;
             yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceL);

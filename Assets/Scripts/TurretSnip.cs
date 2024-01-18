@@ -83,6 +83,8 @@ public class TurretSnip : MonoBehaviour
 
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
 
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Sniper");
+
             _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedS;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;

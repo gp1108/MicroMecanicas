@@ -28,6 +28,7 @@ public class TurretSlow : MonoBehaviour
     }
     public void Slow()
     {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Slow");
         _zoneSlow= Physics.OverlapSphere(transform.position,20, layer);
         if (_zoneSlow.Length > 0)
         {

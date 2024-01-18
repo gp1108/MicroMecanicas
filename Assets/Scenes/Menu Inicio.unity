@@ -5914,6 +5914,7 @@ GameObject:
   - component: {fileID: 996283039}
   - component: {fileID: 996283038}
   - component: {fileID: 996283037}
+  - component: {fileID: 996283040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5995,6 +5996,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996283040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996283036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1030872386
 GameObject:
   m_ObjectHideFlags: 0
@@ -12200,6 +12245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831212906}
   - component: {fileID: 1831212905}
+  - component: {fileID: 1831212907}
   m_Layer: 0
   m_Name: PerlinNoiseCamera
   m_TagString: Untagged
@@ -12273,6 +12319,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1831212907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831212903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1874979329
 GameObject:
   m_ObjectHideFlags: 0
@@ -15312,13 +15402,6 @@ MonoBehaviour:
     _isLoop: 0
     _playOnAwake: 0
     volume: 1
-  - _audioTypes: 2
-    _audioSource: {fileID: 0}
-    _audioClip: {fileID: 8300000, guid: 79d6b76230e3f324a9a695fbbbea0e1f, type: 3}
-    _clipName: Shoot
-    _isLoop: 0
-    _playOnAwake: 0
-    volume: 1
   - _audioTypes: 0
     _audioSource: {fileID: 0}
     _audioClip: {fileID: 8300000, guid: df6a916f9ff46a34dabd0d4cd18bc2c3, type: 3}
@@ -15366,6 +15449,55 @@ MonoBehaviour:
     _audioClip: {fileID: 8300000, guid: 4c16b8c19d8935b409bec5460974c2da, type: 3}
     _clipName: RoundStart
     _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: ac87fe7bf27a0b84ca511d7b1863f268, type: 3}
+    _clipName: Shoot
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: fedf36294107ae44985392e258827d58, type: 3}
+    _clipName: Shoot2
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: 43d49074251470e40b03e3779c0d361e, type: 3}
+    _clipName: Shoot_machineGun
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: f1d48eef68a3ed14c84c928b2c8449db, type: 3}
+    _clipName: Mortero
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: 1478054d4ae63a041bbbb62b88d81e22, type: 3}
+    _clipName: Sniper
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: a44e5b5df6e438e40be0db7d325a6a22, type: 3}
+    _clipName: Laser
+    _isLoop: 0
+    _playOnAwake: 0
+    volume: 1
+  - _audioTypes: 2
+    _audioSource: {fileID: 0}
+    _audioClip: {fileID: 8300000, guid: 4f2d8dfbdee9f204da20772518c812d9, type: 3}
+    _clipName: Slow
+    _isLoop: 1
     _playOnAwake: 0
     volume: 1
   _mainVolume: {fileID: 1071489814}
