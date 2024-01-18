@@ -19,7 +19,7 @@ public class MainStrcuteSpawn : MonoBehaviour
     {
         aviableToSpawn = false;
         GetComponent<Health>().healthPoints = 30;
-        
+        GetComponent<Rigidbody>().mass = 0.001f;
         navMeshUpdater = GameObject.FindGameObjectWithTag("NavMeshUpdater");
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen");
@@ -82,12 +82,20 @@ public class MainStrcuteSpawn : MonoBehaviour
                 //AerialNavMesh
                 aerialNavMesh.GetComponent<MeshRenderer>().enabled = false;
 
+                //rigibody
+                Invoke("IsKinematicDisabled", 2);
+
             }
            
         }
         
       
 
+    }
+
+    private void IsKinematicDisabled()
+    {
+        GetComponent<Rigidbody>().isKinematic = true;
     }
     
 }

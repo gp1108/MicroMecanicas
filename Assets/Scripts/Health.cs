@@ -33,13 +33,18 @@ public class Health : MonoBehaviour
         tipoVida = tipoDeVida.Estandar;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         StartCoroutine("SliderTracksCamera");
-        healthSlider.maxValue = healthPoints;
-        healthSlider.value = healthPoints;
-        healthSlider.GetComponentInChildren<Image>().enabled = false;
+        if (this.gameObject.tag != ("TownHall"))
+        {
+            healthSlider.maxValue = healthPoints;
+            healthSlider.value = healthPoints;
+            healthSlider.GetComponentInChildren<Image>().enabled = false;
+        }
+            
+        
     }
     private void Update()
     {
-        if(this.name== "Generador(Clone)")
+        if(this.name== "MainStructure(Clone)")
         {
             UpdateVida();
         }
@@ -52,45 +57,54 @@ public class Health : MonoBehaviour
     }
     public void GetDamaged(float Damaged,Bullet.tipoDeDamaged tipeDamagade)
     {
+        
         if(tipoVida==tipoDeVida.Estandar)
         {
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
+           
             healthPoints -= Damaged;
-            healthSlider.value = healthPoints;
+           
         }
         else if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
         {
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
+            
             healthPoints -= Damaged;
-            healthSlider.value = healthPoints;
+           
         }
         else if (tipoVida == tipoDeVida.Vida&&tipeDamagade==Bullet.tipoDeDamaged.Vida)
         {
             
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
+          
             healthPoints -= (Damaged*1.5f);
-            healthSlider.value = healthPoints;
+           
 
         }
         else if (tipoVida == tipoDeVida.Armadura&& tipeDamagade == Bullet.tipoDeDamaged.Armadura)
         {
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
+           
             healthPoints -= (Damaged * 1.5f);
-            healthSlider.value = healthPoints;
+           
         }
         else if (tipoVida == tipoDeVida.Magica && tipeDamagade == Bullet.tipoDeDamaged.Magica)
         {
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
+           
             healthPoints -= (Damaged * 1.5f);
-            healthSlider.value = healthPoints;
+           
         }
         else
         {
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
+           
             healthPoints -= (Damaged * 0.5f);
+            
+        }
+
+        if (this.gameObject.tag != ("TownHall"))
+        {
+            healthSlider.GetComponentInChildren<Image>().enabled = true;
             healthSlider.value = healthPoints;
         }
+
         
+
         if (healthPoints <= 0)
         {
             
@@ -160,9 +174,13 @@ public class Health : MonoBehaviour
     {
         while(true)
         {
-            Vector3 cameraposition = mainCamera.transform.position;
-            healthSlider.transform.LookAt(cameraposition);
-            //healthSlider.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            if (this.gameObject.tag != ("TownHall"))
+            {
+                Vector3 cameraposition = mainCamera.transform.position;
+                healthSlider.transform.LookAt(cameraposition);
+                //healthSlider.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            }
+
             yield return new WaitForSeconds(0.05f);
         }
     }
