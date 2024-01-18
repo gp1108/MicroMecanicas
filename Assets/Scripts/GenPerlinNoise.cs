@@ -318,13 +318,6 @@ public class GenPerlinNoise : MonoBehaviour
 
 
     }
-    //Spawning EnemySpawner
-
-    private void Update()
-    {
-        Debug.Log(_randomSeed);
-        //Semilla a probar 17579
-    }
     private void SpawnEnemiesSpawners()
     {
         

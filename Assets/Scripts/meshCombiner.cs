@@ -54,6 +54,7 @@ public class meshCombiner : MonoBehaviour
 
         // Puedes ajustar otras propiedades, como colisionadores, si es necesario
         combinacionObjeto.AddComponent<MeshCollider>();
+        Destroy(this.gameObject);
     }
 
     Mesh SimplificarMalla(Mesh originalMesh)

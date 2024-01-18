@@ -20,7 +20,6 @@ public class Enemy2 : MonoBehaviour
 
     void Start()
     {
-
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
@@ -32,37 +31,27 @@ public class Enemy2 : MonoBehaviour
     {
         Atack();
     }
-
-
     public void Move()
     {
         if (_TownHall != null && _torret.Length <= 0)
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
             _target= _TownHall;
-            
-
         }
         if (_torret.Length >= 1)
         {
-            
-            
             if (_target != null)
-            {
-                
+            {   
                 _distance = Vector3.Distance(transform.position, _target.transform.position);
             }
             else
             {
-                
                 _torret = gameManager.giveMeReference.turrets.ToArray();
-
                 if (_torret.Length >= 1)
                 {
                     _target = _torret[0];
                 }
             }
-            
             foreach (GameObject _TORRET in _torret)
             {
                 if (_TORRET != null)
@@ -70,38 +59,22 @@ public class Enemy2 : MonoBehaviour
                     if (Vector3.Distance(transform.position, _TORRET.transform.position) < _distance)
                     {
                         _distance = Vector3.Distance(transform.position, _TORRET.transform.position);
-
                         _target = _TORRET;
-
                     }
-                }
-                else
-                {
-                    
                 }
             }
         }
-        else
-        {
-
-        }
         if(_target != null)
         {
-            
-
             NavMeshPath path = new NavMeshPath();
-
             // Calcula el camino hasta el TownHall
             _navAgent.CalculatePath(_target.transform.position, path);
-
             // Comprueba si el camino está disponible
             if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
             {
                 // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
-
                 // Encuentra el punto más cercano accesible en el NavMesh
                 Vector3 closestPoint = FindClosestPointOnNavMesh(_target.transform.position);
-
                 // Establece ese punto como destino
                 _navAgent.SetDestination(closestPoint);
             }
@@ -109,22 +82,15 @@ public class Enemy2 : MonoBehaviour
             {
                 _navAgent.SetDestination(_target.transform.position);
             }
-
             _direccion = _target.transform.position - transform.position;
         }
-        
-
     }
-
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
     {
-
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPosition, out hit, Mathf.Infinity, NavMesh.AllAreas))
         {
-
             return hit.position;
-
         }
         else
         {
@@ -139,29 +105,19 @@ public class Enemy2 : MonoBehaviour
         if (_atac == false)
         {
             RaycastHit hit;
-
             if (Physics.Raycast(transform.position, _direccion, out hit, 1))
             {
-
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {
-
                     hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
-
                 }
-
             }
-
             _atac = true;
-
             _cadencia = 1;
-
         }
         if (_atac == true)
         {
-
             _timePass += Time.deltaTime;
-
             if (_timePass > _cadencia)
             {
                 _atac = false;
@@ -169,14 +125,12 @@ public class Enemy2 : MonoBehaviour
                 _timePass = 0;
             }
         }
-
     }
 
     IEnumerator CheckPath()
     {
         while (true)
         {
-            
             Move();
             yield return new WaitForSeconds(1.5f);
         }

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Enemy1 : MonoBehaviour
 {
     
-    private GameObject _TownHall;
+    private GameObject _townHall;
     private Vector3 _distancia;
     private NavMeshAgent _navAgent;
     private float _timePass;
@@ -20,7 +20,7 @@ public class Enemy1 : MonoBehaviour
     void Start()
     {
         
-        _TownHall = GameObject.FindGameObjectWithTag("TownHall");
+        _townHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida=Health.tipoDeVida.Vida;
@@ -34,44 +34,40 @@ public class Enemy1 : MonoBehaviour
 
     public void Move()
     {
-        if (_TownHall != null)
+        if (_townHall != null)
         {
-            _navAgent.SetDestination(_TownHall.transform.position);
-
-
-
+            _navAgent.SetDestination(_townHall.transform.position);
+            _distancia = _townHall.transform.position - transform.position;
             NavMeshPath path = new NavMeshPath();
-
             // Calcula el camino hasta el TownHall
-            _navAgent.CalculatePath(_TownHall.transform.position, path);
-
+            _navAgent.CalculatePath(_townHall.transform.position, path);
             // Comprueba si el camino está disponible
             if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
             {
                 // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
-
-
                 // Encuentra el punto más cercano accesible en el NavMesh
-                Vector3 closestPoint = FindClosestPointOnNavMesh(_TownHall.transform.position);
-
+                Vector3 closestPoint = FindClosestPointOnNavMesh(_townHall.transform.position);
                 // Establece ese punto como destino
                 _navAgent.SetDestination(closestPoint);
             }
-
-            _distancia = _TownHall.transform.position - transform.position;
+            if (Vector3.Distance(this.transform.position,_townHall.transform.position)< 1.5f)
+            {
+                _navAgent.isStopped = true;
+            }
+            else
+            {
+                _navAgent.isStopped = false;
+            }
         }
 
     }
 
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
     {
-        
         NavMeshHit hit;
         if (NavMesh.SamplePosition(targetPosition, out hit, Mathf.Infinity, NavMesh.AllAreas))
         {
-
             return hit.position;
-            
         }
         else
         {
@@ -85,38 +81,25 @@ public class Enemy1 : MonoBehaviour
 
         if (_atac == false)
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(transform.position, _distancia, out hit, 1))
+            if (Physics.Raycast(transform.position, _distancia, out RaycastHit hit, 1.5f))
             {
-                                
-                if (hit.transform.GetComponent<Health>() != null&& hit.transform.tag!=this.tag)
+                if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {
- 
-                        hit.transform.GetComponent<Health>().GetDamaged(2,Bullet.tipoDeDamaged.Estandar);
-                    
+                    hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
+                    _atac = true;
+                    _cadencia = 1;
                 }
-                
             }
-            
-            _atac = true;
-
-            _cadencia = 1;
-
         }
         if (_atac == true)
         {
-
             _timePass += Time.deltaTime;
-
             if (_timePass > _cadencia)
             {
                 _atac = false;
-
                 _timePass = 0;
             }
         }
-
     }
     
     IEnumerator CheckPath()
