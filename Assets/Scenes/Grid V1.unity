@@ -3906,7 +3906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawners: []
   enemies:
-  - {fileID: 9161228910576418350, guid: eaa39598a29d6d343aa15eb54ffaef1b, type: 3}
+  - {fileID: 6528030040504456344, guid: 87067a1ea74fb944cab0be9e48cef479, type: 3}
   - {fileID: 1323558377185222644, guid: d813a9ec05742a04e98e8580fde35074, type: 3}
   - {fileID: 1323558377185222644, guid: 8a083624ffeb50c469a4d4ca0102cedb, type: 3}
   - {fileID: 9161228910576418350, guid: 2162230ecdce8044086a06645007461c, type: 3}
@@ -4389,7 +4389,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
+  m_BuildHeightMesh: 1
 --- !u!4 &1095215788
 Transform:
   m_ObjectHideFlags: 0
@@ -13044,11 +13044,12 @@ MonoBehaviour:
   - {fileID: 784257595272622726, guid: cd1e55015dde62341a8bf3e1c562797c, type: 3}
   - {fileID: 1336516793024528500, guid: cc3f1f261519bc24c94ed868dfc1d9a1, type: 3}
   enemieSpawner: {fileID: 2156253983469557500, guid: 3aab05beb17235347a1b76546b75c37e, type: 3}
-  mainStructure: {fileID: 5020294716153456286, guid: 98df0b370b6137148a88f817c1f399f0, type: 3}
+  mainStructure: {fileID: 7930163180743534865, guid: a153f2b224c43b74abf255795f71b4e1, type: 3}
   materialCesped: {fileID: 0}
   materialAgua: {fileID: 0}
   materialArena: {fileID: 0}
   materialCespedNotWalkable: {fileID: 0}
+  posicionGenerador: {x: 0, y: 0, z: 0}
 --- !u!222 &5784998787685592145
 CanvasRenderer:
   m_ObjectHideFlags: 0
