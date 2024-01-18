@@ -31,6 +31,7 @@ public class MineExplosive : MonoBehaviour
     }
     public void Explosion()
     {
+        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Explosion");
         _zoneExplosion = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.rangeM, layer);
         foreach (Collider c in _zoneExplosion)
         {

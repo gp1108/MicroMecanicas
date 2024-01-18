@@ -189,7 +189,7 @@ public class MenuInicio : MonoBehaviour
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
-    public void Quit()
+    public void QuitInGame()
     {
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         gameManager.giveMeReference.PlayerDead(); 

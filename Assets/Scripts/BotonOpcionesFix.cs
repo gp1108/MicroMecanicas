@@ -50,7 +50,7 @@ public class BotonOpcionesFix : MonoBehaviour
         }
     }
 
-    public void Boton()
+    public void BotonOpciones()
     {
         MenuInicio.giveMeReference.OpcionesInGame();
         MenuInicio.giveMeReference.opcionesIngame = true;
@@ -66,7 +66,9 @@ public class BotonOpcionesFix : MonoBehaviour
 
     public void BotonQuit()
     {
-        MenuInicio.giveMeReference.Quit();
+        MenuInicio.giveMeReference.QuitInGame();
+        pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+        Time.timeScale = 0f;
     }
 
     public void ContinueButtonIngame()
