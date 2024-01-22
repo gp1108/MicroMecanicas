@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipoVida: 0
   healthPoints: 0
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 2124147686958265159}
 --- !u!114 &-847965265149602229
 MonoBehaviour:
   m_ObjectHideFlags: 0
