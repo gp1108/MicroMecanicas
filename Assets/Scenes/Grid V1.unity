@@ -5186,6 +5186,11 @@ MonoBehaviour:
   itsUpgraded: 0
   damagedMinaUpgrade: 0
   isMineUnlocked: 0
+  vidaMortero: 0
+  damagedMortero: 0
+  cadenceMortero: 0
+  rangeMortero: 0
+  visionMortero: 0
   vidaW: 0
 --- !u!4 &1264170622
 Transform:
@@ -8330,7 +8335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _structures:
   - {fileID: 4853265002205051073, guid: 503b141b19783f44cbc6adb2bd2d91f8, type: 3}
-  - {fileID: 234761946264151248, guid: e359228efb9deaa45b4ab719c239b7a5, type: 3}
+  - {fileID: 1978704287428703079, guid: 36563ac99e6469746b77439303b034d6, type: 3}
   - {fileID: 3462134141447311124, guid: 542adf7164d431540aeba1d9f60ba8d2, type: 3}
   - {fileID: 452095570081525554, guid: 38c284930ca826346a3667506f9d92ee, type: 3}
   - {fileID: 3557344617755412483, guid: a36171dcb59aac247b600df3e54a2c4b, type: 3}
@@ -8342,7 +8347,7 @@ MonoBehaviour:
   buildCD: 0
   _previewStructures:
   - {fileID: 4853265002205051073, guid: 8c12f426323aec344b86ce7dabbfb64c, type: 3}
-  - {fileID: 1663677630554752822, guid: c88926d64fe52404f867efe02beeedee, type: 3}
+  - {fileID: 1314980371526699794, guid: 80b738be007b9e1499e9192f874a9af6, type: 3}
   - {fileID: 3462134141447311124, guid: 0264a1194c2ebbc429bc9fab24c72839, type: 3}
   - {fileID: 7294668687193817401, guid: 8aa32bbda3517a5479d976caf7eb00ed, type: 3}
   - {fileID: 3557344617755412483, guid: 6b8033e3d62c3d242879ec0cd175685e, type: 3}

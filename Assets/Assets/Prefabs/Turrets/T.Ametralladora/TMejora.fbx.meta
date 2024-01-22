@@ -3,40 +3,10 @@ guid: 4b3155963eb728e49a4ecd713f2f719e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "CA\xD1ONES"
-    second: {fileID: 2100000, guid: 81bb4700c0e92b347991e042c5dc39ce, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: base
-    second: {fileID: 2100000, guid: 09a920e4a5d925d489927ed146f5355b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "base ca\xF1on"
-    second: {fileID: 2100000, guid: d1705ceacd1d71942995f9b18027ad3c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cables
-    second: {fileID: 2100000, guid: d476edd8c5a5a0d4ab6327a5f33438db, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: carcasa
-    second: {fileID: 2100000, guid: 697f09d5dbcfb9246a076f3c033c547d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: palo
-    second: {fileID: 2100000, guid: bcf46e8523ac69b4ba0b607348c2e4e2, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
-    materialName: 1
+    materialName: 0
     materialSearch: 1
     materialLocation: 1
   animations:
