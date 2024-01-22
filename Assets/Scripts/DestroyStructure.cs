@@ -12,12 +12,14 @@ public class DestroyStructure : MonoBehaviour
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
+        /*
 
         foreach (Renderer childRenderer in childRenderers)
         {
             originalColor = childRenderers[0].material.color;
             childRenderer.material.color = originalColor;
         }
+        */
     }
 
     private void OnMouseEnter()
@@ -38,37 +40,37 @@ public class DestroyStructure : MonoBehaviour
                     if (this.gameObject.tag == "BaseTurret")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
                     else if (this.gameObject.tag == "OtherTurret")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
                     else if (this.gameObject.tag == "Taller")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
                     else if (this.gameObject.tag == "SniperTurret")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
                     else if (this.gameObject.tag == "LaserTurret")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
                     else if (this.gameObject.tag == "Mine")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
                     else if (this.gameObject.tag == "SlowTurret")
                     {
                         Debug.Log("Enter");
-                        childRenderer.material.color = changeColor;
+                        //childRenderer.material.color = changeColor;
                     }
 
                 }
@@ -76,6 +78,7 @@ public class DestroyStructure : MonoBehaviour
         }
     }
 
+    /*
     private void OnMouseExit()
     {
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
@@ -94,6 +97,7 @@ public class DestroyStructure : MonoBehaviour
             childRenderer.material.color = originalColor;
         }
     }
+    */
     private void OnMouseUpAsButton()
     {
         

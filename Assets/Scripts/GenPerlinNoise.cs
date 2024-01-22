@@ -348,6 +348,7 @@ public class GenPerlinNoise : MonoBehaviour
         //Aqui se puede usar la misma logica de altura para determinar que gameobject se spawnea , yo lo hago aleatorio pero es bastante feo
         for(int i = 0; i<40;i++)
         {
+           
             GameObject toPlaceObject = Instantiate(worldProps[Random.Range(0, worldProps.Length)], ObjectsSpawnLocation(), Quaternion.Euler(0,Random.Range(0,360),0));
             toPlaceObject.transform.SetParent(propsGroup.transform);
         }
@@ -356,20 +357,13 @@ public class GenPerlinNoise : MonoBehaviour
     private Vector3 ObjectsSpawnLocation()
     {
         int randomIndex = Random.Range(0, blockPositions.Count);
-        Vector3 newPosition = new Vector3(blockPositions[randomIndex].x, blockPositions[randomIndex].y + 0.51f, blockPositions[randomIndex].z);
+        Vector3 newPosition = new Vector3(blockPositions[randomIndex].x, blockPositions[randomIndex].y + 1.01f, blockPositions[randomIndex].z);
         blockPositions.RemoveAt(randomIndex);
         return newPosition;
     }
 
     private void SpawnMainStructure()
     {
-        /*
-        int mainStructurePosX = Mathf.FloorToInt(_worldSizeX/2);
-        int mainStructurePosZ = Mathf.FloorToInt(_worldSizeZ / 2);
-        int _perlinNoiseToIntForGen = Mathf.RoundToInt(GenerateNoise(mainStructurePosX, mainStructurePosZ, _detailScale) * _noiseHeight);
-        
-        Instantiate(mainStructure, new Vector3(mainStructurePosX, _perlinNoiseToIntForGen +10, mainStructurePosZ), Quaternion.identity);
-        */
         Instantiate(mainStructure, posicionGenerador, Quaternion.identity);
     }
     

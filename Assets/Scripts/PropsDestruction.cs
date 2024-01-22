@@ -14,9 +14,11 @@ public class PropsDestruction : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position , Vector3.up, out hit, 0.3f ))
+        if(Physics.Raycast(new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z), Vector3.up, out hit, 0.5f ))
         {
             Destroy(this.gameObject);
         }
+
+        Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y -0.5f, transform.position.z) , Color.blue);
     }
 }

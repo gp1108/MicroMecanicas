@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: 4459009438696055018}
   - component: {fileID: -3321195242263489575}
   - component: {fileID: 1333953025635028189}
+  - component: {fileID: 7595589534161011624}
   m_Layer: 0
   m_Name: T.Basica
-  m_TagString: Untagged
+  m_TagString: BaseTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,8 +220,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.91041195, y: 0.88695896, z: 1.2855617}
-  m_Center: {x: 0.0052756667, y: 0.39201134, z: -0.17958343}
+  m_Size: {x: 0.91041195, y: 0.88695896, z: 0.94026023}
+  m_Center: {x: 0.0052756667, y: 0.39201134, z: -0.0644829}
 --- !u!208 &1333953025635028189
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -237,6 +238,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.36, z: -0.1}
   m_TimeToStationary: 0.5
+--- !u!114 &7595589534161011624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978704287428703079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda8b4847eacaf5499ac769e95314532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3441281537877212431
 GameObject:
   m_ObjectHideFlags: 0
