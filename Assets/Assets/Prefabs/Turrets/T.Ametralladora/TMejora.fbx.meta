@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 4b3155963eb728e49a4ecd713f2f719e
+guid: f6fac79ff093f114fae722789f825a59
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "CA\xD1ONES"
+    second: {fileID: 2100000, guid: 0ab2ebeb81bf4cd4cb51b319c7459e67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base
+    second: {fileID: 2100000, guid: 2ea0668ab3ccc9b42bbb25bab51250cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "base ca\xF1on"
+    second: {fileID: 2100000, guid: 71a3ef1c8fe7b7e4fb2266e5f3a1438a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cables
+    second: {fileID: 2100000, guid: 8fbefee99a995d84b96f000f456d0959, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carcasa
+    second: {fileID: 2100000, guid: 1c2c78a5df7ee344dbd0a7915d15c89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: palo
+    second: {fileID: 2100000, guid: 0fa0a4a66726b0e4bafe2dbe80cb7042, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -32,7 +62,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -78,7 +108,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -93,11 +123,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
