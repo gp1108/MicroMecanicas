@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2926862124971097646}
+  - component: {fileID: 5996670783668655791}
+  - component: {fileID: -1741488603204607332}
   m_Layer: 0
   m_Name: T.Sniper Transparencia
   m_TagString: Untagged
@@ -25,14 +27,47 @@ Transform:
   m_GameObject: {fileID: 420103999029223867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 520.10175, y: 0.016008925, z: -163.5324}
-  m_LocalScale: {x: 1.2115461, y: 1.2115465, z: 1.2115465}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8618074059972222424}
   - {fileID: 3861443036779065252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5996670783668655791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420103999029223867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aabc7a2c4acb06478cc2e4fa5462088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabSize: 0
+  validposition: 0
+--- !u!114 &-1741488603204607332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420103999029223867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &5222918422448098081
 GameObject:
   m_ObjectHideFlags: 0
