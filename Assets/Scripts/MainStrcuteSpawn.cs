@@ -15,6 +15,9 @@ public class MainStrcuteSpawn : MonoBehaviour
     public GameObject rangeIndicator;
     public GameObject aerialNavMesh;
 
+    public GameObject mainCamera;
+    public GameObject bottonFix;
+
     void Start()
     {
         aviableToSpawn = false;
@@ -27,6 +30,8 @@ public class MainStrcuteSpawn : MonoBehaviour
         rangeIndicator.SetActive(false);
         Invoke("MainStrcuteErrorSpawning", 5f);
         aerialNavMesh = GameObject.Find("AerialNavmeshCube");
+        mainCamera = GameObject.Find("Main Camera");
+        bottonFix = GameObject.Find("Boton Fix");
     }
 
     public void MainStrcuteErrorSpawning()
@@ -96,6 +101,8 @@ public class MainStrcuteSpawn : MonoBehaviour
     private void IsKinematicDisabled()
     {
         GetComponent<Rigidbody>().isKinematic = true;
+        mainCamera.GetComponent<CameraMovement>().enabled = true;
+        bottonFix.GetComponent<BotonOpcionesFix>().enabled = true;
     }
     
 }

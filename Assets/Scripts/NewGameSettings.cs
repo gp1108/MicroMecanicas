@@ -23,6 +23,7 @@ public class NewGameSettings : MonoBehaviour
     {
         previsualizeEnabled = true;
         enableReloadMapButton.GetComponent<Image>().color = Color.green;
+        EnableReloadMap();
 
         //Crear la variable SizeX y SizeZ
         if (!PlayerPrefs.HasKey("SizeX"))

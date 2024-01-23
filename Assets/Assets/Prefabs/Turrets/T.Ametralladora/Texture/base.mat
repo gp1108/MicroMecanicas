@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _METALNESS_MAP:
-        m_Texture: {fileID: 2800000, guid: 10b1b0ba988c86640887f3c81a71a631, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NORMAL_MAP:
-        m_Texture: {fileID: 2800000, guid: 6ce4c93cfe165d346a7a97ac911b3791, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SPECULAR_COLOR_MAP:
@@ -110,7 +110,7 @@ Material:
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &88185258197133159
+--- !u!114 &1630842891776809378
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

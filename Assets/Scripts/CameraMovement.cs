@@ -117,7 +117,7 @@ public class CameraMovement : MonoBehaviour
             
             transform.position -= transform.forward;
         }
-        else if(_scrollInputAmount > 0 && transform.position.y > 10)
+        else if(_scrollInputAmount > 0 && transform.position.y > 8)
         {
             transform.position += transform.forward;
         }

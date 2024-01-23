@@ -108,21 +108,33 @@ public class BuildManager : MonoBehaviour
                 
                 foreach (Renderer childRenderer in childRenderers)
                 {
+                    Material[] materials = childRenderer.materials;
+
+                    for (int i = 0; i < materials.Length; i++)
+                    {
+                        materials[i] = aviableInstance;
+                    }
+                    childRenderer.materials = materials;
                     childRenderer.enabled = true;
-                    childRenderer.material = aviableInstance;
                     _canbuild = true;
                 }
 
             }
             else if (previewPrefab.GetComponent<PreviewPrefabSize>().validposition == false && buildPanel.activeSelf && isDestroyModeActive == false && goldToPay <= gameManager.giveMeReference.gold)
             {
-                Renderer[] childRenderers = previewPrefab.GetComponentsInChildren<Renderer>();
+                MeshRenderer[] childRenderers = previewPrefab.GetComponentsInChildren<MeshRenderer>();
                 
                 
-                foreach (Renderer childRenderer in childRenderers)
+                foreach (MeshRenderer childRenderer in childRenderers)
                 {
+                    Material[] materials = childRenderer.materials;
+
+                    for(int i = 0; i < materials.Length; i++)
+                    {
+                        materials[i] = unAviableInstance;
+                    }
+                    childRenderer.materials = materials;
                     childRenderer.enabled = true;
-                    childRenderer.material = unAviableInstance;
                     _canbuild = false;
                 }
                 
