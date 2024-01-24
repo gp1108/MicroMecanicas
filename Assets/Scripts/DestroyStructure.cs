@@ -5,98 +5,44 @@ using UnityEngine;
 public class DestroyStructure : MonoBehaviour
 {
     private GameObject canvas;
-    [SerializeField] private Material changeColor;
-    private Material[] originalColor;
+    public GameObject destroyUI;
+    public GameObject mainCamera;
     
 
     private void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
-        Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
-        
-
-        foreach (Renderer childRenderer in childRenderers)
-        {
-            originalColor = childRenderer.materials;
-
-            
-            for (int i = 0; i < childRenderers.Length; i++)
-            {
-                originalColor = childRenderers[i].materials;
-            }
-            
-        }
+        destroyUI = GameObject.Find("Destroy?");
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        StartCoroutine("trackCamera");
         
     }
 
     private void OnMouseEnter()
     {
+       
+        
+
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
         if (isDestructiveModeActive == true)
         {
-            Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
-            foreach (Renderer childRenderer in childRenderers)
-            {
-                if (this.gameObject.tag == "Wall")
-                {
-                    Debug.Log("Enter");
-                    childRenderer.material = changeColor;
-                }
-                else
-                {
-                    CambiarColorARojo();
-
-                }
-            }
-        }
-    }
-
-    private void CambiarColorARojo()
-    {
-        Renderer[] NewchildRenderers = this.gameObject.GetComponentsInChildren<Renderer>();
-
-
-        foreach (Renderer NewchildRenderer in NewchildRenderers)
-        {
-            Material[] newMaterials = NewchildRenderer.materials;
-
-            for (int i = 0; i < newMaterials.Length; i++)
-            {
-                newMaterials[i] = changeColor;
-            }
-            NewchildRenderer.materials = newMaterials;
-            NewchildRenderer.enabled = true;
+            destroyUI.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1.5f, this.gameObject.transform.position.z);
            
         }
     }
 
+
     
     private void OnMouseExit()
     {
+        
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
         if (isDestructiveModeActive == true)
         {
-            volverColorOri();
+            destroyUI.transform.position = Vector3.zero + Vector3.down * 10;
         }
     }
 
-    public void volverColorOri()
-    {
-        Renderer[] childRenderers = this.gameObject.GetComponentsInChildren<Renderer>();
-
-        foreach (Renderer childRenderer in childRenderers)
-        {
-
-            childRenderer.materials = originalColor;
-            /*
-            for (int i = 0; i < childRenderers.Length; i++)
-            {
-                childRenderer.material = originalColor;
-                childRenderers[i] = childRenderer;
-            }
-            */
-        }
-    }
     
     private void OnMouseUpAsButton()
     {
@@ -178,5 +124,15 @@ public class DestroyStructure : MonoBehaviour
             return;
             
         }
+    }
+
+    IEnumerator trackCamera()
+    {
+        while (true)
+        {
+            destroyUI.transform.LookAt(mainCamera.transform.position);
+            yield return new WaitForSeconds(0.1f);
+        }
+       
     }
 }

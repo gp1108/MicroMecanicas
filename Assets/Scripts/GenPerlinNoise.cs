@@ -43,6 +43,7 @@ public class GenPerlinNoise : MonoBehaviour
     //Generacion procedural de arboles, rocas etc.
     private List<Vector3> blockPositions = new List<Vector3>();
     public GameObject[] worldProps;
+    private int cuantityOfProps;
 
     [Header("Enemies")]
     private List<Vector3> enemyPositions = new List<Vector3>();
@@ -63,6 +64,8 @@ public class GenPerlinNoise : MonoBehaviour
 
         _worldSizeX = PlayerPrefs.GetInt("SizeX");
         _worldSizeZ = PlayerPrefs.GetInt("SizeZ");
+
+        cuantityOfProps = (_worldSizeX * _worldSizeZ) / 40;
         // Genera una semilla aleatoria
         if(PlayerPrefs.HasKey("Seed"))
         {
@@ -346,7 +349,7 @@ public class GenPerlinNoise : MonoBehaviour
     private void SpawnObject()
     {
         //Aqui se puede usar la misma logica de altura para determinar que gameobject se spawnea , yo lo hago aleatorio pero es bastante feo
-        for(int i = 0; i<40;i++)
+        for(int i = 0; i<cuantityOfProps;i++)
         {
            
             GameObject toPlaceObject = Instantiate(worldProps[Random.Range(0, worldProps.Length)], ObjectsSpawnLocation(), Quaternion.Euler(0,Random.Range(0,360),0));

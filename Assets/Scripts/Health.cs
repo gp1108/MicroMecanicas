@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     }
     public tipoDeVida tipoVida;
     public float healthPoints;
-    public Slider healthSlider;
+    public Canvas healthSlider;
     private GameObject mainCamera;
     private bool _slow;
     private GameObject _barraVida;
@@ -35,17 +35,24 @@ public class Health : MonoBehaviour
         _slow = false;
         tipoVida = tipoDeVida.Estandar;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        StartCoroutine("SliderTracksCamera");
+       
+        
         if (this.gameObject.tag != ("TownHall"))
         {
-            healthSlider.maxValue = healthPoints;
-            healthSlider.value = healthPoints;
-            healthSlider.GetComponentInChildren<Image>().enabled = false;
+            healthSlider = this.GetComponentInChildren<Canvas>();
+            //healthSlider = this.GetComponent<Slider>();
+            healthSlider.GetComponentInChildren<Slider>().maxValue = healthPoints;
+            healthSlider.GetComponentInChildren<Slider>().value = healthPoints;
+            healthSlider.enabled = false;
+     
+            
         }
         if (this.name == "MainStructure(Clone)")
         {
             UpdateVida();
         }
+
+        
 
 
     }
@@ -90,8 +97,9 @@ public class Health : MonoBehaviour
         }
         if (this.gameObject.tag != ("TownHall"))
         {
-            healthSlider.GetComponentInChildren<Image>().enabled = true;
-            healthSlider.value = healthPoints;
+            healthSlider.enabled = true;
+            healthSlider.GetComponentInChildren<Slider>().value = healthPoints;
+            StartCoroutine("SliderTracksCamera");
         }
         if (this.gameObject.tag == ("TownHall"))
         {
@@ -161,7 +169,7 @@ public class Health : MonoBehaviour
             if (this.gameObject.tag != ("TownHall"))
             {
                 Vector3 cameraposition = mainCamera.transform.position;
-                healthSlider.transform.LookAt(cameraposition);
+                healthSlider.gameObject.transform.parent.transform.LookAt(cameraposition);
                 //healthSlider.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             }
             yield return new WaitForSeconds(0.05f);

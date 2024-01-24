@@ -137,7 +137,7 @@ public class UpgradeManager : MonoBehaviour
         cadenceB = PlayerPrefs.GetFloat("cadenceB");
         rangeB = PlayerPrefs.GetFloat("rangeB");
         visionB = PlayerPrefs.GetFloat("visionB");
-        //Torreta Ametralladora
+        //Torreta Ametralladora //REVISAR
         vidaA = PlayerPrefs.GetFloat("vidaA");
         damagedA = PlayerPrefs.GetFloat("damagedA");
         cadenceA = PlayerPrefs.GetFloat("cadenceA");
