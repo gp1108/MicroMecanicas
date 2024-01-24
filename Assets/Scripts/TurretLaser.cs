@@ -23,9 +23,11 @@ public class TurretLaser : MonoBehaviour
     [Header("RangeIndicator")]
     public GameObject rangeIndicator;
     private bool _mostrarRango;
+    private GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GameObject.Find("Canvas");
         gameManager.giveMeReference.GetTurret(this.gameObject);
         _ataking = false;
         _damaged = 0.1f;
@@ -151,11 +153,20 @@ public class TurretLaser : MonoBehaviour
     }
     private void Mostrar()
     {
-        rangeIndicator.transform.position = this.transform.position;
-        rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2);
+        bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
+        if (isDestroyModeActive == false)
+        {
+            rangeIndicator.transform.position = this.transform.position;
+            rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+            rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2);
 
-        _mostrarRango = true;
+            _mostrarRango = true;
+        }
+        else
+        {
+            return;
+        }
+
     }
     private void Ocultar()
     {
