@@ -25,6 +25,7 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject mineButton;
     public GameObject slowTurretButton;
     public GameObject explosiveMineButton;
+    public GameObject machineGunButton;
 
 
     public void Start()
@@ -206,6 +207,17 @@ public class BuildMenuButton : MonoBehaviour
         }
     }
 
+    public void MachineGunIndex()
+    {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        BuildManager.dameReferencia.GetStructurePrefabIndex(9);
+        if (destroyModeActive == true)
+        {
+            destroyModeActive = false;
+            destroyButton.GetComponent<Image>().color = Color.white;
+        }
+    }
+
 
     IEnumerator GoldCheck()
     {
@@ -300,6 +312,15 @@ public class BuildMenuButton : MonoBehaviour
             else
             {
                 explosiveMineButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.machingunTurretCost > gameManager.giveMeReference.gold)
+            {
+                machineGunButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                machineGunButton.GetComponent<Button>().interactable = true;
             }
             yield return new WaitForSeconds(0.3f);
         }

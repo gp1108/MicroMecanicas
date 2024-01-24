@@ -26,6 +26,8 @@ TagManager:
   - FlyEnemies
   - MainMenuCanvas
   - SlowTurret
+  - MachineGunTurret
+  - ExplosiveMine
   layers:
   - Default
   - TransparentFX

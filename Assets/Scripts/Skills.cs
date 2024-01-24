@@ -142,6 +142,7 @@ public class Skills : MonoBehaviour
     public GameObject minesButton;
     public GameObject sniperTurretButton;
     public GameObject laserTurretButton;
+    public GameObject machingunTurretButton;
     private void Start()
     {
         
@@ -234,7 +235,7 @@ public class Skills : MonoBehaviour
                     {
                         skillCanBeUnlocked[SkillName.unlockLaserTurret] = true;
                         skillCanBeUnlocked[SkillName.unlockMortarTurret] = true;
-
+                        machingunTurretButton.SetActive(true);
                         UnlockSkillLogic(skill);
 
                         //Logica

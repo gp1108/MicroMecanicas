@@ -72,6 +72,10 @@ public class DestroyStructure : MonoBehaviour
                         Debug.Log("Enter");
                         //childRenderer.material.color = changeColor;
                     }
+                    else if (this.gameObject.tag == "MachineGunTurret")
+                    {
+                        
+                    }
 
                 }
             }
@@ -158,6 +162,17 @@ public class DestroyStructure : MonoBehaviour
                     BuildManager.dameReferencia.PriceUpdate(7, false);
                     SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
                 }
+                else if (this.gameObject.tag == "ExplosiveMine")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(8, false);
+                    SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
+                }
+                else if (this.gameObject.tag == "MachineGunTurret")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(9, false);
+                    SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
+                }
+               
 
             }
         }
