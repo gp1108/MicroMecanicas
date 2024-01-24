@@ -5,21 +5,28 @@ using UnityEngine;
 public class DestroyStructure : MonoBehaviour
 {
     private GameObject canvas;
-    private Color changeColor = Color.red;
-    private Color originalColor;
+    [SerializeField] private Material changeColor;
+    private Material[] originalColor;
+    
 
     private void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
-        /*
+        
 
         foreach (Renderer childRenderer in childRenderers)
         {
-            originalColor = childRenderers[0].material.color;
-            childRenderer.material.color = originalColor;
+            originalColor = childRenderer.materials;
+
+            
+            for (int i = 0; i < childRenderers.Length; i++)
+            {
+                originalColor = childRenderers[i].materials;
+            }
+            
         }
-        */
+        
     }
 
     private void OnMouseEnter()
@@ -33,56 +40,37 @@ public class DestroyStructure : MonoBehaviour
                 if (this.gameObject.tag == "Wall")
                 {
                     Debug.Log("Enter");
-                    childRenderer.material.color = changeColor;
+                    childRenderer.material = changeColor;
                 }
                 else
                 {
-                    if (this.gameObject.tag == "BaseTurret")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "OtherTurret")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "Taller")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "SniperTurret")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "LaserTurret")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "Mine")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "SlowTurret")
-                    {
-                        Debug.Log("Enter");
-                        //childRenderer.material.color = changeColor;
-                    }
-                    else if (this.gameObject.tag == "MachineGunTurret")
-                    {
-                        
-                    }
+                    CambiarColorARojo();
 
                 }
             }
         }
     }
 
-    /*
+    private void CambiarColorARojo()
+    {
+        Renderer[] NewchildRenderers = this.gameObject.GetComponentsInChildren<Renderer>();
+
+
+        foreach (Renderer NewchildRenderer in NewchildRenderers)
+        {
+            Material[] newMaterials = NewchildRenderer.materials;
+
+            for (int i = 0; i < newMaterials.Length; i++)
+            {
+                newMaterials[i] = changeColor;
+            }
+            NewchildRenderer.materials = newMaterials;
+            NewchildRenderer.enabled = true;
+           
+        }
+    }
+
+    
     private void OnMouseExit()
     {
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
@@ -94,14 +82,22 @@ public class DestroyStructure : MonoBehaviour
 
     public void volverColorOri()
     {
-        Renderer[] childRenderers = GetComponentsInChildren<Renderer>();
+        Renderer[] childRenderers = this.gameObject.GetComponentsInChildren<Renderer>();
 
         foreach (Renderer childRenderer in childRenderers)
         {
-            childRenderer.material.color = originalColor;
+
+            childRenderer.materials = originalColor;
+            /*
+            for (int i = 0; i < childRenderers.Length; i++)
+            {
+                childRenderer.material = originalColor;
+                childRenderers[i] = childRenderer;
+            }
+            */
         }
     }
-    */
+    
     private void OnMouseUpAsButton()
     {
         

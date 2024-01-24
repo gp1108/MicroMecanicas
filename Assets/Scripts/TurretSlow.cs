@@ -11,10 +11,12 @@ public class TurretSlow : MonoBehaviour
     public GameObject rangeIndicator;
     private bool _mostrarRango;
     public GameObject buildMenu;
+
+    private GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvas = GameObject.Find("Canvas");
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         buildMenu = GameObject.FindGameObjectWithTag("Canvas");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
@@ -55,15 +57,7 @@ public class TurretSlow : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
-        {
-            return;
-        }
-        else
-        {
-            Mostrar();
-        }
-
+        Mostrar();
     }
 
     private void OnMouseExit()
@@ -74,11 +68,20 @@ public class TurretSlow : MonoBehaviour
 
     private void Mostrar()
     {
-        rangeIndicator.transform.position = this.transform.position;
-        rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-        rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeSlow * 2, UpgradeManager.giveMeReference.rangeSlow * 2, UpgradeManager.giveMeReference.rangeSlow * 2);
+        bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
+        if (isDestroyModeActive == false)
+        {
+            rangeIndicator.transform.position = this.transform.position;
+            rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+            rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeSlow * 2, UpgradeManager.giveMeReference.rangeSlow * 2, UpgradeManager.giveMeReference.rangeSlow * 2);
 
-        _mostrarRango = true;
+            _mostrarRango = true;
+        }
+        else
+        {
+            return;
+        }
+
     }
 
     private void Ocultar()
