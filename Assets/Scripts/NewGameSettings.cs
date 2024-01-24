@@ -49,28 +49,88 @@ public class NewGameSettings : MonoBehaviour
         }
     }
 
-    public void InputTextFieldDeselected()
+    public void InputTextFieldselected()
     {
         if(string.IsNullOrEmpty(sizeXtext.text))
         {
+            PlayerPrefs.SetInt("SizeX", 40);
             return;
+
         }
         else
         {
             if(int.TryParse(sizeXtext.text, out int valorEntero))
             {
-                PlayerPrefs.SetInt("SizeX", valorEntero);
+                
+                
+                    PlayerPrefs.SetInt("SizeX", valorEntero);
+                
+                
             }
         }
         if(string.IsNullOrEmpty(sizeZtext.text))
         {
+            PlayerPrefs.SetInt("SizeZ", 40);
             return;
         }
         else
         {
             if (int.TryParse(sizeZtext.text, out int valorEntero))
             {
-                PlayerPrefs.SetInt("SizeZ", valorEntero);
+                
+               
+                    PlayerPrefs.SetInt("SizeZ", valorEntero);
+                
+                
+            }
+        }
+
+        ReloadMap();
+    }
+
+    public void InputTextFieldDeselected()
+    {
+        if (string.IsNullOrEmpty(sizeXtext.text))
+        {
+            PlayerPrefs.SetInt("SizeX", 40);
+            return;
+
+        }
+        else
+        {
+            if (int.TryParse(sizeXtext.text, out int valorEntero))
+            {
+                if (valorEntero < 20)
+                {
+                    PlayerPrefs.SetInt("SizeX", 20);
+                    sizeXtext.text = 20.ToString();
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("SizeX", valorEntero);
+                }
+
+            }
+        }
+        if (string.IsNullOrEmpty(sizeZtext.text))
+        {
+            PlayerPrefs.SetInt("SizeZ", 40);
+            return;
+        }
+        else
+        {
+            if (int.TryParse(sizeZtext.text, out int valorEntero))
+            {
+                if (valorEntero < 20)
+                {
+                    PlayerPrefs.SetInt("SizeZ", 20);
+                    sizeZtext.text = 20.ToString();
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("SizeZ", valorEntero);
+                }
+
             }
         }
 
