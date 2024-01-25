@@ -13,13 +13,15 @@ public class Enemy1 : MonoBehaviour
     private float _timePass;
     private float _cadencia;
     private bool _atac;
+    private Animator _animator;
 
 
 
 
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("Caminando", true);
         _townHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
         GetComponent<Health>().healthPoints = 10;
@@ -50,13 +52,15 @@ public class Enemy1 : MonoBehaviour
                 // Establece ese punto como destino
                 _navAgent.SetDestination(closestPoint);
             }
-            if (Vector3.Distance(this.transform.position,_townHall.transform.position)< 1.5f)
+            if (Vector3.Distance(this.transform.position,_townHall.transform.position)< 3f)
             {
                 _navAgent.isStopped = true;
+                _animator.SetBool("Caminando", false);
             }
             else
             {
                 _navAgent.isStopped = false;
+                _animator.SetBool("Caminando", true);
             }
         }
 

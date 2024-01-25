@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011092194845147991}
-  m_LocalRotation: {x: 0.6903446, y: 0.15304571, z: 0.69034654, w: 0.15304619}
-  m_LocalPosition: {x: 0.07130122, y: 0.4183831, z: -0.16835491}
+  m_LocalRotation: {x: 0.653362, y: 0.27033138, z: 0.65341306, w: 0.27035236}
+  m_LocalPosition: {x: -0.198, y: 0.41838312, z: -0.099}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6018553592648400561}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 155}
+  m_LocalEulerAnglesHint: {x: 0, y: 89.996, z: 135.045}
 --- !u!33 &4398586492636338469
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,14 +108,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2902754571068977159}
-  m_LocalRotation: {x: -0.122787565, y: 0.6963633, z: -0.12278797, w: 0.6963653}
-  m_LocalPosition: {x: 0.071454525, y: 0.40730032, z: 0.16914532}
+  m_LocalRotation: {x: 0.1429808, y: 0.6924719, z: 0.14299199, w: 0.6925261}
+  m_LocalPosition: {x: 0.191, y: 0.40730047, z: -0.099}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6018553592648400561}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -20}
+  m_LocalEulerAnglesHint: {x: 0, y: 89.996, z: 23.333}
 --- !u!33 &1875573019524463613
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: -3641440644854262617}
   - component: {fileID: 1303797520509774723}
   - component: {fileID: -7268342267307622195}
-  - component: {fileID: 6743004723248029453}
+  - component: {fileID: -8185624202702261339}
   m_Layer: 0
   m_Name: Trex
   m_TagString: Untagged
@@ -225,8 +225,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9107141, y: 0.7105479, z: 0.46589947}
-  m_Center: {x: 0.024709225, y: 0.34946036, z: -0.0017457008}
+  m_Size: {x: 0.53397375, y: 0.7105479, z: 1.037308}
+  m_Center: {x: -0.020195454, y: 0.34946036, z: 0.012770236}
 --- !u!195 &-3641440644854262617
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -278,27 +278,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _torret: []
---- !u!65 &6743004723248029453
-BoxCollider:
+--- !u!95 &-8185624202702261339
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6072003136923084590}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.4490261, y: 0.50505793, z: 0.51439667}
-  m_Center: {x: 0, y: 0.24747103, z: 0.051362038}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45c26b6b1aad583489c5d18390cf8b01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8599834996326310018
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,14 +324,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8599834996326310018}
-  m_LocalRotation: {x: -0.0000000056190643, y: 0.70710576, z: -0.000000036527744, w: 0.70710784}
-  m_LocalPosition: {x: 0.009, y: 0.48170048, z: 0.001}
+  m_LocalRotation: {x: -0, y: 0.7070792, z: -0, w: 0.7071345}
+  m_LocalPosition: {x: 0.005, y: 0.48170042, z: -0.037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6018553592648400561}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 89.996, z: 0}
 --- !u!33 &5173305340501955513
 MeshFilter:
   m_ObjectHideFlags: 0

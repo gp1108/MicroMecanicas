@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 4027986403561880193}
   - component: {fileID: 8646300354267970899}
   - component: {fileID: -3018681736284094243}
+  - component: {fileID: 313852902877075852}
   m_Layer: 6
   m_Name: raptor 1
   m_TagString: Enemies
@@ -379,6 +380,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!95 &313852902877075852
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528030040504456344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6e53cd99f1c705468f23bbaf9a5c0c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7861216124682408532
 PrefabInstance:
   m_ObjectHideFlags: 0
