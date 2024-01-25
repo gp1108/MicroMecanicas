@@ -32,23 +32,23 @@ public class ExternalSkills : MonoBehaviour
     public Dictionary<externalSkillName, int> skillCost = new Dictionary<externalSkillName, int>
     {
         {externalSkillName.moreDamageBasicTurret, 1 },
-        {externalSkillName.moreRangeBasicTurret,1 },
+        {externalSkillName.moreRangeBasicTurret,2 },
         {externalSkillName.moreHealthBasicTurret,55 },
 
         {externalSkillName.moreSlowSlowTurret,1 },
-        {externalSkillName.moreRangeSlowTurret,1 },
-        {externalSkillName.moreHealthSlowTurret,1 },
-        {externalSkillName.unlockSlowTurret,1 },
+        {externalSkillName.moreRangeSlowTurret,2 },
+        {externalSkillName.moreHealthSlowTurret,3 },
+        {externalSkillName.unlockSlowTurret,4 },
 
         {externalSkillName.unlockMineTurret,1 },
-        {externalSkillName.moreDamageMineTurret,1 },
-        {externalSkillName.moreRangeMineTurret,1 },
+        {externalSkillName.moreDamageMineTurret,2 },
+        {externalSkillName.moreRangeMineTurret,3 },
         
 
         {externalSkillName.oneReseachPointExtra,10 },
-        {externalSkillName.moreGoldPerMine,10 },
-        {externalSkillName.startWithExtraGold,10 },
-        {externalSkillName.startWithExtraResearchPoints,10 },
+        {externalSkillName.moreGoldPerMine,11 },
+        {externalSkillName.startWithExtraGold,12 },
+        {externalSkillName.startWithExtraResearchPoints,13 },
 
 
     };
@@ -124,8 +124,24 @@ public class ExternalSkills : MonoBehaviour
     public TMP_Text skill12text;
     public TMP_Text skill13text;
 
+    [Header("SkillsCosteText")]
+    public TMP_Text skillCost1text;
+    public TMP_Text skillCost2text;
+    public TMP_Text skillCost3text;
+    public TMP_Text skillCost4text;
+    public TMP_Text skillCost5text;
+    public TMP_Text skillCost6text;
+    public TMP_Text skillCost7text;
+    public TMP_Text skillCost8text;
+    public TMP_Text skillCost9text;
+    public TMP_Text skillCost10text;
+    public TMP_Text skillCost11text;
+    public TMP_Text skillCost12text;
+    public TMP_Text skillCost13text;
+    public TMP_Text skillCost14text;
 
-   
+
+
 
     //Puntos externos Quizas deban ir en el gamemanager, tambien deben ser guardables entre partida
     private float externalSkillPoints;
@@ -257,6 +273,28 @@ public class ExternalSkills : MonoBehaviour
         skill11text.text = PlayerPrefs.GetFloat("moreGoldPerMineAmount").ToString() + "/3";
         skill12text.text = PlayerPrefs.GetFloat("startWithMoreGoldAmount").ToString() + "/3";
         skill13text.text = PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount").ToString() + "/3";
+
+
+
+        skillCost1text.text = skillCost[externalSkillName.moreDamageBasicTurret].ToString() + " SP";
+        skillCost2text.text = skillCost[externalSkillName.moreRangeBasicTurret].ToString() + " SP";
+        skillCost3text.text = skillCost[externalSkillName.moreHealthBasicTurret].ToString() + " SP";
+
+        skillCost13text.text = skillCost[externalSkillName.unlockSlowTurret].ToString() + " SP";
+        skillCost4text.text = skillCost[externalSkillName.moreSlowSlowTurret].ToString() + " SP";
+        skillCost5text.text = skillCost[externalSkillName.moreRangeSlowTurret].ToString() + " SP";
+        skillCost6text.text = skillCost[externalSkillName.moreHealthSlowTurret].ToString() + " SP";
+
+        skillCost14text.text = skillCost[externalSkillName.unlockMineTurret].ToString() + " SP";
+        skillCost7text.text = skillCost[externalSkillName.moreDamageMineTurret].ToString() + " SP";
+        skillCost8text.text = skillCost[externalSkillName.moreRangeMineTurret].ToString() + " SP";
+
+        skillCost9text.text = skillCost[externalSkillName.oneReseachPointExtra].ToString() + " SP";
+        skillCost10text.text = skillCost[externalSkillName.moreGoldPerMine].ToString() + " SP";
+        skillCost11text.text = skillCost[externalSkillName.startWithExtraGold].ToString() + " SP";
+        skillCost12text.text = skillCost[externalSkillName.startWithExtraResearchPoints].ToString() + " SP";
+
+
 
         externalSkillPointsText.text = "Skill Points: " + PlayerPrefs.GetFloat("externalResearchPoints");
     }
@@ -513,6 +551,7 @@ public class ExternalSkills : MonoBehaviour
                         UnlockSkillLogic(skill);
                         
                         //Falta la logica que desbloque la torreta de slows
+                        //Creo q la logica esta , se desarrolla al checkear ingame si la variable unlockSlowTurret es 1 o 0
 
 
                     }                  

@@ -65,6 +65,15 @@ public class GenPerlinNoise : MonoBehaviour
         _worldSizeX = PlayerPrefs.GetInt("SizeX");
         _worldSizeZ = PlayerPrefs.GetInt("SizeZ");
 
+        if(_worldSizeX < 20)
+        {
+            _worldSizeX = 20;
+        }
+        if(_worldSizeZ < 20)
+        {
+            _worldSizeZ = 20;
+        }
+
         cuantityOfProps = (_worldSizeX * _worldSizeZ) / 40;
         // Genera una semilla aleatoria
         if(PlayerPrefs.HasKey("Seed"))
@@ -310,7 +319,7 @@ public class GenPerlinNoise : MonoBehaviour
         SpawnEnemiesSpawners();
 
         MetodoBuscar3();
-        SpawnMainStructure();
+        
 
         
 
@@ -384,9 +393,9 @@ public class GenPerlinNoise : MonoBehaviour
 
     void MetodoBuscar3()
     {
-        for (int x= 10; x < _worldSizeX-10; x++)
+        for (int x= 0; x < _worldSizeX; x++)
         {
-            for (int z =10; z < _worldSizeZ-10; z++)
+            for (int z =0; z < _worldSizeZ; z++)
             {
                 int currentNoise = Mathf.RoundToInt(GenerateNoise(x, z, _detailScale) * _noiseHeight);
                 if(currentNoise == 1 || currentNoise == 2)
@@ -426,7 +435,8 @@ public class GenPerlinNoise : MonoBehaviour
                             {
                                 checkXpos =reCheckXpos;
                                 checkZpos =reCheckZpos;
-                                posicionGenerador = new Vector3(x + 1, 10, z + 1);
+                                posicionGenerador = new Vector3(x + 1, 15, z + 1);
+                                
                             }
                             
                         }
@@ -436,6 +446,7 @@ public class GenPerlinNoise : MonoBehaviour
                 }
             }
         }
+        SpawnMainStructure();
 
 
     }
