@@ -156,8 +156,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6327747315608668778}
   - {fileID: 3888218336769587524}
+  - {fileID: 6327747315608668778}
   - {fileID: 8240065875155739457}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
     m_Bits: 64
   _target: {fileID: 0}
   bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
-  exitBullet: {fileID: 8105252476284360794, guid: e359228efb9deaa45b4ab719c239b7a5, type: 3}
+  exitBullet: {fileID: 7796904960015793753}
   _enemies: []
   _collidersEnemies: []
   rangeIndicator: {fileID: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipoVida: 0
   healthPoints: 0
-  healthSlider: {fileID: 6474420422881103409}
+  healthSlider: {fileID: 0}
 --- !u!1 &3308728608216182207
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,10 +391,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3441281537877212431}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.068, z: -0}
+  m_LocalPosition: {x: 0, y: 0.068, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5764356792041713754}
   m_Father: {fileID: 5502050211378855820}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -720,3 +721,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7796904960015793753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5764356792041713754}
+  m_Layer: 0
+  m_Name: Salida Bala
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5764356792041713754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796904960015793753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 0.548, z: -0.937}
+  m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3888218336769587524}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
