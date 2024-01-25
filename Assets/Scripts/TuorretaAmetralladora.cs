@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TurretAir : MonoBehaviour
+public class TuorretaAmetralladora : MonoBehaviour
 {
     public LayerMask layer;
     private Vector3 _lookAt;
@@ -33,10 +32,9 @@ public class TurretAir : MonoBehaviour
         _mostrarRango = false;
         _attacking = false;
         _velocitiRotation = 8;
-        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaA;
+        GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaAm;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
-
     }
 
     // Update is called once per frame
@@ -57,47 +55,77 @@ public class TurretAir : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
+
                     if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
                         _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
+
                         _target = _Enemy.gameObject;
+
                     }
+
                 }
+
+
             }
-            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionA)
+            if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionAm)
             {
+
+
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
+
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
+
                 Attack();
+
+
             }
         }
+
+
+
     }
     public void Attack()
     {
-        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeA && _attacking == false)
+
+        if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeAm && _attacking == false)
         {
+
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
+
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
-            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedA;
+
+            _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedAm;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
+
             _attacking = true;
-            _cadence = UpgradeManager.giveMeReference.cadenceA;
+
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
+
+            _cadence = UpgradeManager.giveMeReference.cadenceAm;
+
         }
         if (_attacking == true)
         {
+
             _accumulatedTime += Time.deltaTime;
+
             if (_accumulatedTime > _cadence)
             {
                 _attacking = false;
+
                 _accumulatedTime = 0;
             }
         }
     }
     public void GetEnemy()
     {
-        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionA, layer);
+        _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionAm, layer);
+
         _enemies = _collidersEnemies.ToList();
+
+
         if (_enemies.Count == 0)
         {
             return;
@@ -110,16 +138,21 @@ public class TurretAir : MonoBehaviour
         {
             _target = _enemies[0].gameObject;
         }
+
+
     }
 
     private void OnMouseUpAsButton()
     {
         Mostrar();
     }
+
     private void OnMouseExit()
     {
         Ocultar();
     }
+
+
     private void Mostrar()
     {
         bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
@@ -127,7 +160,8 @@ public class TurretAir : MonoBehaviour
         {
             rangeIndicator.transform.position = this.transform.position;
             rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
-            rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeA * 2, UpgradeManager.giveMeReference.rangeA * 2, UpgradeManager.giveMeReference.rangeA * 2);
+            rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeAm * 2, UpgradeManager.giveMeReference.rangeAm * 2, UpgradeManager.giveMeReference.rangeAm * 2);
+
             _mostrarRango = true;
         }
         else

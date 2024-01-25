@@ -332,6 +332,13 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("visionB", 15);
 
         //Torreta Ametralladora
+        CheckPlayerPrefsKey("vidaAm", 10);
+        CheckPlayerPrefsKey("damagedAm", 5);
+        CheckPlayerPrefsKey("cadenceAm", 0.3f);
+        CheckPlayerPrefsKey("rangeAm", 10);
+        CheckPlayerPrefsKey("visionAm", 15);
+
+        //Torreta Aerea
         CheckPlayerPrefsKey("vidaA", 10);
         CheckPlayerPrefsKey("damagedA", 5);
         CheckPlayerPrefsKey("cadenceA", 1);

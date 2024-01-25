@@ -49,6 +49,13 @@ public class UpgradeManager : MonoBehaviour
     public float rangeB;
     public float visionB;
 
+    [Header("TurrerAmetralladora")]
+    public float vidaAm;
+    public float damagedAm;
+    public float cadenceAm;
+    public float rangeAm;
+    public float visionAm;
+
     [Header("TurretAir")]
     public float vidaA;
     public float damagedA;
@@ -137,7 +144,13 @@ public class UpgradeManager : MonoBehaviour
         cadenceB = PlayerPrefs.GetFloat("cadenceB");
         rangeB = PlayerPrefs.GetFloat("rangeB");
         visionB = PlayerPrefs.GetFloat("visionB");
-        //Torreta Ametralladora //REVISAR
+        //Torreta Ametralladora
+        vidaAm = PlayerPrefs.GetFloat("vidaAm");
+        damagedAm = PlayerPrefs.GetFloat("damagedAm");
+        cadenceAm = PlayerPrefs.GetFloat("cadenceAm");
+        rangeAm = PlayerPrefs.GetFloat("rangeAm");
+        visionAm = PlayerPrefs.GetFloat("visionAm");
+        //Torreta Aerea 
         vidaA = PlayerPrefs.GetFloat("vidaA");
         damagedA = PlayerPrefs.GetFloat("damagedA");
         cadenceA = PlayerPrefs.GetFloat("cadenceA");

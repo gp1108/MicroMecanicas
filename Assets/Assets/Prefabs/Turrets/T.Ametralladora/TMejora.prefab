@@ -101,12 +101,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3537964821524186359}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.11109334, y: 0.77488667, z: 0.45167074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11198217, y: -0.44586408, z: 0.54469705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7744801713543750756}
+  m_Father: {fileID: 167062534125591439}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6898700284744345727
@@ -271,7 +271,10 @@ Transform:
   m_LocalPosition: {x: -0.00088882446, y: 0.23018977, z: 0.005806882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5206494612142247079}
+  - {fileID: 5281077888817015560}
+  - {fileID: 6441589753655916113}
   m_Father: {fileID: 7744801713543750756}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -329,6 +332,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4981061143924666173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6441589753655916113}
+  m_Layer: 0
+  m_Name: SalidaBala
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6441589753655916113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981061143924666173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.027, y: -0.891, z: 0.545}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.11}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 167062534125591439}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6628537867572551079
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,12 +388,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6628537867572551079}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.07284689, y: 0.77488667, z: 0.45167074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.071958065, y: -0.44586396, z: 0.5446969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7744801713543750756}
+  m_Father: {fileID: 167062534125591439}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2971250283467689939
@@ -423,7 +457,7 @@ GameObject:
   - component: {fileID: 7744801713543750756}
   - component: {fileID: 5551307421542564971}
   - component: {fileID: 1982251089125262767}
-  - component: {fileID: 2948568762463353339}
+  - component: {fileID: -4475037689904121695}
   - component: {fileID: 3969807969186234087}
   - component: {fileID: 584999008271935299}
   - component: {fileID: 3180069370143507496}
@@ -447,13 +481,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6568417039621853946}
   - {fileID: 167062534125591439}
-  - {fileID: 5206494612142247079}
-  - {fileID: 5281077888817015560}
+  - {fileID: 6568417039621853946}
   - {fileID: 2290114499326353594}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5551307421542564971
 Rigidbody:
@@ -495,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabSize: {fileID: 1663677630554752822, guid: c88926d64fe52404f867efe02beeedee, type: 3}
---- !u!114 &2948568762463353339
+--- !u!114 &-4475037689904121695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -504,7 +536,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7280593105706662180}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28d0805c2fdfb847adceabd80e42f4c, type: 3}
+  m_Script: {fileID: 11500000, guid: d85b40d3341842142a89bbaac3c90806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layer:
@@ -512,7 +544,7 @@ MonoBehaviour:
     m_Bits: 64
   _target: {fileID: 0}
   bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
-  exitBullet: {fileID: 8105252476284360794, guid: e359228efb9deaa45b4ab719c239b7a5, type: 3}
+  exitBullet: {fileID: 4981061143924666173}
   _enemies: []
   _collidersEnemies: []
   rangeIndicator: {fileID: 0}

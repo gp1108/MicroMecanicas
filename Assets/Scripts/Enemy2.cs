@@ -17,9 +17,12 @@ public class Enemy2 : MonoBehaviour
     private float _distance;
     private bool _atac;
     [SerializeField] private GameObject [] _torret;
+    private Animator _animator;
 
     void Start()
     {
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("Caminando", true);
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
@@ -37,6 +40,16 @@ public class Enemy2 : MonoBehaviour
         {
             //_navAgent.SetDestination(_TownHall.transform.position);
             _target= _TownHall;
+            if (Vector3.Distance(this.transform.position, _target.transform.position) < 3f)
+            {
+                _navAgent.isStopped = true;
+                _animator.SetBool("Caminando", false);
+            }
+            else
+            {
+                _navAgent.isStopped = false;
+                _animator.SetBool("Caminando", true);
+            }
         }
         if (_torret.Length >= 1)
         {
@@ -62,6 +75,16 @@ public class Enemy2 : MonoBehaviour
                         _target = _TORRET;
                     }
                 }
+            }
+            if (Vector3.Distance(this.transform.position, _target.transform.position) < 1f)
+            {
+                _navAgent.isStopped = true;
+                _animator.SetBool("Caminando", false);
+            }
+            else
+            {
+                _navAgent.isStopped = false;
+                _animator.SetBool("Caminando", true);
             }
         }
         if(_target != null)
