@@ -5906,6 +5906,11 @@ MonoBehaviour:
   cadenceB: 0
   rangeB: 0
   visionB: 0
+  vidaAm: 0
+  damagedAm: 0
+  cadenceAm: 0
+  rangeAm: 0
+  visionAm: 0
   vidaA: 0
   damagedA: 0
   cadenceA: 0
@@ -9379,7 +9384,7 @@ MonoBehaviour:
   - {fileID: 2618926512374910132, guid: bd4a036db32f0144b80f82eebdbb6e8b, type: 3}
   - {fileID: 5429961024855346938, guid: ae95e0b401054ba45a5bdef7620b9168, type: 3}
   - {fileID: 7027176490577916565, guid: de6086e6bc4f4864da07537f2913ded3, type: 3}
-  - {fileID: 1087948955034397494, guid: 4a1f26a81170ece48b186c1f8bb0cd12, type: 3}
+  - {fileID: 6990694509121408762, guid: c2c7aca1e395da04bbe691904c0639b4, type: 3}
   - {fileID: 0}
   aviableInstance: {fileID: 2100000, guid: 47e26f5795720714898637160bcf5028, type: 2}
   unAviableInstance: {fileID: 2100000, guid: 0f5e32225884a48429f1d7ce675958b0, type: 2}
