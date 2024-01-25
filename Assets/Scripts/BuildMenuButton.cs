@@ -26,6 +26,7 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject slowTurretButton;
     public GameObject explosiveMineButton;
     public GameObject machineGunButton;
+    public GameObject mortarTurretButton;
 
 
     public void Start()
@@ -218,6 +219,17 @@ public class BuildMenuButton : MonoBehaviour
         }
     }
 
+    public void MortarTurretIndex()
+    {
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        BuildManager.dameReferencia.GetStructurePrefabIndex(10);
+        if (destroyModeActive == true)
+        {
+            destroyModeActive = false;
+            destroyButton.GetComponent<Image>().color = Color.white;
+        }
+    }
+
 
     IEnumerator GoldCheck()
     {
@@ -321,6 +333,15 @@ public class BuildMenuButton : MonoBehaviour
             else
             {
                 machineGunButton.GetComponent<Button>().interactable = true;
+            }
+
+            if (BuildManager.dameReferencia.mortarTurretCost > gameManager.giveMeReference.gold)
+            {
+                mortarTurretButton.GetComponent<Button>().interactable = false;
+            }
+            else
+            {
+                mortarTurretButton.GetComponent<Button>().interactable = true;
             }
             yield return new WaitForSeconds(0.3f);
         }

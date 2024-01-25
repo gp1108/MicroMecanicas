@@ -28,6 +28,7 @@ public class Mortero : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _attacking=false;
         _velocitiRotation = 8;
         gameManager.giveMeReference.GetTurret(this.gameObject);
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaMortero;
@@ -40,6 +41,7 @@ public class Mortero : MonoBehaviour
     {
         _salidaBala.transform.rotation = Quaternion.Euler(0f,0f,0f);
         GetEnemy();
+        GetTarget();
     }
     public void GetTarget()
     {
@@ -60,10 +62,9 @@ public class Mortero : MonoBehaviour
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionMortero)
             {
-                _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-                transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
+                Vector3 targetPosition = new Vector3(_target.transform.position.x , transform.position.y, _target.transform.position.z);
+                transform.GetChild(0).LookAt(targetPosition);
                 Attack();
-
             }
         }
     }

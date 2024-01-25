@@ -26,7 +26,15 @@ public class DestroyStructure : MonoBehaviour
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
         if (isDestructiveModeActive == true)
         {
-            destroyUI.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1.5f, this.gameObject.transform.position.z);
+            if(this.gameObject.tag == "Taller")
+            {
+                destroyUI.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 2.75f, this.gameObject.transform.position.z);
+            }
+            else
+            {
+                destroyUI.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1.5f, this.gameObject.transform.position.z);
+            }
+            
            
         }
     }
@@ -114,7 +122,12 @@ public class DestroyStructure : MonoBehaviour
                     BuildManager.dameReferencia.PriceUpdate(9, false);
                     SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
                 }
-               
+                else if (this.gameObject.tag == "MortarTurret")
+                {
+                    BuildManager.dameReferencia.PriceUpdate(10, false);
+                    SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
+                }
+
 
             }
         }

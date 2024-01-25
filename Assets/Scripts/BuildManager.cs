@@ -38,6 +38,7 @@ public class BuildManager : MonoBehaviour
     public int slowTurretCost;
     public int explosiveMineCost;
     public int machingunTurretCost;
+    public int mortarTurretCost;
     [Header("Gold Texts")]
     public TMP_Text textWallCost;
     public TMP_Text textBaseTurretCost;
@@ -49,6 +50,7 @@ public class BuildManager : MonoBehaviour
     public TMP_Text textSlowTurretCost;
     public TMP_Text textExplosiveMineCost;
     public TMP_Text textMachinGunTurretCost;
+    public TMP_Text textMortarTurretCost;
 
 
     public static BuildManager dameReferencia
@@ -88,6 +90,7 @@ public class BuildManager : MonoBehaviour
         slowTurretCost = 200;
         explosiveMineCost = 100;
         machingunTurretCost = 50;
+        mortarTurretCost = 400;
         UpdatePriceUI();
 
         goldToPay = 5; // igualo aqui al precio de los muros para evitar un bug en el que la partida carga y puedes construir muros sin gastar dinero
@@ -246,6 +249,10 @@ public class BuildManager : MonoBehaviour
         {
             goldToPay = machingunTurretCost;
         }
+        else if (_structureIndex == 10)
+        {
+            goldToPay = mortarTurretCost;
+        }
     } //Determina el valor a pagar segun la estructura
     public void PriceUpdate(int Index, bool moreCost) //Aumenta o disminuye el precio de construccion de los objetos
     {
@@ -292,6 +299,10 @@ public class BuildManager : MonoBehaviour
             else if (_structureIndex == 9)
             {
                 machingunTurretCost += 50;
+            }
+            else if (_structureIndex == 10)
+            {
+                mortarTurretCost += 400;
             }
             UpdatePriceUI();
             StructureCost();
@@ -353,6 +364,11 @@ public class BuildManager : MonoBehaviour
                 machingunTurretCost -= 50;
                 gameManager.giveMeReference.GetGold(machingunTurretCost);
             }
+            else if (Index == 10)
+            {
+                mortarTurretCost -= 400;
+                gameManager.giveMeReference.GetGold(mortarTurretCost);
+            }
             UpdatePriceUI();
             StructureCost();
         }
@@ -370,6 +386,7 @@ public class BuildManager : MonoBehaviour
         textSlowTurretCost.text = slowTurretCost.ToString()+ "g";
         textExplosiveMineCost.text = explosiveMineCost.ToString()+ "g";
         textMachinGunTurretCost.text = machingunTurretCost.ToString()+ "g";
+        textMortarTurretCost.text = mortarTurretCost.ToString()+ "g";
     }
 
     public void PlaceStucture(Vector3 position)

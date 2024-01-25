@@ -150,7 +150,7 @@ public class UpgradeManager : MonoBehaviour
         //TurretMortero
         vidaMortero= PlayerPrefs.GetFloat("vidaMortero");
         damagedMortero= PlayerPrefs.GetFloat("damagedMortero");
-        cadenceMortero= PlayerPrefs.GetFloat("cadenceMortero");
+        cadenceMortero = PlayerPrefs.GetFloat("cadenceMortero");
         rangeMortero = PlayerPrefs.GetFloat("rangeMortero");
         visionMortero= PlayerPrefs.GetFloat("visionMortero");
         

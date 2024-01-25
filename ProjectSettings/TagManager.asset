@@ -28,6 +28,7 @@ TagManager:
   - SlowTurret
   - MachineGunTurret
   - ExplosiveMine
+  - MortarTurret
   layers:
   - Default
   - TransparentFX

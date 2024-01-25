@@ -61,7 +61,7 @@ public class Skills : MonoBehaviour
         { SkillName.sniperTurretMoreFireRate, 1 },
         { SkillName.structureRecoverHealth,2},
         { SkillName.unlockLaserTurret,2 },
-        { SkillName.unlockMortarTurret,200},
+        { SkillName.unlockMortarTurret,2},
 
         { SkillName.unlockMines,2},
         { SkillName.minesFaster,2},
@@ -143,6 +143,7 @@ public class Skills : MonoBehaviour
     public GameObject sniperTurretButton;
     public GameObject laserTurretButton;
     public GameObject machingunTurretButton;
+    public GameObject mortarTurretButton;
     private void Start()
     {
         
@@ -278,6 +279,8 @@ public class Skills : MonoBehaviour
                         skillCanBeUnlocked[SkillName.unlockLaserTurret] = false;
 
                         UnlockSkillLogic(skill);
+
+                        mortarTurretButton.SetActive(true);
 
                         //Logica
                     }
