@@ -77,8 +77,9 @@ public class Health : MonoBehaviour
     {
         if(tipoVida==tipoDeVida.Estandar)
         {
-            healthPoints -= Damaged;
             Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
+            healthPoints -= Damaged;
+            
         }
         else if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
         {
@@ -181,7 +182,7 @@ public class Health : MonoBehaviour
             if (this.gameObject.tag != ("TownHall"))
             {
                 Vector3 cameraposition = mainCamera.transform.position;
-                healthSlider.gameObject.transform.parent.transform.LookAt(cameraposition);
+                healthSlider.gameObject.transform.LookAt(cameraposition); //parent.transform.
                 //healthSlider.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             }
             yield return new WaitForSeconds(0.05f);

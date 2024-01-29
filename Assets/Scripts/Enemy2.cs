@@ -76,7 +76,7 @@ public class Enemy2 : MonoBehaviour
                     }
                 }
             }
-            if (Vector3.Distance(this.transform.position, _target.transform.position) < 1f)
+            if (Vector3.Distance(this.transform.position, _target.transform.position) < 3f)
             {
                 _navAgent.isStopped = true;
                 _animator.SetBool("Caminando", false);
@@ -93,6 +93,7 @@ public class Enemy2 : MonoBehaviour
             // Calcula el camino hasta el TownHall
             _navAgent.CalculatePath(_target.transform.position, path);
             // Comprueba si el camino está disponible
+            
             if (path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
             {
                 // Si no hay un camino válido, establece un destino alternativo o realiza alguna otra acción.
@@ -105,6 +106,7 @@ public class Enemy2 : MonoBehaviour
             {
                 _navAgent.SetDestination(_target.transform.position);
             }
+            
             _direccion = _target.transform.position - transform.position;
         }
     }
@@ -128,7 +130,7 @@ public class Enemy2 : MonoBehaviour
         if (_atac == false)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, _direccion, out hit, 1))
+            if (Physics.Raycast(transform.position, _direccion, out hit, 3))
             {
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {

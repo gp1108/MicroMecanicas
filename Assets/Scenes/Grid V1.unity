@@ -4302,6 +4302,8 @@ MonoBehaviour:
   goldMultiplayer: 0
   goldRoundsElapsed: 0
   turrets: []
+  _information: {fileID: 0}
+  _textInformation: {fileID: 0}
 --- !u!4 &1012099156
 Transform:
   m_ObjectHideFlags: 0
