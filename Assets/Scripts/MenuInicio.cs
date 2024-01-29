@@ -17,6 +17,8 @@ public class MenuInicio : MonoBehaviour
     public GameObject externalSkillTree;
     public GameObject newGameSettings;
     public GameObject LoadingPanel;
+
+    public GameObject warningPopUp;
     //public GameObject opcionesCanvas;
     private bool enmenu;
     public bool opcionesIngame;
@@ -141,6 +143,23 @@ public class MenuInicio : MonoBehaviour
         }
         
         
+    }
+
+    public void WarningBorrarDatos()
+    {
+        warningPopUp.gameObject.SetActive(true);
+    }
+
+    public void BorrarDatos()
+    {
+
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(0);
+    }
+
+    public void CancelarBorrarDatos()
+    {
+        warningPopUp.gameObject.SetActive(false);
     }
 
     public void ControlesVolver()

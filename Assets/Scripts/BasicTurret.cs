@@ -160,7 +160,7 @@ public class BasicTurret : MonoBehaviour
         if (isDestroyModeActive == false)
         {
             rangeIndicator.transform.position = this.transform.position;
-            rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+            rangeIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
             rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB * 2, UpgradeManager.giveMeReference.rangeB * 2, UpgradeManager.giveMeReference.rangeB * 2);
 
             _mostrarRango = true;
@@ -175,7 +175,9 @@ public class BasicTurret : MonoBehaviour
     private void Ocultar()
     {
         _mostrarRango = false;
-        rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
+      
+        rangeIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
+        
         rangeIndicator.transform.position = new Vector3(0,-50,0) ;
     }
     public void ActualizarVidaTorres()
