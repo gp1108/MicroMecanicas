@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9aa8ed67591432941bb76f12eb23ff91, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.6494871, g: 0.7731115, b: 0.834781, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9389,6 +9389,7 @@ MonoBehaviour:
   aviableInstance: {fileID: 2100000, guid: 47e26f5795720714898637160bcf5028, type: 2}
   unAviableInstance: {fileID: 2100000, guid: 0f5e32225884a48429f1d7ce675958b0, type: 2}
   buildPanel: {fileID: 1083629966}
+  Smoke: {fileID: 1876081050882714, guid: e5df5caad603c8349ba3481b8ded0927, type: 3}
   goldToPay: 0
   wallCost: 0
   baseTurretCost: 0
@@ -14082,7 +14083,7 @@ MonoBehaviour:
   - {fileID: 484395596578122616, guid: ca51c4c2d42a6854eb002e2805cff969, type: 3}
   - {fileID: 335441286908762036, guid: 209a2a30f113a1844a064605e2796ae7, type: 3}
   - {fileID: 1714649741758254063, guid: d06dd4d7740da3147bf506d571cc731b, type: 3}
-  enemieSpawner: {fileID: 2156253983469557500, guid: 3aab05beb17235347a1b76546b75c37e, type: 3}
+  _SpawnPortal: {fileID: 4617036660772024948, guid: 52c7d057cba585641bb68312c10d7791, type: 3}
   mainStructure: {fileID: 7930163180743534865, guid: a153f2b224c43b74abf255795f71b4e1, type: 3}
   materialCesped: {fileID: 0}
   materialAgua: {fileID: 0}

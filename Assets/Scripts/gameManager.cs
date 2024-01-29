@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class gameManager : MonoBehaviour
 {
@@ -78,6 +79,7 @@ public class gameManager : MonoBehaviour
 
     public GameObject _information;
     public GameObject _textInformation;
+
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
@@ -290,6 +292,9 @@ public class gameManager : MonoBehaviour
     public void EnemyDead()
     {
         enemiesAlive -= 1;
+
+
+
         SoundManager.dameReferencia.PlayClipByName(clipName: "EnemyDead");
 
         if (enemiesAlive <= 0 && onRound == true && enemiesSpawned == _totalNumberOfEnemies) 

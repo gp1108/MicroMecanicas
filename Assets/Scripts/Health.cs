@@ -26,6 +26,10 @@ public class Health : MonoBehaviour
     private GameObject _nVida;
     private float _speedInical;
     private float _speedInSlow;
+
+    public GameObject _DeadEffect;
+    public GameObject _HitEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,27 +77,33 @@ public class Health : MonoBehaviour
     {
         if(tipoVida==tipoDeVida.Estandar)
         {
-            healthPoints -= Damaged;  
+            healthPoints -= Damaged;
+            Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
         }
         else if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
         {
-            healthPoints -= Damaged;  
+            healthPoints -= Damaged;
+            Instantiate(_HitEffect);
         }
         else if (tipoVida == tipoDeVida.Vida&&tipeDamagade==Bullet.tipoDeDamaged.Vida)
         {
             healthPoints -= (Damaged * 1.5f);
+            Instantiate(_HitEffect);
         }
         else if (tipoVida == tipoDeVida.Armadura&& tipeDamagade == Bullet.tipoDeDamaged.Armadura)
         {
-            healthPoints -= (Damaged * 1.5f);  
+            healthPoints -= (Damaged * 1.5f);
+            Instantiate(_HitEffect);
         }
         else if (tipoVida == tipoDeVida.Magica && tipeDamagade == Bullet.tipoDeDamaged.Magica)
         {
-            healthPoints -= (Damaged * 1.5f);  
+            healthPoints -= (Damaged * 1.5f);
+            Instantiate(_HitEffect);
         }
         else
         {
-            healthPoints -= (Damaged * 0.5f);   
+            healthPoints -= (Damaged * 0.5f);
+            Instantiate(_HitEffect);
         }
         if (this.gameObject.tag != ("TownHall"))
         {
@@ -125,6 +135,8 @@ public class Health : MonoBehaviour
                 muerto = true;
                 gameManager.giveMeReference.GetGold(10);
                 gameManager.giveMeReference.EnemyDead();
+
+                Instantiate(_DeadEffect, this.gameObject.transform.position, Quaternion.identity);
             }
             Destroy(this.gameObject);
         }

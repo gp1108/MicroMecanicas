@@ -25,6 +25,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private Material unAviableInstance;
     public GameObject buildPanel;
     private GameObject canvas;
+    public GameObject Smoke;
 
     [Header("Gold Cost")]
     public int goldToPay;
@@ -397,6 +398,8 @@ public class BuildManager : MonoBehaviour
             if(goldToPay <= gameManager.giveMeReference.gold)
             {
                 Instantiate(_structures[_structureIndex], position, Quaternion.identity);
+
+                Instantiate(Smoke, position, Quaternion.identity);
 
                 //sonido
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Build");

@@ -47,7 +47,8 @@ public class GenPerlinNoise : MonoBehaviour
 
     [Header("Enemies")]
     private List<Vector3> enemyPositions = new List<Vector3>();
-    public GameObject enemieSpawner;
+    //public GameObject enemieSpawner;
+    public GameObject _SpawnPortal;
 
     [Header("MainStructurePrefab")]
     public GameObject mainStructure;
@@ -59,6 +60,7 @@ public class GenPerlinNoise : MonoBehaviour
     public Material materialCespedNotWalkable;
 
     public Vector3 posicionGenerador;
+
     void Awake()
     {
 
@@ -335,7 +337,7 @@ public class GenPerlinNoise : MonoBehaviour
         
         for (int i = 0; i < 15; i++) // Con este numero se cambia la cantidad de spawners
         {
-            GameObject toPlaceObject = Instantiate(enemieSpawner, EnemySpawnerSpawnLocation(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+            GameObject toPlaceObject = Instantiate(_SpawnPortal, EnemySpawnerSpawnLocation(), Quaternion.Euler(0, Random.Range(0, 360), 0));
             //Este codigo hace que todos los spawners miren al centro del mapa , podria cambiarse para que mirasen al ayuntamiento.
             Vector3 originPosition = new Vector3(_worldSizeX/2,0,_worldSizeZ/2) - toPlaceObject.transform.position;
             toPlaceObject.transform.rotation = Quaternion.LookRotation(originPosition);
@@ -348,7 +350,7 @@ public class GenPerlinNoise : MonoBehaviour
     private Vector3 EnemySpawnerSpawnLocation()
     {
         int randomIndex = Random.Range(0, enemyPositions.Count);
-        Vector3 newPosition = new Vector3(enemyPositions[randomIndex].x, enemyPositions[randomIndex].y + 1.01f, enemyPositions[randomIndex].z);
+        Vector3 newPosition = new Vector3(enemyPositions[randomIndex].x, enemyPositions[randomIndex].y + 1.44f, enemyPositions[randomIndex].z);
         enemyPositions.RemoveAt(randomIndex);
         return newPosition;
     }
