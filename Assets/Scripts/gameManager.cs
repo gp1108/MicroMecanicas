@@ -75,17 +75,12 @@ public class gameManager : MonoBehaviour
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     public List<GameObject> turrets;
-
-    public GameObject _information;
-    public GameObject _textInformation;
     private void Awake()
     {
         enemiesSpawners = new List<GameObject>();
     }
     private void Start()
     {
-        _textInformation = GameObject.Find("TextoInformacion");
-        _information = GameObject.Find("Pivote");
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
         goldMultiplayer = 1;

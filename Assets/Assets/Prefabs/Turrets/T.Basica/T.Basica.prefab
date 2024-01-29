@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 1333953025635028189}
   - component: {fileID: 7595589534161011624}
   - component: {fileID: -6049290529830614776}
+  - component: {fileID: 9173079002406556225}
   m_Layer: 0
   m_Name: T.Basica
   m_TagString: BaseTurret
@@ -289,6 +290,27 @@ MonoBehaviour:
   tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 0}
+--- !u!95 &9173079002406556225
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978704287428703079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89910b451bd882d489fe18c213ad00ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3308728608216182207
 GameObject:
   m_ObjectHideFlags: 0

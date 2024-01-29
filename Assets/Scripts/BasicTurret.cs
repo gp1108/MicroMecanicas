@@ -20,7 +20,7 @@ public class BasicTurret : MonoBehaviour
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
     [SerializeField] private Collider[] _collidersEnemies ;
     private bool _attacking;
-
+    private Animator _animator;
     [Header("RangeIndicator")]
     public GameObject rangeIndicator;
     private bool _mostrarRango;
@@ -28,6 +28,7 @@ public class BasicTurret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponent<Animator>();
         canvas = GameObject.Find("Canvas");
         gameManager.giveMeReference.GetTurret(this.gameObject);
         _mostrarRango = false;
@@ -43,8 +44,6 @@ public class BasicTurret : MonoBehaviour
     {
         GetEnemy();
         GetTarget();
-        
-
     }
     public void GetTarget()
     {
@@ -56,66 +55,48 @@ public class BasicTurret : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
-
                     if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
                         _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
-
                         _target = _Enemy.gameObject;
-
                     }
-                    
                 }
-                
-                
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionB)
             {
-
-
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
-
                 Attack();
-
-
             }
         }
-        
-        
-        
     }
     public void Attack()
     {
-
         if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeB && _attacking == false)
         {
-
+            if (_animator.GetBool("Disparando") == false)
+            {
+                _animator.SetBool("Disparando", true);
+            }
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
-
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
-
             _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedB;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
-
             _attacking = true;
-
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
-
             _cadence = UpgradeManager.giveMeReference.cadenceB;
-
+        }
+        else
+        {
+            _animator.SetBool("Disparando", false);
         }
         if (_attacking == true)
         {
-
             _accumulatedTime += Time.deltaTime;
-
             if (_accumulatedTime > _cadence)
             {
                 _attacking = false;
-
                 _accumulatedTime = 0;
             }
         }
@@ -123,10 +104,7 @@ public class BasicTurret : MonoBehaviour
     public void GetEnemy()
     {
         _collidersEnemies = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.visionB,layer);
-        
         _enemies = _collidersEnemies.ToList();
-        
-
         if(_enemies.Count == 0)
         {
             return;
@@ -139,21 +117,15 @@ public class BasicTurret : MonoBehaviour
         {
             _target = _enemies[0].gameObject;
         }
-        
-
     }
-
     private void OnMouseUpAsButton()
     {
         Mostrar();
     }
-
     private void OnMouseExit()
     {
         Ocultar();
     }
-
-
     private void Mostrar()
     {
         bool isDestroyModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
@@ -162,16 +134,13 @@ public class BasicTurret : MonoBehaviour
             rangeIndicator.transform.position = this.transform.position;
             rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
             rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeB * 2, UpgradeManager.giveMeReference.rangeB * 2, UpgradeManager.giveMeReference.rangeB * 2);
-
             _mostrarRango = true;
         }
         else
         {
             return;
         }
-
     }
-
     private void Ocultar()
     {
         _mostrarRango = false;
