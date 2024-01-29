@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 584999008271935299}
   - component: {fileID: 3180069370143507496}
   - component: {fileID: 564623460731350932}
+  - component: {fileID: 19095274475837571}
   m_Layer: 0
   m_Name: TMejora
   m_TagString: MachineGunTurret
@@ -614,6 +615,27 @@ MonoBehaviour:
   tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 6010053820144714447, guid: 36563ac99e6469746b77439303b034d6, type: 3}
+--- !u!95 &19095274475837571
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280593105706662180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdaffe73bb77f8541bcd2b055cf59903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8585038025896545753
 GameObject:
   m_ObjectHideFlags: 0

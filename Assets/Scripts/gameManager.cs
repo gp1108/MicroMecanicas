@@ -86,8 +86,6 @@ public class gameManager : MonoBehaviour
     }
     private void Start()
     {
-        _textInformation = GameObject.Find("TextoInformacion");
-        _information = GameObject.Find("Pivote");
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
         goldMultiplayer = 1;

@@ -19,7 +19,7 @@ public class TuorretaAmetralladora : MonoBehaviour
     [SerializeField] private List<Collider> _enemies = new List<Collider>();
     [SerializeField] private Collider[] _collidersEnemies;
     private bool _attacking;
-
+    private Animator _animator;
     [Header("RangeIndicator")]
     public GameObject rangeIndicator;
     private bool _mostrarRango;
@@ -27,6 +27,7 @@ public class TuorretaAmetralladora : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponent<Animator>();
         canvas = GameObject.Find("Canvas");
         gameManager.giveMeReference.GetTurret(this.gameObject);
         _mostrarRango = false;
@@ -42,8 +43,6 @@ public class TuorretaAmetralladora : MonoBehaviour
     {
         GetEnemy();
         GetTarget();
-
-
     }
     public void GetTarget()
     {
@@ -55,30 +54,18 @@ public class TuorretaAmetralladora : MonoBehaviour
             {
                 if (_Enemy != null)
                 {
-
                     if (Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position) < _distance)
                     {
                         _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
-
                         _target = _Enemy.gameObject;
-
                     }
-
                 }
-
-
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionAm)
             {
-
-
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
-
                 Attack();
-
-
             }
         }
 
@@ -87,34 +74,31 @@ public class TuorretaAmetralladora : MonoBehaviour
     }
     public void Attack()
     {
-
         if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.rangeAm && _attacking == false)
         {
-
+            if (_animator.GetBool("Disparando") == false)
+            {
+                _animator.SetBool("Disparando", true);
+            }
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
-
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
-
             _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedAm;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
-
             _attacking = true;
-
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
-
             _cadence = UpgradeManager.giveMeReference.cadenceAm;
-
+        }
+        else
+        {
+            _animator.SetBool("Disparando", false);
         }
         if (_attacking == true)
         {
-
             _accumulatedTime += Time.deltaTime;
-
             if (_accumulatedTime > _cadence)
             {
                 _attacking = false;
-
                 _accumulatedTime = 0;
             }
         }

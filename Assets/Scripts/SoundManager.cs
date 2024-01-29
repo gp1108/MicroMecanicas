@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     public const string MusicVolume = "MusicVolume";
     public const string SFXVolume = "SFXVolume";
     public const string TurretVolume = "TurretVolume";
+    public GameObject _information;
+    public GameObject _textInformation;
 
     public static float _musicVolume { get; private set; }
     public static float _SFXVolume { get; private set; }
@@ -47,7 +49,18 @@ public class SoundManager : MonoBehaviour
             return Referencia;
         }
     }
-
+    private void Update()
+    {
+        if (_textInformation == null)
+        {
+            _textInformation = GameObject.Find("TextoInformacion");
+            _information = GameObject.Find("Pivote");
+            if(_information!=null)
+            {
+                _information.SetActive(false);
+            }
+        }
+    }
     private void Awake()
     {
         instance = this;
