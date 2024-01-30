@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6494871, g: 0.7731115, b: 0.834781, a: 1}
+  m_IndirectSpecularColor: {r: 0.3510734, g: 0.7178272, b: 0.900966, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3385,14 +3385,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812346108}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.3787, y: 2.3787, z: 2.3787}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 763358823}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 816, y: -389}
@@ -6169,13 +6169,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TipsText: {fileID: 2042071793}
   Tips:
-  - Tips1
-  - Tips2
-  - Tips3
-  - Tips4
-  - Tips5
-  - Tips6
-  - Tips7
+  - Gestiona tus recursos para rondas futuras
+  - Puedes gastar tus puntos para obtener mejoras dentro del juego
+  - Las mejoras fuera del juego son permanentes
+  - Pulsando encima de las torretas puedes saber su rango de ataque
+  - "Puedes obtener informaci\xF3n de los objetos poniendo el rat\xF3n encima de
+    ellos"
+  - "Los enemigos salen de los portales en los l\xEDmites del mapa"
+  - "Puedes centrar la c\xE1mara pulsando F"
+  - Si te matan te mueres
   TipCount: 0
 --- !u!224 &1338315861 stripped
 RectTransform:
@@ -8597,8 +8599,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8664,7 +8666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1442, y: -490}
+  m_AnchoredPosition: {x: -1472, y: -448}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2073828311

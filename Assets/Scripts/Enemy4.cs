@@ -20,9 +20,12 @@ public class Enemy4 : MonoBehaviour
     private bool _atac;
     private bool _atacking;
     [SerializeField] private GameObject[] _torret;
+
+    private Animator _animator;
     void Start()
     {
-
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("Volar", true);
         transform.position = new Vector3(transform.position.x, 6, transform.position.z);
         _cadencia = 1.5f;
         _heightMax = 5;
@@ -139,10 +142,13 @@ public class Enemy4 : MonoBehaviour
         }
         if (_atac == true)
         {
+            _animator.SetBool("Volar", false);
             _navAgent.isStopped = true;
+
         }
         else
         {
+            _animator.SetBool("Volar", true);
             _navAgent.isStopped = false;
         }
 
