@@ -17,7 +17,7 @@ public class Enemy3 : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _walls = BuildManager.dameReferencia.Walls;

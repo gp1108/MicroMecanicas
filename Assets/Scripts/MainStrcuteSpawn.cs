@@ -88,7 +88,7 @@ public class MainStrcuteSpawn : MonoBehaviour
                 aerialNavMesh.GetComponent<MeshRenderer>().enabled = false;
 
                 //rigibody
-                Invoke("IsKinematicDisabled", 2);
+                Invoke("IsKinematicDisabled", 0.5f);
 
             }
            

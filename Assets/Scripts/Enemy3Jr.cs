@@ -16,7 +16,7 @@ public class Enemy3Jr : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         waitForLoad = true;
         StartCoroutine("WaitForLoad");
@@ -220,7 +220,7 @@ public class Enemy3Jr : MonoBehaviour
            
 
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.15f);
         }
     }
 }

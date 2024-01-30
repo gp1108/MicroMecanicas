@@ -4274,7 +4274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawners: []
   enemies:
-  - {fileID: 6528030040504456344, guid: 87067a1ea74fb944cab0be9e48cef479, type: 3}
+  - {fileID: 4092667743125559332, guid: 5463a0626d3c7a744ac724f4a5d296b0, type: 3}
   - {fileID: 1323558377185222644, guid: d813a9ec05742a04e98e8580fde35074, type: 3}
   - {fileID: 1323558377185222644, guid: 8a083624ffeb50c469a4d4ca0102cedb, type: 3}
   - {fileID: 9161228910576418350, guid: 2162230ecdce8044086a06645007461c, type: 3}
