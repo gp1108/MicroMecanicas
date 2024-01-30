@@ -357,8 +357,8 @@ GameObject:
   - component: {fileID: 8869071182609850978}
   - component: {fileID: 6429335693374533727}
   - component: {fileID: 2815621972742126962}
-  - component: {fileID: 327207276297615222}
   - component: {fileID: 43556350387737756}
+  - component: {fileID: 5942400436148052994}
   m_Layer: 0
   m_Name: pterodactilo
   m_TagString: Untagged
@@ -461,7 +461,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!95 &327207276297615222
+--- !u!114 &43556350387737756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728106293753424537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea3bfb250b9e484da2c509fae7c2cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _torret: []
+--- !u!95 &5942400436148052994
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -482,20 +496,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &43556350387737756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728106293753424537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea3bfb250b9e484da2c509fae7c2cf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _torret: []
 --- !u!1 &4504731899684796533
 GameObject:
   m_ObjectHideFlags: 0
