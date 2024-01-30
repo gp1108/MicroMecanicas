@@ -16,9 +16,5 @@ public class AerialNavMesh : MonoBehaviour
         transform.position = new Vector3((perlingNoiseGen.GetComponent<GenPerlinNoise>()._worldSizeX)/2, 6, (perlingNoiseGen.GetComponent<GenPerlinNoise>()._worldSizeZ)/2);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
