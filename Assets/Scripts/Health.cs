@@ -83,28 +83,33 @@ public class Health : MonoBehaviour
         }
         else if (tipeDamagade == Bullet.tipoDeDamaged.Estandar)
         {
+            Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
             healthPoints -= Damaged;
-            Instantiate(_HitEffect);
+           
         }
         else if (tipoVida == tipoDeVida.Vida&&tipeDamagade==Bullet.tipoDeDamaged.Vida)
         {
+            Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
             healthPoints -= (Damaged * 1.5f);
-            Instantiate(_HitEffect);
+            
         }
         else if (tipoVida == tipoDeVida.Armadura&& tipeDamagade == Bullet.tipoDeDamaged.Armadura)
         {
+            Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
             healthPoints -= (Damaged * 1.5f);
-            Instantiate(_HitEffect);
+            
         }
         else if (tipoVida == tipoDeVida.Magica && tipeDamagade == Bullet.tipoDeDamaged.Magica)
         {
+            Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
             healthPoints -= (Damaged * 1.5f);
-            Instantiate(_HitEffect);
+            
         }
         else
         {
+            Instantiate(_HitEffect, this.gameObject.transform.position, Quaternion.identity);
             healthPoints -= (Damaged * 0.5f);
-            Instantiate(_HitEffect);
+            
         }
         if (this.gameObject.tag != ("TownHall"))
         {
