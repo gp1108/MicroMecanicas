@@ -14,11 +14,14 @@ public class Enemy3 : MonoBehaviour
     private Collider[] _explosion;
     private NavMeshAgent _navAgent;
     private float _distance;
-    
+    private Animator _animator;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("Movimiento", true);
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _walls = BuildManager.dameReferencia.Walls;
         _navAgent = GetComponent<NavMeshAgent>();

@@ -13,11 +13,14 @@ public class Enemy3Jr : MonoBehaviour
     private NavMeshAgent _navAgent;
     private float _distance;
     private bool waitForLoad;
+    private Animator _animator;
 
 
     // Start is called before the first frame update
     void Awake()
     {
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("Movimiento", true);
         waitForLoad = true;
         StartCoroutine("WaitForLoad");
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
