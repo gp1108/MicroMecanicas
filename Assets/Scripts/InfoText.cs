@@ -46,6 +46,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         moreGoldPerMine,
         startWithExtraGold,
         startWithExtraResearchPoints,
+        Investigacion,
     }
 
     private TipeButon _tipeButon;
@@ -55,6 +56,11 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _clic = true;
         _information.transform.position = this.transform.position - new Vector3(300,250,0);
         StartCoroutine("Wait");
+        if(eventData.pointerEnter.name== "Investigacion")
+        {
+            _tipeButon = TipeButon.Investigacion;
+            _information.transform.position = this.transform.position - new Vector3(500, 500, 0);
+        }
         if (eventData.pointerEnter.GetComponent<Button>() != null)
         {
             _buton = eventData.pointerEnter.name;
@@ -314,6 +320,9 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
                 break;
             case TipeButon.startWithExtraResearchPoints:
+
+                break;
+            case TipeButon.Investigacion:
 
                 break;
 

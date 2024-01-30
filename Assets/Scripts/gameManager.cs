@@ -59,6 +59,8 @@ public class gameManager : MonoBehaviour
     [Header("Gold System")]
     public float gold;
     public TMP_Text goldText;
+    [Header("Investigation System")]
+    public TMP_Text invetigationText;
     [Header("Research System")]
     public int researchPoints;
     [Header("NavMesh")]
@@ -86,6 +88,7 @@ public class gameManager : MonoBehaviour
     }
     private void Start()
     {
+        invetigationText.text = researchPoints.ToString();
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
         goldMultiplayer = 1;
@@ -335,8 +338,8 @@ public class gameManager : MonoBehaviour
     }
     public void ResearchPoints() //abajo hay otra funcion que añade rp de manera limpia , esta es para los talleres
     {
-        
         researchPoints += numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"));
+        invetigationText.text = researchPoints.ToString();
     }
     public void GetGold( float oro)
     {
