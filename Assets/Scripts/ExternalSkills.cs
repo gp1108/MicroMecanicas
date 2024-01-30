@@ -140,6 +140,12 @@ public class ExternalSkills : MonoBehaviour
     public TMP_Text skillCost13text;
     public TMP_Text skillCost14text;
 
+    [Header("Barras")]
+    public GameObject barra1;
+    public GameObject barra2;
+    public GameObject barra3;
+    public GameObject barra4;
+
 
 
 
@@ -206,11 +212,13 @@ public class ExternalSkills : MonoBehaviour
                             skillCanBeUnlocked[externalSkillName.moreSlowSlowTurret] = true;
                             skillCanBeUnlocked[externalSkillName.moreRangeSlowTurret] = true;
                             skillCanBeUnlocked[externalSkillName.moreHealthSlowTurret] = true;
+                            barra2.SetActive(true);
                         }
                         if (ppName == "unlockMineTurret")
                         {
                             skillCanBeUnlocked[externalSkillName.moreDamageMineTurret] = true;
                             skillCanBeUnlocked[externalSkillName.moreRangeMineTurret] = true;
+                            barra3.SetActive(true);
                             
 
                         }
@@ -553,8 +561,9 @@ public class ExternalSkills : MonoBehaviour
                         skillCanBeUnlocked[externalSkillName.moreSlowSlowTurret] = true;
                         skillCanBeUnlocked[externalSkillName.moreRangeSlowTurret] = true;
                         skillCanBeUnlocked[externalSkillName.moreHealthSlowTurret] = true;
+                        barra2.SetActive(true);
 
-                        
+
                         UnlockSkillLogic(skill);
                         
                         //Falta la logica que desbloque la torreta de slows
@@ -672,7 +681,7 @@ public class ExternalSkills : MonoBehaviour
 
                         skillCanBeUnlocked[externalSkillName.moreDamageMineTurret] = true;
                         skillCanBeUnlocked[externalSkillName.moreRangeMineTurret] = true;
-                        
+                        barra3.SetActive(true);
 
 
                         UnlockSkillLogic(skill);
@@ -942,7 +951,7 @@ public class ExternalSkills : MonoBehaviour
 
                     if (skillButtons.gameObject.name == kvp.Key.ToString())
                     {
-
+                       
                         skillButtons.gameObject.GetComponent<Image>().color = unlockedSkillColor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = false;
                     }

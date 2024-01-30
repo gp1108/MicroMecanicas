@@ -144,6 +144,22 @@ public class Skills : MonoBehaviour
     public GameObject laserTurretButton;
     public GameObject machingunTurretButton;
     public GameObject mortarTurretButton;
+    [Header("Barras y color")]
+    public Color barrasActivas;
+    public Color barrasDesactivadas;
+    public GameObject barrasTier1;
+    public GameObject barrasTier2;
+    public GameObject barrasTier3;
+    public GameObject barrasTier4;
+
+    public void UpdateBarsColor()
+    {
+        //RawImage[] rawImages = barrasTier1.GetComponentInChildren<RawImage>();
+        barrasTier1.GetComponentInChildren<RawImage>().color = barrasDesactivadas;
+        barrasTier2.GetComponentInChildren<RawImage>().color = barrasDesactivadas;
+        barrasTier3.GetComponent<RawImage>().color = barrasDesactivadas;
+        barrasTier4.GetComponentInChildren<RawImage>().color = barrasDesactivadas;
+    }
     private void Start()
     {
         
@@ -163,6 +179,7 @@ public class Skills : MonoBehaviour
 
         }
         UpdateSkillUI();
+        UpdateBarsColor();
     }
     public void unlockGoldPanels(GameObject goldpanel)
     {
@@ -192,7 +209,7 @@ public class Skills : MonoBehaviour
                     skillCanBeUnlocked[SkillName.moreDamageTurrets] = true;
                     skillCanBeUnlocked[SkillName.moreHealthWalls] = true;
                     UnlockSkillLogic(skill);
-
+                    barrasTier1.GetComponentInChildren<RawImage>().color = barrasActivas;
                     listaActualizarTurrets();
 
                     break;
