@@ -66,9 +66,7 @@ public class TurretSnip : MonoBehaviour
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionS)
             {
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-
                 transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
-
                 Attack();
             }
         }
