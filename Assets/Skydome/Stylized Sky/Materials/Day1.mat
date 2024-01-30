@@ -29,7 +29,7 @@ Material:
     - _HorizonLineExponent: 5
     - _SkyGradientExponent: 2.5
     - _SunDiscContribution: 1
-    - _SunDiscExponent: 1
+    - _SunDiscExponent: 12500
     - _SunDiscMultiplier: 1
     - _SunHaloContribution: 0.5
     - _SunHaloExponent: 125
