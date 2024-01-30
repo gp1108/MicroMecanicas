@@ -436,6 +436,8 @@ MonoBehaviour:
   tipoVida: 0
   healthPoints: 0
   healthSlider: {fileID: 0}
+  _DeadEffect: {fileID: 0}
+  _HitEffect: {fileID: 0}
 --- !u!65 &7298209442040579410
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ public class TurretAir : MonoBehaviour
     {
         if (_target != null)
         {
-            _lookAt = _target.transform.position - transform.GetChild(0).transform.position;
+            _lookAt = transform.GetChild(0).transform.position - _target.transform.position;
             _distance = Vector3.Distance(transform.GetChild(0).position, _target.transform.position);
             foreach (Collider _Enemy in _enemies)
             {
