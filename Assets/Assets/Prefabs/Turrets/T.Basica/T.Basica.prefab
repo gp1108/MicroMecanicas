@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6327747315608668778}
   - component: {fileID: 2383339147767403015}
   - component: {fileID: 7468091439725121981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FINAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7044473285874346928}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 7595589534161011624}
   - component: {fileID: -6049290529830614776}
   - component: {fileID: 9173079002406556225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T.Basica
   m_TagString: BaseTurret
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 8364220437933882972}
   - component: {fileID: 3792850649630466247}
   - component: {fileID: 5727882940972401755}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 3888218336769587524}
   - component: {fileID: 2855470056537566823}
   - component: {fileID: 2920573935718825247}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947591695771291358}
   - component: {fileID: 6474420422881103409}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 5263108436224444925}
   - component: {fileID: 2009645917877003595}
   - component: {fileID: 3939993607594135865}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Canvas (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 4997591047353100764}
   - component: {fileID: 2852823233995255206}
   - component: {fileID: 2616022605192240764}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5764356792041713754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Salida Bala
   m_TagString: Untagged
   m_Icon: {fileID: 0}

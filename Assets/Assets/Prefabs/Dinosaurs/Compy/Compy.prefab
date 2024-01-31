@@ -176,9 +176,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7391917665074560552}
   - component: {fileID: 4343982126314608060}
+  - component: {fileID: 8636420580150513114}
   - component: {fileID: 4838729180237506771}
   - component: {fileID: 8865803564803395254}
-  - component: {fileID: 8636420580150513114}
   - component: {fileID: 3245724471318891554}
   m_Layer: 6
   m_Name: Compy
@@ -227,6 +227,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23, y: 0.38, z: 0.5974363}
   m_Center: {x: 0, y: -0.025368541, z: -0.03128791}
+--- !u!114 &8636420580150513114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2669460932986791801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea6326fb85513b4a8ffedc67fe272f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Jr: {fileID: 0}
 --- !u!114 &4838729180237506771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,19 +279,6 @@ NavMeshAgent:
   m_BaseOffset: 0.22
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8636420580150513114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2669460932986791801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea6326fb85513b4a8ffedc67fe272f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Jr: {fileID: 0}
 --- !u!95 &3245724471318891554
 Animator:
   serializedVersion: 5

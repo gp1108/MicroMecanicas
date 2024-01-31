@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3756380400262559843}
   - component: {fileID: 7339153718356219436}
   - component: {fileID: 2360796762967943422}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 3349955478207467029}
   - component: {fileID: 5966022008730246857}
   - component: {fileID: 2146282317160913775}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4953,7 +4953,7 @@ GameObject:
   - component: {fileID: 4153018475714912164}
   - component: {fileID: 5129887476258136247}
   - component: {fileID: 5514661987302512593}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5039,7 +5039,7 @@ GameObject:
   - component: {fileID: 469524114925282743}
   - component: {fileID: 7526851921313167544}
   - component: {fileID: 2367165309078544831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnergiaGenerator (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9878,7 +9878,7 @@ GameObject:
   - component: {fileID: 9158838219174979938}
   - component: {fileID: 6811722461883051542}
   - component: {fileID: 2013239820484687318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14773,7 +14773,7 @@ GameObject:
   - component: {fileID: 1177183141182833388}
   - component: {fileID: 1592697950779054866}
   - component: {fileID: 2870150320782998518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnergiaGenerator (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19612,7 +19612,7 @@ GameObject:
   - component: {fileID: 1942378236922900623}
   - component: {fileID: 7070888484810171183}
   - component: {fileID: 2377037928312543934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24449,7 +24449,7 @@ GameObject:
   - component: {fileID: 3467753870656953082}
   - component: {fileID: 1717738382456287220}
   - component: {fileID: 8679227156264739683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnergiaGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29288,7 +29288,7 @@ GameObject:
   - component: {fileID: 7374407874969507874}
   - component: {fileID: 2067266697917773857}
   - component: {fileID: 4480304143829173390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34183,7 +34183,7 @@ GameObject:
   - component: {fileID: 4327148201175753696}
   - component: {fileID: 1579864928966471395}
   - component: {fileID: 1733858116084777991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39020,7 +39020,7 @@ GameObject:
   - component: {fileID: 6027516959049479602}
   - component: {fileID: 7564614412295272383}
   - component: {fileID: 8662943905796484037}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43918,7 +43918,7 @@ GameObject:
   - component: {fileID: 5416263652760215904}
   - component: {fileID: 6597797362509447092}
   - component: {fileID: 7200269181474454364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MainStructure
   m_TagString: TownHall
   m_Icon: {fileID: 0}

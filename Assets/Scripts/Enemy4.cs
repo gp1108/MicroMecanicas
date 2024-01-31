@@ -11,24 +11,20 @@ public class Enemy4 : MonoBehaviour
     private GameObject _TownHall;
     [SerializeField] private GameObject _target;
     private Vector3 _direccion;
-    private Vector3 _distancia;
-    private float _timePass;
     private float _cadencia;
     private float _distance;
-    private float _heightE;
-    private float _heightMax;
+    private float _range;
     private bool _atac;
     private bool _atacking;
     [SerializeField] private GameObject[] _torret;
 
-    //private Animator _animator;
+    
     void Start()
     {
-        //_animator = GetComponent<Animator>();
-        //_animator.SetBool("Volar", true);
+        
         transform.position = new Vector3(transform.position.x, 6, transform.position.z);
         _cadencia = 1.5f;
-        _heightMax = 5;
+        _range = 5;
         _atac = false;
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
@@ -46,7 +42,7 @@ public class Enemy4 : MonoBehaviour
     void Atack()
     {
         if(_target == null) return;
-        if (Vector3.Distance(transform.position, _target.transform.position) < _heightMax+3)
+        if (Vector3.Distance(transform.position, _target.transform.position) < _range)
         {
             _atac = true;
             if (_atacking == false)
@@ -62,9 +58,14 @@ public class Enemy4 : MonoBehaviour
     IEnumerator MekeDamaged()
     {
         _atacking = true;
-        if (Physics.Raycast(transform.position, _direccion, out RaycastHit hit, _heightMax+3))
+        LayerMask golpe = LayerMask.GetMask("ObjetivoEnemigos");
+        if (Physics.Raycast(transform.position, _direccion, out RaycastHit hit, _range,golpe))
         {
-            hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
+            if (hit.transform.GetComponent<Health>() != null)
+            {
+                Debug.Log("este es el objetivo:" + hit.transform.name + "este es el atacante:" + this.gameObject.name);
+                hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
+            }
         }
         yield return new WaitForSeconds(_cadencia);
         _atacking = false;
@@ -74,7 +75,7 @@ public class Enemy4 : MonoBehaviour
     {
         if (_TownHall != null && _torret.Length <= 0)
         {
-            //_navAgent.SetDestination(_TownHall.transform.position);
+            
             _target = _TownHall;
 
 
@@ -142,13 +143,13 @@ public class Enemy4 : MonoBehaviour
         }
         if (_atac == true)
         {
-            //_animator.SetBool("Volar", false);
+            
             _navAgent.isStopped = true;
 
         }
         else
         {
-            //_animator.SetBool("Volar", true);
+            
             _navAgent.isStopped = false;
         }
 

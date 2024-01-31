@@ -79,6 +79,9 @@ public class gameManager : MonoBehaviour
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     public List<GameObject> turrets;
 
+    public TMP_Text maxRounds;
+    public TMP_Text totalXP;
+    public TMP_Text highScore;
     public GameObject _information;
     public GameObject _textInformation;
 
@@ -88,6 +91,14 @@ public class gameManager : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.HasKey("maxRoundArrive"))
+        {
+            
+        }
+        else
+        {
+            PlayerPrefs.SetInt("maxRoundArrive", 0);
+        }
         invetigationText.text = researchPoints.ToString();
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
@@ -107,6 +118,7 @@ public class gameManager : MonoBehaviour
     }
     private void Update()
     {
+        invetigationText.text = researchPoints.ToString();
         if (Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
         {
             onRound = true;
@@ -159,14 +171,22 @@ public class gameManager : MonoBehaviour
     public void PlayerDead()
     {
         Time.timeScale = 0;
-        gameOverImage.SetActive(true);
-        Debug.Log("Has perdido");
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
+        if (PlayerPrefs.GetInt("maxRoundArrive") < _roundsPlayed)
+        {
+            PlayerPrefs.SetInt("maxRoundArrive", _roundsPlayed);
+        }
         //Calculo de ResearchPoints
         float externalSkillpoints;
         externalSkillpoints = PlayerPrefs.GetFloat("externalResearchPoints");
         externalSkillpoints += _roundsPlayed;
         PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
+        maxRounds.text=_roundsPlayed.ToString();
+        totalXP.text= externalSkillpoints.ToString();
+        highScore.text= PlayerPrefs.GetInt("externalSkillpoints").ToString();
+        gameOverImage.SetActive(true);
+        Debug.Log("Has perdido");
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
+
     }
     public void PlayerWin()
     {

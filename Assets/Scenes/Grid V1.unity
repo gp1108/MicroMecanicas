@@ -4957,7 +4957,7 @@ MonoBehaviour:
   regenWalls: 0
   gold: 0
   goldText: {fileID: 2018321478}
-  invetigationText: {fileID: 1599957270}
+  invetigationText: {fileID: 186100127}
   researchPoints: 0
   navmeshUpdater: {fileID: 1095215786}
   numberOfLabs: 0
@@ -4971,6 +4971,9 @@ MonoBehaviour:
   goldMultiplayer: 0
   goldRoundsElapsed: 0
   turrets: []
+  maxRounds: {fileID: 1187666295}
+  totalXP: {fileID: 1667506689}
+  highScore: {fileID: 947424430}
   _information: {fileID: 0}
   _textInformation: {fileID: 0}
 --- !u!4 &1012099156

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 969714995629955009}
   - component: {fileID: -8249496193941901085}
   - component: {fileID: -6892423551329113327}
+  - component: {fileID: -2837842922476477485}
   - component: {fileID: -3871437921281768913}
   - component: {fileID: -847965265149602229}
   - component: {fileID: 1569519105769277865}
-  - component: {fileID: -2837842922476477485}
   - component: {fileID: 4665338478943193947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T.Sniper
   m_TagString: SniperTurret
   m_Icon: {fileID: 0}
@@ -81,6 +81,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabSize: {fileID: 420103999029223867, guid: 34f14ae6fbbd1954093691d21c757f7a, type: 3}
+--- !u!114 &-2837842922476477485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306174357296660109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfebfe586a7376479d696b59ebc3a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+  _target: {fileID: 0}
+  bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
+  exitBullet: {fileID: 6409290990980601855}
+  _enemies: []
+  _collidersEnemies: []
+  rangeIndicator: {fileID: 0}
 --- !u!114 &-3871437921281768913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,27 +149,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.46, z: -0.02}
   m_TimeToStationary: 0.5
---- !u!114 &-2837842922476477485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306174357296660109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcfebfe586a7376479d696b59ebc3a10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 64
-  _target: {fileID: 0}
-  bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
-  exitBullet: {fileID: 6409290990980601855}
-  _enemies: []
-  _collidersEnemies: []
-  rangeIndicator: {fileID: 0}
 --- !u!65 &4665338478943193947
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 2399404329030305976}
   - component: {fileID: 6954531357900260204}
   - component: {fileID: 4194974465262330609}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BASE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8819815318981744450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782107360738238506}
   - component: {fileID: 2124147686958265159}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 2313519767159975884}
   - component: {fileID: 5775583357188088480}
   - component: {fileID: 9048861016572512023}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 8624049530558674884}
   - component: {fileID: 5058812322991831951}
   - component: {fileID: 5250768230447795178}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6372226790663471540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Salida Bala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2669423002676689598}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 4820112290689325251}
   - component: {fileID: 4842245505474859278}
   - component: {fileID: 151674041080090557}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 5958157405928077686}
   - component: {fileID: 9103213264563913786}
   - component: {fileID: 1977187077736531002}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

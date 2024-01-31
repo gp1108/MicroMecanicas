@@ -177,8 +177,8 @@ GameObject:
   - component: {fileID: 6018553592648400561}
   - component: {fileID: -4219268251449498153}
   - component: {fileID: -3641440644854262617}
-  - component: {fileID: 1303797520509774723}
   - component: {fileID: -7268342267307622195}
+  - component: {fileID: 1303797520509774723}
   - component: {fileID: -8185624202702261339}
   - component: {fileID: 882735645374630696}
   m_Layer: 6
@@ -250,6 +250,20 @@ NavMeshAgent:
   m_BaseOffset: 0.3
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7268342267307622195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072003136923084590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8747c39af56d3b8439412199ba8aaa08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _torret: []
 --- !u!114 &1303797520509774723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,20 +281,6 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   _DeadEffect: {fileID: 0}
   _HitEffect: {fileID: 0}
---- !u!114 &-7268342267307622195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6072003136923084590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8747c39af56d3b8439412199ba8aaa08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _torret: []
 --- !u!95 &-8185624202702261339
 Animator:
   serializedVersion: 5

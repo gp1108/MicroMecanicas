@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2398082889113624343}
   - component: {fileID: 1445455746200582667}
   - component: {fileID: 6814855793230585886}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,12 +87,12 @@ GameObject:
   - component: {fileID: 5514825512432311611}
   - component: {fileID: 4899277923014685717}
   - component: {fileID: 7149440884775538382}
+  - component: {fileID: 1307952556130704819}
   - component: {fileID: 2955209604668448532}
   - component: {fileID: 4691391479505273421}
   - component: {fileID: 4826329449866608385}
   - component: {fileID: 7526502955420645690}
-  - component: {fileID: 1307952556130704819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T.Aerea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabSize: {fileID: 7604332484685610639, guid: b75a7a75e2b97254b9c3ad3005f0ba40, type: 3}
+--- !u!114 &1307952556130704819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591295875339252691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857bfb0930512a9449f9c90d91ca4f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 128
+  _target: {fileID: 0}
+  bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
+  exitBullet: {fileID: 5357604680267406304}
+  _enemies: []
+  _collidersEnemies: []
+  rangeIndicator: {fileID: 0}
 --- !u!114 &2955209604668448532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,27 +246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyUI: {fileID: 0}
   mainCamera: {fileID: 0}
---- !u!114 &1307952556130704819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2591295875339252691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857bfb0930512a9449f9c90d91ca4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 128
-  _target: {fileID: 0}
-  bullet: {fileID: 7857008241135360461, guid: 1e8ddac9c858935409022001f2d0104b, type: 3}
-  exitBullet: {fileID: 5357604680267406304}
-  _enemies: []
-  _collidersEnemies: []
-  rangeIndicator: {fileID: 0}
 --- !u!1 &3104748584911807781
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 5795824567889497974}
   - component: {fileID: 4374702392190442201}
   - component: {fileID: 2731241945097989766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 189998378048343364}
   - component: {fileID: 514452427306923699}
   - component: {fileID: 5263872221498555091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BASE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 5408724928917798840}
   - component: {fileID: 2013309830469104304}
   - component: {fileID: 3916414979278358166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3073704955198649429}
   - component: {fileID: 3505670239508067688}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 6520012448810104476}
   - component: {fileID: 6536929461858190976}
   - component: {fileID: 7564008597182743586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CUERPO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2613987649478952107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Salida Bala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 9031375009049913692}
   - component: {fileID: 1033312504284849316}
   - component: {fileID: 2721372386505426025}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,7 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739369403214647963}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 1876968791388150302}
   - component: {fileID: 4799811817118142322}
   - component: {fileID: 3805892245182578171}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -928,7 +928,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783725984085171602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}

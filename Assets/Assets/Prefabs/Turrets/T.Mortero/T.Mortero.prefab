@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7671520485723618249}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Salida Bala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6270478461106049691}
   - component: {fileID: 2982594818924661519}
   - component: {fileID: 4336452280331970833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bases
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 4962783986307284324}
   - component: {fileID: 4717854246819264660}
   - component: {fileID: 2780400125898647910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 6974977336549659522}
   - component: {fileID: 4115046017163751}
   - component: {fileID: 5808825909591391409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6529088682772807738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,12 +351,12 @@ GameObject:
   - component: {fileID: 7396660039655759485}
   - component: {fileID: 5189124224574078220}
   - component: {fileID: 613118168053477389}
+  - component: {fileID: 5059956003957800831}
   - component: {fileID: 8021496707485465795}
   - component: {fileID: 7298209442040579410}
   - component: {fileID: 3788470836210652389}
   - component: {fileID: 5820993521739338700}
-  - component: {fileID: 5059956003957800831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: T.Mortero
   m_TagString: MortarTurret
   m_Icon: {fileID: 0}
@@ -421,6 +421,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabSize: {fileID: 6990694509121408762, guid: c2c7aca1e395da04bbe691904c0639b4, type: 3}
+--- !u!114 &5059956003957800831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6311225930631636752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9fa2c4058ce14984f1198b605318f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bala: {fileID: 1045317629935257875, guid: 1e56ce3663ba4134ab1a7a084a439e82, type: 3}
+  _balaLanzada: {fileID: 0}
+  _salidaBala: {fileID: 858172146138748049}
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+  rangeIndicator: {fileID: 0}
+  _target: {fileID: 0}
+  _collidersEnemies: []
+  _enemies: []
 --- !u!114 &8021496707485465795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,28 +511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyUI: {fileID: 0}
   mainCamera: {fileID: 0}
---- !u!114 &5059956003957800831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6311225930631636752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c9fa2c4058ce14984f1198b605318f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bala: {fileID: 1045317629935257875, guid: 1e56ce3663ba4134ab1a7a084a439e82, type: 3}
-  _balaLanzada: {fileID: 0}
-  _salidaBala: {fileID: 858172146138748049}
-  layer:
-    serializedVersion: 2
-    m_Bits: 64
-  rangeIndicator: {fileID: 0}
-  _target: {fileID: 0}
-  _collidersEnemies: []
-  _enemies: []
 --- !u!1001 &1700611994418357126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,6 +519,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7396660039655759485}
     m_Modifications:
+    - target: {fileID: 1827513477486719758, guid: 33942cde61075224088660fbb00f98b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628936920452335616, guid: 33942cde61075224088660fbb00f98b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4612842952632346321, guid: 33942cde61075224088660fbb00f98b1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -603,9 +611,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4626990539140614023, guid: 33942cde61075224088660fbb00f98b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5851244064018941673, guid: 33942cde61075224088660fbb00f98b1, type: 3}
       propertyPath: m_Name
       value: HealthBarQunhao
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851244064018941673, guid: 33942cde61075224088660fbb00f98b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7651416949742587292, guid: 33942cde61075224088660fbb00f98b1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -614,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 7651416949742587292, guid: 33942cde61075224088660fbb00f98b1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803679876088427939, guid: 33942cde61075224088660fbb00f98b1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

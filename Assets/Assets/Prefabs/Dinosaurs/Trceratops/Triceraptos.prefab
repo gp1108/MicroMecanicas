@@ -375,9 +375,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2159592776860352413}
   - component: {fileID: 1814826693906184960}
-  - component: {fileID: 8272245140479197860}
   - component: {fileID: 3383970911617886786}
   - component: {fileID: 8698318610509117900}
+  - component: {fileID: 8272245140479197860}
   - component: {fileID: -1394461060985718171}
   m_Layer: 6
   m_Name: Triceraptos
@@ -428,23 +428,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6049863, y: 1.04, z: 1.3947467}
   m_Center: {x: 0.0025501251, y: 0.19935286, z: 0.07033008}
---- !u!114 &8272245140479197860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4092667743125559332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipoVida: 0
-  healthPoints: 0
-  healthSlider: {fileID: 0}
-  _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
-  _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
 --- !u!195 &3383970911617886786
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -482,6 +465,23 @@ MonoBehaviour:
   _walls: []
   _target: {fileID: 0}
   Jr: {fileID: 2669460932986791801, guid: c9e74c7d7b6fd4245b622ec76b4be202, type: 3}
+--- !u!114 &8272245140479197860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092667743125559332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoVida: 0
+  healthPoints: 0
+  healthSlider: {fileID: 0}
+  _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+  _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
 --- !u!95 &-1394461060985718171
 Animator:
   serializedVersion: 5

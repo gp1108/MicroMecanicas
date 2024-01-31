@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 298093541232956073}
   - component: {fileID: 8945145619097336870}
   - component: {fileID: 7430480862477517289}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5281077888817015560}
   - component: {fileID: 6898700284744345727}
   - component: {fileID: 7467132336254266756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 6568417039621853946}
   - component: {fileID: 7612772397175990432}
   - component: {fileID: 4344743550583522008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FINAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 167062534125591439}
   - component: {fileID: 4906031327547273758}
   - component: {fileID: 4104498629470665605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6441589753655916113}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SalidaBala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 5206494612142247079}
   - component: {fileID: 2971250283467689939}
   - component: {fileID: 7041330522206158535}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3419667717788425861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 3180069370143507496}
   - component: {fileID: 564623460731350932}
   - component: {fileID: 19095274475837571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TMejora
   m_TagString: MachineGunTurret
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 1583082811289357775}
   - component: {fileID: 6816028374958146285}
   - component: {fileID: 1615218973712656005}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 1476281054686043562}
   - component: {fileID: 6068674618357703359}
   - component: {fileID: 6515695322068375101}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4573625945467491536}
   - component: {fileID: 2625015686147853233}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4082265431748279240}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
