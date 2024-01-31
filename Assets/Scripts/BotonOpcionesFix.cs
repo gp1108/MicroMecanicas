@@ -12,11 +12,16 @@ public class BotonOpcionesFix : MonoBehaviour
     public GameObject opciones;
 
 
+    private void Awake()
+    {
+        opciones = GameObject.Find("Opciones");
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            opciones = GameObject.Find("Opciones");
+            
             Debug.Log("Pausa");
 
             if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
