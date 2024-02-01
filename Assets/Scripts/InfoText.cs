@@ -14,9 +14,10 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool _clic;
     private void Start()
     {
-        
-        
-        
+        if (_information != null)
+        {
+            _information.SetActive(false);
+        }
     }
     private void Update()
     {
