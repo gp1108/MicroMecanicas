@@ -149,16 +149,173 @@ public class Skills : MonoBehaviour
     public Color barrasDesactivadas;
     public GameObject barrasTier1;
     public GameObject barrasTier2;
+    public GameObject barrasTier2Der;
     public GameObject barrasTier3;
     public GameObject barrasTier4;
+    public bool barra1;
+    public bool barra2;
+    public bool barra2der;
+    public bool barra3;
+    public bool barra4;
+    [Header("Barras recursos")]
+    public GameObject barrasRecursos1;
+    public GameObject barrasRecursos2der;
+    public GameObject barrasRecursos2izq;
+    public GameObject barrasRecursos3;
+    public bool barraRecurso1;
+    public bool barraRecurso2der;
+    public bool barraRecurso2izq;
+    public bool barraRecurso3;
+
+    public void DefaultUpdateBarsColor()
+    {
+        
+        RawImage[] rawImages = barrasTier1.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImage in rawImages)
+        {
+            rawImage.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImages1 = barrasTier2.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImage1 in rawImages1)
+        {
+            rawImage1.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImages2der = barrasTier2Der.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImage2der in rawImages2der)
+        {
+            rawImage2der.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImages2 = barrasTier3.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImage2 in rawImages2)
+        {
+            rawImage2.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImages3 = barrasTier4.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImage3 in rawImages3)
+        {
+            rawImage3.color = barrasDesactivadas;
+        }
+        //RECURSOS
+        RawImage[] rawImagesRecursos = barrasRecursos1.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImagerecursos in rawImagesRecursos)
+        {
+            rawImagerecursos.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImagesRecursos1 = barrasRecursos2izq.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImagerecursos1 in rawImagesRecursos1)
+        {
+            rawImagerecursos1.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImagesRecursos2 = barrasRecursos2der.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImagerecursos2 in rawImagesRecursos2)
+        {
+            rawImagerecursos2.color = barrasDesactivadas;
+        }
+
+        RawImage[] rawImagesRecursos3 = barrasRecursos3.GetComponentsInChildren<RawImage>();
+        foreach (RawImage rawImagerecursos3 in rawImagesRecursos3)
+        {
+            rawImagerecursos3.color = barrasDesactivadas;
+        }
+
+    }
 
     public void UpdateBarsColor()
     {
-        //RawImage[] rawImages = barrasTier1.GetComponentInChildren<RawImage>();
-        barrasTier1.GetComponentInChildren<RawImage>().color = barrasDesactivadas;
-        barrasTier2.GetComponentInChildren<RawImage>().color = barrasDesactivadas;
-        barrasTier3.GetComponent<RawImage>().color = barrasDesactivadas;
-        barrasTier4.GetComponentInChildren<RawImage>().color = barrasDesactivadas;
+        if(barra1 == true)
+        {
+            RawImage[] rawImages = barrasTier1.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImage in rawImages)
+            {
+                rawImage.color = barrasActivas;
+            }
+        }
+
+        if(barra2 == true)
+        {
+            RawImage[] rawImages1 = barrasTier2.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImage1 in rawImages1)
+            {
+                rawImage1.color = barrasActivas;
+            }
+        }
+        if(barra2der == true)
+        {
+            RawImage[] rawImages2der = barrasTier2Der.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImage2der in rawImages2der)
+            {
+                rawImage2der.color = barrasActivas;
+            }
+        }
+        if(barra3 == true)
+        {
+            RawImage[] rawImages2 = barrasTier3.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImage2 in rawImages2)
+            {
+                rawImage2.color = barrasActivas;
+            }
+        }
+        if (barra4 == true)
+        {
+            RawImage[] rawImages3 = barrasTier4.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImage3 in rawImages3)
+            {
+                rawImage3.color = barrasActivas;
+            }
+        }
+
+        //RECURSOS
+        if(barraRecurso1 == true)
+        {
+            RawImage[] rawImagesRecursos = barrasRecursos1.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImagerecursos in rawImagesRecursos)
+            {
+                rawImagerecursos.color = barrasActivas;
+            }
+        }
+
+        if(barraRecurso2der == true)
+        {
+            RawImage[] rawImagesRecursos2 = barrasRecursos2der.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImagerecursos2 in rawImagesRecursos2)
+            {
+                rawImagerecursos2.color = barrasActivas;
+            }
+        }
+
+        if(barraRecurso2izq == true)
+        {
+            
+
+            RawImage[] rawImagesRecursos1 = barrasRecursos2izq.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImagerecursos1 in rawImagesRecursos1)
+            {
+                rawImagerecursos1.color = barrasActivas;
+            }
+        }
+
+        if(barraRecurso3 == true)
+        {
+            RawImage[] rawImagesRecursos3 = barrasRecursos3.GetComponentsInChildren<RawImage>();
+            foreach (RawImage rawImagerecursos3 in rawImagesRecursos3)
+            {
+                rawImagerecursos3.color = barrasActivas;
+            }
+        }
+       
+
+        
+
+        
+
+        
+
     }
     private void Start()
     {
@@ -178,8 +335,11 @@ public class Skills : MonoBehaviour
             buttons.GetComponent<Image>().color = defaultColor;
 
         }
+
+        barra1 = false; barra2 = false;barra2der = false;barra3 = false;barra4 = false;
+        barraRecurso1 = false;barraRecurso2der = false;barraRecurso2izq = false;barraRecurso3 = false;
         UpdateSkillUI();
-        UpdateBarsColor();
+        DefaultUpdateBarsColor();
     }
     public void unlockGoldPanels(GameObject goldpanel)
     {
@@ -208,9 +368,13 @@ public class Skills : MonoBehaviour
 
                     skillCanBeUnlocked[SkillName.moreDamageTurrets] = true;
                     skillCanBeUnlocked[SkillName.moreHealthWalls] = true;
+
+                    barra1 = true; //BRRAS
+
                     UnlockSkillLogic(skill);
-                    barrasTier1.GetComponentInChildren<RawImage>().color = barrasActivas;
                     listaActualizarTurrets();
+
+                    
 
                     break;
                 case SkillName.moreDamageTurrets:
@@ -220,6 +384,8 @@ public class Skills : MonoBehaviour
                         UpgradeManager.giveMeReference.damagedS += 10;
                         skillCanBeUnlocked[SkillName.unlockSniperTurret] = true;
                         skillCanBeUnlocked[SkillName.unlockMachinegunTurret] = true;
+
+                        barra2 = true; //BRRAS
 
                         UnlockSkillLogic(skill);
 
@@ -231,6 +397,7 @@ public class Skills : MonoBehaviour
                     {
                         skillCanBeUnlocked[SkillName.structureRecoverHealth] = true;
 
+                        barra2der = true;
 
                         UnlockSkillLogic(skill);
 
@@ -242,6 +409,7 @@ public class Skills : MonoBehaviour
                     {
                         skillCanBeUnlocked[SkillName.sniperTurretMoreFireRate] = true;
 
+                        barra3 = true;
                         UnlockSkillLogic(skill);
 
                         sniperTurretButton.SetActive(true);
@@ -254,6 +422,9 @@ public class Skills : MonoBehaviour
                         skillCanBeUnlocked[SkillName.unlockLaserTurret] = true;
                         skillCanBeUnlocked[SkillName.unlockMortarTurret] = true;
                         machingunTurretButton.SetActive(true);
+
+                        barra4 = true;  
+
                         UnlockSkillLogic(skill);
 
                         //Logica
@@ -307,6 +478,9 @@ public class Skills : MonoBehaviour
 
                     skillCanBeUnlocked[SkillName.minesFaster] = true;
                     skillCanBeUnlocked[SkillName.fasterResearch] = true;
+
+                    barraRecurso1 = true;
+
                     UnlockSkillLogic(skill);
                     minesButton.SetActive(true);
 
@@ -315,7 +489,9 @@ public class Skills : MonoBehaviour
                     if (isSkillUnlocked[SkillName.unlockMines] == true)
                     {
                         skillCanBeUnlocked[SkillName.oneMoreMine] = true;
-                        
+
+                        barraRecurso2izq = true;
+
                         UnlockSkillLogic(skill);
 
                         gameManager.giveMeReference.goldMultiplayer = 2;
@@ -327,6 +503,8 @@ public class Skills : MonoBehaviour
                         skillCanBeUnlocked[SkillName.fastMine] = true;
                         skillCanBeUnlocked[SkillName.slowMine] = true;
 
+                        barraRecurso3 = true;
+
                         UnlockSkillLogic(skill);
                         gameManager.giveMeReference.maxNumberOfMines++;
                         gameManager.giveMeReference.MaxNumberOfMines();
@@ -337,6 +515,8 @@ public class Skills : MonoBehaviour
                     if (isSkillUnlocked[SkillName.unlockMines] == true)
                     {
                         skillCanBeUnlocked[SkillName.unlockGems] = true;
+
+                        barraRecurso2der = true;
 
                         UnlockSkillLogic(skill);
 
@@ -384,6 +564,7 @@ public class Skills : MonoBehaviour
         gameManager.giveMeReference.researchPoints -= skillCost[skill];
         isSkillUnlocked[skill] = true;
         UpdateSkillUI();
+        UpdateBarsColor();
     }
     
     public void UpdateSkillUI()
