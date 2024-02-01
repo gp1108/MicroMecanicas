@@ -17,10 +17,12 @@ public class MenuInicio : MonoBehaviour
     public GameObject externalSkillTree;
     public GameObject newGameSettings;
     public GameObject LoadingPanel;
+    public GameObject BestiarioPanel;
     public GameObject RaptorPanel;
     public GameObject TriceratopsPanel;
     public GameObject PterodactiloPanel;
     public GameObject TRexPanel;
+    public GameObject CompsognathusPanel;
     public GameObject warningPopUp;
     //public GameObject opcionesCanvas;
     private bool enmenu;
@@ -129,31 +131,46 @@ public class MenuInicio : MonoBehaviour
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
+    public void Bestiario()
+    {
+        BestiarioPanel.gameObject.SetActive(true);
+        opcionesPanel.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+
+
     public void Raptor()
     {
         RaptorPanel.gameObject.SetActive(true);
-        opcionesPanel.gameObject.SetActive(false);
+        BestiarioPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Triceratops()
     {
         TriceratopsPanel.gameObject.SetActive(true);
-        RaptorPanel.gameObject.SetActive(false);
+        BestiarioPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Pterodactilo()
     {
         PterodactiloPanel.gameObject.SetActive(true);
-        TriceratopsPanel.gameObject.SetActive(false);
+        BestiarioPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void TRex()
     {
         TRexPanel.gameObject.SetActive(true);
-        PterodactiloPanel.gameObject.SetActive(false);
+        BestiarioPanel.gameObject.SetActive(false);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+
+    public void Compsognathus()
+    {
+        CompsognathusPanel.gameObject.SetActive(true);
+        BestiarioPanel.gameObject.SetActive (false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -207,31 +224,46 @@ public class MenuInicio : MonoBehaviour
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
+    public void BestiarioReturn()
+    {
+        BestiarioPanel.gameObject.SetActive(false);
+        opcionesPanel.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+
+
     public void RaptorReturn()
     {
         RaptorPanel.gameObject.SetActive(false);
-        opcionesPanel.gameObject.SetActive(true);
+        BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void TriceratopsReturn()
     {
         TriceratopsPanel.gameObject.SetActive(false);
-        RaptorPanel.gameObject.SetActive(true);
+        BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void PterodactiloReturn()
     {
         PterodactiloPanel.gameObject.SetActive(false);
-        TriceratopsPanel.gameObject.SetActive(true);
+        BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void TRexReturn()
     {
         TRexPanel.gameObject.SetActive(false);
-        PterodactiloPanel.gameObject.SetActive(true);
+        BestiarioPanel.gameObject.SetActive(true);
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+    }
+
+    public void CompsognathusReturn()
+    {
+        CompsognathusPanel.gameObject.SetActive(false);
+        BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
