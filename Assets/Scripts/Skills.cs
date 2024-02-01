@@ -166,7 +166,8 @@ public class Skills : MonoBehaviour
     public bool barraRecurso2der;
     public bool barraRecurso2izq;
     public bool barraRecurso3;
-
+    [Header("Generador")]
+    public GameObject mainStructure;
     public void DefaultUpdateBarsColor()
     {
         
@@ -325,6 +326,7 @@ public class Skills : MonoBehaviour
         goldPanelText.text = panelCost.ToString() + " g";
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         SkillsUI[] skillButtons = canvas.GetComponentsInChildren<SkillsUI>(true);
+        mainStructure = GameObject.FindGameObjectWithTag("TownHall");
         foreach(SkillsUI skillUIscript in skillButtons)
         {
             SkillButtons.Add(skillUIscript.gameObject);
@@ -547,7 +549,14 @@ public class Skills : MonoBehaviour
                     
                     break;
                 case SkillName.unlockGems:
-                    UnlockSkillLogic(skill);
+                    if (isSkillUnlocked[SkillName.fasterResearch] == true)
+                    {
+                        mainStructure.GetComponent<Health>().maxHealthPoints = 35;
+                        mainStructure.GetComponent<Health>().healthPoints = mainStructure.GetComponent<Health>().maxHealthPoints;
+                        mainStructure.GetComponent<Health>().UpdateVida();
+                        UnlockSkillLogic(skill);
+                    }
+                    
                     break;
                 
 

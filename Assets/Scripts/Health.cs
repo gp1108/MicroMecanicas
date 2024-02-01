@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
     }
     public tipoDeVida tipoVida;
     public float healthPoints;
+    public float maxHealthPoints;
     public Canvas healthSlider;
     private GameObject mainCamera;
     private bool _slow;
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxHealthPoints = healthPoints;
         _speedInSlow = 0.5f;
         _nVida = GameObject.Find("NumeroVidaGenerador");
         _barraVida = GameObject.Find("VidaGenerador");
@@ -70,7 +72,7 @@ public class Health : MonoBehaviour
     }
     public void UpdateVida()
     { 
-        _barraVida.GetComponent<Image>().fillAmount = ((1f / 30) * GetComponent<Health>().healthPoints);
+        _barraVida.GetComponent<Image>().fillAmount = ((1f / maxHealthPoints) * GetComponent<Health>().healthPoints);
         _nVida.GetComponent<TMP_Text>().text = ("Vida Generador: " + GetComponent<Health>().healthPoints);
 
     }
@@ -120,8 +122,7 @@ public class Health : MonoBehaviour
         }
         if (this.gameObject.tag == ("TownHall"))
         {
-            _barraVida.GetComponent<Image>().fillAmount = ((1f / 30) * GetComponent<Health>().healthPoints);
-            _nVida.GetComponent<TMP_Text>().text = ("Vida Generador: " + GetComponent<Health>().healthPoints);
+            UpdateVida();
         }
         if (healthPoints <= 0)
         {
