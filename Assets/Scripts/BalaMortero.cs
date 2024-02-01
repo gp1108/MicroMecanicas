@@ -44,7 +44,7 @@ public class BalaMortero : MonoBehaviour
         {
             if (collider != null)
             {
-                collider.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedMortero, Bullet.tipoDeDamaged.Armadura);
+                collider.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedMortero, Bullet.tipoDeDamaged.Vida);
             }
         }
         Destroy(this.gameObject);

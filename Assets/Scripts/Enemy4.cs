@@ -31,7 +31,7 @@ public class Enemy4 : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         _navAgent.enabled = true;
         GetComponent<Health>().healthPoints = 10;
-        GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
+        GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
         StartCoroutine("CheckPath");
     }
     private void Update()

@@ -25,7 +25,7 @@ public class Enemy1 : MonoBehaviour
         _townHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
         GetComponent<Health>().healthPoints = 10;
-        GetComponent<Health>().tipoVida=Health.tipoDeVida.Vida;
+        GetComponent<Health>().tipoVida=Health.tipoDeVida.Estandar;
         StartCoroutine("CheckPath");
     }
     private void Update()

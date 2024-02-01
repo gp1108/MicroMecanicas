@@ -28,7 +28,7 @@ public class Enemy3 : MonoBehaviour
         StartCoroutine("CheckPath");
         StartCoroutine("GetWalls");
         GetComponent<Health>().healthPoints = 10;
-        GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
+        GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
     }
     private void Update()
     {

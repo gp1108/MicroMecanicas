@@ -87,7 +87,7 @@ public class TurretSnip : MonoBehaviour
 
             _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedS;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
-            _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
+            _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Armadura;
 
             _attacking = true;
 

@@ -80,7 +80,7 @@ public class TurretAir : MonoBehaviour
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
             _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedA;
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
-            _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
+            _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Magica;
             _attacking = true;
             _cadence = UpgradeManager.giveMeReference.cadenceA;
         }

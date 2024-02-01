@@ -276,8 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539359f0be3b6d648b593da91a9898c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoVida: 0
+  tipoVida: 2
   healthPoints: 0
+  maxHealthPoints: 0
   healthSlider: {fileID: 0}
   _DeadEffect: {fileID: 0}
   _HitEffect: {fileID: 0}

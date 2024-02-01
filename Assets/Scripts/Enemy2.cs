@@ -27,7 +27,7 @@ public class Enemy2 : MonoBehaviour
         _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
         GetComponent<Health>().healthPoints = 10;
-        GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
+        GetComponent<Health>().tipoVida = Health.tipoDeVida.Vida;
         StartCoroutine("CheckPath");
     }
     private void Update()
