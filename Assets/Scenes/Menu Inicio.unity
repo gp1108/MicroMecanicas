@@ -2443,7 +2443,6 @@ GameObject:
   m_Component:
   - component: {fileID: 300746559}
   - component: {fileID: 300746558}
-  - component: {fileID: 300746557}
   - component: {fileID: 300746556}
   m_Layer: 0
   m_Name: PterodactiloCamera
@@ -2496,14 +2495,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &300746557
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300746555}
-  m_Enabled: 1
 --- !u!20 &300746558
 Camera:
   m_ObjectHideFlags: 0
@@ -7806,6 +7797,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785547368}
   m_CullTransparentMesh: 1
+--- !u!1 &800592621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800592622}
+  - component: {fileID: 800592624}
+  - component: {fileID: 800592623}
+  m_Layer: 5
+  m_Name: Barras (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &800592622
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800592621}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6615367179916745585}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 346, y: -446}
+  m_SizeDelta: {x: 600, y: 33}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &800592623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800592621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7337565, g: 1, b: 0.41037738, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &800592624
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800592621}
+  m_CullTransparentMesh: 1
 --- !u!1 &805166097
 GameObject:
   m_ObjectHideFlags: 0
@@ -12719,8 +12783,8 @@ MonoBehaviour:
   skillCost14text: {fileID: 6799591}
   barra1: {fileID: 1040905124}
   barra2: {fileID: 985078794}
-  barra3: {fileID: 2040387277}
-  barra4: {fileID: 726190880}
+  barra3: {fileID: 800592621}
+  barra4: {fileID: 1715494789}
   externalSkillPointsText: {fileID: 409366730}
 --- !u!4 &1278184730
 Transform:
@@ -13813,7 +13877,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1378391379}
   - component: {fileID: 1378391378}
-  - component: {fileID: 1378391377}
   - component: {fileID: 1378391376}
   m_Layer: 0
   m_Name: TriceratopsCamera
@@ -13866,14 +13929,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1378391377
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378391375}
-  m_Enabled: 1
 --- !u!20 &1378391378
 Camera:
   m_ObjectHideFlags: 0
@@ -15536,7 +15591,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1483243799}
   - component: {fileID: 1483243798}
-  - component: {fileID: 1483243797}
   - component: {fileID: 1483243796}
   m_Layer: 0
   m_Name: RaptorCamera
@@ -15589,14 +15643,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1483243797
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483243795}
-  m_Enabled: 1
 --- !u!20 &1483243798
 Camera:
   m_ObjectHideFlags: 0
@@ -17741,6 +17787,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696860059}
   m_CullTransparentMesh: 1
+--- !u!1 &1715494789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715494790}
+  - component: {fileID: 1715494792}
+  - component: {fileID: 1715494791}
+  m_Layer: 5
+  m_Name: Barras (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1715494790
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715494789}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6615367179916745585}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1173, y: -446}
+  m_SizeDelta: {x: 600, y: 33}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1715494791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715494789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7337565, g: 1, b: 0.41037738, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1715494792
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715494789}
+  m_CullTransparentMesh: 1
 --- !u!1 &1738680286
 GameObject:
   m_ObjectHideFlags: 0
@@ -18235,7 +18354,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1773867753}
   - component: {fileID: 1773867752}
-  - component: {fileID: 1773867751}
   - component: {fileID: 1773867750}
   m_Layer: 0
   m_Name: TRexCamera
@@ -18288,14 +18406,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1773867751
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773867749}
-  m_Enabled: 1
 --- !u!20 &1773867752
 Camera:
   m_ObjectHideFlags: 0
@@ -25946,7 +26056,8 @@ RectTransform:
   m_Children:
   - {fileID: 1040905125}
   - {fileID: 985078795}
-  - {fileID: 2040387278}
+  - {fileID: 800592622}
+  - {fileID: 1715494790}
   - {fileID: 988203058}
   - {fileID: 2077921564}
   - {fileID: 892785419}
@@ -26306,7 +26417,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 726190881}
   - {fileID: 2584750661725637304}
   - {fileID: 1931959125}
   - {fileID: 1075829899}
