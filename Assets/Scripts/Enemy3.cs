@@ -152,7 +152,7 @@ public class Enemy3 : MonoBehaviour
                             if (vida != null)
                             {
 
-                                _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                                vida.GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
 
                             }
                         }
