@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipoVida: 0
   healthPoints: 0
+  maxHealthPoints: 0
   healthSlider: {fileID: 0}
   _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
   _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
@@ -695,7 +696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5357604680267406304}
   m_LocalRotation: {x: -0, y: -0, z: 0.20159811, w: 0.97946835}
-  m_LocalPosition: {x: -0.354, y: -0.152, z: 0.346}
+  m_LocalPosition: {x: -1.05, y: -0.46, z: 0.49}
   m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
   m_ConstrainProportionsScale: 1
   m_Children: []

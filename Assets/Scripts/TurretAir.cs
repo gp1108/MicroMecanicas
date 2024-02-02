@@ -66,8 +66,8 @@ public class TurretAir : MonoBehaviour
             }
             if (Vector3.Distance(transform.GetChild(0).position, _target.transform.position) < UpgradeManager.giveMeReference.visionA)
             {
-                _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-                transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
+                Vector3 targetPosition = new Vector3(_target.transform.position.x, transform.position.y, _target.transform.position.z);
+                transform.GetChild(0).LookAt(targetPosition);
                 Attack();
             }
         }
@@ -79,7 +79,7 @@ public class TurretAir : MonoBehaviour
             _bullet = GameObject.Instantiate(bullet, exitBullet.transform.position, exitBullet.transform.rotation);
             _bullet.gameObject.GetComponent<Bullet>().velocidad = 20;
             _bullet.gameObject.GetComponent<Bullet>().damaged = UpgradeManager.giveMeReference.damagedA;
-            _bullet.gameObject.GetComponent<Bullet>().target = _target;
+            _bullet.gameObject.GetComponent<Bullet>().target = _target.transform.GetChild(0).gameObject;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Magica;
             _attacking = true;
             _cadence = UpgradeManager.giveMeReference.cadenceA;

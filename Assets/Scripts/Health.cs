@@ -47,7 +47,6 @@ public class Health : MonoBehaviour
         {
             healthSlider = this.GetComponentInChildren<Canvas>();
             //healthSlider = this.GetComponent<Slider>();
-            Debug.Log(this.gameObject.name);
             healthSlider.GetComponentInChildren<Slider>().maxValue = healthPoints;
             healthSlider.GetComponentInChildren<Slider>().value = healthPoints;
             healthSlider.enabled = true;

@@ -63,7 +63,7 @@ public class Enemy4 : MonoBehaviour
         {
             if (hit.transform.GetComponent<Health>() != null)
             {
-                Debug.Log("este es el objetivo:" + hit.transform.name + "este es el atacante:" + this.gameObject.name);
+
                 hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
             }
         }
