@@ -5346,10 +5346,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesSpawners: []
   enemies:
-  - {fileID: 3728106293753424537, guid: b111871cd33c4374e8fe70446330399c, type: 3}
-  - {fileID: 4092667743125559332, guid: 5463a0626d3c7a744ac724f4a5d296b0, type: 3}
+  - {fileID: 6528030040504456344, guid: 87067a1ea74fb944cab0be9e48cef479, type: 3}
   - {fileID: 6072003136923084590, guid: a366f568b0a21094f8dd8b62d94680d3, type: 3}
-  - {fileID: 9161228910576418350, guid: 2162230ecdce8044086a06645007461c, type: 3}
+  - {fileID: 4092667743125559332, guid: 5463a0626d3c7a744ac724f4a5d296b0, type: 3}
+  - {fileID: 3728106293753424537, guid: b111871cd33c4374e8fe70446330399c, type: 3}
   onRound: 0
   enemiesAlive: 0
   roundsText: {fileID: 1599957270}
@@ -9780,6 +9780,7 @@ MonoBehaviour:
   barraRecurso2der: 0
   barraRecurso2izq: 0
   barraRecurso3: 0
+  mainStructure: {fileID: 0}
 --- !u!1 &2018321476
 GameObject:
   m_ObjectHideFlags: 0
