@@ -43,6 +43,7 @@ public class meshCombiner : MonoBehaviour
             combinacionObjeto.GetComponent<NavMeshModifier>().area = 1;
         }
         
+
         MeshRenderer combinacionMeshRenderer = combinacionObjeto.AddComponent<MeshRenderer>();
 
         // Combina las mallas
