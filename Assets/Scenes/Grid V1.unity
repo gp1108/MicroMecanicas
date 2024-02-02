@@ -1081,8 +1081,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+  m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_fontSharedMaterials:
   - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
@@ -7282,6 +7282,13 @@ MonoBehaviour:
   - "Puedes centrar la c\xE1mara pulsando F"
   - Si te matan te mueres
   - Tus enemigos no son tus amigos
+  - "Hay cuatro tipos de vida: Est\xE1ndar, Vida, Armadura y M\xE1gica"
+  - "Los ataques de las torretas tambi\xE9n se clasifican en Est\xE1ndar, Vida, Armadura
+    o M\xE1gica"
+  - Conviene construir muros en el comienzo de las rondas
+  - "Contruye torretas a\xE9reas para contrarrestar a los enemigos voladores "
+  - "Puedes construir minas para conseguir m\xE1s oro"
+  - "Puedes construir un taller para desbloquear el \xE1rbol de habilidades interior"
   TipCount: 0
 --- !u!1 &1329757202
 GameObject:
@@ -8062,8 +8069,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+  m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_fontSharedMaterials:
   - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
@@ -9780,6 +9787,7 @@ MonoBehaviour:
   barraRecurso2der: 0
   barraRecurso2izq: 0
   barraRecurso3: 0
+  mainStructure: {fileID: 0}
 --- !u!1 &2018321476
 GameObject:
   m_ObjectHideFlags: 0
@@ -9840,8 +9848,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+  m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_fontSharedMaterials:
   - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
@@ -9958,8 +9966,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+  m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10560,8 +10568,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+  m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

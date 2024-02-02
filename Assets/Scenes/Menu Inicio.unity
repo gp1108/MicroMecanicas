@@ -2291,7 +2291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -152}
+  m_AnchoredPosition: {x: -11, y: -192}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254757187
@@ -2314,7 +2314,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Caracter\xEDsticas:"
+  m_text: "Caracter\xEDsticas: Gran resistencia, poca movilidad, cuando muere explota
+    y suelta enemigos "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -2449,7 +2450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Objetivo: Generador'
+  m_text: 'Objetivo: Generador, muros y torretas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -4345,9 +4346,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.2951673, g: 0.43432397, b: 0.6320754, a: 0.64705884}
-    m_PressedColor: {r: 0.45834818, g: 0.9080059, b: 0.9433962, a: 0.7137255}
-    m_SelectedColor: {r: 0.12014952, g: 0.49944815, b: 0.9433962, a: 0.5176471}
+    m_HighlightedColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0.3529412}
+    m_PressedColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 0.7137255}
+    m_SelectedColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.59607846}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5002,7 +5003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tipo de vida: M\xE1gica"
+  m_text: 'Tipo de vida: Armadura'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -6675,7 +6676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tipo de vida: Armadura'
+  m_text: "Tipo de vida: M\xE1gica"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -8046,7 +8047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -152}
+  m_AnchoredPosition: {x: -11, y: -200}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747290588
@@ -8069,7 +8070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Caracter\xEDsticas:"
+  m_text: "Caracter\xEDsticas: velocidad de movimiento lento, mucha vida"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -8662,7 +8663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 177}
+  m_AnchoredPosition: {x: -11, y: 202}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780663608
@@ -10345,7 +10346,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -84, y: 29}
+  m_AnchoredPosition: {x: -84, y: 76}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909959298
@@ -10480,7 +10481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -59, y: -4}
+  m_AnchoredPosition: {x: -59, y: 58}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926020908
@@ -15012,7 +15013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -152}
+  m_AnchoredPosition: {x: -11, y: -214}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337057989
@@ -15035,7 +15036,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Caracter\xEDsticas:"
+  m_text: "Caracter\xEDsticas: enemigo volador, se necesita torretas a\xE9reas para
+    poder hacerles da\xF1o"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -15284,7 +15286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51, y: 29}
+  m_AnchoredPosition: {x: -51, y: 82}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338512799
@@ -17606,7 +17608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -185}
+  m_AnchoredPosition: {x: -11, y: -165}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485980057
@@ -17629,7 +17631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Caracter\xEDsticas:"
+  m_text: "Caracter\xEDsticas: mucha movilidad, aparecen cuando muere el Triceratops"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -18378,7 +18380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tipo de vida: Armadura'
+  m_text: 'Tipo de vida: Vida'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -20223,7 +20225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: -152}
+  m_AnchoredPosition: {x: -11, y: -195}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1709565133
@@ -20246,7 +20248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Caracter\xEDsticas:"
+  m_text: "Caracter\xEDstica: Gran velocidad de movimiento"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
@@ -20566,7 +20568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86, y: 29}
+  m_AnchoredPosition: {x: -86, y: 67}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725877543
@@ -20589,7 +20591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Objetivo: Torretas y generador'
+  m_text: 'Objetivo: Torretas, generador y muros'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
   m_sharedMaterial: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
