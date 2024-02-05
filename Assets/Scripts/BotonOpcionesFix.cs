@@ -11,7 +11,6 @@ public class BotonOpcionesFix : MonoBehaviour
     public GameObject pause;
     public GameObject opciones;
 
-
     private void Awake()
     {
         opciones = GameObject.Find("Opciones");
@@ -36,12 +35,21 @@ public class BotonOpcionesFix : MonoBehaviour
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
             }
+            
             if (MenuInicio.giveMeReference.opcionesIngame == true && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false)
             {
+                Debug.Log("Desactivar panel de opciones");
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 MenuInicio.giveMeReference.opcionesIngame = false;
                 opciones.SetActive(false);
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+            }
+            if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.volumePanelActive == true)
+            {
+                MenuInicio.giveMeReference.volume.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.volumePanelActive = false;
+                MenuInicio.giveMeReference.opcionesIngame = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
             }
             else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
             {
@@ -57,6 +65,7 @@ public class BotonOpcionesFix : MonoBehaviour
 
     public void BotonOpciones()
     {
+        Debug.Log("Activar panel de opciones");
         MenuInicio.giveMeReference.OpcionesInGame();
         MenuInicio.giveMeReference.opcionesIngame = true;
         pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();

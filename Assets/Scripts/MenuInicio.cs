@@ -24,9 +24,11 @@ public class MenuInicio : MonoBehaviour
     public GameObject TRexPanel;
     public GameObject CompsognathusPanel;
     public GameObject warningPopUp;
-    //public GameObject opcionesCanvas;
+
+    [Header("Bool")]
     private bool enmenu;
     public bool opcionesIngame;
+    public bool volumePanelActive;
 
     private static MenuInicio _Reference;
 
@@ -111,7 +113,7 @@ public class MenuInicio : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(enmenu);
+        //Debug.Log(enmenu);
     }
     public void CargarPartida()
     {
@@ -127,14 +129,16 @@ public class MenuInicio : MonoBehaviour
     public void Volume()
     {
         volume.gameObject.SetActive(true);
-        opcionesPanel.gameObject.SetActive(false);
+        volumePanelActive = true;
+        opcionesIngame = false;
+        //opcionesPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void Bestiario()
     {
         BestiarioPanel.gameObject.SetActive(true);
-        opcionesPanel.gameObject.SetActive(false);
+        //opcionesPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -213,21 +217,23 @@ public class MenuInicio : MonoBehaviour
     public void ControlesVolver()
     {
         controles.gameObject.SetActive(false);
-        opcionesPanel.gameObject.SetActive(true);
+        //opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void VolumeReturn()
     {
         volume.gameObject.SetActive(false);
-        opcionesPanel.gameObject.SetActive(true);
+        volumePanelActive = false;
+        opcionesIngame = true;
+        //opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
     public void BestiarioReturn()
     {
         BestiarioPanel.gameObject.SetActive(false);
-        opcionesPanel.gameObject.SetActive(true);
+        //opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -287,7 +293,7 @@ public class MenuInicio : MonoBehaviour
 
     public void Controles()
     {
-        opcionesPanel.gameObject.SetActive(false);
+        //opcionesPanel.gameObject.SetActive(false);
         controles.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
