@@ -36,6 +36,7 @@ public class TurretAir : MonoBehaviour
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaA;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+        GetComponent<Health>().BarHelth();
 
     }
 

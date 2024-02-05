@@ -30,6 +30,7 @@ public class Enemy3Jr : MonoBehaviour
         StartCoroutine("GetWalls");
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
+        GetComponent<Health>().BarHelth();
     }
 
     private void Update()

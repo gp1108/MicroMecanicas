@@ -27,7 +27,6 @@ public class Health : MonoBehaviour
     private GameObject _nVida;
     private float _speedInical;
     private float _speedInSlow;
-
     public GameObject _DeadEffect;
     public GameObject _HitEffect;
 
@@ -40,27 +39,18 @@ public class Health : MonoBehaviour
         _barraVida = GameObject.Find("VidaGenerador");
         _slow = false;
         tipoVida = tipoDeVida.Estandar;
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-       
-        
-        if (this.gameObject.tag != ("TownHall"))
-        {
-            healthSlider = this.GetComponentInChildren<Canvas>();
-            //healthSlider = this.GetComponent<Slider>();
-            healthSlider.GetComponentInChildren<Slider>().maxValue = healthPoints;
-            healthSlider.GetComponentInChildren<Slider>().value = healthPoints;
-            healthSlider.enabled = true;
-     
-            
-        }
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");        
         if (this.name == "MainStructure(Clone)")
         {
             UpdateVida();
         }
-
-        
-
-
+    }
+    public void BarHelth()
+    {
+        healthSlider = this.GetComponentInChildren<Canvas>();
+        healthSlider.GetComponentInChildren<Slider>().maxValue = healthPoints;
+        healthSlider.GetComponentInChildren<Slider>().value = healthPoints;
+        healthSlider.enabled = false;
     }
     private void Update()
     {

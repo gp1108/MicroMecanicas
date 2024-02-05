@@ -21,6 +21,7 @@ public class TurretSlow : MonoBehaviour
         buildMenu = GameObject.FindGameObjectWithTag("Canvas");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaSlow;
+        GetComponent<Health>().BarHelth();
     }
 
     // Update is called once per frame

@@ -37,7 +37,7 @@ public class BasicTurret : MonoBehaviour
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaB;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
-        
+        GetComponent<Health>().BarHelth();
     }
 
     // Update is called once per frame

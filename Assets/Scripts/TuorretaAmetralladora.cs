@@ -36,6 +36,7 @@ public class TuorretaAmetralladora : MonoBehaviour
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaAm;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+        GetComponent<Health>().BarHelth();
     }
 
     // Update is called once per frame

@@ -29,6 +29,7 @@ public class Enemy2 : MonoBehaviour
         GetComponent<Health>().healthPoints = 10;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Vida;
         StartCoroutine("CheckPath");
+        GetComponent<Health>().BarHelth();
     }
     private void Update()
     {

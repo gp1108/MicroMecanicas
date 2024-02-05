@@ -12,6 +12,7 @@ public class WallCheck : MonoBehaviour
         BuildManager.dameReferencia.Muro(this.gameObject);
         Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
         gameManager.giveMeReference.listaActualizarWallsReg += RegenHealWalls;
+        GetComponentInParent<Health>().BarHelth();
     }
     public void DoWallDraw()
     {

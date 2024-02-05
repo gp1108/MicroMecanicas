@@ -35,6 +35,7 @@ public class TurretLaser : MonoBehaviour
         _velocitiRotation = 8;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+        GetComponent<Health>().BarHelth();
     }
 
     

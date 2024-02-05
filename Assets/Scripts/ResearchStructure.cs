@@ -30,6 +30,7 @@ public class ResearchStructure : MonoBehaviour
         gameManager.giveMeReference.MaxNumberOfResearchStructures();
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().BarHelth();
 
         //Revisar si se puede hacer mas simple por que el problema era que el mombre del gameobject tenia un espacio al final.
         RectTransform[] objectsInCanvas = canvas.GetComponentsInChildren<RectTransform>(true);

@@ -34,6 +34,7 @@ public class Mortero : MonoBehaviour
         GetComponent<Health>().healthPoints = UpgradeManager.giveMeReference.vidaMortero;
         rangeIndicator = GameObject.FindGameObjectWithTag("RangeIndicator");
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
+        GetComponent<Health>().BarHelth();
     }
 
     // Update is called once per frame

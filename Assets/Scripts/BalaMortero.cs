@@ -12,33 +12,43 @@ public class BalaMortero : MonoBehaviour
     private float time;
     public LayerMask layer;
     public GameObject target;
+    private Vector3 _zonaImpacto;
     private bool muerto;
     // Start is called before the first frame update
     void Start()
     {
         muerto = false;
         time = 2f;
-        StartCoroutine("Potencia");
         rb= GetComponent<Rigidbody>();
+        _zonaImpacto = target.transform.position;
+        StartCoroutine("Potencia");
     }
 
     IEnumerator Potencia()
     {
         while (time > 0)
         {
-            if (target != null && this.gameObject!=null && muerto == false)
+            if (target != null && this.gameObject != null && muerto == false) 
             {
-                yield return new WaitForSeconds(Time.deltaTime);
                 Vector3 vel = (-this.transform.position + target.transform.position - 0.5f * Physics.gravity * time * time) / time;
                 rb.velocity = vel;
                 time -= Time.deltaTime;
+                _zonaImpacto = target.transform.position;
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
+            else
+            {
+                Vector3 vel = (-this.transform.position + _zonaImpacto - 0.5f * Physics.gravity * time * time) / time;
+                rb.velocity = vel;
+                time -= Time.deltaTime;
+                yield return new WaitForSeconds(Time.deltaTime);
             }
         }
         
     }
     private void OnCollisionEnter(Collision collision)
     {
-        muerto= true;
+        muerto = true;
         _collidersEnemies = Physics.OverlapSphere(transform.position, 5, layer);
         foreach(Collider collider in _collidersEnemies)
         {
