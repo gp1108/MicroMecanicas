@@ -21,24 +21,24 @@ public class BotonOpcionesFix : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             
-            Debug.Log("Pausa");
+            //Debug.Log("Pausa");
 
             if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == false && researchMenu.GetComponent<ResearchMenu>().researchMenuActive == false)
             {
-                Debug.Log("Activar panel de pausa");
+                //Debug.Log("Activar panel de pausa");
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
             }
             else if (pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == true)
             {
-                Debug.Log("Desactivar panel de pausa");
+                //Debug.Log("Desactivar panel de pausa");
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
             }
             
             if (MenuInicio.giveMeReference.opcionesIngame == true && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false)
             {
-                Debug.Log("Desactivar panel de opciones");
+                //Debug.Log("Desactivar panel de opciones");
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
                 MenuInicio.giveMeReference.opcionesIngame = false;
                 opciones.SetActive(false);
@@ -49,6 +49,55 @@ public class BotonOpcionesFix : MonoBehaviour
                 MenuInicio.giveMeReference.volume.gameObject.SetActive(false);
                 MenuInicio.giveMeReference.volumePanelActive = false;
                 MenuInicio.giveMeReference.opcionesIngame = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.controlPanelActive == true)
+            {
+                MenuInicio.giveMeReference.controles.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.controlPanelActive = false;
+                MenuInicio.giveMeReference.opcionesIngame = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.BestiarioPanelActive == true)
+            {
+                MenuInicio.giveMeReference.BestiarioPanel.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.BestiarioPanelActive = false;
+                MenuInicio.giveMeReference.opcionesIngame = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            else if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.RaptorPanelActive == true && MenuInicio.giveMeReference.BestiarioPanelActive == false)
+            {
+                MenuInicio.giveMeReference.RaptorPanel.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.RaptorPanelActive = false;
+                MenuInicio.giveMeReference.BestiarioPanelActive = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            else if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.TricePanelActive == true && MenuInicio.giveMeReference.BestiarioPanelActive == false)
+            {
+                MenuInicio.giveMeReference.TriceratopsPanel.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.TricePanelActive = false;
+                MenuInicio.giveMeReference.BestiarioPanelActive = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            else if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.PteroPanelActive == true && MenuInicio.giveMeReference.BestiarioPanelActive == false)
+            {
+                MenuInicio.giveMeReference.PterodactiloPanel.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.PteroPanelActive = false;
+                MenuInicio.giveMeReference.BestiarioPanelActive = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            else if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.TRexPanelActive == true && MenuInicio.giveMeReference.BestiarioPanelActive == false)
+            {
+                MenuInicio.giveMeReference.TRexPanel.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.TRexPanelActive = false;
+                MenuInicio.giveMeReference.BestiarioPanelActive = true;
+                pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
+            }
+            else if (MenuInicio.giveMeReference.opcionesIngame == false && pause.GetComponent<PauseMenuEnabled>().pauseMenuActive == false && MenuInicio.giveMeReference.CompyPanelActive == true && MenuInicio.giveMeReference.BestiarioPanelActive == false)
+            {
+                MenuInicio.giveMeReference.CompsognathusPanel.gameObject.SetActive(false);
+                MenuInicio.giveMeReference.CompyPanelActive = false;
+                MenuInicio.giveMeReference.BestiarioPanelActive = true;
                 pause.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
             }
             else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)

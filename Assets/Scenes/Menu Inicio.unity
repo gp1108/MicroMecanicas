@@ -17861,23 +17861,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4189435940291977529, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4189435940291977529, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4189435940291977529, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 372.3786
       objectReference: {fileID: 0}
     - target: {fileID: 4189435940291977529, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 216.1893
       objectReference: {fileID: 0}
     - target: {fileID: 4189435940291977529, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 6464458008061577856, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_Pivot.x
@@ -17965,27 +17965,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7738334079748131592, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7738334079748131592, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7738334079748131592, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 432.3786
       objectReference: {fileID: 0}
     - target: {fileID: 7738334079748131592, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7738334079748131592, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 216.1893
       objectReference: {fileID: 0}
     - target: {fileID: 7738334079748131592, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29090,6 +29090,14 @@ MonoBehaviour:
   CompsognathusPanel: {fileID: 291223693}
   warningPopUp: {fileID: 396402386}
   opcionesIngame: 0
+  volumePanelActive: 0
+  controlPanelActive: 0
+  BestiarioPanelActive: 0
+  RaptorPanelActive: 0
+  TricePanelActive: 0
+  TRexPanelActive: 0
+  CompyPanelActive: 0
+  PteroPanelActive: 0
 --- !u!4 &5542617521292459372
 Transform:
   m_ObjectHideFlags: 0
