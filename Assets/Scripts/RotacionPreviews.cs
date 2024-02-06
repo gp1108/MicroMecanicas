@@ -21,6 +21,7 @@ public class RotacionPreviews : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
 
         float ocillationOffset = Mathf.Sin(Time.time * oscillationSpeed) * oscillationHeight;

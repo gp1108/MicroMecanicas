@@ -70,17 +70,17 @@ public class SoundManager : MonoBehaviour
         {
             MusicVolumeSlider.value = PlayerPrefs.GetFloat(MusicVolume,_musicVolume);
 
-            Debug.Log("Load " + _musicVolume);
+            //Debug.Log("Load " + _musicVolume);
         }
         if (PlayerPrefs.HasKey(SFXVolume))
         {
             SFXVolumeSlider.value = PlayerPrefs.GetFloat(SFXVolume, _SFXVolume);
-            Debug.Log("Load " + _SFXVolume);
+            //Debug.Log("Load " + _SFXVolume);
         }
         if (PlayerPrefs.HasKey(TurretVolume))
         {
             TurretVolumeSlider.value = PlayerPrefs.GetFloat(TurretVolume, _TurretVolume);
-            Debug.Log("Load " + _TurretVolume);
+            //Debug.Log("Load " + _TurretVolume);
         }
 
         foreach (Sound _sounds in _audioClips)
