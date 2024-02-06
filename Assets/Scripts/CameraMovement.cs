@@ -12,9 +12,15 @@ public class CameraMovement : MonoBehaviour
     [SerializeField][Range(1,10)]private float _cameraSpeedHorizontal;
     private float _scrollInputAmount;
     public float velocidadRotacion = 60.0f;
+    public float velocidadCentrado = 5f;
+    public float distanciaMinima = 5f;
+    public float limite = 10f;
     [SerializeField]private Camera _mainCamera;
     private Vector3 puntoImpacto;
-    
+    private bool DarDobleClick = false;
+    private float tiempoDobleClick = 0.2f;
+    private float tiempoUltimoClick = 0f;
+
     [Header("Referencias a menus")]
     public GameObject perlinNoise;
     private Quaternion _initialRotation;
@@ -28,6 +34,41 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if ((Time.time - tiempoUltimoClick) < tiempoDobleClick)
+            {
+                DarDobleClick = true;
+            }
+            tiempoDobleClick = Time.time;
+        }
+
+        if (DarDobleClick)
+        {
+            Ray rayo = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(rayo, out hit))
+            {
+                puntoImpacto = hit.point;
+                DarDobleClick = false;
+            }
+        }
+
+        if (Vector3.Distance(transform.position, puntoImpacto) <= limite)
+        {
+            Vector3 direccion = puntoImpacto - transform.position;
+            float distancia = direccion.magnitude;
+
+            if (distancia > distanciaMinima)
+            {
+                Vector3 nuevaposicion = puntoImpacto - direccion.normalized * distanciaMinima;
+                transform.position = Vector3.Lerp(transform.position, nuevaposicion, velocidadCentrado * Time.deltaTime);
+            }
+        }
+       
+
         if(Input.GetKeyDown(KeyCode.F))
         {
             transform.position = new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX /2,  13, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ /2-7);
