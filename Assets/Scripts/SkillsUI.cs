@@ -11,10 +11,18 @@ public class SkillsUI : MonoBehaviour
 {
 
     private string _SkillNameString;
+    public GameObject goldPanelButton;
+    private Color _goldButtonColor;
 
     private void Start()
     {
         _SkillNameString = this.gameObject.name;
+        if(goldPanelButton != null)
+        {
+            _goldButtonColor = goldPanelButton.GetComponent<Image>().color;
+        }
+        
+
     }
 
 
@@ -47,7 +55,29 @@ public class SkillsUI : MonoBehaviour
     public void BuyGoldPanel()
     {
         Skills.giveMeReference.unlockGoldPanels(this.gameObject);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Gold");
+        
     }
+
+    private void Update()
+    {
+        if (goldPanelButton != null)
+        {
+           
+            if (Skills.giveMeReference.panelCost > gameManager.giveMeReference.gold)
+            {
+                goldPanelButton.GetComponent<Button>().interactable = false;
+                goldPanelButton.GetComponent<Image>().color = Color.red;
+            }
+            else
+            {
+                goldPanelButton.GetComponent<Button>().interactable = true;
+                goldPanelButton.GetComponent<Image>().color = _goldButtonColor;
+
+            }
+
+        }
+    }
+
+   
 
 }

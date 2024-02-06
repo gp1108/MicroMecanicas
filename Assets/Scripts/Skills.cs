@@ -135,7 +135,7 @@ public class Skills : MonoBehaviour
     private GameObject canvas;
     [Header("GoldPanels")]
     public GameObject[] goldPanels;
-    private int panelCost;
+    public int panelCost;
     private int index;
     public TMP_Text goldPanelText;
     [Header("Buttons")]
@@ -357,6 +357,12 @@ public class Skills : MonoBehaviour
             index++;
             panelCost += 300;
             goldPanelText.text = panelCost.ToString() + " g";
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Gold");
+        }
+        else
+
+        {
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Error");
         }
     }
     public void unlockSkill(SkillName skill)
@@ -591,6 +597,7 @@ public class Skills : MonoBehaviour
                     {
                         skillButtons.gameObject.GetComponent<Image>().color = notEnoughRPcolor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = true;
+                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " RP";
                     }
                 }
             }
@@ -602,6 +609,7 @@ public class Skills : MonoBehaviour
                     {
                         skillButtons.gameObject.GetComponent<Image>().color = defaultColor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = true;
+                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " RP";
                     }
                 }
             }
@@ -616,6 +624,7 @@ public class Skills : MonoBehaviour
                         
                         skillButtons.gameObject.GetComponent<Image>().color = unlockedSkillColor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = false;
+                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " RP";
                     }
                 }
             }
