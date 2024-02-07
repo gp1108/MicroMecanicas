@@ -12,9 +12,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField][Range(1,10)]private float _cameraSpeedHorizontal;
     private float _scrollInputAmount;
     public float velocidadRotacion = 60.0f;
+    public float limite = 10f;
     [SerializeField]private Camera _mainCamera;
     private Vector3 puntoImpacto;
-    
+
+
     [Header("Referencias a menus")]
     public GameObject perlinNoise;
     private Quaternion _initialRotation;
@@ -28,6 +30,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+       
         if(Input.GetKeyDown(KeyCode.F))
         {
             transform.position = new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX /2,  13, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ /2-7);
