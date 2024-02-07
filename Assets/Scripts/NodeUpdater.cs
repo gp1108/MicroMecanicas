@@ -12,6 +12,7 @@ public class NodeUpdater : MonoBehaviour
         if (collision.gameObject.tag == "Node")
         {
             collision.gameObject.GetComponent<Nodes>().constructed = true;
+            gameManager.giveMeReference.nodesTrue.Add(collision.gameObject);
             if (_prefabSize.GetComponent<PreviewPrefabSize>().CanConstruct() == true)
             {
                 BuildManager.dameReferencia.buildCD = false;
@@ -24,8 +25,9 @@ public class NodeUpdater : MonoBehaviour
         
         if (collision.gameObject.tag == "Node")
         {
-            
             collision.gameObject.GetComponent<Nodes>().constructed = false;
+            gameManager.giveMeReference.nodesTrue.Remove(collision.gameObject);
+
         }
         if(this.gameObject.tag == "Wall")
         {

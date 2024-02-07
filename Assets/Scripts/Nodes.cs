@@ -56,6 +56,14 @@ public class Nodes : MonoBehaviour
         BuildManager.dameReferencia.SetPreviewGameObject();
         BuildManager.dameReferencia.GetPreviewPrefabPosition(transform.position + new Vector3(0, 0.2f, 0));
     }
+    public void Revision()
+    {
+        LayerMask layer = LayerMask.GetMask("ObjetivoEnemigos");
+        if (!Physics.Raycast(this.transform.position, Vector3.up, 5, layer))
+        {
+            constructed = false;
+        }
+    }
     private void OnMouseExit()
     {
         _rednerer.material = defaultColor;

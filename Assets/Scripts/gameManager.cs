@@ -78,6 +78,7 @@ public class gameManager : MonoBehaviour
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     public List<GameObject> turrets;
+    public List<GameObject> nodesTrue;
 
     public TMP_Text maxRounds;
     public TMP_Text totalXP;
@@ -115,6 +116,13 @@ public class gameManager : MonoBehaviour
         GetGold(1000 + PlayerPrefs.GetFloat("startWithMoreGold"));
         GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
 
+    }
+    public void RevisionNodes()
+    {
+        foreach (GameObject node in nodesTrue)
+        {
+            node.GetComponent<Nodes>().Revision();
+        }
     }
     private void Update()
     {
@@ -324,6 +332,7 @@ public class gameManager : MonoBehaviour
             {
                 listaActualizarWallsReg();
             }
+            RevisionNodes();
             onRound = false;
             enemiesSpawned = 0;
             _roundsPlayed += 1;

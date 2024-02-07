@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6464458008061577856}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Pivote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104157054796600985}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4189435940291977529}
   - component: {fileID: 431610473609080977}
   - component: {fileID: 619215565585070831}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextoInformacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 191490088510410844}
   - component: {fileID: 1101765055981211593}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Containers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 449.15625, y: 102.47937}
+  m_AnchoredPosition: {x: 214, y: -352}
   m_SizeDelta: {x: 432.3786, y: 705.4514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101765055981211593
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 7253857403709427255}
   - component: {fileID: 3490106243162013975}
   - component: {fileID: 2846251892555619777}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Informacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
