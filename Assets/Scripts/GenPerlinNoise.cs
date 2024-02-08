@@ -430,17 +430,13 @@ public class GenPerlinNoise : MonoBehaviour
                         }
                         else
                         {
-                            
                             float reCheckXpos = (_worldSizeX / 2) - (x + 1);
                             float reCheckZpos = (_worldSizeZ / 2) - (z + 1);
-
-
                             if(Mathf.Abs(checkXpos)+Mathf.Abs(checkZpos)> Mathf.Abs(reCheckXpos)+ Mathf.Abs(reCheckZpos))
                             {
                                 checkXpos =reCheckXpos;
                                 checkZpos =reCheckZpos;
                                 posicionGenerador = new Vector3(x + 1, 15, z + 1);
-                                
                             }
                         }
                     }

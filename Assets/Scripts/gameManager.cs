@@ -42,7 +42,13 @@ public class gameManager : MonoBehaviour
     [SerializeField] private int _raptor;
     [SerializeField] private int _trex;
     [SerializeField] private int _triceraptos;
-    [SerializeField] private int _pterodactilo;
+    [SerializeField] private int _nRaptor;
+    [SerializeField] private int _nTrex;
+    [SerializeField] private int _nTriceraptos;
+    [SerializeField] private int _nPterodactilo;
+    [SerializeField] private int _x;
+    [SerializeField] private int _y;
+    [SerializeField] private int _z;
     private int _spawn;
     public bool onRound;
     public int enemiesAlive;
@@ -84,7 +90,7 @@ public class gameManager : MonoBehaviour
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
     public List<GameObject> turrets;
     public List<GameObject> nodesTrue;
-
+    public List<int> listaSimulacion;
     public TMP_Text maxRounds;
     public TMP_Text totalXP;
     public TMP_Text highScore;
@@ -101,10 +107,13 @@ public class gameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("maxRoundArrive", 0);
         }
+        _z = 0;
+        _x = 1;
+        _y = 2;
+
         _raptor = 90;
         _trex = 100;
         _triceraptos = 100;
-        _pterodactilo = 100;
         invetigationText.text = researchPoints.ToString();
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
@@ -120,6 +129,8 @@ public class gameManager : MonoBehaviour
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
         GetGold(1000 + PlayerPrefs.GetFloat("startWithMoreGold"));
         GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
+        ResetSimulacion();
+        SimulacionSpawnEnemies();
 
     }
     public void RevisionNodes()
@@ -234,104 +245,70 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
+    public void RevisionSpawn()
+    {
+        //sucesion de cuantos enemigos espawnean entre rondas 
+        //Enemigos total/_x=1. Sig ronda Enemigos total+ 5/_x=1. Sig ronda Enemigos total+ 5/_x=2. Sig ronda Enemigos total+ 5/_x=2. Sig ronda Enemigos total+ 5/_x=2. Sig ronda Enemigos total+ 5/_x=3...
+        _y += 1;
+        if (_y == _z)
+        {
+            _y = 0;
+            _x += 1;
+            _z += 1;
+        }
+    }
     public void SpawnEnemies()
     {
         //StartCoroutine("SpawnCrow");
-        if (_roundsPlayed <= 10)
+        Debug.Log(((_totalNumberOfEnemies / _x) / 2));
+        Debug.Log((_totalNumberOfEnemies / _x));
+        if (enemiesAlive < ((_totalNumberOfEnemies / _x) / 2) && enemiesSpawned < _totalNumberOfEnemies)
         {
-            if (enemiesAlive < 3 && enemiesSpawned < _totalNumberOfEnemies)
+            for (int i = 0; i < (_totalNumberOfEnemies / _x); i++)
             {
-                for (int i = 0; i < 5; i++)
+                if (enemiesSpawned < _totalNumberOfEnemies)
                 {
-                    if (enemiesSpawned < _totalNumberOfEnemies)
-                    {
-                        int random = Random.Range(0, 100);
-                        if (random < _raptor)
-                        {
-                            _spawn = 0;
-                        }
-                        else if (random > _raptor && random <= _trex)
-                        {
-                            _spawn = 1;
-                        }
-                        else if (random > _trex && random < _triceraptos)
-                        {
-                            _spawn = 2;
-                        }
-                        else if (random > _triceraptos)
-                        {
-                            _spawn = 3;
-                        }
-                        enemyToSpawn = Instantiate(enemies[_spawn], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-                        enemiesAlive++;
-                        enemiesSpawned++;
-                    }
+                    enemyToSpawn = Instantiate(enemies[listaSimulacion[enemiesSpawned]], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                    enemiesAlive++;
+                    enemiesSpawned++;
                 }
             }
         }
-        if (_roundsPlayed <= 20 && _roundsPlayed > 10)
+    }
+    public void ResetSimulacion()
+    {
+        _nTrex = 0;
+        _nRaptor = 0;
+        _nPterodactilo = 0;
+        _nTriceraptos = 0;
+        listaSimulacion.Clear();
+    }
+    public void SimulacionSpawnEnemies()
+    {
+        for (int i = 0; i < _totalNumberOfEnemies; i++)
         {
-            if (enemiesAlive < 10 && enemiesSpawned < _totalNumberOfEnemies)
+            int random = Random.Range(0, 100);
+            if (random < _raptor)
             {
-                for (int i = 0; i < 20; i++)
-                {
-                    if (enemiesSpawned < _totalNumberOfEnemies)
-                    {
-                        int random = Random.Range(0, 100);
-                        if (random < _raptor)
-                        {
-                            _spawn = 0;
-                        }
-                        if (random > _raptor && random < _trex)
-                        {
-                            _spawn = 1;
-                        }
-                        if (random > _trex && random < _triceraptos)
-                        {
-                            _spawn = 2;
-                        }
-                        if (random > _triceraptos)
-                        {
-                            _spawn = 3;
-                        }
-                        enemyToSpawn = Instantiate(enemies[_spawn], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-                        enemiesAlive++;
-                        enemiesSpawned++;
-                    }
-                }
+                _nRaptor += 1;
+                listaSimulacion.Add(0);
             }
-        }
-        if (_roundsPlayed <= 30 && _roundsPlayed > 20)
-        {
-            if (enemiesAlive < 10 && enemiesSpawned < _totalNumberOfEnemies)
+            else if (random > _raptor && random <= _trex)
             {
-                for (int i = 0; i < 25; i++)
-                {
-                    if (enemiesSpawned < _totalNumberOfEnemies)
-                    {
-                        int random = Random.Range(0, 100);
-                        if (random < _raptor)
-                        {
-                            _spawn = 0;
-                        }
-                        if (random > _raptor && random < _trex)
-                        {
-                            _spawn = 1;
-                        }
-                        if (random > _trex && random < _triceraptos) 
-                        {
-                            _spawn = 2;
-                        }
-                        if (random > _triceraptos)
-                        {
-                            _spawn = 3;
-                        }
-                        enemyToSpawn = Instantiate(enemies[_spawn], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-                        enemiesAlive++;
-                        enemiesSpawned++;
-                    }
-                }
+                _nPterodactilo += 1;
+                listaSimulacion.Add(1);
             }
+            else if (random > _trex && random < _triceraptos)
+            {
+                _nTrex += 1;
+                listaSimulacion.Add(2);
+            }
+            else if (random > _triceraptos)
+            {
+                _nTriceraptos += 1;
+                listaSimulacion.Add(3);
+            }
+
         }
     }
     public void SpawnEnemiesPorcentajes()
@@ -377,12 +354,15 @@ public class gameManager : MonoBehaviour
             {
                 PlayerWin();
             }
-                RevisionNodes();
-            onRound = false;
-            enemiesSpawned = 0;
-            SpawnEnemiesPorcentajes();
-            _roundsPlayed += 1;
             _totalNumberOfEnemies += 5;
+            enemiesSpawned = 0;
+            _roundsPlayed += 1;
+            SpawnEnemiesPorcentajes();
+            ResetSimulacion();
+            SimulacionSpawnEnemies();
+            RevisionSpawn();
+            RevisionNodes();
+            onRound = false;
             roundsText.text = "Ronda " +_roundsPlayed.ToString();
 
             if(_roundsPlayed % goldRoundsElapsed == 0)
