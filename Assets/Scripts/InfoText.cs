@@ -28,25 +28,36 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Walls,
         BaseTurret,
         OtherTurret,
+        ExplosiveMine,
+        AmetralladoraTurret,
+
         SniperTurret,
         LaserTurret,
+        SlowTurret,
+        MortarTurret,
+
         Taller,
         Mine,
+
         BasicTurret,
         moreDamageBasicTurret,
         moreHealthBasicTurret,
         moreRangeBasicTurret,
+
         unlockSlowTurret,
         moreSlowSlowTurret,
         moreHealthSlowTurret,
         moreRangeSlowTurret,
+
         unlockMineTurret,
         moreDamageMineTurret,
         moreRangeMineTurret,
+
         oneReseachPointExtra,
         moreGoldPerMine,
         startWithExtraGold,
         startWithExtraResearchPoints,
+
         Investigacion,
     }
 
@@ -78,6 +89,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon=TipeButon.OtherTurret;
             }
+            if (_buton == "ExplosiveMine")
+            {
+                _tipeButon = TipeButon.ExplosiveMine;
+            }
+            if (_buton == "AmetralladoraTurret")
+            {
+                _tipeButon = TipeButon.AmetralladoraTurret;
+            }
             if (_buton == "SniperTurret")
             {
                 _tipeButon = TipeButon.SniperTurret;
@@ -85,6 +104,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (_buton == "LaserTurret")
             {
                 _tipeButon = TipeButon.LaserTurret;
+            }
+            if (_buton == "SlowTurret")
+            {
+                _tipeButon = TipeButon.SlowTurret;
+            }
+            if (_buton == "MortarTurret")
+            {
+                _tipeButon = TipeButon.MortarTurret;
             }
             if (_buton == "Taller")
             {
@@ -170,6 +197,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon = TipeButon.OtherTurret;
             }
+            if (_buton == "ExplosiveMine")
+            {
+                _tipeButon = TipeButon.ExplosiveMine;
+            }
+            if (_buton == "AmetralladoraTurret")
+            {
+                _tipeButon = TipeButon.AmetralladoraTurret;
+            }
             if (_buton == "SniperTurret")
             {
                 _tipeButon = TipeButon.SniperTurret;
@@ -177,6 +212,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (_buton == "LaserTurret")
             {
                 _tipeButon = TipeButon.LaserTurret;
+            }
+            if (_buton == "SlowTurret")
+            {
+                _tipeButon = TipeButon.SlowTurret;
+            }
+            if (_buton == "MortarTurret")
+            {
+                _tipeButon = TipeButon.MortarTurret;
             }
             if (_buton == "Taller")
             {
@@ -270,12 +313,26 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
                 break;
             case TipeButon.OtherTurret:
-                _textInformation.text = "Tipo de daño : estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedB *
-                UpgradeManager.giveMeReference.cadenceB + "\r\nRango =" + UpgradeManager.giveMeReference.rangeB + "\r\nVida =" + UpgradeManager.giveMeReference.vidaB;
+                
+                break;
+            case TipeButon.ExplosiveMine:
+
+                break;
+            case TipeButon.AmetralladoraTurret:
+
                 break;
             case TipeButon.SniperTurret:
                 _textInformation.text = "Tipo de daño : estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedS *
                 UpgradeManager.giveMeReference.cadenceS + "\r\nRango =" + UpgradeManager.giveMeReference.rangeS + "\r\nVida =" + UpgradeManager.giveMeReference.vidaS;
+                break;
+            case TipeButon.LaserTurret:
+
+                break;
+            case TipeButon.SlowTurret:
+
+                break;
+            case TipeButon.MortarTurret:
+
                 break;
             case TipeButon.Taller:
                 

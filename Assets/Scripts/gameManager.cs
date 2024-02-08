@@ -39,6 +39,11 @@ public class gameManager : MonoBehaviour
     private int _roundsPlayed;
     private int _totalRounds;
     private int _totalNumberOfEnemies;
+    [SerializeField] private int _raptor;
+    [SerializeField] private int _trex;
+    [SerializeField] private int _triceraptos;
+    [SerializeField] private int _pterodactilo;
+    private int _spawn;
     public bool onRound;
     public int enemiesAlive;
     private int enemiesSpawned;
@@ -92,14 +97,14 @@ public class gameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (PlayerPrefs.HasKey("maxRoundArrive"))
-        {
-            
-        }
-        else
+        if (!PlayerPrefs.HasKey("maxRoundArrive"))
         {
             PlayerPrefs.SetInt("maxRoundArrive", 0);
         }
+        _raptor = 90;
+        _trex = 100;
+        _triceraptos = 100;
+        _pterodactilo = 100;
         invetigationText.text = researchPoints.ToString();
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
@@ -181,7 +186,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         if (PlayerPrefs.GetInt("maxRoundArrive") < _roundsPlayed)
         {
-            PlayerPrefs.SetInt("maxRoundArrive", _roundsPlayed);
+            PlayerPrefs.SetInt("maxRoundArrive", _roundsPlayed);    
         }
         //Calculo de ResearchPoints
         float externalSkillpoints;
@@ -189,18 +194,20 @@ public class gameManager : MonoBehaviour
         externalSkillpoints += _roundsPlayed;
         PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
         maxRounds.text=_roundsPlayed.ToString();
-        totalXP.text= externalSkillpoints.ToString();
-        highScore.text= PlayerPrefs.GetInt("externalSkillpoints").ToString();
+        totalXP.text= _roundsPlayed.ToString();
+        highScore.text= PlayerPrefs.GetInt("maxRoundArrive").ToString();
         gameOverImage.SetActive(true);
-        Debug.Log("Has perdido");
         SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
 
     }
     public void PlayerWin()
     {
+        if (PlayerPrefs.GetInt("maxRoundArrive") < _roundsPlayed)
+        {
+            PlayerPrefs.SetInt("maxRoundArrive", _roundsPlayed);
+        }
         Time.timeScale = 0;
         victoryImage.SetActive(true);
-        Debug.Log("Has ganado");
         SoundManager.dameReferencia.PlayClipByName(clipName:"Win");
         //Calculo de ResearchPoints
         float externalSkillpoints;
@@ -218,10 +225,6 @@ public class gameManager : MonoBehaviour
             
             
         }
-        else
-        {
-            PlayerWin();
-        }
     }
     IEnumerator Revision()
     {
@@ -231,8 +234,8 @@ public class gameManager : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-   public void SpawnEnemies()
-   {
+    public void SpawnEnemies()
+    {
         //StartCoroutine("SpawnCrow");
         if (_roundsPlayed <= 10)
         {
@@ -242,7 +245,24 @@ public class gameManager : MonoBehaviour
                 {
                     if (enemiesSpawned < _totalNumberOfEnemies)
                     {
-                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 1)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        int random = Random.Range(0, 100);
+                        if (random < _raptor)
+                        {
+                            _spawn = 0;
+                        }
+                        else if (random > _raptor && random <= _trex)
+                        {
+                            _spawn = 1;
+                        }
+                        else if (random > _trex && random < _triceraptos)
+                        {
+                            _spawn = 2;
+                        }
+                        else if (random > _triceraptos)
+                        {
+                            _spawn = 3;
+                        }
+                        enemyToSpawn = Instantiate(enemies[_spawn], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
                         enemiesAlive++;
                         enemiesSpawned++;
                     }
@@ -257,7 +277,24 @@ public class gameManager : MonoBehaviour
                 {
                     if (enemiesSpawned < _totalNumberOfEnemies)
                     {
-                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 2)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        int random = Random.Range(0, 100);
+                        if (random < _raptor)
+                        {
+                            _spawn = 0;
+                        }
+                        if (random > _raptor && random < _trex)
+                        {
+                            _spawn = 1;
+                        }
+                        if (random > _trex && random < _triceraptos)
+                        {
+                            _spawn = 2;
+                        }
+                        if (random > _triceraptos)
+                        {
+                            _spawn = 3;
+                        }
+                        enemyToSpawn = Instantiate(enemies[_spawn], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
                         enemiesAlive++;
                         enemiesSpawned++;
                     }
@@ -272,69 +309,78 @@ public class gameManager : MonoBehaviour
                 {
                     if (enemiesSpawned < _totalNumberOfEnemies)
                     {
-                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 3)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
+                        int random = Random.Range(0, 100);
+                        if (random < _raptor)
+                        {
+                            _spawn = 0;
+                        }
+                        if (random > _raptor && random < _trex)
+                        {
+                            _spawn = 1;
+                        }
+                        if (random > _trex && random < _triceraptos) 
+                        {
+                            _spawn = 2;
+                        }
+                        if (random > _triceraptos)
+                        {
+                            _spawn = 3;
+                        }
+                        enemyToSpawn = Instantiate(enemies[_spawn], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
                         enemiesAlive++;
                         enemiesSpawned++;
                     }
                 }
             }
         }
-
     }
-    IEnumerator SpawnCrow()
+    public void SpawnEnemiesPorcentajes()
     {
-        while (onRound == true)
+        if (_roundsPlayed < 10)
         {
-            if (enemiesSpawned < _totalNumberOfEnemies)
-            {
-                if (_roundsPlayed <= 10)
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 1)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-                        enemiesAlive++;
-                        enemiesSpawned++;
-                    }
-                }
-                if (_roundsPlayed <= 20 && _roundsPlayed > 10)
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 2)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-                        enemiesAlive++;
-                        enemiesSpawned++;
-                    }
-                }
-                if (_roundsPlayed <= 30 && _roundsPlayed > 20)
-                {
-                    for (int i = 0; i < 5; i++)
-                    {
-                        enemyToSpawn = Instantiate(enemies[Random.Range(0, 3)], enemiesSpawners[Random.Range(0, enemiesSpawners.Count)].transform.position + Vector3.up * 1, Quaternion.identity);
-                        enemiesAlive++;
-                        enemiesSpawned++;
-                    }
-                }
-            }
-            yield return new WaitForSeconds(10);
+            _raptor -= 5;
+        }
+        else if (_roundsPlayed == 10)
+        {
+            _raptor = 45;
+            _trex = 90;
+        }
+        else if (_roundsPlayed < 16) 
+        {
+            _raptor -= 3;
+            _trex -= 6;
+        }
+        else if (_roundsPlayed == 16)
+        {
+            _raptor = 30;
+            _trex = 60; 
+            _triceraptos = 90;
+        }
+        else if (_roundsPlayed < 22)
+        {
+            _raptor -= 1;
+            _trex -= 2;
+            _triceraptos -= 3;
         }
     }
     public void EnemyDead()
     {
         enemiesAlive -= 1;
-
-
-
         SoundManager.dameReferencia.PlayClipByName(clipName: "EnemyDead");
-
         if (enemiesAlive <= 0 && onRound == true && enemiesSpawned == _totalNumberOfEnemies) 
         {
             if (regenWalls == true)
             {
                 listaActualizarWallsReg();
             }
-            RevisionNodes();
+            if (_roundsPlayed == _totalRounds)
+            {
+                PlayerWin();
+            }
+                RevisionNodes();
             onRound = false;
             enemiesSpawned = 0;
+            SpawnEnemiesPorcentajes();
             _roundsPlayed += 1;
             _totalNumberOfEnemies += 5;
             roundsText.text = "Ronda " +_roundsPlayed.ToString();

@@ -442,25 +442,11 @@ public class GenPerlinNoise : MonoBehaviour
                                 posicionGenerador = new Vector3(x + 1, 15, z + 1);
                                 
                             }
-                            
                         }
-                       
                     }
-
                 }
             }
         }
         SpawnMainStructure();
-
-
     }
-
-    public void Update()
-    {
-        Debug.Log(_randomSeed);
-    }
-
-
-
-
 }

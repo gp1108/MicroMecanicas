@@ -280,8 +280,8 @@ MonoBehaviour:
   healthPoints: 0
   maxHealthPoints: 0
   healthSlider: {fileID: 0}
-  _DeadEffect: {fileID: 0}
-  _HitEffect: {fileID: 0}
+  _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+  _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
 --- !u!95 &-8185624202702261339
 Animator:
   serializedVersion: 5
