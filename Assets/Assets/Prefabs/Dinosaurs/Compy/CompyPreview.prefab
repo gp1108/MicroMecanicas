@@ -92,7 +92,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5398151944652209268}
-  - component: {fileID: 7085071715960922609}
   m_Layer: 6
   m_Name: CompyPreview
   m_TagString: Enemies
@@ -116,24 +115,8 @@ Transform:
   - {fileID: 5693664399040049472}
   - {fileID: 6947047606257952833}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -103.53, z: 0}
---- !u!114 &7085071715960922609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4135117325036467320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  oscillationSpeed: 1
-  oscillationHeight: 0.2
-  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!1 &5832110519021551329
 GameObject:
   m_ObjectHideFlags: 0

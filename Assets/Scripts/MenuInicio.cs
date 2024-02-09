@@ -24,6 +24,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject TRexPanel;
     public GameObject CompsognathusPanel;
     public GameObject warningPopUp;
+    public GameObject lockedPanel;
 
     [Header("Bool")]
     private bool enmenu;
@@ -36,6 +37,11 @@ public class MenuInicio : MonoBehaviour
     public bool TRexPanelActive;
     public bool CompyPanelActive;
     public bool PteroPanelActive;
+    public bool Raptorislocked = true;
+    public bool Tricepislocked = true;
+    public bool Compypislocked = true;
+    public bool Pteroislocked = true;
+    public bool Trexislocked = true;
 
     private static MenuInicio _Reference;
 
@@ -44,7 +50,7 @@ public class MenuInicio : MonoBehaviour
         get
         {
 
-                return _Reference;
+             return _Reference;
 
             
         }
@@ -55,7 +61,7 @@ public class MenuInicio : MonoBehaviour
     private void Awake()
     {
         _Reference = this;
-        
+       
 
     }
 
@@ -154,52 +160,97 @@ public class MenuInicio : MonoBehaviour
 
     public void Raptor()
     {
-        RaptorPanel.gameObject.SetActive(true);
-        RaptorPanelActive = true;
-        opcionesIngame = false;
-        BestiarioPanelActive = false;
-        //BestiarioPanel.gameObject.SetActive(false);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        if (Raptorislocked == true)
+        {
+            lockedPanel.SetActive(true);
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+        }
+        else if (Raptorislocked == false)
+        {
+            RaptorPanel.gameObject.SetActive(true);
+            RaptorPanelActive = true;
+            opcionesIngame = false;
+            BestiarioPanelActive = false;
+            //BestiarioPanel.gameObject.SetActive(false);
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        }
+        
     }
 
     public void Triceratops()
     {
-        TriceratopsPanel.gameObject.SetActive(true);
-        TricePanelActive = true;
-        opcionesIngame = false;
-        BestiarioPanelActive = false;
-        //BestiarioPanel.gameObject.SetActive(false);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        if (Tricepislocked == true)
+        {
+            lockedPanel.SetActive(true);
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+        }
+        else if (Tricepislocked == false)
+        {
+            TriceratopsPanel.gameObject.SetActive(true);
+            TricePanelActive = true;
+            opcionesIngame = false;
+            BestiarioPanelActive = false;
+            //BestiarioPanel.gameObject.SetActive(false);
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        }
+
     }
 
     public void Pterodactilo()
     {
-        PterodactiloPanel.gameObject.SetActive(true);
-        PteroPanelActive = true;
-        opcionesIngame = false;
-        BestiarioPanelActive = false;
-        //BestiarioPanel.gameObject.SetActive(false);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        if (Pteroislocked == true)
+        {
+            lockedPanel.SetActive(true);
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+        }
+        else if (Pteroislocked == false)
+        {
+            PterodactiloPanel.gameObject.SetActive(true);
+            PteroPanelActive = true;
+            opcionesIngame = false;
+            BestiarioPanelActive = false;
+            //BestiarioPanel.gameObject.SetActive(false);
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        }
+        
     }
 
     public void TRex()
     {
-        TRexPanel.gameObject.SetActive(true);
-        TRexPanelActive = true;
-        opcionesIngame = false;
-        BestiarioPanelActive = false;
-        //BestiarioPanel.gameObject.SetActive(false);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        if (Trexislocked == true)
+        {
+            lockedPanel.SetActive(true);
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+        }
+        else if (Trexislocked == false)
+        {
+            TRexPanel.gameObject.SetActive(true);
+            TRexPanelActive = true;
+            opcionesIngame = false;
+            BestiarioPanelActive = false;
+            //BestiarioPanel.gameObject.SetActive(false);
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        }
+        
     }
 
     public void Compsognathus()
     {
-        CompsognathusPanel.gameObject.SetActive(true);
-        CompyPanelActive = true;
-        opcionesIngame = false;
-        BestiarioPanelActive = false;
-        //BestiarioPanel.gameObject.SetActive (false);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        if (Compypislocked == true)
+        {
+            lockedPanel.SetActive(true);
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+        }
+        else if (Compypislocked == false)
+        {
+            CompsognathusPanel.gameObject.SetActive(true);
+            CompyPanelActive = true;
+            opcionesIngame = false;
+            BestiarioPanelActive = false;
+            //BestiarioPanel.gameObject.SetActive (false);
+            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        }
+        
     }
 
     public void Volver()
