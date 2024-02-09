@@ -107,10 +107,9 @@ public class gameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("maxRoundArrive", 0);
         }
-        _z = 0;
+        _z = 2;
         _x = 1;
-        _y = 2;
-
+        _y = 0;
         _raptor = 90;
         _trex = 100;
         _triceraptos = 100;
@@ -233,8 +232,6 @@ public class gameManager : MonoBehaviour
         {
             roundsText.text = "Ronda "  + _roundsPlayed.ToString();
             StartCoroutine("Revision");
-            
-            
         }
     }
     IEnumerator Revision()
@@ -260,8 +257,6 @@ public class gameManager : MonoBehaviour
     public void SpawnEnemies()
     {
         //StartCoroutine("SpawnCrow");
-        Debug.Log(((_totalNumberOfEnemies / _x) / 2));
-        Debug.Log((_totalNumberOfEnemies / _x));
         if (enemiesAlive < ((_totalNumberOfEnemies / _x) / 2) && enemiesSpawned < _totalNumberOfEnemies)
         {
             for (int i = 0; i < (_totalNumberOfEnemies / _x); i++)
@@ -288,7 +283,7 @@ public class gameManager : MonoBehaviour
         for (int i = 0; i < _totalNumberOfEnemies; i++)
         {
             int random = Random.Range(0, 100);
-            if (random < _raptor)
+            if (random <= _raptor)
             {
                 _nRaptor += 1;
                 listaSimulacion.Add(0);
@@ -298,7 +293,7 @@ public class gameManager : MonoBehaviour
                 _nPterodactilo += 1;
                 listaSimulacion.Add(1);
             }
-            else if (random > _trex && random < _triceraptos)
+            else if (random > _trex && random <= _triceraptos)
             {
                 _nTrex += 1;
                 listaSimulacion.Add(2);
@@ -308,7 +303,6 @@ public class gameManager : MonoBehaviour
                 _nTriceraptos += 1;
                 listaSimulacion.Add(3);
             }
-
         }
     }
     public void SpawnEnemiesPorcentajes()

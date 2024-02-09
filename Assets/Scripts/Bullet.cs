@@ -39,11 +39,8 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("tag" + other.gameObject.tag + " nombre: " + other.gameObject.name);
         if (other.gameObject.tag == "Enemies")
         {
-            Debug.Log("Quito vida a " + other.gameObject.name);
-
             other.gameObject.GetComponent<Health>().GetDamaged(damaged,tipoDamaged);
             Destroy(this.gameObject);
         }
