@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditorInternal;
+
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.GraphicsBuffer;
+
+
 
 public class Mortero : MonoBehaviour
 {
