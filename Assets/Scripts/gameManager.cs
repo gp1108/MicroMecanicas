@@ -55,6 +55,12 @@ public class gameManager : MonoBehaviour
     private int enemiesSpawned;
     public TMP_Text roundsText;
     private GameObject enemyToSpawn;
+    [Header("Enemy UI")]
+    public TMP_Text raptorText;
+    public TMP_Text pterodactyloText;
+    public TMP_Text trexText;
+    public TMP_Text triceratopsText;
+
     [Header("Menu Management")]
     public GameObject BuildMenuButton;
     public GameObject ResearchMenuButton;
@@ -304,6 +310,15 @@ public class gameManager : MonoBehaviour
                 listaSimulacion.Add(3);
             }
         }
+        UpdateEnemyUI();
+    }
+
+    public void UpdateEnemyUI()
+    {
+        raptorText.text = _nRaptor.ToString();
+        pterodactyloText.text = _nPterodactilo.ToString();
+        trexText.text = _nTrex.ToString();
+        triceratopsText.text = _nTriceraptos.ToString();
     }
     public void SpawnEnemiesPorcentajes()
     {
