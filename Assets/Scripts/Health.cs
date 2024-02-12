@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -29,6 +30,7 @@ public class Health : MonoBehaviour
     private float _speedInSlow;
     public GameObject _DeadEffect;
     public GameObject _HitEffect;
+    public GameObject opciones;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +41,8 @@ public class Health : MonoBehaviour
         _barraVida = GameObject.Find("VidaGenerador");
         _slow = false;
         tipoVida = tipoDeVida.Estandar;
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");        
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        opciones = GameObject.Find("Opciones");
         if (this.name == "MainStructure(Clone)")
         {
             UpdateVida();
@@ -132,12 +135,70 @@ public class Health : MonoBehaviour
                 muerto = true;
                 gameManager.giveMeReference.GetGold(10);
                 gameManager.giveMeReference.EnemyDead();
+                if(PlayerPrefs.GetFloat("raptor") == 0 || PlayerPrefs.GetFloat("Pterodactilo") == 0 || PlayerPrefs.GetFloat("Triceratops") == 0 || PlayerPrefs.GetFloat("Trex") == 0 || PlayerPrefs.GetFloat("Compy") == 0)
+                {
+                    unlockDino(name);
+         
+                }
 
                 Instantiate(_DeadEffect, this.gameObject.transform.position, Quaternion.identity);
+
+               
             }
             Destroy(this.gameObject);
+
+
+        }
+
+
+    }
+
+    public void unlockDino(string name)
+    {
+        switch (name)
+        {
+            case "raptor 1(Clone)":
+                if (PlayerPrefs.GetFloat("raptor") == 0)
+                {
+                    PlayerPrefs.SetFloat("raptor", 1);
+                    Debug.Log("unlonck");
+                    opciones = GameObject.Find("Opciones");
+                    opciones.GetComponent<MenuInicio>().Raptor();
+                }
+            break;
+            case "pterodactilo(Clone)":
+                if (PlayerPrefs.GetFloat("Pterodactilo") == 0)
+                {
+                    PlayerPrefs.SetFloat("Pterodactilo", 1);
+                    Debug.Log("unlonck");
+                }
+                break;
+            case "TRex(Clone)":
+                if (PlayerPrefs.GetFloat("Trex") == 0)
+                {
+                    PlayerPrefs.SetFloat("Trex", 1);
+                    Debug.Log("unlonck");
+                }
+                break;
+            case "Triceraptos(Clone)":
+                if (PlayerPrefs.GetFloat("Triceratops") == 0)
+                {
+                    PlayerPrefs.SetFloat("Triceratops", 1);
+                    Debug.Log("unlonck");
+                }
+                break;
+            case "Compy(Clone)":
+                if (PlayerPrefs.GetFloat("Compy") == 0)
+                {
+                    PlayerPrefs.SetFloat("Compy", 1);
+                    Debug.Log("unlonck");
+                }
+                break;
+
+
         }
     }
+
     public void GetSlow(GameObject turret)
     {
         _slow = true;

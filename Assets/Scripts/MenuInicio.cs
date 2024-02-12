@@ -24,7 +24,11 @@ public class MenuInicio : MonoBehaviour
     public GameObject TRexPanel;
     public GameObject CompsognathusPanel;
     public GameObject warningPopUp;
-    public GameObject lockedPanel;
+    public GameObject RaptorLockedPanel;
+    public GameObject TricepLockedPanel;
+    public GameObject PteroLockedPanel;
+    public GameObject TRexLockedPanel;
+    public GameObject CompyLockedPanel;
 
     [Header("Bool")]
     private bool enmenu;
@@ -37,11 +41,11 @@ public class MenuInicio : MonoBehaviour
     public bool TRexPanelActive;
     public bool CompyPanelActive;
     public bool PteroPanelActive;
-    public bool Raptorislocked = true;
-    public bool Tricepislocked = true;
-    public bool Compypislocked = true;
-    public bool Pteroislocked = true;
-    public bool Trexislocked = true;
+    public bool Raptorislocked;
+    public bool Tricepislocked;
+    public bool Compypislocked;
+    public bool Pteroislocked;
+    public bool Trexislocked; 
 
     private static MenuInicio _Reference;
 
@@ -61,7 +65,6 @@ public class MenuInicio : MonoBehaviour
     private void Awake()
     {
         _Reference = this;
-       
 
     }
 
@@ -75,9 +78,18 @@ public class MenuInicio : MonoBehaviour
             enmenu = true;
             opcionesIngame = false;
         }
-        
+        Raptorislocked = true;
+        Tricepislocked = true;
+        Compypislocked = true;
+        Pteroislocked = true;
+        Trexislocked = true;
 
     }
+    private void Update()
+    {
+
+    }
+
 
     public void NewGameSettings()
     {
@@ -123,11 +135,6 @@ public class MenuInicio : MonoBehaviour
 
     }
     
-
-    private void Update()
-    {
-        //Debug.Log(enmenu);
-    }
     public void CargarPartida()
     {
         //SceneManager.LoadScene(1);
@@ -160,12 +167,12 @@ public class MenuInicio : MonoBehaviour
 
     public void Raptor()
     {
-        if (Raptorislocked == true)
+        if (PlayerPrefs.GetFloat("raptor") == 0)
         {
-            lockedPanel.SetActive(true);
+            RaptorLockedPanel.SetActive(true);
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
-        else if (Raptorislocked == false)
+        if (PlayerPrefs.GetFloat("raptor") == 1)
         {
             RaptorPanel.gameObject.SetActive(true);
             RaptorPanelActive = true;
@@ -181,7 +188,7 @@ public class MenuInicio : MonoBehaviour
     {
         if (Tricepislocked == true)
         {
-            lockedPanel.SetActive(true);
+            TricepLockedPanel.SetActive(true);
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         else if (Tricepislocked == false)
@@ -200,7 +207,7 @@ public class MenuInicio : MonoBehaviour
     {
         if (Pteroislocked == true)
         {
-            lockedPanel.SetActive(true);
+            PteroLockedPanel.SetActive(true);
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         else if (Pteroislocked == false)
@@ -219,7 +226,7 @@ public class MenuInicio : MonoBehaviour
     {
         if (Trexislocked == true)
         {
-            lockedPanel.SetActive(true);
+            TRexLockedPanel.SetActive(true);
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         else if (Trexislocked == false)
@@ -238,7 +245,7 @@ public class MenuInicio : MonoBehaviour
     {
         if (Compypislocked == true)
         {
-            lockedPanel.SetActive(true);
+            CompyLockedPanel.SetActive(true);
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         else if (Compypislocked == false)

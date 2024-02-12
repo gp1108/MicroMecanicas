@@ -312,6 +312,15 @@ public class ExternalSkills : MonoBehaviour
         //TODOS LOS CHECKPLAYERPREFS SON LAS VARIABLES QUE ALTERAN LAS ESTADICSTICAS ,
         //LOS AMOUNTS SON LA CANTIDAD DE VECES QUE SE PUEDE MEJORAR ESA HABILIDAD, Y LOS ISSKILLUNLOCKED MANTIENEN EL PROGRESO GUARDADO DE ESA HABILIDAD
         externalSkillPoints = 100;
+
+        //Dino
+        CheckPlayerPrefsKey("raptor", 0);
+        CheckPlayerPrefsKey("Trex", 0);
+        CheckPlayerPrefsKey("Triceratops", 0);
+        CheckPlayerPrefsKey("Pterodactilo", 0);
+        CheckPlayerPrefsKey("Compy", 0);
+
+
         //Torreta Sniper
         CheckPlayerPrefsKey("vidaS", 10);
         CheckPlayerPrefsKey("damagedS", 20);
