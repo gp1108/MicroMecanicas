@@ -19,7 +19,7 @@ public class TurretLaser : MonoBehaviour
     private bool _enemyActive;
     private bool _ataking;
     private float _damaged;
-
+    private Animator _animator;
     [Header("RangeIndicator")]
     public GameObject rangeIndicator;
     private bool _mostrarRango;
@@ -27,6 +27,8 @@ public class TurretLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("Atacando",false);
         canvas = GameObject.Find("Canvas");
         gameManager.giveMeReference.GetTurret(this.gameObject);
         _ataking = false;
@@ -53,11 +55,8 @@ public class TurretLaser : MonoBehaviour
     {
         if (_target != null) 
         { 
-
             if (_enemyActive == false)
             {
-                
-                
                 _distance = Vector3.Distance(transform.position, _target.transform.position);
                 foreach (Collider _Enemy in _enemies)
                 {
@@ -66,17 +65,12 @@ public class TurretLaser : MonoBehaviour
                         if (Vector3.Distance(transform.position, _Enemy.transform.position) < _distance)
                         {
                             _distance = Vector3.Distance(transform.GetChild(0).position, _Enemy.transform.position);
-
                             _target = _Enemy.gameObject;
-
                         }
                     }
                 }
-                
                 _enemyActive = true;
             }
-            
-
         }
         else
         {
@@ -90,12 +84,9 @@ public class TurretLaser : MonoBehaviour
             if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.visionL)
             {
                 _lookAt = _target.transform.position - transform.GetChild(0).transform.position;
-
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
-
-                transform.GetChild(0).rotation = Quaternion.Lerp(transform.GetChild(0).rotation, _rotation, _velocitiRotation * Time.deltaTime);
-
-
+                Vector3 targetPosition = new Vector3(_target.transform.position.x, transform.position.y, _target.transform.position.z);
+                transform.GetChild(0).LookAt(targetPosition);
             }
             RaycastHit hit;
             if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer))
@@ -104,6 +95,7 @@ public class TurretLaser : MonoBehaviour
                 {
                     if (hit.transform.tag != "TownHall")
                     {
+                        _animator.SetBool("Atacando", true);
                         if (_ataking == false)
                         {
                             GameObject enemigo = hit.transform.gameObject;
@@ -115,10 +107,13 @@ public class TurretLaser : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                _animator.SetBool("Atacando", false);
+            }
         }
         else
         {
-
             _damaged = 0.1f;
         }
     }
@@ -158,21 +153,21 @@ public class TurretLaser : MonoBehaviour
         if (isDestroyModeActive == false)
         {
             rangeIndicator.transform.position = this.transform.position;
-            rangeIndicator.GetComponent<MeshRenderer>().enabled = true;
+            rangeIndicator.GetComponentInChildren<MeshRenderer>().enabled = true;
             rangeIndicator.transform.localScale = new Vector3(UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2, UpgradeManager.giveMeReference.rangeL * 2);
-
             _mostrarRango = true;
         }
         else
         {
             return;
         }
-
     }
     private void Ocultar()
     {
         _mostrarRango = false;
-        rangeIndicator.GetComponent<MeshRenderer>().enabled = false;
+
+        rangeIndicator.GetComponentInChildren<MeshRenderer>().enabled = false;
+
         rangeIndicator.transform.position = new Vector3(0, -50, 0);
     }
     public void ActualizarVidaTorres()
