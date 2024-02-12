@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
   _enemies: []
   _target: {fileID: 0}
   exitRay: {fileID: 4024165391125429318}
