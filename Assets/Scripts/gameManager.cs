@@ -349,9 +349,36 @@ public class gameManager : MonoBehaviour
             _triceraptos -= 3;
         }
     }
-    public void EnemyDead()
+    public void EnemyDead(string name)
     {
         enemiesAlive -= 1;
+        switch (name)
+        {
+            case "raptor 1(Clone)":
+                _nRaptor -= 1;
+                UpdateEnemyUI();
+                
+                break;
+            case "pterodactilo(Clone)":
+                _nPterodactilo -= 1;
+                UpdateEnemyUI();
+
+                break;
+            case "TRex(Clone)":
+                _nTrex= 1;
+                UpdateEnemyUI();
+
+                break;
+            case "Triceraptos(Clone)":
+                _nTriceraptos -= 1;
+                UpdateEnemyUI();
+
+                break;
+
+            default: break;
+                
+
+        }
         SoundManager.dameReferencia.PlayClipByName(clipName: "EnemyDead");
         if (enemiesAlive <= 0 && onRound == true && enemiesSpawned == _totalNumberOfEnemies) 
         {
