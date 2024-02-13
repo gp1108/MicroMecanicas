@@ -87,13 +87,13 @@ public class Enemy1 : MonoBehaviour
         if (_atac == false)
         {
             LayerMask golpe = LayerMask.GetMask("ObjetivoEnemigos");
-            if (Physics.Raycast(transform.position, _distancia, out RaycastHit hit, 1.5f,golpe))
+            if (Physics.Raycast(transform.position, _distancia, out RaycastHit hit, 0.75f,golpe))
             {
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {
                     hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
                     _atac = true;
-                    _cadencia = 1;
+                    _cadencia = 0.3f;
                 }
             }
         }

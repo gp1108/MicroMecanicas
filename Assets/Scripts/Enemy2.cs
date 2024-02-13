@@ -26,7 +26,7 @@ public class Enemy2 : MonoBehaviour
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 14;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Vida;
         StartCoroutine("CheckPath");
         GetComponent<Health>().BarHelth();
@@ -140,7 +140,7 @@ public class Enemy2 : MonoBehaviour
                 }
             }
             _atac = true;
-            _cadencia = 1;
+            _cadencia = 1.5f;
         }
         if (_atac == true)
         {

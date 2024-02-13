@@ -28,7 +28,7 @@ public class Enemy3Jr : MonoBehaviour
         _walls = BuildManager.dameReferencia.Walls;
         StartCoroutine("CheckPath");
         StartCoroutine("GetWalls");
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 8;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
         GetComponent<Health>().BarHelth();
     }
@@ -154,18 +154,18 @@ public class Enemy3Jr : MonoBehaviour
                             if (vida != null)
                             {
 
-                                _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                                _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
 
                             }
                         }
                     }
                     if (_EXPLOSION.tag == "TownHall")
                     {
-                        _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                        _EXPLOSION.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
                     }
                     if (_EXPLOSION.tag == "BaseTurret")
                     {
-                        _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                        _EXPLOSION.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
                     }
                 }
                 Destroy(this.gameObject);

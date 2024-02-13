@@ -323,10 +323,10 @@ public class ExternalSkills : MonoBehaviour
 
         //Torreta Sniper
         CheckPlayerPrefsKey("vidaS", 10);
-        CheckPlayerPrefsKey("damagedS", 20);
-        CheckPlayerPrefsKey("cadenceS", 5);
-        CheckPlayerPrefsKey("rangeS", 25);
-        CheckPlayerPrefsKey("visionS", 35);
+        CheckPlayerPrefsKey("damagedS", 14);
+        CheckPlayerPrefsKey("cadenceS", 7.5f);
+        CheckPlayerPrefsKey("rangeS", 20);
+        CheckPlayerPrefsKey("visionS", 30);
 
         //Torreta Laser
         CheckPlayerPrefsKey("vidaL", 10);
@@ -343,23 +343,23 @@ public class ExternalSkills : MonoBehaviour
 
         //Torreta Basica
         CheckPlayerPrefsKey("vidaB", 10);
-        CheckPlayerPrefsKey("damagedB", 3);
-        CheckPlayerPrefsKey("cadenceB", 1);
-        CheckPlayerPrefsKey("rangeB", 10);
-        CheckPlayerPrefsKey("visionB", 15);
+        CheckPlayerPrefsKey("damagedB", 2.5f);
+        CheckPlayerPrefsKey("cadenceB", 1.2f);
+        CheckPlayerPrefsKey("rangeB", 7.5f);
+        CheckPlayerPrefsKey("visionB", 10);
 
         //Torreta Ametralladora
         CheckPlayerPrefsKey("vidaAm", 10);
-        CheckPlayerPrefsKey("damagedAm", 5);
-        CheckPlayerPrefsKey("cadenceAm", 0.3f);
-        CheckPlayerPrefsKey("rangeAm", 10);
-        CheckPlayerPrefsKey("visionAm", 15);
+        CheckPlayerPrefsKey("damagedAm", 3);
+        CheckPlayerPrefsKey("cadenceAm", 0.35f);
+        CheckPlayerPrefsKey("rangeAm", 8.5f);
+        CheckPlayerPrefsKey("visionAm", 12);
 
         //Torreta Aerea
         CheckPlayerPrefsKey("vidaA", 10);
-        CheckPlayerPrefsKey("damagedA", 5);
+        CheckPlayerPrefsKey("damagedA", 2);
         CheckPlayerPrefsKey("cadenceA", 1);
-        CheckPlayerPrefsKey("rangeA", 10);
+        CheckPlayerPrefsKey("rangeA", 12);
         CheckPlayerPrefsKey("visionA", 15);
         
         //Muros
@@ -372,8 +372,8 @@ public class ExternalSkills : MonoBehaviour
 
         //TurretMortero
         CheckPlayerPrefsKey("vidaMortero",10);
-        CheckPlayerPrefsKey("damagedMortero",5);
-        CheckPlayerPrefsKey("cadenceMortero",5);
+        CheckPlayerPrefsKey("damagedMortero",25);
+        CheckPlayerPrefsKey("cadenceMortero",12);
         CheckPlayerPrefsKey("rangeMortero",30);
         CheckPlayerPrefsKey("visionMortero",40);
 

@@ -23,14 +23,14 @@ public class Enemy4 : MonoBehaviour
     {
         
         transform.position = new Vector3(transform.position.x, 6, transform.position.z);
-        _cadencia = 1.5f;
+        _cadencia = 1f;
         _range = 5;
         _atac = false;
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
         _navAgent.enabled = true;
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 12;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
         StartCoroutine("CheckPath");
         GetComponent<Health>().BarHelth();

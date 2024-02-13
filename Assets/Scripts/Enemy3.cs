@@ -27,7 +27,7 @@ public class Enemy3 : MonoBehaviour
         _navAgent = GetComponent<NavMeshAgent>();
         StartCoroutine("CheckPath");
         StartCoroutine("GetWalls");
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 20;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Armadura;
         GetComponent<Health>().BarHelth();
     }
