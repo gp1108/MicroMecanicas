@@ -169,7 +169,7 @@ public class Enemy3Jr : MonoBehaviour
                     }
                 }
                 Destroy(this.gameObject);
-                gameManager.giveMeReference.EnemyDead();
+                gameManager.giveMeReference.EnemyDead(this.gameObject.name);
             }
         }
 
