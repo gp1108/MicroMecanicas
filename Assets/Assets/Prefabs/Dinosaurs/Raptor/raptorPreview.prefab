@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481880483644392387}
-  - component: {fileID: 5637818230393571453}
   m_Layer: 6
   m_Name: raptorPreview
   m_TagString: Enemies
@@ -33,24 +32,8 @@ Transform:
   - {fileID: 6533849755133076157}
   - {fileID: 7687724123013510}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5637818230393571453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712470860954989378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  oscillationSpeed: 1
-  oscillationHeight: 0.5
-  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!1 &5137547267720166250
 GameObject:
   m_ObjectHideFlags: 0
