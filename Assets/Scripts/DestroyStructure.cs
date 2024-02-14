@@ -43,7 +43,7 @@ public class DestroyStructure : MonoBehaviour
     
     private void OnMouseExit()
     {
-        
+        Debug.Log("He destruido");
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
         if (isDestructiveModeActive == true)
         {
@@ -89,6 +89,12 @@ public class DestroyStructure : MonoBehaviour
                     gameManager.giveMeReference.numberOfLabs--;
                     gameManager.giveMeReference.MaxNumberOfResearchStructures();
                     SoundManager.dameReferencia.PlayOneClipByName(clipName: "DestroyBuild");
+
+                    bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
+                    if (isDestructiveModeActive == true)
+                    {
+                        destroyUI.transform.position = Vector3.zero + Vector3.down * 10;
+                    }
                 }
                 else if (this.gameObject.tag == "SniperTurret")
                 {

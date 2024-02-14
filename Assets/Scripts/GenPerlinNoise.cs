@@ -43,6 +43,7 @@ public class GenPerlinNoise : MonoBehaviour
     [Header("Props")]
     //Generacion procedural de arboles, rocas etc.
     private List<Vector3> blockPositions = new List<Vector3>();
+    private List<Vector3> snowBlockPositions = new List<Vector3>();
     public GameObject[] worldProps;
     private int cuantityOfProps;
 
@@ -117,12 +118,13 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject nodes = Instantiate(node, position + new Vector3(0, 0.51f, 0), Quaternion.identity) as GameObject;
                     nodes.transform.SetParent(nodeGroup.transform);
                     //Añadir a la lista de blockpositions
-                    blockPositions.Add(cube.transform.position);
+                    //blockPositions.Add(cube.transform.position);
                 }
                 else if(_perlinNoiseToInt >=3 && _perlinNoiseToInt <=5)
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(notwalkableGrassGroup.transform);
+                    blockPositions.Add(cube.transform.position);
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
@@ -172,7 +174,8 @@ public class GenPerlinNoise : MonoBehaviour
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(notwalkeableButNavMesh.transform);
-                    
+                   
+
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
@@ -215,7 +218,7 @@ public class GenPerlinNoise : MonoBehaviour
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(notwalkeableButNavMesh.transform);
-
+                   
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
                 {
@@ -259,6 +262,7 @@ public class GenPerlinNoise : MonoBehaviour
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(notwalkeableButNavMesh.transform);
+                   
 
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
@@ -302,6 +306,7 @@ public class GenPerlinNoise : MonoBehaviour
                 {
                     GameObject cube = Instantiate(cubeGameObjectGrassNotWalkable, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(notwalkeableButNavMesh.transform);
+                   
 
                 }
                 else if (_perlinNoiseToInt >= 2 && _perlinNoiseToInt <= 2)
@@ -364,10 +369,31 @@ public class GenPerlinNoise : MonoBehaviour
         //Aqui se puede usar la misma logica de altura para determinar que gameobject se spawnea , yo lo hago aleatorio pero es bastante feo
         for(int i = 0; i<cuantityOfProps;i++)
         {
-           
-            GameObject toPlaceObject = Instantiate(worldProps[Random.Range(0, worldProps.Length)], ObjectsSpawnLocation(), Quaternion.Euler(0,Random.Range(0,360),0));
-            toPlaceObject.transform.SetParent(propsGroup.transform);
+            Vector3 altura = ObjectsSpawnLocation();
+            Debug.Log(altura);
+            if(altura.y < 4)//&& altura.y > 2
+            {
+                 int chooseProp = Random.Range(0, 3);
+                 if(chooseProp < 2)
+                 {
+                    chooseProp = 1;
+                 }
+                 else
+                 {
+                    chooseProp = 0;
+                 }
+                 GameObject toPlaceObject = Instantiate(worldProps[chooseProp], altura , Quaternion.Euler(0, Random.Range(0, 360), 0));
+                 toPlaceObject.transform.SetParent(propsGroup.transform);
+          
+            }
+            else if(altura.y >= 4) 
+            {
+                GameObject toPlaceObject = Instantiate(worldProps[2], new Vector3(altura.x,altura.y - 0.5f,altura.z), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                toPlaceObject.transform.SetParent(propsGroup.transform);
+            }
         }
+           
+        
     }
 
     private Vector3 ObjectsSpawnLocation()
@@ -376,7 +402,10 @@ public class GenPerlinNoise : MonoBehaviour
         Vector3 newPosition = new Vector3(blockPositions[randomIndex].x, blockPositions[randomIndex].y + 1.01f, blockPositions[randomIndex].z);
         blockPositions.RemoveAt(randomIndex);
         return newPosition;
+
     }
+
+    
 
     private void SpawnMainStructure()
     {
