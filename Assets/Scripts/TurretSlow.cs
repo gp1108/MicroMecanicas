@@ -13,6 +13,9 @@ public class TurretSlow : MonoBehaviour
     public GameObject buildMenu;
 
     private GameObject canvas;
+
+
+    //public GameObject slowEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class TurretSlow : MonoBehaviour
     }
     public void Slow()
     {
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Slow");
+        //SoundManager.dameReferencia.PlayClipByName(clipName: "Slow");
         _zoneSlow= Physics.OverlapSphere(transform.position,20, layer);
         if (_zoneSlow.Length > 0)
         {
@@ -40,6 +43,7 @@ public class TurretSlow : MonoBehaviour
                 if (c.gameObject.GetComponent<NavMeshAgent>()!=null)
                 {
                     c.gameObject.GetComponent<Health>().GetSlow(this.gameObject);
+                    
                 }
             }
         }

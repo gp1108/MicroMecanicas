@@ -465,6 +465,8 @@ MonoBehaviour:
   _walls: []
   _target: {fileID: 0}
   Jr: {fileID: 2669460932986791801, guid: c9e74c7d7b6fd4245b622ec76b4be202, type: 3}
+  explosionEffect: {fileID: 1714681308540598, guid: 5cbc537826220e04592d5a41a0dd985f, type: 3}
+  debuff: {fileID: 6126188424833946103, guid: a58aa9a78f2b45b45bb0f3e2e1e3ad3c, type: 3}
 --- !u!114 &8272245140479197860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +483,7 @@ MonoBehaviour:
   healthPoints: 0
   maxHealthPoints: 0
   healthSlider: {fileID: 0}
+  _slow: 0
   _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
   _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
   opciones: {fileID: 0}

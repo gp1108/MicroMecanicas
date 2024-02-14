@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.AI;
+using System.Diagnostics;
 
 public class Enemy4 : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class Enemy4 : MonoBehaviour
     private bool _atac;
     private bool _atacking;
     [SerializeField] private GameObject[] _torret;
+    public GameObject debuff;
 
-    
     void Start()
     {
         
@@ -153,8 +154,11 @@ public class Enemy4 : MonoBehaviour
             
             _navAgent.isStopped = false;
         }
+        if (GetComponent<Health>()._slow == true)
+        {
+            Instantiate(debuff, this.transform.position, Quaternion.identity);
+        }
 
-        
     }
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
     {
