@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         maxHealthPoints = healthPoints;
-        _speedInSlow = 0.5f;
+        _speedInSlow = UpgradeManager.giveMeReference.amountSlow;
         _nVida = GameObject.Find("NumeroVidaGenerador");
         _barraVida = GameObject.Find("VidaGenerador");
         _slow = false;
@@ -158,7 +158,6 @@ public class Health : MonoBehaviour
                 if(PlayerPrefs.GetFloat("raptor") == 0 || PlayerPrefs.GetFloat("Pterodactilo") == 0 || PlayerPrefs.GetFloat("Triceratops") == 0 || PlayerPrefs.GetFloat("Trex") == 0 || PlayerPrefs.GetFloat("Compy") == 0)
                 {
                     unlockDino(name);
-         
                 }
 
                 Instantiate(_DeadEffect, this.gameObject.transform.position, Quaternion.identity);
@@ -183,10 +182,8 @@ public class Health : MonoBehaviour
                 if (PlayerPrefs.GetFloat("raptor") == 0)
                 {
                     PlayerPrefs.SetFloat("raptor", 1);
-                    Debug.Log("unlonck Raptor");
                     if(opciones != null)
                     {
-                        Debug.Log("find opciones");
                         opciones.GetComponent<MenuInicio>().RaptorLockedPanel.SetActive(false);
                     }
                 }
@@ -195,10 +192,8 @@ public class Health : MonoBehaviour
                 if (PlayerPrefs.GetFloat("Pterodactilo") == 0)
                 {
                     PlayerPrefs.SetFloat("Pterodactilo", 1);
-                    Debug.Log("unlonck Pterodactilo");
                     if (opciones != null)
                     {
-                        Debug.Log("find opciones");
                         opciones.GetComponent<MenuInicio>().PteroLockedPanel.SetActive(false);
                     }
                 }
@@ -207,10 +202,8 @@ public class Health : MonoBehaviour
                 if (PlayerPrefs.GetFloat("Trex") == 0)
                 {
                     PlayerPrefs.SetFloat("Trex", 1);
-                    Debug.Log("unlonck Trex");
                     if (opciones != null)
                     {
-                        Debug.Log("find opciones");
                         opciones.GetComponent<MenuInicio>().TRexLockedPanel.SetActive(false);
                     }
                 }
@@ -219,10 +212,8 @@ public class Health : MonoBehaviour
                 if (PlayerPrefs.GetFloat("Triceratops") == 0)
                 {
                     PlayerPrefs.SetFloat("Triceratops", 1);
-                    Debug.Log("unlonck Triceratops");
                     if (opciones != null)
                     {
-                        Debug.Log("find opciones");
                         opciones.GetComponent<MenuInicio>().TricepLockedPanel.SetActive(false);
                     }
                 }
@@ -231,10 +222,8 @@ public class Health : MonoBehaviour
                 if (PlayerPrefs.GetFloat("Compy") == 0)
                 {
                     PlayerPrefs.SetFloat("Compy", 1);
-                    Debug.Log("unlonck Compy");
                     if (opciones != null)
                     {
-                        Debug.Log("find opciones");
                         opciones.GetComponent<MenuInicio>().CompyLockedPanel.SetActive(false);
                     }
                 }

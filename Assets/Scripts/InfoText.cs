@@ -317,8 +317,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.ExplosiveMine:
 
+                _textInformation.text = "Tipo de daño : ???\r\nMina explosiva que se activa al pasar por encima de ella. Hace un gran daño en area. Se destruye al activarse.\r\n" +
+                    "Damage = " + PlayerPrefs.GetFloat("damagedM") + " \r\nRango = \r\n" + PlayerPrefs.GetFloat("rangeM");
+
                 break;
             case TipeButon.AmetralladoraTurret:
+
+                _textInformation.text = "Tipo de daño: estandar\r\nEs la torreta básica mejorada, tiene mismo daño y rango que la torreta básica pero más cadencia\r\nDps = "+PlayerPrefs.GetFloat("damagedAm")*
+                PlayerPrefs.GetFloat("cadenceAm")
 
                 break;
             case TipeButon.SniperTurret:
@@ -329,6 +335,9 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
                 break;
             case TipeButon.SlowTurret:
+
+                _textInformation.text = "Torreta que no puede dañar a los enemigos pero les ralentiza el movimiento.\r\nSlow =" + PlayerPrefs.GetFloat("amountSlow") +
+                "\r\nRango =" + PlayerPrefs.GetFloat("rangeSlow") + "\r\nVida =" + PlayerPrefs.GetFloat("vidaSlow");
 
                 break;
             case TipeButon.MortarTurret:
@@ -346,49 +355,81 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 PlayerPrefs.GetFloat("cadenceB") + "\r\nRango =" + PlayerPrefs.GetFloat("rangeB") + "\r\nVida =" + PlayerPrefs.GetFloat("vidaB");
 
                 break;
-            case TipeButon.moreDamageBasicTurret: 
+            case TipeButon.moreDamageBasicTurret:
+
+                _textInformation.text = "Aumenta el daño de la torreta básica\r\nDps = " + PlayerPrefs.GetFloat("damagedB") * PlayerPrefs.GetFloat("cadenceB");
 
                 break;
             case TipeButon.moreHealthBasicTurret:
 
+                _textInformation.text = "Aumenta la vida base de la torreta básica\r\nVida Base = "+ PlayerPrefs.GetFloat("vidaB");
+
                 break;
             case TipeButon.moreRangeBasicTurret:
+
+                _textInformation.text = "Aumenta el rango de la torreta básica\r\n Range " + PlayerPrefs.GetFloat("rangeB");
 
                 break;
             case TipeButon.unlockSlowTurret:
 
+                _textInformation.text = "Torreta que no puede dañar a los enemigos pero les ralentiza el movimiento.\r\nSlow =" + PlayerPrefs.GetFloat("amountSlow") + 
+                "\r\nRango ="+ PlayerPrefs.GetFloat("rangeSlow") + "\r\nVida ="+ PlayerPrefs.GetFloat("vidaSlow");
+
                 break;
             case TipeButon.moreSlowSlowTurret:
+
+                _textInformation.text = "Aumenta el Slow que aplica\r\n Slow=" + PlayerPrefs.GetFloat("amountSlow");
 
                 break;
             case TipeButon.moreHealthSlowTurret:
 
+                _textInformation.text = "Aumenta la vida de la toreta\r\n Vida=" + PlayerPrefs.GetFloat("vidaSlow");
+
                 break;
             case TipeButon.moreRangeSlowTurret:
+
+                _textInformation.text = "Aumenta el rango de la toreta\r\n Range=" + PlayerPrefs.GetFloat("rangeSlow");
 
                 break;
             case TipeButon.unlockMineTurret:
 
+                _textInformation.text = "Tipo de daño : ???\r\nMina explosiva que se activa al pasar por encima de ella. Hace un gran daño en area. Se destruye al activarse.\r\n" +
+                    "Damage = " + PlayerPrefs.GetFloat("damagedM") + " \r\nRango = \r\n" + PlayerPrefs.GetFloat("rangeM");    
+
                 break;
             case TipeButon.moreDamageMineTurret:
+
+                _textInformation.text = "Aumenta el daño al explotar \r\n Damaged = " + PlayerPrefs.GetFloat("damagedM");
 
                 break;
             case TipeButon.moreRangeMineTurret:
 
+                _textInformation.text = "Aumenta el Rango de explosion \r\n Rango = " + PlayerPrefs.GetFloat("rangeM");
+
                 break;
             case TipeButon.oneReseachPointExtra:
+
+                _textInformation.text = "Los talleres dan 1 punto más de investigación.";
 
                 break;
             case TipeButon.moreGoldPerMine:
 
+                _textInformation.text = "Las minas dan X más de oro.";
+
                 break;
             case TipeButon.startWithExtraGold:
+
+                _textInformation.text = " Empiezas con X más oro.";
 
                 break;
             case TipeButon.startWithExtraResearchPoints:
 
+                _textInformation.text = "Empiezas con X más puntos de investigación.";
+
                 break;
             case TipeButon.Investigacion:
+
+                _textInformation.text = "Puntos de investigacion para el taller.\r\nTienes = " + gameManager.giveMeReference.researchPoints.ToString();
 
                 break;
 

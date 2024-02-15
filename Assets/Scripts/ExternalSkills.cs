@@ -337,7 +337,7 @@ public class ExternalSkills : MonoBehaviour
         //Torreta Slow
         //CheckPlayerPrefsKey("unlockSlow", 0);
         CheckPlayerPrefsKey("vidaSlow", 10);
-        CheckPlayerPrefsKey("amountSlow", 0.1f);
+        CheckPlayerPrefsKey("amountSlow", 0.5f);
         CheckPlayerPrefsKey("rangeSlow", 15);
         
 

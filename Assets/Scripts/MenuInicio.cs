@@ -80,12 +80,6 @@ public class MenuInicio : MonoBehaviour
         CheckTRexIfUnlocked();
         CheckCompyIfUnlocked();
     }
-    public void Update()
-    {
-        Debug.Log("update");
-    }
-
-
     public void NewGameSettings()
     {
         newGameSettings.SetActive(true);

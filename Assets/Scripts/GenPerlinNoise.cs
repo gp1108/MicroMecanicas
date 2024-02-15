@@ -370,7 +370,6 @@ public class GenPerlinNoise : MonoBehaviour
         for(int i = 0; i<cuantityOfProps;i++)
         {
             Vector3 altura = ObjectsSpawnLocation();
-            Debug.Log(altura);
             if(altura.y < 4)//&& altura.y > 2
             {
                  int chooseProp = Random.Range(0, 3);
