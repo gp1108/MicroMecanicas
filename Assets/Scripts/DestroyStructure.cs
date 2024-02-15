@@ -43,7 +43,7 @@ public class DestroyStructure : MonoBehaviour
     
     private void OnMouseExit()
     {
-        Debug.Log("He destruido");
+        
         bool isDestructiveModeActive = canvas.GetComponent<BuildMenuButton>().destroyModeActive;
         if (isDestructiveModeActive == true)
         {

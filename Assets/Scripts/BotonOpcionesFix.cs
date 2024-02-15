@@ -103,6 +103,7 @@ public class BotonOpcionesFix : MonoBehaviour
             else if (buildMenu.GetComponent<BuildMenuButton>().buildMenuActive == true)
             {
                 buildMenu.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
+                
             }
             else if (researchMenu.GetComponent<ResearchMenu>().researchMenuActive == true)
             {

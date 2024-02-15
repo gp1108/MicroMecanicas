@@ -386,6 +386,7 @@ public class GenPerlinNoise : MonoBehaviour
                 if (aciertos == 9)
                 {
                     Vector3 newPosition = new Vector3(Mathf.RoundToInt(enemyPositions[x].x), enemyPositions[x].y + 1.44f, Mathf.RoundToInt(enemyPositions[x].z) );
+                    
                     /*
                     for (int i = 0; i < 9; i++)
                     {
@@ -396,7 +397,7 @@ public class GenPerlinNoise : MonoBehaviour
 
                         if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
                         {
-                            for(x = 0; x< enemyPositions.Count; x++)
+                            for(x = 0; x< enemyPositions.Count -1; x++)
                             {
                                 if (enemyPositions[x] == new Vector3(enemyPositions[x].x + checkX, Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight), enemyPositions[x].z + checkZ))
                                 {
@@ -408,6 +409,7 @@ public class GenPerlinNoise : MonoBehaviour
 
                     }
                     */
+                    
                     enemyPositions.RemoveAt(x);
                     aviablePositionsForEnemies.Add(newPosition);
 
@@ -427,58 +429,7 @@ public class GenPerlinNoise : MonoBehaviour
         //enemyPositions.RemoveAt(randomIndex);
         //return newPosition;
     }
-    void AviablePositionsForSpawners()
-    {
-
-        //int currentNoise = Mathf.RoundToInt(GenerateNoise((int)enemyPositions[x].x, (int)enemyPositions[x].z, _detailScale) * _noiseHeight);
-        for (int x = 0; x < _worldSizeX; x++)
-        {
-            for (int z = 0; z < _worldSizeZ; z++)
-            {
-                int currentNoise = Mathf.RoundToInt(GenerateNoise(x, z, _detailScale) * _noiseHeight);
-                if (currentNoise == 1 || currentNoise == 2)
-                {
-                    int aciertos = 0;
-
-                    for (int i = 0; i < 9; i++)
-                    {
-                        int checkX = i / 3;
-                        int checkZ = i % 3;
-
-
-
-                        if (currentNoise == Mathf.RoundToInt(GenerateNoise(x + checkX, z + checkZ, _detailScale) * _noiseHeight))
-                        {
-                            aciertos++;
-                        }
-
-
-                    }
-                    if (aciertos == 9)
-                    {
-                        if (posicionGenerador == Vector3.zero)
-                        {
-                            posicionGenerador = new Vector3(x + 1, 10, z + 1);
-                            checkXpos = (_worldSizeX / 2) - (x + 1);
-                            checkZpos = (_worldSizeZ / 2) - (z + 1);
-                        }
-                        else
-                        {
-                            float reCheckXpos = (_worldSizeX / 2) - (x + 1);
-                            float reCheckZpos = (_worldSizeZ / 2) - (z + 1);
-                            if (Mathf.Abs(checkXpos) + Mathf.Abs(checkZpos) > Mathf.Abs(reCheckXpos) + Mathf.Abs(reCheckZpos))
-                            {
-                                checkXpos = reCheckXpos;
-                                checkZpos = reCheckZpos;
-                                posicionGenerador = new Vector3(x + 1, 15, z + 1);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        SpawnMainStructure();
-    }
+    
 
     //Spawning objects
 
