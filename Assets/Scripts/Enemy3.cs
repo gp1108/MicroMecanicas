@@ -15,7 +15,8 @@ public class Enemy3 : MonoBehaviour
     private NavMeshAgent _navAgent;
     private float _distance;
     private Animator _animator;
-
+    public GameObject explosionEffect;
+    public GameObject debuff;
 
     // Start is called before the first frame update
     void Awake()
@@ -113,7 +114,10 @@ public class Enemy3 : MonoBehaviour
 
             
         }
-
+        if (GetComponent<Health>()._slow == true)
+        {
+            Instantiate(debuff, this.transform.position, Quaternion.identity);
+        }
 
     }
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
@@ -154,6 +158,7 @@ public class Enemy3 : MonoBehaviour
                             {
 
                                 vida.GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                                Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
 
                             }
                         }
@@ -161,10 +166,12 @@ public class Enemy3 : MonoBehaviour
                     if (_EXPLOSION.tag == "TownHall")
                     {
                         _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                        Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
                     }
                     if (_EXPLOSION.tag == "BaseTurret")
                     {
                         _EXPLOSION.GetComponent<Health>().GetDamaged(10, Bullet.tipoDeDamaged.Estandar);
+                        Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
                     }
                 }
                 Destroy(this.gameObject);

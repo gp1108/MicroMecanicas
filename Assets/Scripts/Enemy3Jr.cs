@@ -14,7 +14,8 @@ public class Enemy3Jr : MonoBehaviour
     private float _distance;
     private bool waitForLoad;
     private Animator _animator;
-
+    public GameObject explosionEffect;
+    public GameObject debuff;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +32,7 @@ public class Enemy3Jr : MonoBehaviour
         GetComponent<Health>().healthPoints = 8;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Magica;
         GetComponent<Health>().BarHelth();
+
     }
 
     private void Update()
@@ -113,7 +115,10 @@ public class Enemy3Jr : MonoBehaviour
 
 
         }
-
+        if (GetComponent<Health>()._slow == true)
+        {
+            Instantiate(debuff, this.transform.position, Quaternion.identity);
+        }
 
     }
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)
@@ -155,6 +160,7 @@ public class Enemy3Jr : MonoBehaviour
                             {
 
                                 _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
+                                Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
 
                             }
                         }
@@ -162,10 +168,12 @@ public class Enemy3Jr : MonoBehaviour
                     if (_EXPLOSION.tag == "TownHall")
                     {
                         _EXPLOSION.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
+                        Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
                     }
                     if (_EXPLOSION.tag == "BaseTurret")
                     {
                         _EXPLOSION.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
+                        Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
                     }
                 }
                 Destroy(this.gameObject);

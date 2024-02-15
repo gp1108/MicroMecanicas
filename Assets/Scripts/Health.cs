@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
     public float maxHealthPoints;
     public Canvas healthSlider;
     private GameObject mainCamera;
-    private bool _slow;
+    public bool _slow;
     private GameObject _barraVida;
     private GameObject _nVida;
     private float _speedInical;
@@ -31,6 +31,8 @@ public class Health : MonoBehaviour
     public GameObject _DeadEffect;
     public GameObject _HitEffect;
     public GameObject opciones;
+
+    //public GameObject slowEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -243,6 +245,7 @@ public class Health : MonoBehaviour
     {
         while (_slow==true)
         {
+            //Instantiate(slowEffect, turret.transform.position, Quaternion.identity);
             if (Vector3.Distance(transform.position, turret.transform.position) <= 20)
             {
                 _speedInical = GetComponent<NavMeshAgent>().speed;

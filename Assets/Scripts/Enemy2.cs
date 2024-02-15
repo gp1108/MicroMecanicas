@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,6 +19,7 @@ public class Enemy2 : MonoBehaviour
     private bool _atac;
     [SerializeField] private GameObject [] _torret;
     private Animator _animator;
+    public GameObject debuff;
 
     void Start()
     {
@@ -109,6 +111,10 @@ public class Enemy2 : MonoBehaviour
             }
             
             _direccion = _target.transform.position - transform.position;
+        }
+        if (GetComponent<Health>()._slow == true)
+        {
+            Instantiate(debuff, this.transform.position, Quaternion.identity);
         }
     }
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)

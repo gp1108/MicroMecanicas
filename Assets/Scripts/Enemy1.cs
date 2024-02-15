@@ -14,8 +14,7 @@ public class Enemy1 : MonoBehaviour
     private float _cadencia;
     private bool _atac;
     private Animator _animator;
-
-
+    public GameObject debuff;
 
 
     void Start()
@@ -63,6 +62,10 @@ public class Enemy1 : MonoBehaviour
                 _navAgent.isStopped = false;
                 _animator.SetBool("Caminando", true);
             }
+            if (GetComponent<Health>()._slow == true)
+            {
+                Instantiate(debuff, this.transform.position, Quaternion.identity);
+            }
         }
 
     }
@@ -107,7 +110,7 @@ public class Enemy1 : MonoBehaviour
             }
         }
     }
-    
+
     IEnumerator CheckPath()
     {
         while(true)
