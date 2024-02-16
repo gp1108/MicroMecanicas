@@ -22,9 +22,9 @@ public class RotacionPreviews : MonoBehaviour
     void Update()
     {
 
-        transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
+        transform.Rotate(rotationAxis, rotationSpeed * Time.unscaledDeltaTime);
 
-        float ocillationOffset = Mathf.Sin(Time.time * oscillationSpeed) * oscillationHeight;
+        float ocillationOffset = Mathf.Sin(Time.unscaledTime * oscillationSpeed) * oscillationHeight;
         transform.position = posicionInicial + Vector3.up * ocillationOffset;
     }
 }
