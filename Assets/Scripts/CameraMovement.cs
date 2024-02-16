@@ -137,7 +137,7 @@ public class CameraMovement : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
         {
-            /*
+            
             if (Physics.Raycast(_mainCamera.transform.position , _mainCamera.transform.forward, out hit , Mathf.Infinity)) // Cambiar el raycast a rayFromMouse y ponerle el hit y el math ininity
             {
 
@@ -145,15 +145,16 @@ public class CameraMovement : MonoBehaviour
 
                 
             }
-            */
+            
 
             
         }
-
+        /*
         if (Physics.Raycast(rayFromMouse, out hit, Mathf.Infinity))
         {
             puntoImpacto = hit.point;
         }
+        */
 
     }
 

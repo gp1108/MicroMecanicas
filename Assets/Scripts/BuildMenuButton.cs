@@ -68,22 +68,31 @@ public class BuildMenuButton : MonoBehaviour
             nodes.SetActive(false);
             destroyModeActive = false;
         }
-        
+
+        UpdateDestroyButonColor();
+
     }
 
     public void DestroyStructure()
     {
         destroyModeActive = !destroyModeActive;
+        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
 
-        if(destroyModeActive == true)
+        UpdateDestroyButonColor();
+
+    }
+
+    public void UpdateDestroyButonColor()
+    {
+        if (destroyModeActive == true)
         {
             destroyButton.GetComponent<Image>().color = Color.red;
-            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+            
         }
         else
         {
             destroyButton.GetComponent<Image>().color = Color.white;
-            SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+           
         }
     }
 

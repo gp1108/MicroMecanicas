@@ -49,6 +49,7 @@ public class GenPerlinNoise : MonoBehaviour
 
     [Header("Enemies")]
     private List<Vector3> enemyPositions = new List<Vector3>();
+    private List<Vector3> aviablePositionsForEnemies = new List<Vector3>();
     //public GameObject enemieSpawner;
     public GameObject _SpawnPortal;
 
@@ -117,7 +118,7 @@ public class GenPerlinNoise : MonoBehaviour
                     //Nodos
                     GameObject nodes = Instantiate(node, position + new Vector3(0, 0.51f, 0), Quaternion.identity) as GameObject;
                     nodes.transform.SetParent(nodeGroup.transform);
-                    //Añadir a la lista de blockpositions
+                    //Aï¿½adir a la lista de blockpositions
                     //blockPositions.Add(cube.transform.position);
                 }
                 else if(_perlinNoiseToInt >=3 && _perlinNoiseToInt <=5)
@@ -167,7 +168,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(sandGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 5)
@@ -182,7 +183,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(grassGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -211,7 +212,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(sandGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 5)
@@ -225,7 +226,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(grassGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -255,7 +256,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(sandGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 5)
@@ -270,7 +271,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(grassGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -299,7 +300,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectSand, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(sandGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
                 else if (_perlinNoiseToInt >= 3 && _perlinNoiseToInt <= 5)
@@ -314,7 +315,7 @@ public class GenPerlinNoise : MonoBehaviour
                     GameObject cube = Instantiate(cubeGameObjectGrass, position, Quaternion.identity) as GameObject;
                     cube.transform.SetParent(grassGroup.transform);
 
-                    //Añadir a la lista de enemyPositions
+                    //Aï¿½adir a la lista de enemyPositions
                     enemyPositions.Add(cube.transform.position);
                 }
             }
@@ -341,26 +342,111 @@ public class GenPerlinNoise : MonoBehaviour
     }
     private void SpawnEnemiesSpawners()
     {
-        
+        EnemySpawnerSpawnLocation();
         for (int i = 0; i < 15; i++) // Con este numero se cambia la cantidad de spawners
         {
-            GameObject toPlaceObject = Instantiate(_SpawnPortal, EnemySpawnerSpawnLocation(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+            int randomPosition = Random.Range(0, aviablePositionsForEnemies.Count);
+            GameObject toPlaceObject = Instantiate(_SpawnPortal, aviablePositionsForEnemies[randomPosition], Quaternion.Euler(0, Random.Range(0, 360), 0));
             //Este codigo hace que todos los spawners miren al centro del mapa , podria cambiarse para que mirasen al ayuntamiento.
-            Vector3 originPosition = new Vector3(_worldSizeX/2,0,_worldSizeZ/2) - toPlaceObject.transform.position;
+            Vector3 originPosition = new Vector3(_worldSizeX / 2, 4, _worldSizeZ / 2) - toPlaceObject.transform.position;
             toPlaceObject.transform.rotation = Quaternion.LookRotation(originPosition);
             toPlaceObject.transform.SetParent(enemySpawnersGroup.transform);
-            //Añadir el spawner al gameManager para poder utilizarlo en las rondas.
+            //Aï¿½adir el spawner al gameManager para poder utilizarlo en las rondas.
             gameManager.giveMeReference.enemiesSpawners.Add(toPlaceObject);
+            aviablePositionsForEnemies.Remove(aviablePositionsForEnemies[randomPosition]);
             
         }
     }
-    private Vector3 EnemySpawnerSpawnLocation()
+
+    private void EnemySpawnerSpawnLocation()
     {
-        int randomIndex = Random.Range(0, enemyPositions.Count);
-        Vector3 newPosition = new Vector3(enemyPositions[randomIndex].x, enemyPositions[randomIndex].y + 1.44f, enemyPositions[randomIndex].z);
-        enemyPositions.RemoveAt(randomIndex);
-        return newPosition;
+        //int randomIndex = Random.Range(0, enemyPositions.Count);
+        for (int x = 0; x < enemyPositions.Count; x++)
+        {
+            //Debug.Log(x + " posiciones validas");
+            //Debug.Log("Vector original " + enemyPositions[x] + " Vector redondeado" + new Vector3(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(enemyPositions[x].z), _detailScale) * _noiseHeight), Mathf.RoundToInt(enemyPositions[x].z)));
+            int currentNoise = Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(enemyPositions[x].z), _detailScale) * _noiseHeight);
+            Debug.Log(currentNoise);
+            if (currentNoise == 1 || currentNoise == 2)
+            {
+                if (enemyPositions[x].z > -4 && enemyPositions[x].z < _worldSizeZ + 4 && enemyPositions[x].x > -4 && enemyPositions[x].x < _worldSizeX + 4)
+                {
+                    int aciertos = 0;
+
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        int checkX = i / 3;
+                        int checkZ = i % 3;
+
+                        int otro = Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight);
+
+                        Debug.Log(currentNoise + "  -  " + otro);
+
+                        if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
+                        {
+                            aciertos++;
+                        }
+
+                        //Debug.Log(enemyPositions[x] + "  altura: " + currentNoise + " aciertos: " + aciertos);
+
+                    }
+                    if (aciertos == 9)
+                    {
+                        Vector3 newPosition = new Vector3((enemyPositions[x].x) + 1, enemyPositions[x].y + 1.44f, (enemyPositions[x].z) + 1);
+
+                        //Debug.Log(enemyPositions[x] + "  Acierto altura: " + currentNoise);
+                        /*
+                        for (int i = 0; i < 9; i++)
+                        {
+                            int checkX = i / 3;
+                            int checkZ = i % 3;
+
+
+
+                            if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
+                            {
+                                for(x = 0; x< enemyPositions.Count -1; x++)
+                                {
+                                    if (enemyPositions[x] == new Vector3(enemyPositions[x].x + checkX, Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight), enemyPositions[x].z + checkZ))
+                                    {
+                                        enemyPositions.Remove(enemyPositions[x]);
+                                    }
+                                }
+                            }
+
+
+                        }
+                        */
+
+                        enemyPositions.RemoveAt(x);
+                        aviablePositionsForEnemies.Add(newPosition);
+
+                    }
+                    else
+                    {
+                        enemyPositions.RemoveAt(x);
+
+
+                    }
+                }
+                else
+                {
+                    enemyPositions.RemoveAt(x);
+
+
+                }
+
+            }
+
+        }
+
+
+        //Vector3 newPosition = new Vector3(enemyPositions[randomIndex].x, enemyPositions[randomIndex].y + 1.44f, enemyPositions[randomIndex].z);
+        //enemyPositions.RemoveAt(randomIndex);
+        //return newPosition;
     }
+
 
     //Spawning objects
 
@@ -370,6 +456,7 @@ public class GenPerlinNoise : MonoBehaviour
         for(int i = 0; i<cuantityOfProps;i++)
         {
             Vector3 altura = ObjectsSpawnLocation();
+            
             if(altura.y < 4)//&& altura.y > 2
             {
                  int chooseProp = Random.Range(0, 3);
