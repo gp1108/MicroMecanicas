@@ -348,7 +348,7 @@ public class GenPerlinNoise : MonoBehaviour
             int randomPosition = Random.Range(0, aviablePositionsForEnemies.Count);
             GameObject toPlaceObject = Instantiate(_SpawnPortal, aviablePositionsForEnemies[randomPosition], Quaternion.Euler(0, Random.Range(0, 360), 0));
             //Este codigo hace que todos los spawners miren al centro del mapa , podria cambiarse para que mirasen al ayuntamiento.
-            Vector3 originPosition = new Vector3(_worldSizeX / 2, 0, _worldSizeZ / 2) - toPlaceObject.transform.position;
+            Vector3 originPosition = new Vector3(_worldSizeX / 2, 4, _worldSizeZ / 2) - toPlaceObject.transform.position;
             toPlaceObject.transform.rotation = Quaternion.LookRotation(originPosition);
             toPlaceObject.transform.SetParent(enemySpawnersGroup.transform);
             //Añadir el spawner al gameManager para poder utilizarlo en las rondas.
@@ -357,62 +357,78 @@ public class GenPerlinNoise : MonoBehaviour
             
         }
     }
-    
+
     private void EnemySpawnerSpawnLocation()
     {
         //int randomIndex = Random.Range(0, enemyPositions.Count);
         for (int x = 0; x < enemyPositions.Count; x++)
         {
-            Debug.Log(x + "posiciones validas");
+            //Debug.Log(x + " posiciones validas");
+            //Debug.Log("Vector original " + enemyPositions[x] + " Vector redondeado" + new Vector3(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(enemyPositions[x].z), _detailScale) * _noiseHeight), Mathf.RoundToInt(enemyPositions[x].z)));
             int currentNoise = Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(enemyPositions[x].z), _detailScale) * _noiseHeight);
-            if (currentNoise == 1 || currentNoise == 2 || currentNoise == 3 || currentNoise == 4 || currentNoise == 5)
+            Debug.Log(currentNoise);
+            if (currentNoise == 1 || currentNoise == 2)
             {
-                int aciertos = 0;
-
-                for (int i = 0; i < 9; i++)
+                if (enemyPositions[x].z > -4 && enemyPositions[x].z < _worldSizeZ + 4 && enemyPositions[x].x > -4 && enemyPositions[x].x < _worldSizeX + 4)
                 {
-                    int checkX = i / 3;
-                    int checkZ = i % 3;
-
-                    
-
-                    if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
-                    {
-                        aciertos++;
-                    }
+                    int aciertos = 0;
 
 
-                }
-                if (aciertos == 9)
-                {
-                    Vector3 newPosition = new Vector3(Mathf.RoundToInt(enemyPositions[x].x), enemyPositions[x].y + 1.44f, Mathf.RoundToInt(enemyPositions[x].z) );
-                    
-                    /*
                     for (int i = 0; i < 9; i++)
                     {
                         int checkX = i / 3;
                         int checkZ = i % 3;
 
+                        int otro = Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight);
 
+                        Debug.Log(currentNoise + "  -  " + otro);
 
                         if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
                         {
-                            for(x = 0; x< enemyPositions.Count -1; x++)
+                            aciertos++;
+                        }
+
+                        //Debug.Log(enemyPositions[x] + "  altura: " + currentNoise + " aciertos: " + aciertos);
+
+                    }
+                    if (aciertos == 9)
+                    {
+                        Vector3 newPosition = new Vector3((enemyPositions[x].x) + 1, enemyPositions[x].y + 1.44f, (enemyPositions[x].z) + 1);
+
+                        //Debug.Log(enemyPositions[x] + "  Acierto altura: " + currentNoise);
+                        /*
+                        for (int i = 0; i < 9; i++)
+                        {
+                            int checkX = i / 3;
+                            int checkZ = i % 3;
+
+
+
+                            if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
                             {
-                                if (enemyPositions[x] == new Vector3(enemyPositions[x].x + checkX, Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight), enemyPositions[x].z + checkZ))
+                                for(x = 0; x< enemyPositions.Count -1; x++)
                                 {
-                                    enemyPositions.Remove(enemyPositions[x]);
+                                    if (enemyPositions[x] == new Vector3(enemyPositions[x].x + checkX, Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight), enemyPositions[x].z + checkZ))
+                                    {
+                                        enemyPositions.Remove(enemyPositions[x]);
+                                    }
                                 }
                             }
+
+
                         }
+                        */
+
+                        enemyPositions.RemoveAt(x);
+                        aviablePositionsForEnemies.Add(newPosition);
+
+                    }
+                    else
+                    {
+                        enemyPositions.RemoveAt(x);
 
 
                     }
-                    */
-                    
-                    enemyPositions.RemoveAt(x);
-                    aviablePositionsForEnemies.Add(newPosition);
-
                 }
                 else
                 {
@@ -420,16 +436,17 @@ public class GenPerlinNoise : MonoBehaviour
 
 
                 }
+
             }
-            
+
         }
-       
+
 
         //Vector3 newPosition = new Vector3(enemyPositions[randomIndex].x, enemyPositions[randomIndex].y + 1.44f, enemyPositions[randomIndex].z);
         //enemyPositions.RemoveAt(randomIndex);
         //return newPosition;
     }
-    
+
 
     //Spawning objects
 
