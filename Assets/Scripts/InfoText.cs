@@ -323,8 +323,8 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.AmetralladoraTurret:
 
-                _textInformation.text = "Tipo de daño: estandar\r\nEs la torreta básica mejorada, tiene mismo daño y rango que la torreta básica pero más cadencia\r\nDps = "+PlayerPrefs.GetFloat("damagedAm")*
-                PlayerPrefs.GetFloat("cadenceAm")
+                _textInformation.text = "Tipo de daño: estandar\r\nEs la torreta básica mejorada, tiene mismo daño y rango que la torreta básica pero más cadencia\r\nDps = " + PlayerPrefs.GetFloat("damagedAm") *
+                PlayerPrefs.GetFloat("cadenceAm");
 
                 break;
             case TipeButon.SniperTurret:
