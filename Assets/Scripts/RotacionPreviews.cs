@@ -7,7 +7,7 @@ public class RotacionPreviews : MonoBehaviour
 {
     public float rotationSpeed = 50f;
     public float oscillationSpeed = 1f;
-    public float oscillationHeight = 0.2f;
+    public float oscillationHeight;
     public Vector3 rotationAxis = Vector3.up;
 
     private Vector3 posicionInicial;
@@ -16,6 +16,7 @@ public class RotacionPreviews : MonoBehaviour
     void Start()
     {
         posicionInicial = transform.position;
+        oscillationHeight = 0.1f;
     }
 
     // Update is called once per frame
