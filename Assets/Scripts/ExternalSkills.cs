@@ -330,6 +330,7 @@ public class ExternalSkills : MonoBehaviour
 
         //Torreta Laser
         CheckPlayerPrefsKey("vidaL", 10);
+        CheckPlayerPrefsKey("damagedL", 0.1f);
         CheckPlayerPrefsKey("cadenceL", 0.1f);
         CheckPlayerPrefsKey("rangeL", 15);
         CheckPlayerPrefsKey("visionL", 25);
