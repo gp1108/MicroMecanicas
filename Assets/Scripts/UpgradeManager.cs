@@ -38,6 +38,7 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("TurretLaser")]
     public float vidaL;
+    public float damagedL;
     public float cadenceL;
     public float rangeL;
     public float visionL;
@@ -135,6 +136,7 @@ public class UpgradeManager : MonoBehaviour
         visionS = PlayerPrefs.GetFloat("visionS");
         //Torreta Laser
         vidaL = PlayerPrefs.GetFloat("vidaL");
+        damagedL= PlayerPrefs.GetFloat("damagedL");
         cadenceL = PlayerPrefs.GetFloat("cadenceL");
         rangeL = PlayerPrefs.GetFloat("rangeL");
         visionL = PlayerPrefs.GetFloat("visionL");

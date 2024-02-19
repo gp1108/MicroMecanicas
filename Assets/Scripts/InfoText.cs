@@ -12,12 +12,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text _textInformation;
     private string _buton;
     private bool _clic;
+    private RectTransform _canvas;
     private void Start()
     {
         if (_information != null)
         {
             _information.SetActive(false);
         }
+        _canvas=GameObject.Find("MenuInicio").GetComponent<RectTransform>();
     }
     private void Update()
     {
@@ -59,21 +61,58 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         startWithExtraResearchPoints,
 
         Investigacion,
+
+        moreHealthTurrets,
+
+        moreDamageTurrets,
+        moreHealthWalls,
+        unlockMines,
+
+        unlockSniperTurret,
+        unlockMachinegunTurret,
+        structureRecoverHealth,
+        minesFaster,
+        fasterResearch,
+
+
+        sniperTurretMoreFireRate,
+        oneMoreMine,
+        unlockGems,
+
+        unlockLaserTurret,
+        unlockMortarTurret,
+        fastMine,
+        slowMine,
     }
 
     private TipeButon _tipeButon;
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         
         _clic = true;
-        //_information.transform.position = this.transform.position - new Vector3(300,250,0);
+        if (this.transform.position.x + 432 > 1920) 
+        {
+            Debug.Log("Se sale por la X");
+            _information.transform.position = this.transform.position - new Vector3(450, 0, 0);
+        }
+        else
+        {
+            Debug.Log(this.transform.position.x + _canvas.rect.height);
+            _information.transform.position = this.transform.position;
+        }
+        if (this.transform.position.y - 391 < -1080) 
+        {
+            Debug.Log("Se sale por la y");
+            _information.transform.position = this.transform.position - new Vector3(0, 391, 0);
+        }
+        else
+        {
+            Debug.Log(this.transform.position.y + _canvas.rect.height);
+            _information.transform.position = this.transform.position;
+        }
         _information.transform.position = this.transform.position;
         StartCoroutine("Wait");
-        if(eventData.pointerEnter.name == "Investigacion")
-        {
-            _tipeButon = TipeButon.Investigacion;
-            _information.transform.position = this.transform.position - new Vector3(500, 500, 0);
-        }
         if (eventData.pointerEnter.GetComponent<Button>() != null)
         {
             _buton = eventData.pointerEnter.name;
@@ -180,6 +219,70 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (_buton == "startWithExtraResearchPoints")
             {
                 _tipeButon = TipeButon.startWithExtraResearchPoints;
+            }
+            if (_buton == "moreHealthTurrets")
+            {
+                _tipeButon = TipeButon.moreHealthTurrets;
+            }
+            if (_buton == "moreDamageTurrets")
+            {
+                _tipeButon = TipeButon.moreDamageTurrets;
+            }
+            if (_buton == "moreHealthWalls")
+            {
+                _tipeButon = TipeButon.moreHealthWalls;
+            }
+            if (_buton == "unlockMines")
+            {
+                _tipeButon = TipeButon.unlockMines;
+            }
+            if (_buton == "unlockSniperTurret")
+            {
+                _tipeButon = TipeButon.unlockSniperTurret;
+            }
+            if (_buton == "unlockMachinegunTurret")
+            {
+                _tipeButon = TipeButon.unlockMachinegunTurret;
+            }
+            if (_buton == "structureRecoverHealth")
+            {
+                _tipeButon = TipeButon.structureRecoverHealth;
+            }
+            if (_buton == "minesFaster")
+            {
+                _tipeButon = TipeButon.minesFaster;
+            }
+            if (_buton == "fasterResearch")
+            {
+                _tipeButon = TipeButon.fasterResearch;
+            }
+            if (_buton == "sniperTurretMoreFireRate")
+            {
+                _tipeButon = TipeButon.sniperTurretMoreFireRate;
+            }
+            if (_buton == "oneMoreMine")
+            {
+                _tipeButon = TipeButon.oneMoreMine;
+            }
+            if (_buton == "unlockGems")
+            {
+                _tipeButon = TipeButon.unlockGems;
+            }
+            if (_buton == "unlockLaserTurret")
+            {
+                _tipeButon = TipeButon.unlockLaserTurret;
+            }
+            if (_buton == "unlockMortarTurret")
+            {
+                _tipeButon = TipeButon.unlockMortarTurret;
+            }
+            if (_buton == "fastMine")
+            {
+                _tipeButon = TipeButon.fastMine;
+            }
+            if (_buton == "slowMine")
+            {
+                _tipeButon = TipeButon.slowMine;
             }
         }
         else
@@ -289,6 +392,70 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon = TipeButon.startWithExtraResearchPoints;
             }
+            if (_buton == "moreHealthTurrets")
+            {
+                _tipeButon = TipeButon.moreHealthTurrets;
+            }
+            if (_buton == "moreDamageTurrets")
+            {
+                _tipeButon = TipeButon.moreDamageTurrets;
+            }
+            if (_buton == "moreHealthWalls")
+            {
+                _tipeButon = TipeButon.moreHealthWalls;
+            }
+            if (_buton == "unlockMines")
+            {
+                _tipeButon = TipeButon.unlockMines;
+            }
+            if (_buton == "unlockSniperTurret")
+            {
+                _tipeButon = TipeButon.unlockSniperTurret;
+            }
+            if (_buton == "unlockMachinegunTurret")
+            {
+                _tipeButon = TipeButon.unlockMachinegunTurret;
+            }
+            if (_buton == "structureRecoverHealth")
+            {
+                _tipeButon = TipeButon.structureRecoverHealth;
+            }
+            if (_buton == "minesFaster")
+            {
+                _tipeButon = TipeButon.minesFaster;
+            }
+            if (_buton == "fasterResearch")
+            {
+                _tipeButon = TipeButon.fasterResearch;
+            }
+            if (_buton == "sniperTurretMoreFireRate")
+            {
+                _tipeButon = TipeButon.sniperTurretMoreFireRate;
+            }
+            if (_buton == "oneMoreMine")
+            {
+                _tipeButon = TipeButon.oneMoreMine;
+            }
+            if (_buton == "unlockGems")
+            {
+                _tipeButon = TipeButon.unlockGems;
+            }
+            if (_buton == "unlockLaserTurret")
+            {
+                _tipeButon = TipeButon.unlockLaserTurret;
+            }
+            if (_buton == "unlockMortarTurret")
+            {
+                _tipeButon = TipeButon.unlockMortarTurret;
+            }
+            if (_buton == "fastMine")
+            {
+                _tipeButon = TipeButon.fastMine;
+            }
+            if (_buton == "slowMine")
+            {
+                _tipeButon = TipeButon.slowMine;
+            }
         }
         CheckName();
     }
@@ -303,7 +470,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             case TipeButon.Walls:
 
-                _textInformation.text = "Esto es una prueba a <br> ver si funciona LUL";
+                _textInformation.text = "Con esta estructura podras impedir el paso de los enemigos \r\rVida:"+UpgradeManager.giveMeReference.vidaW;
                 
                 break;
             case TipeButon.BaseTurret:
@@ -328,10 +495,13 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
                 break;
             case TipeButon.SniperTurret:
-                _textInformation.text = "Tipo de daño : estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedS *
+                _textInformation.text = "Tipo de daño : Estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedS *
                 UpgradeManager.giveMeReference.cadenceS + "\r\nRango =" + UpgradeManager.giveMeReference.rangeS + "\r\nVida =" + UpgradeManager.giveMeReference.vidaS;
                 break;
             case TipeButon.LaserTurret:
+
+                _textInformation.text = "Tipo de daño : Armadura\r\nTorreta que dispara constantemente a un objetivo y hace daño progresivo en funcion de el tiempo que pase disparando a un mismo objetivo\r\nDps = " + UpgradeManager.giveMeReference.damagedL *
+                UpgradeManager.giveMeReference.cadenceL + "\r\nRango =" + UpgradeManager.giveMeReference.rangeL + "\r\nVida =" + UpgradeManager.giveMeReference.vidaL;
 
                 break;
             case TipeButon.SlowTurret:
@@ -342,12 +512,21 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.MortarTurret:
 
+                _textInformation.text = "Tipo de daño : magico \r\nTorreta que lanza bombas a grandes grupos de enemigos por su gran daño en area por explosion\r\nDps = " + UpgradeManager.giveMeReference.damagedMortero *
+                UpgradeManager.giveMeReference.cadenceMortero + "\r\nRango =" + UpgradeManager.giveMeReference.rangeMortero + "\r\nVida =" + UpgradeManager.giveMeReference.vidaMortero;
+
                 break;
             case TipeButon.Taller:
-                
+
+                _textInformation.text = "Construccion que genera " + gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))
+                + " puntos de investigacion cada " + gameManager.giveMeReference.researchRoundsElapsed + " rondas ";
+
                 break;
             case TipeButon.Mine:
-                
+
+                _textInformation.text = "Construccion que genera " + gameManager.giveMeReference.numberOfMines * 100 * gameManager.giveMeReference.goldMultiplayer + PlayerPrefs.GetFloat("moreGoldPerGoldMines")
+                + " puntos oro cada " + gameManager.giveMeReference.goldRoundsElapsed + " rondas ";
+
                 break;
             case TipeButon.BasicTurret:
 
@@ -424,12 +603,94 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.startWithExtraResearchPoints:
 
-                _textInformation.text = "Empiezas con X más puntos de investigación.";
+                _textInformation.text = "Empiezas con X puntos mas de investigación.";
 
                 break;
             case TipeButon.Investigacion:
 
-                _textInformation.text = "Puntos de investigacion para el taller.\r\nTienes = " + gameManager.giveMeReference.researchPoints.ToString();
+                _textInformation.text = "Puntos de investigacion para el taller.\r\n Se consiguen " + gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))
+                + " cada " + gameManager.giveMeReference.researchRoundsElapsed + " rondas\r\nTienes = " + gameManager.giveMeReference.researchPoints.ToString();
+
+                break;
+            case TipeButon.moreHealthTurrets:
+
+                _textInformation.text = "Incrementa la vida base de todas las torretas";        
+
+                break;
+            case TipeButon.moreDamageTurrets:
+
+                _textInformation.text = "Incrementa el daño base de las torretas X";
+        
+                break;
+            case TipeButon.moreHealthWalls:
+
+                _textInformation.text = "Aumenta La vida base de los muros";
+        
+                break;
+            case TipeButon.unlockMines:
+
+                _textInformation.text = "Desbloquea la Estructura Mina que se ocupa de generar oro";
+
+                break;
+            case TipeButon.unlockSniperTurret:
+
+                _textInformation.text = "Desbloquea la torreta con bastante rango y daño pero una cadencia baja";
+
+                break;
+            case TipeButon.unlockMachinegunTurret:
+
+                _textInformation.text = "Desbloquea la mejora de la torreta basica con mismas estadisticas pero con mayor cadencia";
+
+                break;
+            case TipeButon.structureRecoverHealth:
+
+                _textInformation.text = "Los muros recuperan vida cada ronda";
+                
+                break;
+            case TipeButon.minesFaster:
+
+                _textInformation.text = "Las minas consiguen Oro cada menos rondas";
+
+                break;
+            case TipeButon.fasterResearch:
+
+
+                _textInformation.text = "Se consiguen los puntos de investigacion cada menos rondas";
+
+                break;
+            case TipeButon.sniperTurretMoreFireRate:
+
+                _textInformation.text = "La torreta Sniper mejora su cadenia";
+
+                break;
+            case TipeButon.oneMoreMine:
+
+                _textInformation.text = "Se puede construir una mina mas";
+
+                break;
+            case TipeButon.unlockGems:
+
+                _textInformation.text = "Te cura el generador a su vida maxima y le añade 5 de vida mas";
+
+                break;
+            case TipeButon.unlockLaserTurret:
+
+                _textInformation.text = "Desbloquea la torreta laser";
+                
+                break;
+            case TipeButon.unlockMortarTurret:
+
+                _textInformation.text = "Desbloquea el mortero";                
+
+                break;
+            case TipeButon.fastMine:
+
+                _textInformation.text = "Consigues menos oro pero tardas menos rondas en conseguirlo";
+
+                break;
+            case TipeButon.slowMine:
+
+                _textInformation.text = "Consigues mas oro pero tardas mas rondas en conseguirlo";
 
                 break;
 

@@ -363,33 +363,20 @@ public class GenPerlinNoise : MonoBehaviour
         //int randomIndex = Random.Range(0, enemyPositions.Count);
         for (int x = 0; x < enemyPositions.Count; x++)
         {
-            //Debug.Log(x + " posiciones validas");
-            //Debug.Log("Vector original " + enemyPositions[x] + " Vector redondeado" + new Vector3(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(enemyPositions[x].z), _detailScale) * _noiseHeight), Mathf.RoundToInt(enemyPositions[x].z)));
             int currentNoise = Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x), Mathf.RoundToInt(enemyPositions[x].z), _detailScale) * _noiseHeight);
-            Debug.Log(currentNoise);
             if (currentNoise == 1 || currentNoise == 2)
             {
                 if (enemyPositions[x].z > -4 && enemyPositions[x].z < _worldSizeZ + 4 && enemyPositions[x].x > -4 && enemyPositions[x].x < _worldSizeX + 4)
                 {
                     int aciertos = 0;
-
-
                     for (int i = 0; i < 9; i++)
                     {
                         int checkX = i / 3;
                         int checkZ = i % 3;
-
-                        int otro = Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight);
-
-                        Debug.Log(currentNoise + "  -  " + otro);
-
                         if (currentNoise == Mathf.RoundToInt(GenerateNoise(Mathf.RoundToInt(enemyPositions[x].x) + checkX, Mathf.RoundToInt(enemyPositions[x].z) + checkZ, _detailScale) * _noiseHeight))
                         {
                             aciertos++;
                         }
-
-                        //Debug.Log(enemyPositions[x] + "  altura: " + currentNoise + " aciertos: " + aciertos);
-
                     }
                     if (aciertos == 9)
                     {
