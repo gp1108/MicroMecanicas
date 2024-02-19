@@ -26442,6 +26442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7953265019656509084}
+  - component: {fileID: 7953265019656509085}
   m_Layer: 7
   m_Name: pterodactiloPreview
   m_TagString: Untagged
@@ -28508,6 +28509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 260918911127771625}
+  - component: {fileID: 3941876132816054633}
   m_Layer: 6
   m_Name: raptorPreview
   m_TagString: Enemies
@@ -28515,6 +28517,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3941876132816054633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941876132816054632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  oscillationSpeed: 1
+  oscillationHeight: 0.2
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!33 &3963766247371455608
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -28583,6 +28601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8580010763980173372}
+  - component: {fileID: 8580010763980173373}
   m_Layer: 6
   m_Name: TrexPreview
   m_TagString: Enemies
@@ -30221,6 +30240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3187230620317794493}
+  - component: {fileID: 6896036355277768882}
   m_Layer: 6
   m_Name: CompyPreview
   m_TagString: Enemies
@@ -30228,6 +30248,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6896036355277768882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6896036355277768881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  oscillationSpeed: 1
+  oscillationHeight: 0.2
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!224 &6959580506783753652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30275,6 +30311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281951496648787031}
+  - component: {fileID: 7281951496648787032}
   m_Layer: 6
   m_Name: TriceraptosPreview
   m_TagString: Enemies
@@ -30330,6 +30367,22 @@ Transform:
   m_Father: {fileID: 1046007520}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -140.107, z: 0}
+--- !u!114 &7281951496648787032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171036389005109815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  oscillationSpeed: 1
+  oscillationHeight: 0.2
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!222 &7326208102023575673
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30900,6 +30953,22 @@ Transform:
   m_Father: {fileID: 1046007520}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -41.84, z: 10.089}
+--- !u!114 &7953265019656509085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482553771104647519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  oscillationSpeed: 1
+  oscillationHeight: 0.2
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!224 &7976630135346893223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31313,6 +31382,22 @@ Transform:
   m_Father: {fileID: 1046007520}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -112.721, z: 0}
+--- !u!114 &8580010763980173373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083166878175799317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb08ae234cc41bb4696dd25013695bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  oscillationSpeed: 1
+  oscillationHeight: 0.2
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!1 &8691484720174384576
 GameObject:
   m_ObjectHideFlags: 0
