@@ -91,27 +91,22 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         
         _clic = true;
-        if (this.transform.position.x + 432 > 1920) 
-        {
-            Debug.Log("Se sale por la X");
-            _information.transform.position = this.transform.position - new Vector3(450, 0, 0);
-        }
-        else
-        {
-            Debug.Log(this.transform.position.x + _canvas.rect.height);
-            _information.transform.position = this.transform.position;
-        }
-        if (this.transform.position.y - 391 < -1080) 
-        {
-            Debug.Log("Se sale por la y");
-            _information.transform.position = this.transform.position - new Vector3(0, 391, 0);
-        }
-        else
-        {
-            Debug.Log(this.transform.position.y + _canvas.rect.height);
-            _information.transform.position = this.transform.position;
-        }
         _information.transform.position = this.transform.position;
+        Debug.Log(_information.transform.position);
+        
+        if (_information.transform.position.x + 432 > 1920) 
+        {
+            Vector3 otro = this.transform.position+new Vector3(450, 0, 0);
+            Debug.Log("Se sale por la X"+ otro);
+            //_information.transform.position = this.transform.position - new Vector3(0, 0, 450);
+            _information.transform.position = _information.transform.position - new Vector3(450, 0, 0);
+        }
+        if (_information.transform.position.y - 391 < 0) 
+        {
+            Vector3 otro = this.transform.position + new Vector3(0, 391, 0);
+            Debug.Log("Se sale por la y" + otro);
+            _information.transform.position = _information.transform.position + new Vector3(0, 391, 0);
+        }
         StartCoroutine("Wait");
         if (eventData.pointerEnter.GetComponent<Button>() != null)
         {
