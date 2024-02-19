@@ -19,7 +19,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             _information.SetActive(false);
         }
-        _canvas=GameObject.Find("MenuInicio").GetComponent<RectTransform>();
+        
     }
     private void Update()
     {
