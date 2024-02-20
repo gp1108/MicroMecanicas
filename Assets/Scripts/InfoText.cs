@@ -6,13 +6,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     public GameObject _information;
     public TMP_Text _textInformation;
     private string _buton;
     private bool _clic;
-    private RectTransform _canvas;
     private void Start()
     {
         if (_information != null)
@@ -86,31 +85,29 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     private TipeButon _tipeButon;
-    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Invoke("CheckName",0.3f);
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         
         _clic = true;
         _information.transform.position = this.transform.position;
-        Debug.Log(_information.transform.position);
         
         if (_information.transform.position.x + 432 > 1920) 
         {
-            Vector3 otro = this.transform.position+new Vector3(450, 0, 0);
-            Debug.Log("Se sale por la X"+ otro);
-            //_information.transform.position = this.transform.position - new Vector3(0, 0, 450);
             _information.transform.position = _information.transform.position - new Vector3(450, 0, 0);
         }
         if (_information.transform.position.y - 391 < 0) 
         {
-            Vector3 otro = this.transform.position + new Vector3(0, 391, 0);
-            Debug.Log("Se sale por la y" + otro);
             _information.transform.position = _information.transform.position + new Vector3(0, 391, 0);
         }
         StartCoroutine("Wait");
         if (eventData.pointerEnter.GetComponent<Button>() != null)
         {
             _buton = eventData.pointerEnter.name;
+            Debug.Log(_buton);
             if (_buton == "Walls")
             {
                 _tipeButon = TipeButon.Walls;
@@ -215,6 +212,10 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon = TipeButon.startWithExtraResearchPoints;
             }
+            if (_buton == "Investigacion")
+            {
+                _tipeButon = TipeButon.Investigacion;
+            }
             if (_buton == "moreHealthTurrets")
             {
                 _tipeButon = TipeButon.moreHealthTurrets;
@@ -282,7 +283,15 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         else
         {
-            _buton = eventData.pointerEnter.transform.parent.name;
+            if (eventData.pointerEnter.name == "Investigacion")
+            {
+                _tipeButon = TipeButon.Investigacion;
+            }
+            else
+            {
+                _buton = eventData.pointerEnter.transform.parent.name;
+            }
+            Debug.Log(_buton);
             if (_buton == "Walls")
             {
                 _tipeButon = TipeButon.Walls;
@@ -387,6 +396,10 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon = TipeButon.startWithExtraResearchPoints;
             }
+            if (_buton == "Investigacion")
+            {
+                _tipeButon = TipeButon.Investigacion;
+            }
             if (_buton == "moreHealthTurrets")
             {
                 _tipeButon = TipeButon.moreHealthTurrets;
@@ -453,6 +466,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
         }
         CheckName();
+        Debug.Log(_tipeButon);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -531,17 +545,39 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.moreDamageBasicTurret:
 
-                _textInformation.text = "Aumenta el daño de la torreta básica\r\nDps = " + PlayerPrefs.GetFloat("damagedB") * PlayerPrefs.GetFloat("cadenceB");
+                if (PlayerPrefs.GetFloat("moreDamageBasicTurretAmount") < 5)
+                {
+                    _textInformation.text = "Aumenta el daño de la torreta básica de " + PlayerPrefs.GetFloat("damagedB") + " a " + (PlayerPrefs.GetFloat("damagedB") + 5);
+                }
+                else
+                {
+                    _textInformation.text = "El daño de la torreta basica esta al maximo \r\nDaño = " + PlayerPrefs.GetFloat("damagedB");
+                }
 
                 break;
             case TipeButon.moreHealthBasicTurret:
 
-                _textInformation.text = "Aumenta la vida base de la torreta básica\r\nVida Base = "+ PlayerPrefs.GetFloat("vidaB");
+                if (PlayerPrefs.GetFloat("moreHealthBasicTurretAmount") < 5)
+                {
+                    _textInformation.text = "Aumenta la vida base de la torreta básica de " + PlayerPrefs.GetFloat("vidaB") + " a " + (PlayerPrefs.GetFloat("vidaB") + 5);
+
+                }
+                else
+                {
+                    _textInformation.text = "La vida de la torreta basica esta al maximo \r\nVida = " + PlayerPrefs.GetFloat("vidaB");
+                }
 
                 break;
             case TipeButon.moreRangeBasicTurret:
 
-                _textInformation.text = "Aumenta el rango de la torreta básica\r\n Range " + PlayerPrefs.GetFloat("rangeB");
+                if (PlayerPrefs.GetFloat("moreRangeBasicTurretAmount") < 4)
+                {
+                    _textInformation.text = "Aumenta el rango de la torreta básica de " + PlayerPrefs.GetFloat("rangeB") + " a " + (PlayerPrefs.GetFloat("rangeB") + 5);
+                }
+                else
+                {
+                    _textInformation.text = "El rango de la torreta basica esta al maximo \r\nRango = " + PlayerPrefs.GetFloat("rangeB");
+                }
 
                 break;
             case TipeButon.unlockSlowTurret:
@@ -552,17 +588,17 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.moreSlowSlowTurret:
 
-                _textInformation.text = "Aumenta el Slow que aplica\r\n Slow=" + PlayerPrefs.GetFloat("amountSlow");
+                _textInformation.text = "Aumenta el Slow que aplica\r\nSlow=" + PlayerPrefs.GetFloat("amountSlow");
 
                 break;
             case TipeButon.moreHealthSlowTurret:
 
-                _textInformation.text = "Aumenta la vida de la toreta\r\n Vida=" + PlayerPrefs.GetFloat("vidaSlow");
+                _textInformation.text = "Aumenta la vida de la toreta\r\nVida=" + PlayerPrefs.GetFloat("vidaSlow");
 
                 break;
             case TipeButon.moreRangeSlowTurret:
 
-                _textInformation.text = "Aumenta el rango de la toreta\r\n Range=" + PlayerPrefs.GetFloat("rangeSlow");
+                _textInformation.text = "Aumenta el rango de la toreta\r\nRango=" + PlayerPrefs.GetFloat("rangeSlow");
 
                 break;
             case TipeButon.unlockMineTurret:
@@ -573,12 +609,12 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.moreDamageMineTurret:
 
-                _textInformation.text = "Aumenta el daño al explotar \r\n Damaged = " + PlayerPrefs.GetFloat("damagedM");
+                _textInformation.text = "Aumenta el daño al explotar \r\nDamaged = " + PlayerPrefs.GetFloat("damagedM");
 
                 break;
             case TipeButon.moreRangeMineTurret:
 
-                _textInformation.text = "Aumenta el Rango de explosion \r\n Rango = " + PlayerPrefs.GetFloat("rangeM");
+                _textInformation.text = "Aumenta el Rango de explosion \r\nRango = " + PlayerPrefs.GetFloat("rangeM");
 
                 break;
             case TipeButon.oneReseachPointExtra:
@@ -603,7 +639,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.Investigacion:
 
-                _textInformation.text = "Puntos de investigacion para el taller.\r\n Se consiguen " + gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))
+                _textInformation.text = "Puntos de investigacion para el taller.\r\nSe consiguen " + (gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint")))
                 + " cada " + gameManager.giveMeReference.researchRoundsElapsed + " rondas\r\nTienes = " + gameManager.giveMeReference.researchPoints.ToString();
 
                 break;
