@@ -465,13 +465,14 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             case TipeButon.Walls:
 
-                _textInformation.text = "Con esta estructura podras impedir el paso de los enemigos \r\rVida:"+UpgradeManager.giveMeReference.vidaW;
+                _textInformation.text = "Con esta estructura podras impedir el paso de los enemigos \r\nVida:"+UpgradeManager.giveMeReference.vidaW;
                 
                 break;
             case TipeButon.BaseTurret:
 
                 _textInformation.text = "Tipo de daño : estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedB * 
                 UpgradeManager.giveMeReference.cadenceB + "\r\nRango =" + UpgradeManager.giveMeReference.rangeB + "\r\nVida =" + UpgradeManager.giveMeReference.vidaB;
+                Debug.Log("Cadencia" + UpgradeManager.giveMeReference.cadenceB + "Daño " + UpgradeManager.giveMeReference.damagedB);
 
                 break;
             case TipeButon.OtherTurret:
@@ -512,13 +513,12 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
                 break;
             case TipeButon.Taller:
-
-                _textInformation.text = "Construccion que genera " + gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))
-                + " puntos de investigacion cada " + gameManager.giveMeReference.researchRoundsElapsed + " rondas ";
+                _textInformation.text = "El taller permite investigar mejoras temporales solo para la partida actual, cada taller genera: " + (1 * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))) +
+                 " puntos de investigacion cada " + gameManager.giveMeReference.researchRoundsElapsed + " rondas ";
 
                 break;
             case TipeButon.Mine:
-
+                 
                 _textInformation.text = "Construccion que genera " + gameManager.giveMeReference.numberOfMines * 100 * gameManager.giveMeReference.goldMultiplayer + PlayerPrefs.GetFloat("moreGoldPerGoldMines")
                 + " puntos oro cada " + gameManager.giveMeReference.goldRoundsElapsed + " rondas ";
 

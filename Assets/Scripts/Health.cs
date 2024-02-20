@@ -44,6 +44,12 @@ public class Health : MonoBehaviour
         _slow = false;
         tipoVida = tipoDeVida.Estandar;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        if(this.gameObject.GetComponent<NavMeshAgent>())
+        {
+            _speedInical = this.gameObject.GetComponent<NavMeshAgent>().speed;
+        }
+        
+
         //opciones = GameObject.Find("Opciones");
         if (this.name == "MainStructure(Clone)")
         {
@@ -243,12 +249,13 @@ public class Health : MonoBehaviour
     
     IEnumerator Slow(GameObject turret)
     {
+
         while (_slow==true)
         {
             //Instantiate(slowEffect, turret.transform.position, Quaternion.identity);
             if (Vector3.Distance(transform.position, turret.transform.position) <= 20)
             {
-                _speedInical = GetComponent<NavMeshAgent>().speed;
+                
                 GetComponent<NavMeshAgent>().speed = _speedInSlow;
                 yield return new WaitForSeconds(0.2f);
             }
