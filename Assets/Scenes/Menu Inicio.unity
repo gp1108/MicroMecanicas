@@ -27841,21 +27841,21 @@ MonoBehaviour:
     _clipName: Error
     _isLoop: 0
     _playOnAwake: 0
-    volume: 10
+    volume: 1
   - _audioTypes: 0
     _audioSource: {fileID: 0}
     _audioClip: {fileID: 8300000, guid: f06be11e4b83ba84b8636f4630a709df, type: 3}
     _clipName: Click
     _isLoop: 0
     _playOnAwake: 0
-    volume: 10
+    volume: 1
   - _audioTypes: 0
     _audioSource: {fileID: 0}
     _audioClip: {fileID: 8300000, guid: bb90a3604d9ebb34995639c3fd53af42, type: 3}
     _clipName: Gold
     _isLoop: 0
     _playOnAwake: 0
-    volume: 10
+    volume: 1
   - _audioTypes: 0
     _audioSource: {fileID: 0}
     _audioClip: {fileID: 8300000, guid: 3474945d5761a1f468925dccda3b9962, type: 3}
@@ -27893,7 +27893,7 @@ MonoBehaviour:
     volume: 1
   - _audioTypes: 0
     _audioSource: {fileID: 0}
-    _audioClip: {fileID: 8300000, guid: 35d83148001454a4cb35ab4da923bfbc, type: 3}
+    _audioClip: {fileID: 8300000, guid: 4b076b0bba7a5a140a2ab9f60d0f5648, type: 3}
     _clipName: DestroyBuild
     _isLoop: 0
     _playOnAwake: 0
@@ -27956,7 +27956,7 @@ MonoBehaviour:
     volume: 1
   - _audioTypes: 2
     _audioSource: {fileID: 0}
-    _audioClip: {fileID: 8300000, guid: 4f2d8dfbdee9f204da20772518c812d9, type: 3}
+    _audioClip: {fileID: 8300000, guid: 2d75234f411d4aa4da86eb1c1eb74cdb, type: 3}
     _clipName: Slow
     _isLoop: 1
     _playOnAwake: 0
