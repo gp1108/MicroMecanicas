@@ -93,7 +93,7 @@ public class Health : MonoBehaviour
     public void UpdateVida()
     { 
         _barraVida.GetComponent<Image>().fillAmount = ((1f / maxHealthPoints) * GetComponent<Health>().healthPoints);
-        _nVida.GetComponent<TMP_Text>().text = ("Vida Generador: " + GetComponent<Health>().healthPoints);
+        _nVida.GetComponent<TMP_Text>().text = ("Generador: " + GetComponent<Health>().healthPoints);
 
     }
     public void GetDamaged(float Damaged,Bullet.tipoDeDamaged tipeDamagade)

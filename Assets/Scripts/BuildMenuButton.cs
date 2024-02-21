@@ -27,6 +27,7 @@ public class BuildMenuButton : MonoBehaviour
     public GameObject explosiveMineButton;
     public GameObject machineGunButton;
     public GameObject mortarTurretButton;
+    public Color slectedColor;
 
 
     public void Start()
@@ -130,6 +131,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        wallButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
     public void SetBaseTurretIndex()
     {
@@ -140,6 +144,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        turretButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
 
     public void OtherTurretIndex()
@@ -151,6 +158,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        otherTurretButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
 
     public void SetResearchStructureIndex()
@@ -162,6 +172,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        tallerButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
 
     public void SniperTurretIndex()
@@ -173,6 +186,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        sniperButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
     public void LaserTurretIndex()
     {
@@ -183,6 +199,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        laserButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
     public void MineIndex()
     {
@@ -193,6 +212,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        mineButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
 
     public void SlowTurretIndex()
@@ -204,6 +226,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        slowTurretButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
 
     public void ExplosiveMineIndex()
@@ -215,6 +240,9 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        explosiveMineButton.gameObject.GetComponent<Image>().color = slectedColor;
+
     }
 
     public void MachineGunIndex()
@@ -226,6 +254,8 @@ public class BuildMenuButton : MonoBehaviour
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
         }
+        ResetButtonColorOnClick();
+        machineGunButton.gameObject.GetComponent<Image>().color = slectedColor;
     }
 
     public void MortarTurretIndex()
@@ -236,6 +266,27 @@ public class BuildMenuButton : MonoBehaviour
         {
             destroyModeActive = false;
             destroyButton.GetComponent<Image>().color = Color.white;
+        }
+        ResetButtonColorOnClick();
+        mortarTurretButton.gameObject.GetComponent<Image>().color = slectedColor;
+    }
+
+    public void ResetButtonColorOnClick()
+    {
+        if (destroyModeActive == false)
+        {
+            wallButton.GetComponent<Image>().color = Color.white;
+            turretButton.GetComponent<Image>().color = Color.white;
+            otherTurretButton.GetComponent<Image>().color = Color.white;
+            tallerButton.GetComponent<Image>().color = Color.white;
+            sniperButton.GetComponent<Image>().color = Color.white;
+            laserButton.GetComponent<Image>().color = Color.white;
+            mineButton.GetComponent<Image>().color = Color.white;
+            slowTurretButton.GetComponent<Image>().color = Color.white;
+            explosiveMineButton.GetComponent<Image>().color = Color.white;
+            machineGunButton.GetComponent<Image>().color = Color.white;
+            mortarTurretButton.GetComponent<Image>().color = Color.white;
+            
         }
     }
 
