@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
     {
         
     }
-    private void Awake()
+    private void Start()
     {
         if (_information != null)
         {

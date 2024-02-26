@@ -266,6 +266,10 @@ public class Health : MonoBehaviour
             }
         }
     }
+    public void ItsPoisoned()
+    {
+        StartCoroutine(Poisoned());
+    }
     public IEnumerator Poisoned()
     {
         float _nTics = 0;

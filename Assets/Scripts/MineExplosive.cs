@@ -9,6 +9,7 @@ public class MineExplosive : MonoBehaviour
     public LayerMask layer;
     private Collider[] _zoneExplosion;
     private Collider[] _zonerrActivation;
+    public GameObject explosionEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -32,14 +33,16 @@ public class MineExplosive : MonoBehaviour
     public void Explosion()
     {
         SoundManager.dameReferencia.PlayOneClipByName(clipName: "Explosion");
+        Instantiate(explosionEffect, this.gameObject.transform.position, Quaternion.identity);
         _zoneExplosion = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.rangeM, layer);
         foreach (Collider c in _zoneExplosion)
         {
             c.transform.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedM, Bullet.tipoDeDamaged.Magica);
             if (UpgradeManager.giveMeReference.itsUpgraded == 1)
             {
-                StartCoroutine("c.transform.GetComponent<Health>().Poisoned");
+                c.transform.GetComponent<Health>().ItsPoisoned();
             }
         }
+        Destroy(this.gameObject);
     }
 }
