@@ -52,6 +52,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 64
+  explosionEffect: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
 --- !u!114 &9206975455142027689
 MonoBehaviour:
   m_ObjectHideFlags: 0

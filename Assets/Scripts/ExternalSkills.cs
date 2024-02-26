@@ -43,6 +43,7 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.unlockMineTurret,1 },
         {externalSkillName.moreDamageMineTurret,2 },
         {externalSkillName.moreRangeMineTurret,3 },
+        {externalSkillName.itsUpgraded,4 },
         
 
         {externalSkillName.oneReseachPointExtra,10 },
@@ -68,6 +69,7 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.unlockMineTurret,false },
         {externalSkillName.moreDamageMineTurret,false },
         {externalSkillName.moreRangeMineTurret,false },
+        {externalSkillName.itsUpgraded,false },
         
 
         {externalSkillName.oneReseachPointExtra,false },
@@ -91,6 +93,7 @@ public class ExternalSkills : MonoBehaviour
         {externalSkillName.unlockMineTurret,true },
         {externalSkillName.moreDamageMineTurret,false },
         {externalSkillName.moreRangeMineTurret,false },
+        {externalSkillName.itsUpgraded,false },
         
 
         {externalSkillName.oneReseachPointExtra,true },
@@ -166,7 +169,9 @@ public class ExternalSkills : MonoBehaviour
         unlockMineTurret,
         moreDamageMineTurret,
         moreRangeMineTurret,
-        
+        itsUpgraded,
+
+
 
         oneReseachPointExtra,
         moreGoldPerMine,
@@ -190,7 +195,6 @@ public class ExternalSkills : MonoBehaviour
             SavePlayerPrefs(ppName, valueToStore);
         }
     }
-
     public void isSkillUnlockedPP(string ppName, float valueToStore)
     {
         if (PlayerPrefs.HasKey(ppName))
@@ -218,6 +222,7 @@ public class ExternalSkills : MonoBehaviour
                         {
                             skillCanBeUnlocked[externalSkillName.moreDamageMineTurret] = true;
                             skillCanBeUnlocked[externalSkillName.moreRangeMineTurret] = true;
+                            skillCanBeUnlocked[externalSkillName.itsUpgraded] = true;
                             barra3.SetActive(true);
                             
 
@@ -248,7 +253,8 @@ public class ExternalSkills : MonoBehaviour
 
     private void Update()
     {
-        
+
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             PlayerPrefs.DeleteAll();
@@ -369,7 +375,7 @@ public class ExternalSkills : MonoBehaviour
         // Mina
         CheckPlayerPrefsKey("unlockMine", 0);
         CheckPlayerPrefsKey("damagedM", 5);
-        CheckPlayerPrefsKey("rangeM", 10);
+        CheckPlayerPrefsKey("rangeM", 2);
 
         //TurretMortero
         CheckPlayerPrefsKey("vidaMortero",10);
@@ -423,6 +429,7 @@ public class ExternalSkills : MonoBehaviour
         isSkillUnlockedPP("moreDamageMineTurret", 0);
         isSkillUnlockedPP("moreRangeMineTurret", 0);
         isSkillUnlockedPP("moreHealthMineTurret", 0);
+        isSkillUnlockedPP("itsUpgraded", 0);
 
         isSkillUnlockedPP("oneReseachPointExtra", 0);
         isSkillUnlockedPP("moreGoldPerMine", 0);
@@ -691,8 +698,24 @@ public class ExternalSkills : MonoBehaviour
 
                         skillCanBeUnlocked[externalSkillName.moreDamageMineTurret] = true;
                         skillCanBeUnlocked[externalSkillName.moreRangeMineTurret] = true;
+                        skillCanBeUnlocked[externalSkillName.itsUpgraded] = true;
                         barra3.SetActive(true);
 
+
+                        UnlockSkillLogic(skill);
+
+                        //Falta la logica que desbloque la torreta de las minas
+
+
+                    }
+                    break;
+                    case externalSkillName.itsUpgraded:
+
+                    if (PlayerPrefs.GetFloat("itsUpgraded") < 1)
+                    {
+                        float counterCurrentValue = PlayerPrefs.GetFloat("itsUpgraded");
+                        float counterNewValue = counterCurrentValue + 1;
+                        SavePlayerPrefs("unlockMineTurret", counterNewValue);
 
                         UnlockSkillLogic(skill);
 

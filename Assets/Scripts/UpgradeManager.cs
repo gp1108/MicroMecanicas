@@ -90,7 +90,7 @@ public class UpgradeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damagedMinaUpgrade = 5;
+        damagedMinaUpgrade = 2; //sangrado
         LoadPlayerPrefsUpgradeManager();
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
         Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;

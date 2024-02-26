@@ -23,7 +23,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     private void Update()
     {
-
+        
     }
     public enum TipeButon
     {
