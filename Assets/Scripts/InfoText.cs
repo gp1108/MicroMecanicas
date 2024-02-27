@@ -54,6 +54,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         unlockMineTurret,
         moreDamageMineTurret,
         moreRangeMineTurret,
+        itsUpgraded,
 
         oneReseachPointExtra,
         moreGoldPerMine,
@@ -61,6 +62,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         startWithExtraResearchPoints,
 
         Investigacion,
+        Gold,
 
         moreHealthTurrets,
 
@@ -92,19 +94,16 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         
         _clic = true;
         _information.transform.position = this.transform.position;
-        Debug.Log(_information.transform.position);
+
         
         if (_information.transform.position.x + 432 > 1920) 
         {
-            Vector3 otro = this.transform.position+new Vector3(450, 0, 0);
-            Debug.Log("Se sale por la X"+ otro);
-            //_information.transform.position = this.transform.position - new Vector3(0, 0, 450);
+
             _information.transform.position = _information.transform.position - new Vector3(450, 0, 0);
         }
         if (_information.transform.position.y - 391 < 0) 
         {
-            Vector3 otro = this.transform.position + new Vector3(0, 391, 0);
-            Debug.Log("Se sale por la y" + otro);
+
             _information.transform.position = _information.transform.position + new Vector3(0, 391, 0);
         }
         StartCoroutine("Wait");
@@ -199,6 +198,10 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon = TipeButon.moreRangeMineTurret;
             }
+            if (_buton == "itsUpgraded")
+            {
+                _tipeButon = TipeButon.itsUpgraded;
+            }
             if (_buton == "oneReseachPointExtra")
             {
                 _tipeButon = TipeButon.oneReseachPointExtra;
@@ -280,7 +283,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 _tipeButon = TipeButon.slowMine;
             }
         }
-        else
+        else if(eventData.pointerEnter.transform.parent.GetComponent<Button>() != null)
         {
             _buton = eventData.pointerEnter.transform.parent.name;
             if (_buton == "Walls")
@@ -371,6 +374,10 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _tipeButon = TipeButon.moreRangeMineTurret;
             }
+            if (_buton == "itsUpgraded")
+            {
+                _tipeButon = TipeButon.itsUpgraded;
+            }
             if (_buton == "oneReseachPointExtra")
             {
                 _tipeButon = TipeButon.oneReseachPointExtra;
@@ -452,7 +459,20 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 _tipeButon = TipeButon.slowMine;
             }
         }
+        else
+        {
+            _buton = eventData.pointerEnter.name;
+            if (_buton == "Puntos Investigacion")
+            {
+                _tipeButon = TipeButon.Investigacion;
+            }
+            if (_buton == "Gold")
+            {
+                _tipeButon = TipeButon.Gold;
+            }
+        }
         CheckName();
+
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -581,6 +601,11 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 _textInformation.text = "Aumenta el Rango de explosion \r\n Rango = " + PlayerPrefs.GetFloat("rangeM");
 
                 break;
+            case TipeButon.itsUpgraded:
+
+                _textInformation.text = "La mina ahora despues de la explosion deja un sangrado que inflinge "+ PlayerPrefs.GetFloat("damagedMinaUpgrade") + " de daño por segundo durante 3 segundos";
+
+                break;
             case TipeButon.oneReseachPointExtra:
 
                 _textInformation.text = "Los talleres dan 1 punto más de investigación.";
@@ -603,8 +628,13 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.Investigacion:
 
-                _textInformation.text = "Puntos de investigacion para el taller.\r\n Se consiguen " + gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))
+                _textInformation.text = "Puntos de investigacion para el taller.\r\nSe consiguen " + gameManager.giveMeReference.numberOfLabs * 2 + Mathf.RoundToInt(PlayerPrefs.GetFloat("oneResearchPoint"))
                 + " cada " + gameManager.giveMeReference.researchRoundsElapsed + " rondas\r\nTienes = " + gameManager.giveMeReference.researchPoints.ToString();
+
+                break;
+            case TipeButon.Gold:
+
+                _textInformation.text = "Oro necesario para colocar estructuras entre rondas.\r\nTienes actualmente: " +gameManager.giveMeReference.gold;
 
                 break;
             case TipeButon.moreHealthTurrets:

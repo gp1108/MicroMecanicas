@@ -376,6 +376,7 @@ public class ExternalSkills : MonoBehaviour
         CheckPlayerPrefsKey("unlockMine", 0);
         CheckPlayerPrefsKey("damagedM", 5);
         CheckPlayerPrefsKey("rangeM", 2);
+        CheckPlayerPrefsKey("damagedMinaUpgrade", 2); //Daño sangrado
 
         //TurretMortero
         CheckPlayerPrefsKey("vidaMortero",10);

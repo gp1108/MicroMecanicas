@@ -90,7 +90,6 @@ public class UpgradeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damagedMinaUpgrade = 2; //sangrado
         LoadPlayerPrefsUpgradeManager();
         Skills.giveMeReference.listaActualizarTurrets += ActualizarVidaTorres;
         Skills.giveMeReference.listaActualizarWalls += ActualizarVidaWalls;
@@ -183,6 +182,7 @@ public class UpgradeManager : MonoBehaviour
 
         //Mina // revisar para las mejoras de la mina
         itsUpgraded = PlayerPrefs.GetFloat("itsUpgraded");
+        damagedMinaUpgrade = PlayerPrefs.GetFloat("damagedMinaUpgrade");
         //damagedMinaUpgrade = PlayerPrefs.GetFloat("damagedMinaUpgrade");
         //Anñadir el unlock slow para desbloquear la torreta mina ingame
 
