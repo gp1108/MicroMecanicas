@@ -126,6 +126,7 @@ public class ExternalSkills : MonoBehaviour
     public TMP_Text skill11text;
     public TMP_Text skill12text;
     public TMP_Text skill13text;
+    public TMP_Text skill14text;
 
     [Header("SkillsCosteText")]
     public TMP_Text skillCost1text;
@@ -142,6 +143,7 @@ public class ExternalSkills : MonoBehaviour
     public TMP_Text skillCost12text;
     public TMP_Text skillCost13text;
     public TMP_Text skillCost14text;
+    public TMP_Text skillCost15text;
 
     [Header("Barras")]
     public GameObject barra1;
@@ -287,6 +289,7 @@ public class ExternalSkills : MonoBehaviour
         skill11text.text = PlayerPrefs.GetFloat("moreGoldPerMineAmount").ToString() + "/3";
         skill12text.text = PlayerPrefs.GetFloat("startWithMoreGoldAmount").ToString() + "/3";
         skill13text.text = PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount").ToString() + "/3";
+        skill14text.text = PlayerPrefs.GetFloat("itsUpgraded").ToString() + "/1";
 
 
 
@@ -307,6 +310,7 @@ public class ExternalSkills : MonoBehaviour
         skillCost10text.text = skillCost[externalSkillName.moreGoldPerMine].ToString() + " SP";
         skillCost11text.text = skillCost[externalSkillName.startWithExtraGold].ToString() + " SP";
         skillCost12text.text = skillCost[externalSkillName.startWithExtraResearchPoints].ToString() + " SP";
+        skillCost15text.text = skillCost[externalSkillName.itsUpgraded].ToString() + " SP";
 
 
 

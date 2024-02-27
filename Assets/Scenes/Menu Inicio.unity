@@ -15306,6 +15306,7 @@ MonoBehaviour:
   skill11text: {fileID: 583571592}
   skill12text: {fileID: 2075803986}
   skill13text: {fileID: 1628709243}
+  skill14text: {fileID: 1125406583}
   skillCost1text: {fileID: 1769590493}
   skillCost2text: {fileID: 1379821686}
   skillCost3text: {fileID: 576492376}
@@ -15320,6 +15321,7 @@ MonoBehaviour:
   skillCost12text: {fileID: 1433738454}
   skillCost13text: {fileID: 380728062}
   skillCost14text: {fileID: 6799591}
+  skillCost15text: {fileID: 491353483}
   barra1: {fileID: 1040905124}
   barra2: {fileID: 985078794}
   barra3: {fileID: 800592621}
