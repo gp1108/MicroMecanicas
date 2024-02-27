@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: efce0a4155fda4a448f991aaab784b38
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - EXXA GAME
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b1a90f361b962f54bbbd0fa3af9fd8fa, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
