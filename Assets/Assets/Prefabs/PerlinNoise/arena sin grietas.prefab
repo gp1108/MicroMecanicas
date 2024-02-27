@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4839654176287521699}
   - component: {fileID: -2323389780714183558}
   m_Layer: 0
-  m_Name: Cubo arena
+  m_Name: arena sin grietas
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8994479949997689285
 MeshFilter:
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e568d449f2c8cd41958fb37e1e77742, type: 2}
+  - {fileID: 2100000, guid: 901ab6e31e1ec3c458e527fe75cab79b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
