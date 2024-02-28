@@ -384,7 +384,10 @@ public class gameManager : MonoBehaviour
         {
             if (regenWalls == true)
             {
-                listaActualizarWallsReg();
+                if (listaActualizarWallsReg != null)
+                {
+                    listaActualizarWallsReg();
+                }
             }
             if (_roundsPlayed == _totalRounds)
             {

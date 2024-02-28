@@ -109,7 +109,6 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (eventData.pointerEnter.GetComponent<Button>() != null)
         {
             _buton = eventData.pointerEnter.name;
-            Debug.Log(_buton);
             if (_buton == "Walls")
             {
                 _tipeButon = TipeButon.Walls;
