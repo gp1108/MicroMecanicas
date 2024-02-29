@@ -471,7 +471,7 @@ public class ExternalSkills : MonoBehaviour
     {
         if (skillCost[skill] <= PlayerPrefs.GetFloat("externalResearchPoints"))
         {
-
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "PowerUp");
             switch (skill)
             {
                 case externalSkillName.moreDamageBasicTurret:
@@ -928,6 +928,10 @@ public class ExternalSkills : MonoBehaviour
             }
 
 
+        }
+        else
+        {
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
 
     }

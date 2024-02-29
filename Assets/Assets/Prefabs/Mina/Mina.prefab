@@ -478,7 +478,6 @@ GameObject:
   - component: {fileID: 4446348389871335772}
   - component: {fileID: 7447433589204087516}
   - component: {fileID: 6238850034197597880}
-  - component: {fileID: -5137854997671905169}
   - component: {fileID: 280159518076858854}
   - component: {fileID: 1331406592343738865}
   - component: {fileID: 2354703989778251600}
@@ -544,18 +543,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95ff511291a2c7640b2aad71db5141fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-5137854997671905169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8852815193095291815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53dc109276f1a34ca3128055f894d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &280159518076858854
@@ -638,6 +625,7 @@ MonoBehaviour:
   healthPoints: 0
   maxHealthPoints: 0
   healthSlider: {fileID: 0}
+  _slow: 0
   _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
   _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
   opciones: {fileID: 0}

@@ -41,7 +41,7 @@ public class SkillsUI : MonoBehaviour
 
     public void externalCallSkillUnlockFunction()
     {
-        SoundManager.dameReferencia.PlayOneClipByName(clipName: "PowerUp");
+        //SoundManager.dameReferencia.PlayOneClipByName(clipName: "PowerUp");
 
         foreach (externalSkillName skillName in Enum.GetValues(typeof(externalSkillName)))
         {

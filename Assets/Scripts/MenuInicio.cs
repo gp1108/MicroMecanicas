@@ -132,7 +132,7 @@ public class MenuInicio : MonoBehaviour
     {
         menu.gameObject.SetActive(false);
         opciones.gameObject.SetActive(true);
-        SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
+        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Click");
     }
 
     public void Volume()
@@ -158,7 +158,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("raptor") == 0)
         {
             RaptorLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("raptor") == 1)
         {
@@ -171,7 +171,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Pterodactilo") == 0)
         {
             PteroLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Pterodactilo") == 1)
         {
@@ -184,7 +184,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Triceratops") == 0)
         {
             TricepLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Triceratops") == 1)
         {
@@ -197,7 +197,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Trex") == 0)
         {
             TRexLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Trex") == 1)
         {
@@ -210,7 +210,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Compy") == 0)
         {
             CompyLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Compy") == 1)
         {
@@ -223,7 +223,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("raptor") == 0)
         {
             RaptorLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("raptor") == 1)
         {
@@ -242,7 +242,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Triceratops") == 0)
         {
             TricepLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Triceratops") == 1)
         {
@@ -261,7 +261,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Pterodactilo") == 0)
         {
             PteroLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Pterodactilo") == 1)
         {
@@ -280,7 +280,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Trex") == 0)
         {
             TRexLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Trex") == 1)
         {
@@ -299,7 +299,7 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Compy") == 0)
         {
             CompyLockedPanel.SetActive(true);
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
+            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Compy") == 1)
         {
