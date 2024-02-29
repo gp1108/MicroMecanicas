@@ -37,7 +37,7 @@ public class MineExplosive : MonoBehaviour
         _zoneExplosion = Physics.OverlapSphere(transform.position, UpgradeManager.giveMeReference.rangeM, layer);
         foreach (Collider c in _zoneExplosion)
         {
-            c.transform.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedM, Bullet.tipoDeDamaged.Magica);
+            c.transform.GetComponent<Health>().GetDamaged(UpgradeManager.giveMeReference.damagedM, Bullet.tipoDeDamaged.Armadura);
             if (UpgradeManager.giveMeReference.itsUpgraded == 1)
             {
                 c.transform.GetComponent<Health>().ItsPoisoned();
