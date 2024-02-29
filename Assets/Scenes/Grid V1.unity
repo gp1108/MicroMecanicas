@@ -17606,6 +17606,7 @@ GameObject:
   - component: {fileID: 7301327410174304293}
   - component: {fileID: 6891633567416251623}
   - component: {fileID: 7442506256565995128}
+  - component: {fileID: 7442506256565995129}
   m_Layer: 5
   m_Name: unlockMachinegunTurret
   m_TagString: Untagged
@@ -17745,6 +17746,7 @@ GameObject:
   - component: {fileID: 2726232453148389549}
   - component: {fileID: 1784175682225501061}
   - component: {fileID: 7247127862293803779}
+  - component: {fileID: 7853644933909976441}
   m_Layer: 5
   m_Name: moreDamageTurrets
   m_TagString: Untagged
@@ -17765,6 +17767,7 @@ GameObject:
   - component: {fileID: 4377700796332641848}
   - component: {fileID: 8781143383826316324}
   - component: {fileID: 7325334742995983960}
+  - component: {fileID: 8976724483705724676}
   m_Layer: 5
   m_Name: moreHealthWalls
   m_TagString: Untagged
@@ -18001,6 +18004,7 @@ GameObject:
   - component: {fileID: 3674858042235159992}
   - component: {fileID: 7274123948427458353}
   - component: {fileID: 2035770354456397498}
+  - component: {fileID: 9066039198754826569}
   m_Layer: 5
   m_Name: structureRecoverHealth
   m_TagString: Untagged
@@ -18430,6 +18434,7 @@ GameObject:
   - component: {fileID: 3815546503558117333}
   - component: {fileID: 3346354639078495255}
   - component: {fileID: 4528347718309123850}
+  - component: {fileID: 6777775943216157662}
   m_Layer: 5
   m_Name: fasterResearch
   m_TagString: Untagged
@@ -19546,6 +19551,7 @@ GameObject:
   - component: {fileID: 8153743520043518291}
   - component: {fileID: 6228041312774046516}
   - component: {fileID: 4491173018952683652}
+  - component: {fileID: 8153743520043518292}
   m_Layer: 5
   m_Name: unlockMines
   m_TagString: Untagged
@@ -20329,6 +20335,7 @@ GameObject:
   - component: {fileID: 2381388061373770601}
   - component: {fileID: 1357569302117603039}
   - component: {fileID: 517831354679792909}
+  - component: {fileID: 5921597592638962085}
   m_Layer: 5
   m_Name: unlockMortarTurret
   m_TagString: Untagged
@@ -20828,6 +20835,7 @@ GameObject:
   - component: {fileID: 5625775794343467876}
   - component: {fileID: 2550125761694330721}
   - component: {fileID: 4936812816004691336}
+  - component: {fileID: 7320509206664084538}
   m_Layer: 5
   m_Name: sniperTurretMoreFireRate
   m_TagString: Untagged
@@ -21171,6 +21179,7 @@ GameObject:
   - component: {fileID: 4609474016205850618}
   - component: {fileID: 779598956688972644}
   - component: {fileID: 1820163118088288023}
+  - component: {fileID: 4866998329165024312}
   m_Layer: 5
   m_Name: slowMine
   m_TagString: Untagged
@@ -21178,6 +21187,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4866998329165024312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866998329165024311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &4899810896560022711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21786,6 +21809,7 @@ GameObject:
   - component: {fileID: 4541394077457918637}
   - component: {fileID: 3843646492660492652}
   - component: {fileID: 2602168585855445775}
+  - component: {fileID: 6668376799742590994}
   m_Layer: 5
   m_Name: unlockGems
   m_TagString: Untagged
@@ -21834,6 +21858,20 @@ RectTransform:
   m_AnchoredPosition: {x: 226.04994, y: -644.2564}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5921597592638962085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839721601109304411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!224 &5954429901287644625
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22338,6 +22376,7 @@ GameObject:
   - component: {fileID: 1352546790976072076}
   - component: {fileID: 112556114129463088}
   - component: {fileID: 8239610036472832074}
+  - component: {fileID: 9120205116857000152}
   m_Layer: 5
   m_Name: unlockSniperTurret
   m_TagString: Untagged
@@ -22358,6 +22397,7 @@ GameObject:
   - component: {fileID: 2960352643122955136}
   - component: {fileID: 6491249690045819227}
   - component: {fileID: 4000117818270570296}
+  - component: {fileID: 7797563064468994446}
   m_Layer: 5
   m_Name: unlockLaserTurret
   m_TagString: Untagged
@@ -22482,6 +22522,20 @@ RectTransform:
   m_AnchoredPosition: {x: 543, y: -169.0199}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6668376799742590994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5864100177907189492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!222 &6672864601931525060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22573,6 +22627,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665539122745760265}
   m_CullTransparentMesh: 1
+--- !u!114 &6777775943216157662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665539122745760265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &6785672139392222330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22612,6 +22680,7 @@ GameObject:
   - component: {fileID: 5628782154750712603}
   - component: {fileID: 6689429563628648544}
   - component: {fileID: 6051036236622617698}
+  - component: {fileID: 6885962366676998516}
   m_Layer: 5
   m_Name: moreHealthTurrets
   m_TagString: Untagged
@@ -22619,6 +22688,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6885962366676998516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885962366676998515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &6891633567416251623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22996,6 +23079,7 @@ GameObject:
   - component: {fileID: 259969323254995897}
   - component: {fileID: 7320948163549327864}
   - component: {fileID: 6810066133364546103}
+  - component: {fileID: 8365391408454399219}
   m_Layer: 5
   m_Name: fastMine
   m_TagString: Untagged
@@ -24286,6 +24370,20 @@ RectTransform:
   m_AnchoredPosition: {x: -135.86017, y: -518}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7320509206664084538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499473078097899332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &7320948163549327864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24438,6 +24536,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldPanelButton: {fileID: 0}
+--- !u!114 &7442506256565995129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400847022208439995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!222 &7458316231008992184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24674,6 +24786,7 @@ GameObject:
   - component: {fileID: 2832183544064507493}
   - component: {fileID: 8894237830327008771}
   - component: {fileID: 7275658317412231958}
+  - component: {fileID: 8894237830327008772}
   m_Layer: 5
   m_Name: oneMoreMine
   m_TagString: Untagged
@@ -24739,6 +24852,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6511452451924493765}
   m_CullTransparentMesh: 1
+--- !u!114 &7797563064468994446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511452451924493765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!222 &7853644933909976440
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24747,6 +24874,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679915407524607356}
   m_CullTransparentMesh: 1
+--- !u!114 &7853644933909976441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679915407524607356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &7987511297028524325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25065,6 +25206,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8153743520043518292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2617240879151867333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!224 &8184982483817493019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25175,6 +25330,20 @@ RectTransform:
   m_AnchoredPosition: {x: 164, y: -294.55988}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8365391408454399219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036353329624484077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &8366872734619770825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25927,6 +26096,7 @@ GameObject:
   - component: {fileID: 525706529615087322}
   - component: {fileID: 8366872734619770825}
   - component: {fileID: 3253374562213002439}
+  - component: {fileID: 8870834237241347436}
   m_Layer: 5
   m_Name: minesFaster
   m_TagString: Untagged
@@ -25934,6 +26104,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8870834237241347436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8870834237241347435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!114 &8894237830327008771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25990,6 +26174,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8894237830327008772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657321078525624809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!224 &8976724483705724675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26013,6 +26211,20 @@ RectTransform:
   m_AnchoredPosition: {x: 263.40002, y: -266.91992}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8976724483705724676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732040545649344229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!222 &8982383072285847780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26094,6 +26306,20 @@ RectTransform:
   m_AnchoredPosition: {x: 322, y: -391}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9066039198754826569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342420859131730512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!1 &9072434877473396857
 GameObject:
   m_ObjectHideFlags: 0
@@ -26135,6 +26361,20 @@ RectTransform:
   m_AnchoredPosition: {x: -143.20007, y: -391}
   m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9120205116857000152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6506726429786279091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021d7c24efb5d3041ad5259d4a2b057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 1786354696385610129}
+  _textInformation: {fileID: 1786354696385610128}
 --- !u!23 &9204651884720745303
 MeshRenderer:
   m_ObjectHideFlags: 0
