@@ -39,7 +39,6 @@ public class BuildMenuButton : MonoBehaviour
         buildMenuActive = true;
     }
 
-    
     public void EnableOrDisableBuildPanel()
     {
         buildMenuActive = !buildMenuActive;
@@ -101,6 +100,14 @@ public class BuildMenuButton : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyUp(KeyCode.B))
+        {
+            if (gameManager.giveMeReference.onRound == false)
+            {
+                EnableOrDisableBuildPanel();
+            }
+        }
+
         if (UpgradeManager.giveMeReference.isMineUnlocked != 0)
         {
             explosiveMineButton.SetActive(true);

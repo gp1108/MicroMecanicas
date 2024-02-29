@@ -64,6 +64,7 @@ public class gameManager : MonoBehaviour
     [Header("Menu Management")]
     public GameObject BuildMenuButton;
     public GameObject ResearchMenuButton;
+    public GameObject RoundStartButton;
     public GameObject canvas;
     public GameObject victoryImage;
     public GameObject gameOverImage;
@@ -148,7 +149,7 @@ public class gameManager : MonoBehaviour
     private void Update()
     {
         invetigationText.text = researchPoints.ToString();
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) && onRound == false )
+        if (Input.GetKeyDown(KeyCode.Return) && onRound == false )
         {
             onRound = true;
             SoundManager.dameReferencia.PlayClipByName(clipName: "RoundStart");
@@ -167,12 +168,36 @@ public class gameManager : MonoBehaviour
             BuildMenuButton.SetActive(false);
             
             ResearchMenuButton.SetActive(false);
+
+            RoundStartButton.SetActive(false);
         }
         else
         {
             return;
         }
         
+    }
+    public void BotonRoundStart()
+    {
+        onRound = true;
+        SoundManager.dameReferencia.PlayClipByName(clipName: "RoundStart");
+        RoundStart();
+
+
+        //Disable Menus
+        if (canvas.GetComponent<ResearchMenu>().researchMenuActive == true)
+        {
+            canvas.GetComponent<ResearchMenu>().EnableOrDisableResearchPanel();
+        }
+        if (canvas.GetComponent<BuildMenuButton>().buildMenuActive == true)
+        {
+            canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
+        }
+        BuildMenuButton.SetActive(false);
+
+        ResearchMenuButton.SetActive(false);
+
+        RoundStartButton.SetActive(false);
     }
     public void MaxNumberOfMines()
     {
@@ -417,7 +442,8 @@ public class gameManager : MonoBehaviour
 
             //Enable Menus
             BuildMenuButton.SetActive(true);
-            if(numberOfLabs > 0)
+            RoundStartButton.SetActive(true);
+            if (numberOfLabs > 0)
             {
                 ResearchMenuButton.SetActive(true);
             }
