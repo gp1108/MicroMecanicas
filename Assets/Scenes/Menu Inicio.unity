@@ -2740,13 +2740,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1801756481}
-  - {fileID: 11661076}
   - {fileID: 122598516}
   - {fileID: 1274942052}
   - {fileID: 689932502}
   - {fileID: 505529349}
   - {fileID: 1338512798}
   - {fileID: 254757186}
+  - {fileID: 829399854}
   m_Father: {fileID: 4658365310462575522}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2787,7 +2787,6 @@ RectTransform:
   - {fileID: 400951684}
   - {fileID: 1373655406}
   - {fileID: 1074793014}
-  - {fileID: 335579334}
   - {fileID: 780663607}
   - {fileID: 926020907}
   - {fileID: 1485980056}
@@ -6635,8 +6634,8 @@ RectTransform:
   m_LocalScale: {x: 4.6239, y: 4.6239, z: 4.6239}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 335579334}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6956,8 +6955,8 @@ RectTransform:
   m_LocalScale: {x: 4.6239, y: 4.6239, z: 4.6239}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 331914779}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10678,7 +10677,7 @@ RectTransform:
   m_GameObject: {fileID: 829399853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 755398287}
@@ -10689,7 +10688,7 @@ RectTransform:
   - {fileID: 530470666}
   - {fileID: 284548216}
   - {fileID: 1709565132}
-  m_Father: {fileID: 4658365310462575522}
+  m_Father: {fileID: 288657306}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -24440,7 +24439,6 @@ RectTransform:
   - {fileID: 1054766125}
   - {fileID: 1641475119}
   - {fileID: 1805423098}
-  - {fileID: 331914779}
   - {fileID: 1585380466}
   - {fileID: 1725877542}
   - {fileID: 747290587}
@@ -30793,7 +30791,7 @@ MonoBehaviour:
     volume: 1
   - _audioTypes: 2
     _audioSource: {fileID: 0}
-    _audioClip: {fileID: 8300000, guid: a44e5b5df6e438e40be0db7d325a6a22, type: 3}
+    _audioClip: {fileID: 8300000, guid: 64be3432c12e3f04e84193410f9aef6d, type: 3}
     _clipName: Laser
     _isLoop: 0
     _playOnAwake: 0
@@ -31949,7 +31947,6 @@ RectTransform:
   - {fileID: 328693207}
   - {fileID: 406525732}
   - {fileID: 661494419}
-  - {fileID: 829399854}
   - {fileID: 288657306}
   - {fileID: 1672172212}
   - {fileID: 1775466469}

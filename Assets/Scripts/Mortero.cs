@@ -81,7 +81,7 @@ public class Mortero : MonoBehaviour
         _attacking = true;
         _balaLanzada = GameObject.Instantiate(_bala, _salidaBala.transform.position, _salidaBala.transform.rotation);
         _balaLanzada.GetComponent<BalaMortero>().target = _target;
-        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
+        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Mortero");
         yield return new WaitForSeconds(UpgradeManager.giveMeReference.cadenceMortero);
         _attacking = false;
     }
