@@ -117,6 +117,7 @@ public class Enemy3 : MonoBehaviour
         if (GetComponent<Health>()._slow == true)
         {
             Instantiate(debuff, this.transform.position, Quaternion.identity);
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Slow");
         }
 
     }

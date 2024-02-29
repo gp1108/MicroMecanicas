@@ -2508,7 +2508,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4282754183
   m_fontColor: {r: 0.5294118, g: 0.6431373, b: 0.27058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2746,6 +2746,7 @@ RectTransform:
   - {fileID: 505529349}
   - {fileID: 1338512798}
   - {fileID: 254757186}
+  - {fileID: 829399854}
   m_Father: {fileID: 4658365310462575522}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2940,7 +2941,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4282950791
   m_fontColor: {r: 0.5294118, g: 0.6431373, b: 0.28235295, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -6299,7 +6300,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4282885255
   m_fontColor: {r: 0.5294118, g: 0.6431373, b: 0.2784314, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -10811,7 +10812,7 @@ RectTransform:
   m_GameObject: {fileID: 829399853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 755398287}
@@ -10822,7 +10823,7 @@ RectTransform:
   - {fileID: 530470666}
   - {fileID: 284548216}
   - {fileID: 1709565132}
-  m_Father: {fileID: 4658365310462575522}
+  m_Father: {fileID: 288657306}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -16553,7 +16554,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4282671954
   m_fontColor: {r: 0.32156864, g: 0.3882353, b: 0.26666668, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -17701,7 +17702,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4282819719
   m_fontColor: {r: 0.5294118, g: 0.6431373, b: 0.27450982, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -30925,7 +30926,7 @@ MonoBehaviour:
     volume: 1
   - _audioTypes: 2
     _audioSource: {fileID: 0}
-    _audioClip: {fileID: 8300000, guid: a44e5b5df6e438e40be0db7d325a6a22, type: 3}
+    _audioClip: {fileID: 8300000, guid: 64be3432c12e3f04e84193410f9aef6d, type: 3}
     _clipName: Laser
     _isLoop: 0
     _playOnAwake: 0
@@ -32081,7 +32082,6 @@ RectTransform:
   - {fileID: 328693207}
   - {fileID: 406525732}
   - {fileID: 661494419}
-  - {fileID: 829399854}
   - {fileID: 288657306}
   - {fileID: 1672172212}
   - {fileID: 1775466469}

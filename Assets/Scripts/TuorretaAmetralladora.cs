@@ -87,7 +87,7 @@ public class TuorretaAmetralladora : MonoBehaviour
             _bullet.gameObject.GetComponent<Bullet>().target = _target;
             _bullet.gameObject.GetComponent<Bullet>().tipoDamaged = Bullet.tipoDeDamaged.Estandar;
             _attacking = true;
-            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot");
+            SoundManager.dameReferencia.PlayOneClipByName(clipName: "Shoot_machineGun");
             _cadence = UpgradeManager.giveMeReference.cadenceAm;
         }
         else

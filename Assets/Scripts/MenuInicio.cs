@@ -96,7 +96,6 @@ public class MenuInicio : MonoBehaviour
 
     public void NuevaPartida()
     {
-        //volume.SetActive(true);
         Time.timeScale = 1;
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         SceneManager.LoadScene(1);
@@ -112,7 +111,6 @@ public class MenuInicio : MonoBehaviour
         {
             
             enmenu = false;
-            //opcionesCanvas = GameObject.FindGameObjectWithTag("OptionsPanel");
             opciones = GameObject.Find("Opciones");
             pausa = GameObject.Find("PauseScreen");
             
@@ -124,10 +122,6 @@ public class MenuInicio : MonoBehaviour
 
     }
     
-    public void CargarPartida()
-    {
-        //SceneManager.LoadScene(1);
-    }
     public void Opciones()
     {
         menu.gameObject.SetActive(false);
@@ -140,7 +134,6 @@ public class MenuInicio : MonoBehaviour
         volume.gameObject.SetActive(true);
         volumePanelActive = true;
         opcionesIngame = false;
-        //opcionesPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -149,7 +142,6 @@ public class MenuInicio : MonoBehaviour
         BestiarioPanel.gameObject.SetActive(true);
         BestiarioPanelActive = true;
         opcionesIngame = false;
-        //opcionesPanel.gameObject.SetActive(false);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -158,7 +150,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("raptor") == 0)
         {
             RaptorLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("raptor") == 1)
         {
@@ -171,7 +162,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Pterodactilo") == 0)
         {
             PteroLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Pterodactilo") == 1)
         {
@@ -184,7 +174,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Triceratops") == 0)
         {
             TricepLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Triceratops") == 1)
         {
@@ -197,7 +186,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Trex") == 0)
         {
             TRexLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Trex") == 1)
         {
@@ -210,7 +198,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Compy") == 0)
         {
             CompyLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Compy") == 1)
         {
@@ -223,7 +210,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("raptor") == 0)
         {
             RaptorLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("raptor") == 1)
         {
@@ -231,7 +217,6 @@ public class MenuInicio : MonoBehaviour
             RaptorPanelActive = true;
             opcionesIngame = false;
             BestiarioPanelActive = false;
-            //BestiarioPanel.gameObject.SetActive(false);
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
         
@@ -242,7 +227,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Triceratops") == 0)
         {
             TricepLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Triceratops") == 1)
         {
@@ -250,7 +234,6 @@ public class MenuInicio : MonoBehaviour
             TricePanelActive = true;
             opcionesIngame = false;
             BestiarioPanelActive = false;
-            //BestiarioPanel.gameObject.SetActive(false);
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
 
@@ -261,7 +244,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Pterodactilo") == 0)
         {
             PteroLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Pterodactilo") == 1)
         {
@@ -269,7 +251,6 @@ public class MenuInicio : MonoBehaviour
             PteroPanelActive = true;
             opcionesIngame = false;
             BestiarioPanelActive = false;
-            //BestiarioPanel.gameObject.SetActive(false);
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
         
@@ -280,7 +261,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Trex") == 0)
         {
             TRexLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Trex") == 1)
         {
@@ -288,7 +268,6 @@ public class MenuInicio : MonoBehaviour
             TRexPanelActive = true;
             opcionesIngame = false;
             BestiarioPanelActive = false;
-            //BestiarioPanel.gameObject.SetActive(false);
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
         
@@ -299,7 +278,6 @@ public class MenuInicio : MonoBehaviour
         if (PlayerPrefs.GetFloat("Compy") == 0)
         {
             CompyLockedPanel.SetActive(true);
-            //SoundManager.dameReferencia.PlayOneClipByName(clipName: "Error");
         }
         if (PlayerPrefs.GetFloat("Compy") == 1)
         {
@@ -307,7 +285,6 @@ public class MenuInicio : MonoBehaviour
             CompyPanelActive = true;
             opcionesIngame = false;
             BestiarioPanelActive = false;
-            //BestiarioPanel.gameObject.SetActive (false);
             SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
         }
         
@@ -353,7 +330,6 @@ public class MenuInicio : MonoBehaviour
     {
         controles.gameObject.SetActive(false);
         controlPanelActive = false;
-        //opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -362,7 +338,6 @@ public class MenuInicio : MonoBehaviour
         volume.gameObject.SetActive(false);
         volumePanelActive = false;
         opcionesIngame = true;
-        //opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -371,7 +346,6 @@ public class MenuInicio : MonoBehaviour
         BestiarioPanel.gameObject.SetActive(false);
         BestiarioPanelActive = false;
         opcionesIngame = true;
-        //opcionesPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -382,7 +356,6 @@ public class MenuInicio : MonoBehaviour
         RaptorPanelActive = false;
         opcionesIngame = true;
         BestiarioPanelActive = true;
-        //BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -392,7 +365,6 @@ public class MenuInicio : MonoBehaviour
         TricePanelActive = false;  
         opcionesIngame = true;
         BestiarioPanelActive = true;
-        //BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -402,7 +374,6 @@ public class MenuInicio : MonoBehaviour
         PteroPanelActive = false;
         opcionesIngame = true;
         BestiarioPanelActive = true;
-        //BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -412,7 +383,6 @@ public class MenuInicio : MonoBehaviour
         TRexPanelActive = false;
         opcionesIngame = true;
         BestiarioPanelActive = true;
-        //BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -422,7 +392,6 @@ public class MenuInicio : MonoBehaviour
         CompyPanelActive = false;
         opcionesIngame = true;
         BestiarioPanelActive = true;
-        //BestiarioPanel.gameObject.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
     }
 
@@ -446,7 +415,6 @@ public class MenuInicio : MonoBehaviour
 
     public void Controles()
     {
-        //opcionesPanel.gameObject.SetActive(false);
         controles.gameObject.SetActive(true);
         controlPanelActive = true;
         opcionesIngame = false;
@@ -470,7 +438,6 @@ public class MenuInicio : MonoBehaviour
     {
         GameObject botonfix = GameObject.Find("Boton Fix");
         pausa = botonfix.GetComponent<BotonOpcionesFix>().pause;
-        //pausa.gameObject.SetActive(false);
         pausa.GetComponent<PauseMenuEnabled>().EnableOrDisablePausePanel();
 
         if (opciones == null)
