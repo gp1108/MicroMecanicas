@@ -133,7 +133,7 @@ public class gameManager : MonoBehaviour
         _totalRounds = 20;
         _totalNumberOfEnemies = 5;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-        GetGold(1000 + PlayerPrefs.GetFloat("startWithMoreGold"));
+        GetGold(100000 + PlayerPrefs.GetFloat("startWithMoreGold"));
         GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
         ResetSimulacion();
         SimulacionSpawnEnemies();
