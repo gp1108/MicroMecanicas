@@ -13,8 +13,21 @@ public class ResearchMenu : MonoBehaviour
     {
         researchMenuActive = false;
     }
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            if (gameManager.giveMeReference.onRound == false)
+            {
+                if (gameManager.giveMeReference.numberOfLabs > 0)
+                {
+                    EnableOrDisableResearchPanel();
+                }
+            }
+        }
+    }
 
-   public void EnableOrDisableResearchPanel()
+    public void EnableOrDisableResearchPanel()
    {
         researchMenuActive = !researchMenuActive;
 
