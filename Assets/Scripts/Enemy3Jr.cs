@@ -159,7 +159,7 @@ public class Enemy3Jr : MonoBehaviour
 
                             if (vida != null)
                             {
-
+                                SoundManager.dameReferencia.PlayOneClipByName(clipName: "Explosion");
                                 _EXPLOSION.transform.parent.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
                                 Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
 
@@ -168,11 +168,13 @@ public class Enemy3Jr : MonoBehaviour
                     }
                     if (_EXPLOSION.tag == "TownHall")
                     {
+                        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Explosion");
                         _EXPLOSION.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
                         Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
                     }
                     if (_EXPLOSION.tag == "BaseTurret")
                     {
+                        SoundManager.dameReferencia.PlayOneClipByName(clipName: "Explosion");
                         _EXPLOSION.GetComponent<Health>().GetDamaged(5, Bullet.tipoDeDamaged.Estandar);
                         Instantiate(explosionEffect, this.transform.position, Quaternion.identity);
                     }

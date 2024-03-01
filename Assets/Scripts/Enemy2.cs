@@ -142,6 +142,7 @@ public class Enemy2 : MonoBehaviour
             {
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {
+                    SoundManager.dameReferencia.PlayOneClipByName(clipName: "Hit");
                     hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
                 }
             }

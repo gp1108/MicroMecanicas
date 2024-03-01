@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using static UnityEditor.ShaderData;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
+    
     // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        DontDestroyOnLoad(this);
-        
-    }
 
+        DontDestroyOnLoad(this);
+    }
 }

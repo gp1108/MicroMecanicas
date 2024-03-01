@@ -65,7 +65,7 @@ public class Enemy4 : MonoBehaviour
         {
             if (hit.transform.GetComponent<Health>() != null)
             {
-
+                SoundManager.dameReferencia.PlayOneClipByName(clipName: "Hit");
                 hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
             }
         }

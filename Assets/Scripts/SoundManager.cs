@@ -38,11 +38,9 @@ public class SoundManager : MonoBehaviour
         {
             if (Referencia == null)
             {
-                Referencia = FindObjectOfType<SoundManager>();
                 if (Referencia == null)
                 {
-                    GameObject go = new GameObject("SoundManager");
-                    Referencia = go.AddComponent<SoundManager>();
+                    Referencia = FindObjectOfType<SoundManager>();
                 }
             }
             return Referencia;
@@ -54,6 +52,17 @@ public class SoundManager : MonoBehaviour
     }
     private void Start()
     {
+
+        DontDestroyOnLoad(this.gameObject);
+
+        if (Referencia != null && Referencia != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Referencia = this;
+        }
         if (_information != null)
         {
             _information.SetActive(false);
