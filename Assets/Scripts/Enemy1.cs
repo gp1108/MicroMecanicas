@@ -52,7 +52,7 @@ public class Enemy1 : MonoBehaviour
                 // Establece ese punto como destino
                 _navAgent.SetDestination(closestPoint);
             }
-            if (Vector3.Distance(this.transform.position,_townHall.transform.position)< 3f)
+            if (Vector3.Distance(this.transform.GetChild(0).position, _townHall.transform.position)< 3f)
             {
                 _navAgent.isStopped = true;
                 _animator.SetBool("Caminando", false);
@@ -91,13 +91,15 @@ public class Enemy1 : MonoBehaviour
         if (_atac == false)
         {
             LayerMask golpe = LayerMask.GetMask("ObjetivoEnemigos");
-            if (Physics.Raycast(transform.position, _distancia, out RaycastHit hit, 0.75f,golpe))
+            _distancia=new Vector3 (_distancia.x,0,_distancia.z);
+            Debug.DrawRay(this.transform.GetChild(0).position,_distancia,Color.red,1);
+            if (Physics.Raycast(this.transform.GetChild(0).position, _distancia, out RaycastHit hit, 0.5f,golpe))
             {
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {
                     hit.transform.GetComponent<Health>().GetDamaged(2, Bullet.tipoDeDamaged.Estandar);
                     _atac = true;
-                    _cadencia = 0.3f;
+                    _cadencia = 0.5f;
                 }
             }
         }

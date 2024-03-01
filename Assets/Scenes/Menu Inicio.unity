@@ -20674,6 +20674,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6171193446453220796}
     m_Modifications:
     - target: {fileID: 619215565585070831, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+    - target: {fileID: 619215565585070831, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_fontColor.b
       value: 0.28627452
       objectReference: {fileID: 0}
@@ -20684,6 +20688,14 @@ PrefabInstance:
     - target: {fileID: 619215565585070831, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_fontColor.r
       value: 0.5294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 619215565585070831, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6763796209646047264, guid: 5851991e375ec4b4bbba29d2d09bf0d9, type: 2}
+    - target: {fileID: 619215565585070831, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490106243162013975, guid: c18616af7fc2c7448a2418df4c2ebfe6, type: 3}
       propertyPath: m_RaycastTarget

@@ -9,6 +9,7 @@ public class Miner : MonoBehaviour
     {
         gameManager.giveMeReference.numberOfMines++;
         gameManager.giveMeReference.MaxNumberOfMines();
+        GetComponent<Health>().BarHelth();
     }
 
     
