@@ -22,7 +22,10 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     private void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SalirInfoText();
+        }
     }
     public enum TipeButon
     {
@@ -490,6 +493,12 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     }
     public void OnPointerExit(PointerEventData eventData)
+    {
+        SalirInfoText();
+    }
+
+    
+    public void SalirInfoText()
     {
         _clic = false;
         _information.SetActive(false);

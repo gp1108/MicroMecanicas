@@ -212,7 +212,7 @@ public class Health : MonoBehaviour
                     }
                 }
                 break;
-            case "TRex(Clone)":
+            case "Trex(Clone)":
                 if (PlayerPrefs.GetFloat("Trex") == 0)
                 {
                     PlayerPrefs.SetFloat("Trex", 1);
