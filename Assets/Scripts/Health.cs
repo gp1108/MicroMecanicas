@@ -161,7 +161,15 @@ public class Health : MonoBehaviour
             if (this.tag == "Enemies" && !muerto)
             {
                 muerto = true;
-                gameManager.giveMeReference.GetGold(10);
+                if(gameManager.giveMeReference._roundsPlayed < 15)
+                {
+                    gameManager.giveMeReference.GetGold(20);
+                }
+                else
+                {
+                    gameManager.giveMeReference.GetGold(10);
+                }
+                
                 gameManager.giveMeReference.EnemyDead(this.gameObject.name);
                 if(PlayerPrefs.GetFloat("raptor") == 0 || PlayerPrefs.GetFloat("Pterodactilo") == 0 || PlayerPrefs.GetFloat("Triceratops") == 0 || PlayerPrefs.GetFloat("Trex") == 0 || PlayerPrefs.GetFloat("Compy") == 0)
                 {

@@ -36,7 +36,7 @@ public class gameManager : MonoBehaviour
     [Header("Rounds and Enemies")]
     public List<GameObject> enemiesSpawners;
     public GameObject[] enemies;
-    private int _roundsPlayed;
+    public int _roundsPlayed;
     private int _totalRounds;
     private int _totalNumberOfEnemies;
     [SerializeField] private int _raptor;
@@ -347,27 +347,27 @@ public class gameManager : MonoBehaviour
     }
     public void SpawnEnemiesPorcentajes()
     {
-        if (_roundsPlayed < 10)
+        if (_roundsPlayed < 5)
         {
-            _raptor -= 5;
+            _raptor -= 10;
+        }
+        else if (_roundsPlayed == 5)
+        {
+            _raptor = 60;
+            _trex = 90;
+        }
+        else if (_roundsPlayed < 10) 
+        {
+            _raptor -= 6;
+            _trex -= 6;
         }
         else if (_roundsPlayed == 10)
         {
-            _raptor = 45;
-            _trex = 90;
-        }
-        else if (_roundsPlayed < 16) 
-        {
-            _raptor -= 3;
-            _trex -= 6;
-        }
-        else if (_roundsPlayed == 16)
-        {
-            _raptor = 30;
-            _trex = 60; 
+            _raptor = 35;
+            _trex = 65; 
             _triceraptos = 90;
         }
-        else if (_roundsPlayed < 22)
+        else if (_roundsPlayed < 15)
         {
             _raptor -= 1;
             _trex -= 2;
