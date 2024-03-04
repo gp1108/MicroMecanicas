@@ -32,32 +32,48 @@ public class CameraMovement : MonoBehaviour
     {
         _cameraSpeed = 8;
         _initialRotation = transform.rotation;
-        _hSpeed = 2.5f;
-        _vSpeed = 2.5f;
+        _hSpeed = 0.5f;
+        _vSpeed = 0.5f;
     }
     void ClickDerecho()
     {
-        if(Input.GetKey(KeyCode.Mouse0))
+        if(Input.GetKey(KeyCode.Mouse1))
         {
             _hMira = Input.GetAxis("Mouse X") * _hSpeed * Time.deltaTime;
             _hMiraReal -= _hMira;
             _vMira = Input.GetAxis("Mouse Y") * _vSpeed * Time.deltaTime;
             _vMiraReal -= _vMira;
-            transform.Translate(new Vector3(_hMiraReal, 0,_vMiraReal ),Space.World);
+            transform.Translate(new Vector3(_hMiraReal, _vMiraReal, _vMiraReal));
             
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetKeyUp(KeyCode.Mouse1))
         {
             _hMiraReal = 0;
             _vMiraReal = 0;
+        }
+    }
+
+    void ClickIzquierdo()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            _hMira = Input.GetAxis("Mouse X") * _hSpeed * Time.deltaTime;
+            _hMiraReal += _hMira;
+
+            transform.RotateAround(puntoImpacto, Vector3.up, _hMiraReal* 500 * Time.deltaTime);
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            _hMiraReal = 0;
         }
     }
     private void Update()
     {
        
         ClickDerecho();
+        ClickIzquierdo();
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             transform.position = new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX /2,  13, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ /2-7);
             transform.rotation = _initialRotation;
