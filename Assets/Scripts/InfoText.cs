@@ -101,6 +101,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             _information.transform.position = _information.transform.position - new Vector3(450, 0, 0);
         }
+        
         if (_information.transform.position.y - 391 < 0) 
         {
             _information.transform.position = _information.transform.position + new Vector3(0, 391, 0);
@@ -504,9 +505,8 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.BaseTurret:
 
-                _textInformation.text = "Tipo de daño : estandar\r\nTorreta sencilla de coste reducido y caracteristicas comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedB * 
+                _textInformation.text = "Tipo de daño : estandar\r\nTorreta sencilla de coste reducido y caracteristicas comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedB / 
                 UpgradeManager.giveMeReference.cadenceB + "\r\nRango =" + UpgradeManager.giveMeReference.rangeB + "\r\nVida =" + UpgradeManager.giveMeReference.vidaB;
-                Debug.Log("Cadencia" + UpgradeManager.giveMeReference.cadenceB + "Daño " + UpgradeManager.giveMeReference.damagedB);
 
                 break;
             case TipeButon.OtherTurret:
@@ -520,17 +520,17 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.AmetralladoraTurret:
 
-                _textInformation.text = "Tipo de daño: estandar\r\nEs la torreta basica mejorada, tiene mismo daño y rango que la torreta basica pero mas cadencia\r\nDps = " + PlayerPrefs.GetFloat("damagedAm") *
+                _textInformation.text = "Tipo de daño: estandar\r\nEs la torreta basica mejorada, tiene mismo daño y rango que la torreta basica pero mas cadencia\r\nDps = " + PlayerPrefs.GetFloat("damagedAm") /
                 PlayerPrefs.GetFloat("cadenceAm");
 
                 break;
             case TipeButon.SniperTurret:
-                _textInformation.text = "Tipo de daño : Estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedS *
+                _textInformation.text = "Tipo de daño : Estándar\r\nTorreta sencilla de coste reducido y características comunes.\r\nDps =" + UpgradeManager.giveMeReference.damagedS /
                 UpgradeManager.giveMeReference.cadenceS + "\r\nRango =" + UpgradeManager.giveMeReference.rangeS + "\r\nVida =" + UpgradeManager.giveMeReference.vidaS;
                 break;
             case TipeButon.LaserTurret:
 
-                _textInformation.text = "Tipo de daño : Armadura\r\nTorreta que dispara constantemente a un objetivo y hace daño progresivo en funcion de el tiempo que pase disparando a un mismo objetivo\r\nDps = " + UpgradeManager.giveMeReference.damagedL *
+                _textInformation.text = "Tipo de daño : Armadura\r\nTorreta que dispara constantemente a un objetivo y hace daño progresivo en funcion de el tiempo que pase disparando a un mismo objetivo\r\nDps = " + UpgradeManager.giveMeReference.damagedL /
                 UpgradeManager.giveMeReference.cadenceL + "\r\nRango =" + UpgradeManager.giveMeReference.rangeL + "\r\nVida =" + UpgradeManager.giveMeReference.vidaL;
 
                 break;
@@ -542,7 +542,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.MortarTurret:
 
-                _textInformation.text = "Tipo de daño : magico \r\nTorreta que lanza bombas a grandes grupos de enemigos por su gran daño en area por explosion\r\nDps = " + UpgradeManager.giveMeReference.damagedMortero *
+                _textInformation.text = "Tipo de daño : magico \r\nTorreta que lanza bombas a grandes grupos de enemigos por su gran daño en area por explosion\r\nDps = " + UpgradeManager.giveMeReference.damagedMortero /
                 UpgradeManager.giveMeReference.cadenceMortero + "\r\nRango =" + UpgradeManager.giveMeReference.rangeMortero + "\r\nVida =" + UpgradeManager.giveMeReference.vidaMortero;
 
                 break;
@@ -559,7 +559,7 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             case TipeButon.BasicTurret:
 
-                _textInformation.text = "Tipo de daño : estandar\r\nTorreta sencilla de coste reducido y caracteristicas comunes.\r\nDps =" + PlayerPrefs.GetFloat("damagedB") * 
+                _textInformation.text = "Tipo de daño : estandar\r\nTorreta sencilla de coste reducido y caracteristicas comunes.\r\nDps =" + PlayerPrefs.GetFloat("damagedB") / 
                 PlayerPrefs.GetFloat("cadenceB") + "\r\nRango =" + PlayerPrefs.GetFloat("rangeB") + "\r\nVida =" + PlayerPrefs.GetFloat("vidaB");
 
                 break;

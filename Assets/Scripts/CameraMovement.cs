@@ -6,16 +6,22 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CameraMovement : MonoBehaviour
+public class CameraMovement : MonoBehaviour 
 {
     [SerializeField][Range(1,10)]private float _cameraSpeed;
     [SerializeField][Range(1,10)]private float _cameraSpeedHorizontal;
     private float _scrollInputAmount;
     public float velocidadRotacion = 60.0f;
     public float limite = 10f;
+    private float _hMira;
+    private float _vMira;
+    private float _hMiraReal;
+    private float _vMiraReal;
+    private float _hSpeed;
+    private float _vSpeed;
     [SerializeField]private Camera _mainCamera;
     private Vector3 puntoImpacto;
-
+    
 
     [Header("Referencias a menus")]
     public GameObject perlinNoise;
@@ -26,11 +32,31 @@ public class CameraMovement : MonoBehaviour
     {
         _cameraSpeed = 8;
         _initialRotation = transform.rotation;
+        _hSpeed = 2.5f;
+        _vSpeed = 2.5f;
     }
-
+    void ClickDerecho()
+    {
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+            _hMira = Input.GetAxis("Mouse X") * _hSpeed * Time.deltaTime;
+            _hMiraReal -= _hMira;
+            _vMira = Input.GetAxis("Mouse Y") * _vSpeed * Time.deltaTime;
+            _vMiraReal -= _vMira;
+            transform.Translate(new Vector3(_hMiraReal, 0,_vMiraReal ),Space.World);
+            
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            _hMiraReal = 0;
+            _vMiraReal = 0;
+        }
+    }
     private void Update()
     {
        
+        ClickDerecho();
+
         if(Input.GetKeyDown(KeyCode.F))
         {
             transform.position = new Vector3(perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeX /2,  13, perlinNoise.GetComponent<GenPerlinNoise>()._worldSizeZ /2-7);

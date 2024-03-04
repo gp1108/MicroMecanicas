@@ -204,7 +204,7 @@ Transform:
   - {fileID: 1281465004305838958}
   - {fileID: 727110646556262255}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4343982126314608060
 BoxCollider:
@@ -272,7 +272,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 1.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
