@@ -20,7 +20,7 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] private GameObject [] _torret;
     private Animator _animator;
     public GameObject debuff;
-
+    public GameObject debuff2;
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -115,6 +115,10 @@ public class Enemy2 : MonoBehaviour
         if (GetComponent<Health>()._slow == true)
         {
             Instantiate(debuff, this.transform.position, Quaternion.identity);
+        }
+        if (GetComponent<Health>().itsPoisoned == true)
+        {
+            Instantiate(debuff2, this.transform.position, Quaternion.identity);
         }
     }
     Vector3 FindClosestPointOnNavMesh(Vector3 targetPosition)

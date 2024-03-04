@@ -15,7 +15,7 @@ public class Enemy1 : MonoBehaviour
     private bool _atac;
     private Animator _animator;
     public GameObject debuff;
-
+    public GameObject debuff2;
 
     void Start()
     {
@@ -66,6 +66,10 @@ public class Enemy1 : MonoBehaviour
             {
                 Instantiate(debuff, this.transform.position, Quaternion.identity);
                 SoundManager.dameReferencia.PlayOneClipByName(clipName: "Slow");
+            }
+            if (GetComponent<Health>().itsPoisoned == true)
+            {
+                Instantiate(debuff2, this.transform.position, Quaternion.identity);
             }
         }
 

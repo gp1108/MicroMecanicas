@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
     public GameObject _HitEffect;
     public GameObject opciones;
 
-    //public GameObject slowEffect;
+    public bool itsPoisoned;
 
     // Start is called before the first frame update
     void Start()
@@ -275,6 +275,7 @@ public class Health : MonoBehaviour
     public void ItsPoisoned()
     {
         StartCoroutine(Poisoned());
+        itsPoisoned = true;
     }
     public IEnumerator Poisoned()
     {

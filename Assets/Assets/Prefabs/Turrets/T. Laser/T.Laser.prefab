@@ -182,8 +182,10 @@ MonoBehaviour:
   healthPoints: 0
   maxHealthPoints: 0
   healthSlider: {fileID: 0}
+  _slow: 0
   _DeadEffect: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
   _HitEffect: {fileID: 1570927096764274, guid: 643639841fb531e4ba8097fed4eb9ac7, type: 3}
+  opciones: {fileID: 0}
 --- !u!114 &8906393134803943354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +219,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   exitRay: {fileID: 4024165391125429318}
   rangeIndicator: {fileID: 0}
+  laserEffect: {fileID: 7228126007963969700, guid: 7e1dcd3493ddabe46a6486cc398a290b, type: 3}
 --- !u!65 &4833072593804897672
 BoxCollider:
   m_ObjectHideFlags: 0
