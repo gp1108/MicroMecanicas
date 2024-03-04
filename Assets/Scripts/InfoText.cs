@@ -296,7 +296,6 @@ public class InfoText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 _buton = eventData.pointerEnter.transform.parent.name;
             }
-            Debug.Log(_buton);
             if (_buton == "Walls")
             {
                 _tipeButon = TipeButon.Walls;
