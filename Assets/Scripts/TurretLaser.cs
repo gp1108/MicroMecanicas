@@ -99,7 +99,7 @@ public class TurretLaser : MonoBehaviour
                         if (_ataking == false)
                         {
                             GameObject enemigo = hit.transform.gameObject;
-                            if (true)
+                            if (_ataking == false)
                             {
                                 StartCoroutine(Daño(enemigo));
                             }

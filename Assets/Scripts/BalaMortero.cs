@@ -18,7 +18,7 @@ public class BalaMortero : MonoBehaviour
     void Start()
     {
         muerto = false;
-        time = 2f;
+        time = Random.Range(2,4);
         rb= GetComponent<Rigidbody>();
         _zonaImpacto = target.transform.position;
         StartCoroutine("Potencia");
@@ -41,6 +41,10 @@ public class BalaMortero : MonoBehaviour
                 Vector3 vel = (-this.transform.position + _zonaImpacto - 0.5f * Physics.gravity * time * time) / time;
                 rb.velocity = vel;
                 time -= Time.deltaTime;
+                if(time < 0.2f)
+                {
+                    Destroy(this.gameObject);
+                }
                 yield return new WaitForSeconds(Time.deltaTime);
             }
         }
