@@ -11,6 +11,7 @@ public class MineExplosive : MonoBehaviour
     private Collider[] _zonerrActivation;
     public GameObject explosionEffect;
 
+    public bool itsPoisoned;
     // Start is called before the first frame update
     void Start()
     {
