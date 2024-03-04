@@ -19,6 +19,7 @@ public class Enemy4 : MonoBehaviour
     private bool _atacking;
     [SerializeField] private GameObject[] _torret;
     public GameObject debuff;
+    public GameObject debuff2;
 
     void Start()
     {
@@ -158,6 +159,10 @@ public class Enemy4 : MonoBehaviour
         {
             Instantiate(debuff, this.transform.position, Quaternion.identity);
             SoundManager.dameReferencia.PlayOneClipByName(clipName: "Slow");
+        }
+        if (GetComponent<Health>().itsPoisoned == true)
+        {
+            Instantiate(debuff2, this.transform.position, Quaternion.identity);
         }
 
     }

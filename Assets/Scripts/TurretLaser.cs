@@ -24,6 +24,7 @@ public class TurretLaser : MonoBehaviour
     public GameObject rangeIndicator;
     private bool _mostrarRango;
     private GameObject canvas;
+    public GameObject laserEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +92,7 @@ public class TurretLaser : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer))
             {
+                Instantiate(laserEffect, exitRay.transform.position, exitRay.transform.rotation);
                 if (hit.transform.GetComponent<Health>() != null)
                 {
                     if (hit.transform.tag != "TownHall")
