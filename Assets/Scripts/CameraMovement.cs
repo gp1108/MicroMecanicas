@@ -27,6 +27,9 @@ public class CameraMovement : MonoBehaviour
     public GameObject perlinNoise;
     private Quaternion _initialRotation;
 
+    public GameObject canvas;
+   
+
 
     private void Start()
     {
@@ -55,7 +58,7 @@ public class CameraMovement : MonoBehaviour
 
     void ClickIzquierdo()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && canvas.GetComponent<BuildMenuButton>().buildMenuActive == false && canvas.GetComponent<ResearchMenu>().researchMenuActive == false)
         {
             _hMira = Input.GetAxis("Mouse X") * _hSpeed * Time.deltaTime;
             _hMiraReal += _hMira;
