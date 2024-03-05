@@ -82,7 +82,10 @@ public class Health : MonoBehaviour
         healthSlider.GetComponentInChildren<Slider>().maxValue = healthPoints;
         healthSlider.GetComponentInChildren<Slider>().value = healthPoints;
         healthSlider.enabled = false;
-        this.GetComponent<Collider>().enabled = true;
+        if (this.gameObject.GetComponent<Collider>() != null)
+        {
+            this.GetComponent<Collider>().enabled = true;
+        }
     }
     private void Update()
     {

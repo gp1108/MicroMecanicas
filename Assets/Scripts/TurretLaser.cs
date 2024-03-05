@@ -24,10 +24,12 @@ public class TurretLaser : MonoBehaviour
     public GameObject rangeIndicator;
     private bool _mostrarRango;
     private GameObject canvas;
-    public GameObject laserEffect;
+    [SerializeField] private LineRenderer laserBeam;
+
     // Start is called before the first frame update
     void Start()
     {
+        laserBeam.enabled = false;
         _animator = GetComponent<Animator>();
         _animator.SetBool("Atacando",false);
         canvas = GameObject.Find("Canvas");
@@ -90,9 +92,11 @@ public class TurretLaser : MonoBehaviour
                 transform.GetChild(0).LookAt(targetPosition);
             }
             RaycastHit hit;
-            if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer))
+            if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer) && laserBeam.enabled == false)
             {
-                Instantiate(laserEffect, exitRay.transform.position, exitRay.transform.rotation);
+                laserBeam.enabled = true;
+                laserBeam.SetPosition(0, exitRay.transform.position);
+
                 if (hit.transform.GetComponent<Health>() != null)
                 {
                     if (hit.transform.tag != "TownHall")
@@ -103,6 +107,7 @@ public class TurretLaser : MonoBehaviour
                             GameObject enemigo = hit.transform.gameObject;
                             if (_ataking == false)
                             {
+                                laserBeam.SetPosition(1, hit.point);
                                 StartCoroutine(Daño(enemigo));
                             }
                         }
@@ -112,6 +117,7 @@ public class TurretLaser : MonoBehaviour
             else
             {
                 _animator.SetBool("Atacando", false);
+                laserBeam.enabled = false;
             }
         }
         else
