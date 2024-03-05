@@ -176,8 +176,8 @@ public class CameraMovement : MonoBehaviour
     {
         Ray rayFromMouse = _mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        
-        if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.Mouse0))
         {
             
             if (Physics.Raycast(_mainCamera.transform.position , _mainCamera.transform.forward, out hit , Mathf.Infinity)) // Cambiar el raycast a rayFromMouse y ponerle el hit y el math ininity
@@ -202,12 +202,8 @@ public class CameraMovement : MonoBehaviour
 
     private void CameraRotation()
     {
-
-      
-
         if (Input.GetKey(KeyCode.Q))
         {
-
             transform.RotateAround(puntoImpacto, Vector3.up, 55 * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.E))
@@ -215,5 +211,4 @@ public class CameraMovement : MonoBehaviour
             transform.RotateAround(puntoImpacto, Vector3.up, -55 * Time.deltaTime);
         }
     }
-
 }

@@ -603,7 +603,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreSlowSlowTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("amountSlow");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 0.1f;
                         SavePlayerPrefs("amountSlow", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -620,7 +620,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreSlowSlowTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("amountSlow");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 0.1f;
                         SavePlayerPrefs("amountSlow", newValue);
 
                         UnlockSkillLogic(skill);
