@@ -377,17 +377,17 @@ public class BuildManager : MonoBehaviour
 
     public void UpdatePriceUI() //Actualiza los textos de los precios
     {
-        textWallCost.text = wallCost.ToString() + "g";
-        textBaseTurretCost.text = baseTurretCost.ToString() + "g";
-        textOtherTurretCost.text = otherTurretCost.ToString() + "g";
-        textResearchStructureCost.text = researchStructureCost.ToString() + "g";
-        textSniperTurretCost.text = sniperTurretCost.ToString() + "g";
-        textLaserTurretCost.text = laserTurretCost.ToString()+ "g";
-        textMineCost.text = mineCost.ToString() + "g";
-        textSlowTurretCost.text = slowTurretCost.ToString()+ "g";
-        textExplosiveMineCost.text = explosiveMineCost.ToString()+ "g";
-        textMachinGunTurretCost.text = machingunTurretCost.ToString()+ "g";
-        textMortarTurretCost.text = mortarTurretCost.ToString()+ "g";
+        textWallCost.text = "G"+ wallCost.ToString() ;
+        textBaseTurretCost.text = "G" + baseTurretCost.ToString() ;
+        textOtherTurretCost.text = "G" + otherTurretCost.ToString() ;
+        textResearchStructureCost.text = "G" + researchStructureCost.ToString() ;
+        textSniperTurretCost.text = "G" + sniperTurretCost.ToString();
+        textLaserTurretCost.text = "G" + laserTurretCost.ToString();
+        textMineCost.text = "G" + mineCost.ToString();
+        textSlowTurretCost.text = "G" + slowTurretCost.ToString();
+        textExplosiveMineCost.text = "G" + explosiveMineCost.ToString();
+        textMachinGunTurretCost.text = "G" + machingunTurretCost.ToString();
+        textMortarTurretCost.text = "G" + mortarTurretCost.ToString();
     }
 
     public void PlaceStucture(Vector3 position)
