@@ -378,7 +378,7 @@ public class ExternalSkills : MonoBehaviour
 
         // Mina
         CheckPlayerPrefsKey("unlockMine", 0);
-        CheckPlayerPrefsKey("damagedM", 5);
+        CheckPlayerPrefsKey("damagedM", 8);
         CheckPlayerPrefsKey("rangeM", 2);
         CheckPlayerPrefsKey("damagedMinaUpgrade", 2); //Daño sangrado
 
@@ -483,7 +483,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreDamageBasicTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("damagedB");  // 0 es el valor predeterminado si la clave a�n no existe
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 0.5f;
                         SavePlayerPrefs("damagedB", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -500,7 +500,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreDamageBasicTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("damagedB");  // 0 es el valor predeterminado si la clave a�n no existe
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 0.5f;
                         SavePlayerPrefs("damagedB", newValue);
 
 
@@ -516,7 +516,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreHealthBasicTurretAmount", counterNewValue);
                         
                         float currentValue = PlayerPrefs.GetFloat("vidaB");  
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 1;
                         SavePlayerPrefs("vidaB", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -533,7 +533,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreHealthBasicTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("vidaB");  
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 1;
                         SavePlayerPrefs("vidaB", newValue);
 
                         UnlockSkillLogic(skill);
@@ -548,7 +548,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreRangeBasicTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeB");  
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 0.2f;
                         SavePlayerPrefs("rangeB", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -565,7 +565,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreRangeBasicTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeB");  
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 0.2f;
                         SavePlayerPrefs("rangeB", newValue);
 
                         UnlockSkillLogic(skill);
@@ -635,7 +635,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreRangeSlowTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeSlow");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 1;
                         SavePlayerPrefs("rangeSlow", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -652,7 +652,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreRangeSlowTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeSlow");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 1;
                         SavePlayerPrefs("rangeSlow", newValue);
 
                         UnlockSkillLogic(skill);
@@ -667,7 +667,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreHealthSlowTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("vidaSlow");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 1;
                         SavePlayerPrefs("vidaSlow", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -684,7 +684,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreHealthSlowTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("vidaSlow");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 1;
                         SavePlayerPrefs("vidaSlow", newValue);
 
                         UnlockSkillLogic(skill);
@@ -739,7 +739,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreDamageMineTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave a�n no existe
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 2;
                         SavePlayerPrefs("damagedM", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -757,7 +757,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreDamageMineTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("damagedM");  // 0 es el valor predeterminado si la clave a�n no existe
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 2;
                         SavePlayerPrefs("damagedM", newValue);
 
 
@@ -774,7 +774,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreRangeMineTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeM");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 2;
                         SavePlayerPrefs("rangeM", newValue);
 
                         externalSkillPoints = PlayerPrefs.GetFloat("externalResearchPoints");
@@ -791,7 +791,7 @@ public class ExternalSkills : MonoBehaviour
                         SavePlayerPrefs("moreRangeMineTurretAmount", counterNewValue);
 
                         float currentValue = PlayerPrefs.GetFloat("rangeM");
-                        float newValue = currentValue + 5;
+                        float newValue = currentValue + 2;
                         SavePlayerPrefs("rangeM", newValue);
 
                         UnlockSkillLogic(skill);
