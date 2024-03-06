@@ -597,7 +597,7 @@ public class Skills : MonoBehaviour
                     {
                         skillButtons.gameObject.GetComponent<Image>().color = notEnoughRPcolor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = true;
-                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " RP";
+                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " pi";
                     }
                 }
             }
@@ -609,7 +609,7 @@ public class Skills : MonoBehaviour
                     {
                         skillButtons.gameObject.GetComponent<Image>().color = defaultColor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = true;
-                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " RP";
+                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " pi";
                     }
                 }
             }
@@ -624,7 +624,7 @@ public class Skills : MonoBehaviour
                         
                         skillButtons.gameObject.GetComponent<Image>().color = unlockedSkillColor;
                         skillButtons.gameObject.GetComponent<Button>().interactable = false;
-                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " RP";
+                        skillButtons.transform.GetChild(1).GetComponent<TMP_Text>().text = kvp.Value.ToString() + " pi";
                     }
                 }
             }
