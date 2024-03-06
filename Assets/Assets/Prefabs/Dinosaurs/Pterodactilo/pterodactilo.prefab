@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 4948937010877953668}
   m_Layer: 7
   m_Name: pterodactilo
-  m_TagString: Enemies
+  m_TagString: FlyEnemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

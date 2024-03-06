@@ -13,7 +13,7 @@ public class TurretLaser : MonoBehaviour
     private float _distance;
     private Quaternion _rotation;
     [SerializeField] private List<Collider> _enemies;
-    [SerializeField] private GameObject _target;
+    [SerializeField] public GameObject _target;
     public GameObject exitRay;
     private float _velocitiRotation;
     private bool _enemyActive;
@@ -86,13 +86,33 @@ public class TurretLaser : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, _target.transform.position) < UpgradeManager.giveMeReference.visionL)
             {
-                _lookAt = _target.transform.position - transform.GetChild(0).transform.position;
+                if (_target.CompareTag("FlyEnemies"))
+                {
+                    _lookAt = _target.transform.GetChild(0).position - exitRay.transform.position;
+
+                }
+                else
+                {
+                    _lookAt = _target.transform.position - exitRay.transform.position;
+                }
                 _rotation = Quaternion.LookRotation(_lookAt.normalized, Vector3.up);
                 Vector3 targetPosition = new Vector3(_target.transform.position.x, transform.position.y, _target.transform.position.z);
                 transform.GetChild(0).LookAt(targetPosition);
             }
             RaycastHit hit;
-            if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer) && laserBeam.enabled == false)
+
+            Debug.DrawRay(exitRay.transform.position,_lookAt, Color.red, UpgradeManager.giveMeReference.rangeL);
+
+
+            //Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL, layer);
+
+            //Debug.Log("Target: " + hit.transform.name +"   en rango:" + Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL, layer));
+
+
+           
+
+
+            if (Physics.Raycast(exitRay.transform.position, _lookAt, out hit, UpgradeManager.giveMeReference.rangeL,layer))
             {
                 laserBeam.enabled = true;
                 laserBeam.SetPosition(0, exitRay.transform.position);
@@ -123,6 +143,8 @@ public class TurretLaser : MonoBehaviour
         else
         {
             _damaged = UpgradeManager.giveMeReference.damagedL;
+            _animator.SetBool("Atacando", false);
+            laserBeam.enabled = false;
         }
     }
     public void GetEnemy()
