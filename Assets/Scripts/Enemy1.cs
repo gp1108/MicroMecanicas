@@ -96,7 +96,6 @@ public class Enemy1 : MonoBehaviour
         {
             LayerMask golpe = LayerMask.GetMask("ObjetivoEnemigos");
             _distancia=new Vector3 (_distancia.x,0,_distancia.z);
-            Debug.DrawRay(this.transform.GetChild(0).position,_distancia,Color.red,1);
             if (Physics.Raycast(this.transform.GetChild(0).position, _distancia, out RaycastHit hit, 0.5f,golpe))
             {
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
