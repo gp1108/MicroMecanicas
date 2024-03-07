@@ -92,6 +92,8 @@ public class gameManager : MonoBehaviour
     [Header("Number of Mines ")]
     public int numberOfMines;
     public int maxNumberOfMines;
+    public float GoldExpend;
+    public float EnemiesDead;
     public GameObject mineButton;
     public float goldMultiplayer;
     public int goldRoundsElapsed; //CADA CUANTAS RONDAS RECIBE ORO EL JUGADOR
@@ -99,8 +101,11 @@ public class gameManager : MonoBehaviour
     public List<GameObject> nodesTrue;
     public List<int> listaSimulacion;
     public TMP_Text maxRounds;
-    public TMP_Text totalXP;
+    public TMP_Text totalXPLoss;
+    public TMP_Text totalXPWin;
     public TMP_Text highScore;
+    public TMP_Text GoldExpendText;
+    public TMP_Text EnemiesKill;
     public GameObject _information;
     public GameObject _textInformation;
 
@@ -114,6 +119,7 @@ public class gameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("maxRoundArrive", 0);
         }
+        GoldExpend = 0;
         _z = 2;
         _x = 1;
         _y = 0;
@@ -130,10 +136,11 @@ public class gameManager : MonoBehaviour
         numberOfLabs = 0;
         onRound = false;
         _roundsPlayed = 0;
-        _totalRounds = 20;
-        _totalNumberOfEnemies = 5;
+        _totalRounds = 2;
+        _totalNumberOfEnemies = 20;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-        GetGold(100000000000000000 + PlayerPrefs.GetFloat("startWithMoreGold"));
+        gold = 10000000;
+        goldText.text = gold.ToString();
         GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
         ResetSimulacion();
         SimulacionSpawnEnemies();
@@ -235,7 +242,7 @@ public class gameManager : MonoBehaviour
         externalSkillpoints += _roundsPlayed;
         PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
         maxRounds.text=_roundsPlayed.ToString();
-        totalXP.text= _roundsPlayed.ToString();
+        totalXPLoss.text= _roundsPlayed.ToString();
         highScore.text= PlayerPrefs.GetInt("maxRoundArrive").ToString();
         gameOverImage.SetActive(true);
         SoundManager.dameReferencia.PlayClipByName(clipName: "Lose");
@@ -255,6 +262,10 @@ public class gameManager : MonoBehaviour
         externalSkillpoints = PlayerPrefs.GetFloat("externalResearchPoints");
         externalSkillpoints += _roundsPlayed * 3;
         PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
+
+        totalXPWin.text = _roundsPlayed.ToString();
+        GoldExpendText.text = GoldExpend.ToString();
+        EnemiesKill.text = EnemiesDead.ToString();
     }
     public void RoundStart()
     {
@@ -470,6 +481,10 @@ public class gameManager : MonoBehaviour
         if(lastGold > gold )
         {
             Invoke("SonidoOro", 0.15f);
+        }
+        else
+        {
+            GoldExpend += oro;
         }
         
 

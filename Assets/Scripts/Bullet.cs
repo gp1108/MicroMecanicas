@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemies")
+        if (other.gameObject.tag == "Enemies" || other.gameObject.tag == "FlyEnemies")
         {
             other.gameObject.GetComponent<Health>().GetDamaged(damaged,tipoDamaged);
             Destroy(this.gameObject);

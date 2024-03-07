@@ -159,8 +159,9 @@ public class Health : MonoBehaviour
             {
                 BuildManager.dameReferencia.RemoveAndWallUpdate(this.gameObject);
             }
-            if (this.tag == "Enemies" && !muerto)
+            if (this.tag == "Enemies" && !muerto || this.tag == "FlyEnemies" && !muerto)
             {
+                gameManager.giveMeReference.EnemiesDead += 1;
                 muerto = true;
                 if(gameManager.giveMeReference._roundsPlayed < 15)
                 {
