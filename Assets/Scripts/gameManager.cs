@@ -136,10 +136,11 @@ public class gameManager : MonoBehaviour
         numberOfLabs = 0;
         onRound = false;
         _roundsPlayed = 0;
-        _totalRounds = 2;
-        _totalNumberOfEnemies = 20;
+        _totalRounds = 20;
+        _totalNumberOfEnemies = 5;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-        gold = 10000000;
+        gold = 0;
+        GetGold(400 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreGold")));
         goldText.text = gold.ToString();
         GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
         ResetSimulacion();
@@ -241,7 +242,7 @@ public class gameManager : MonoBehaviour
         externalSkillpoints = PlayerPrefs.GetFloat("externalResearchPoints");
         externalSkillpoints += _roundsPlayed;
         PlayerPrefs.SetFloat("externalResearchPoints", externalSkillpoints);
-        maxRounds.text=_roundsPlayed.ToString();
+        maxRounds.text= GoldExpend.ToString();
         totalXPLoss.text= _roundsPlayed.ToString();
         highScore.text= PlayerPrefs.GetInt("maxRoundArrive").ToString();
         gameOverImage.SetActive(true);
