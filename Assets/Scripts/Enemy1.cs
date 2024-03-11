@@ -23,7 +23,7 @@ public class Enemy1 : MonoBehaviour
         _animator.SetBool("Caminando", true);
         _townHall = GameObject.FindGameObjectWithTag("TownHall");
         _navAgent = GetComponent<NavMeshAgent>();
-        GetComponent<Health>().healthPoints = 10;
+        GetComponent<Health>().healthPoints = 13;
         GetComponent<Health>().tipoVida=Health.tipoDeVida.Estandar;
         StartCoroutine("CheckPath");
         GetComponent<Health>().BarHelth();

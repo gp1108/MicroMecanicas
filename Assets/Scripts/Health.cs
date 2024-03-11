@@ -84,8 +84,12 @@ public class Health : MonoBehaviour
         healthSlider.enabled = false;
         if (this.gameObject.GetComponent<Collider>() != null)
         {
-            this.GetComponent<Collider>().enabled = true;
+            Invoke("ActivarCollider",1);
         }
+    }
+    void ActivarCollider()
+    {
+        this.GetComponent<Collider>().enabled = true;
     }
     private void Update()
     {

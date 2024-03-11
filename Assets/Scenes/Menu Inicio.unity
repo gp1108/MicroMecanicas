@@ -20457,7 +20457,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4283016327
   m_fontColor: {r: 0.5294118, g: 0.6431373, b: 0.28627452, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -36114,6 +36114,7 @@ GameObject:
   - component: {fileID: 9092893361464554194}
   - component: {fileID: 8150472495710246608}
   - component: {fileID: 9092893361464554195}
+  - component: {fileID: 9092893361464554196}
   m_Layer: 5
   m_Name: BasicTurret
   m_TagString: Untagged
@@ -36142,7 +36143,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.1764706, g: 0.86666673, b: 0.22352943, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -36191,6 +36192,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _information: {fileID: 570311340}
   _textInformation: {fileID: 815140820}
+--- !u!114 &9092893361464554196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9037045098427405249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb476d5497c1b3c4a8e07f82ef2fcac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.1764706, g: 0.8666667, b: 0.22352941, a: 1}
 --- !u!1 &9109251687497292511
 GameObject:
   m_ObjectHideFlags: 0

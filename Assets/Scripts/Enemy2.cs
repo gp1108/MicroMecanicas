@@ -28,7 +28,7 @@ public class Enemy2 : MonoBehaviour
         _TownHall = GameObject.FindGameObjectWithTag("TownHall");
         _torret = gameManager.giveMeReference.turrets.ToArray();
         _navAgent = GetComponent<NavMeshAgent>();
-        GetComponent<Health>().healthPoints = 14;
+        GetComponent<Health>().healthPoints = 30;
         GetComponent<Health>().tipoVida = Health.tipoDeVida.Vida;
         StartCoroutine("CheckPath");
         GetComponent<Health>().BarHelth();
@@ -142,7 +142,7 @@ public class Enemy2 : MonoBehaviour
         {
             RaycastHit hit;
             LayerMask golpe = LayerMask.GetMask("ObjetivoEnemigos");
-            if (Physics.Raycast(transform.position, _direccion, out hit, 3,golpe))
+            if (Physics.Raycast(transform.position, _direccion, out hit, 8,golpe))
             {
                 if (hit.transform.GetComponent<Health>() != null && hit.transform.tag != this.tag)
                 {

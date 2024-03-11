@@ -126,6 +126,7 @@ public class gameManager : MonoBehaviour
         _raptor = 90;
         _trex = 100;
         _triceraptos = 100;
+        researchPoints = 0+ Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPointsAmount"));
         invetigationText.text = researchPoints.ToString();
         researchRoundsElapsed = 3;
         goldRoundsElapsed = 2;
@@ -139,10 +140,8 @@ public class gameManager : MonoBehaviour
         _totalRounds = 20;
         _totalNumberOfEnemies = 5;
         roundsText.text = "Ronda "  + _roundsPlayed.ToString();
-        gold = 0;
-        GetGold(400 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreGold")));
+        gold = 400 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreGold"));
         goldText.text = gold.ToString();
-        GetResearchPoints(100 + Mathf.RoundToInt(PlayerPrefs.GetFloat("startWithMoreResearchPoints")));
         ResetSimulacion();
         SimulacionSpawnEnemies();
 

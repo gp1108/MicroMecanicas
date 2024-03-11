@@ -1814,6 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchMenuPanel: {fileID: 3277906560949199744}
+  skillManager: {fileID: 1948357008}
   researchMenuActive: 0
   canvas: {fileID: 225649982}
 --- !u!1 &226979075
@@ -5988,7 +5989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &763358823
 RectTransform:
   m_ObjectHideFlags: 0

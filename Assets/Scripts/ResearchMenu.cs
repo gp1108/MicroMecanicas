@@ -5,6 +5,7 @@ using UnityEngine;
 public class ResearchMenu : MonoBehaviour
 {
     public GameObject researchMenuPanel;
+    public GameObject skillManager;
     public bool researchMenuActive;
     [Header("Build Panel")]
     public GameObject canvas;
@@ -30,7 +31,7 @@ public class ResearchMenu : MonoBehaviour
     public void EnableOrDisableResearchPanel()
    {
         researchMenuActive = !researchMenuActive;
-
+        skillManager.GetComponent<Skills>().UpdateSkillUI();
         SoundManager.dameReferencia.PlayClipByName(clipName: "Click");
 
         if(researchMenuActive == false)
@@ -46,6 +47,8 @@ public class ResearchMenu : MonoBehaviour
                 
                 canvas.GetComponent<BuildMenuButton>().buildMenuActive = true;
                 canvas.GetComponent<BuildMenuButton>().EnableOrDisableBuildPanel();
+                
+
             }
             else
             {
